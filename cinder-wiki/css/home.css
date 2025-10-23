@@ -115,7 +115,13 @@
 }
 
 /* entrance animation: staggered cards */
-@keyframes cardIn { from { opacity:0; transform:translateY(10px) scale(.995);} to { opacity:1; transform:translateY(0) scale(1);} }
+@keyframes cardIn { 
+    from { 
+        opacity:0; transform:translateY(10px) scale(.995);
+    } to {
+         opacity:1; transform:translateY(0) scale(1);
+        } 
+    }
 .cards .card{ animation: cardIn var(--anim) cubic-bezier(.2,.9,.3,1) forwards; }
 .cards .card:nth-child(1){ animation-delay: 80ms }
 .cards .card:nth-child(2){ animation-delay: 160ms }
