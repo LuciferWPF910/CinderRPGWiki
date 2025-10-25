@@ -216,14 +216,129 @@
 .card p{ margin:0; color:var(--muted); font-size:1rem; }
 
 /* responsive */
-@media (max-width:1000px){ .cards{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:1000px){ 
+  .cards{ 
+    grid-template-columns:repeat(2,1fr);
+    margin:2.5rem auto;
+  } 
+}
+
 @media (max-width:640px){
-  .hero{ padding:3.5rem 0; }
-  .hero-title{ font-size:2.4rem; }
-  .cards{ grid-template-columns:1fr; gap:0.9rem; margin:1.5rem 0; }
-  .card{ padding:0.95rem; }
-  .search{ min-width:0; width:100%; }
-  .footer-inner{ flex-direction:column; align-items:flex-start; gap:0.5rem; }
+  .hero{ padding:3rem 0 2.5rem; }
+  .hero-title{ 
+    font-size:clamp(2rem, 10vw, 3rem);
+    margin:0 0 0.5rem;
+  }
+  .hero-sub{ 
+    font-size:0.95rem; 
+    margin-bottom:1rem;
+  }
+  .hero-cta{
+    gap:0.75rem;
+    margin-top:1rem;
+  }
+  .btn.primary, .btn.outline{
+    padding:0.75rem 1.2rem;
+    font-size:0.95rem;
+    width:100%;
+    max-width:280px;
+  }
+  .cards{ 
+    grid-template-columns:1fr; 
+    gap:0.9rem; 
+    margin:1.5rem auto;
+    max-width:500px;
+    justify-items:center;
+  }
+  .card{ 
+    padding:1rem;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    width:100%;
+    max-width:420px;
+  }
+  .card .icon{
+    margin-bottom:0.75rem;
+  }
+  .card h3{
+    font-size:1.05rem;
+  }
+  .card p{
+    font-size:0.92rem;
+  }
+  .search{ 
+    min-width:0; 
+    width:100%; 
+  }
+  .footer-inner{ 
+    flex-direction:column; 
+    align-items:flex-start; 
+    gap:0.75rem; 
+    text-align:center;
+  }
+  .footer-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.5rem;
+  }
+  .footer-links a{
+    margin-left:0;
+    margin-right:0.75rem;
+  }
+  /* Reduce animation intensity on mobile */
+  .card:hover{
+    transform:translateY(-4px) scale(1.005);
+  }
+  @keyframes cardFloat {
+    0%, 100% { transform:translateY(0) scale(1); }
+    50% { transform:translateY(-4px) scale(1.002); }
+  }
+  @keyframes letterFloat {
+    0%, 100% { transform:translateY(0); }
+    50% { transform:translateY(-3px); }
+  }
+}
+
+@media (max-width:420px){
+  body{
+    font-size:16px;
+  }
+  .hero{
+    padding:2.5rem 0 2rem;
+  }
+  .hero-title{
+    font-size:1.85rem;
+    letter-spacing:0.02em;
+  }
+  .hero-sub{
+    font-size:0.9rem;
+    padding:0 1rem;
+  }
+  .btn.primary, .btn.outline{
+    padding:0.7rem 1rem;
+    font-size:0.9rem;
+  }
+  .card{
+    padding:0.85rem;
+  }
+  .card .icon{
+    width:44px;
+    height:44px;
+    font-size:1.4rem;
+  }
+  .footer-inner small{
+    font-size:0.85rem;
+    text-align:center;
+    width:100%;
+  }
+  .footer-links{
+    width:100%;
+    justify-content:center;
+  }
+  .footer-links a{
+    font-size:0.9rem;
+  }
 }
 
 /* entrance animation: staggered cards */

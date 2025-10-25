@@ -38,7 +38,7 @@
 
             <nav class="nav" aria-label="Main navigation">
                 <ul class="nav-list">
-                    <li><a class="nav-link active" href="#">Home</a></li>
+                    <li><a class="nav-link active" href="home.html">Home</a></li>
                     <li><a class="nav-link" href="#">Gameplay Basics</a></li>
                     <li><a class="nav-link" href="#">Mechanics</a></li>
                     <li class="has-dropdown">
@@ -57,9 +57,11 @@
             </nav>
 
             <div class="search-wrap">
-                <i class="ph ph-magnifying-glass"></i>
-                <label for="site-search" class="visually-hidden"></label>
-                <input id="site-search" class="search" type="search" placeholder="Search..." />
+                <div class="search-container">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <label for="site-search" class="visually-hidden"></label>
+                    <input id="site-search" class="search" type="search" placeholder="Search..." />
+                </div>
             </div>
 
             <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
@@ -170,10 +172,43 @@
         (function () {
             const btn = document.querySelector('.nav-toggle');
             const nav = document.querySelector('.nav');
-            btn.addEventListener('click', () => {
+            
+            if(!btn || !nav) {
+                console.error('Nav elements not found!');
+                return;
+            }
+
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
                 const expanded = btn.getAttribute('aria-expanded') === 'true';
                 btn.setAttribute('aria-expanded', !expanded);
                 nav.classList.toggle('open');
+                document.body.classList.toggle('nav-open');
+                console.log('Menu toggled, open:', nav.classList.contains('open'));
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (nav.classList.contains('open')) {
+                    if (!nav.contains(e.target) && !btn.contains(e.target)) {
+                        nav.classList.remove('open');
+                        document.body.classList.remove('nav-open');
+                        btn.setAttribute('aria-expanded', 'false');
+                        console.log('Menu closed by clicking outside');
+                    } else if (nav.contains(e.target)) {
+                        console.log('Clicked inside nav!', e.target.tagName, e.target.textContent?.trim());
+                    }
+                }
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && nav.classList.contains('open')) {
+                    nav.classList.remove('open');
+                    document.body.classList.remove('nav-open');
+                    btn.setAttribute('aria-expanded', 'false');
+                    console.log('Menu closed by Escape key');
+                }
             });
         })();
 
