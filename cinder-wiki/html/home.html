@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="../css/global.css?v=20251022.1">
     <link rel="stylesheet" href="../css/home.css?v=20251022.1">
     
-    <!-- add a Google Font for the title -->
+    <!-- Optional: add a Google Font for the title -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <!-- RPG Awesome icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="site-header">
         <div class="wrap header-inner">
             <a class="brand" href="#">
-                
+                <!-- Official logo - place your PNG/SVG at assets/cinder-logo.png -->
                 <img src="../images/CinderNewMegaLargePix.png" alt="Cinder Wiki logo" class="brand-img" width="36" height="36">
                 <!-- fallback inline svg if the image fails to load -->
                 <svg class="brand-fallback" width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display:none;">
@@ -67,7 +69,10 @@
     <main>
         <section class="hero">
             <div class="wrap hero-inner">
-                <h1 class="hero-title">CinderRPG Wiki</h1>
+                <h1 class="hero-title" id="arcane-title">
+                    <canvas class="magic-particles" width="800" height="200"></canvas>
+                    <span class="arcane-text">CinderRPG Wiki</span>
+                </h1>
                 <p class="hero-sub">Community-driven guides, maps and patch notes</p>
                 <div class="hero-cta">
                     <a class="btn primary" href="#getting-started">Get Started</a>
@@ -129,16 +134,36 @@
 
     <footer class="site-footer">
         <div class="wrap footer-inner">
-            <small>© Copyright 2025 <strong>BigHat Studios</strong>.</small>
+            <small>© 2025 CinderRPG Wiki Project | Built by <a href="https://github.com/Faris25-dev" target="_blank" rel="noopener noreferrer">Faris25-dev</a></small>
             <nav class="footer-links">
                 <!-- <a href="#">Wiki</a> -->
                 <a href="#">Patch Notes</a>
-                <a href="https://discord.gg/AYMQz79c">Discord</a>
-                <a href="#">Report an Issue</a>
+                <a href="#">Discord</a>
+                <a href="#" id="open-bug-modal">Report an Issue</a>
                 <a href="#">Terms of Service</a>
             </nav>
         </div>
     </footer>
+
+    <!-- Bug Report Modal -->
+    <div id="bug-modal" class="modal" role="dialog" aria-labelledby="bug-modal-title" aria-modal="true" style="display:none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2 id="bug-modal-title">Report a Bug</h2>
+            <p class="modal-message">Help us improve the world. Tell us what broke and how it happened.</p>
+            <div class="modal-actions">
+                <a href="https://discord.gg/bighatstudios" target="_blank" rel="noopener noreferrer" class="btn primary">
+                    <i class="fa-brands fa-discord"></i>
+                    Report on Discord
+                </a>
+                <a href="mailto:sBigHatStudios+support@gmail.com?subject=CinderRPG%20Bug%20Report" class="btn outline">
+                    <i class="ph ph-envelope"></i>
+                    Email Support
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script>
         // simple nav toggle for small screens
@@ -183,6 +208,199 @@
             document.addEventListener('touchstart', (ev)=>{
                 if(!ev.target.closest('nav .has-dropdown')){
                     document.querySelectorAll('nav .has-dropdown.touch-open').forEach(o=>o.classList.remove('touch-open'));
+                }
+            });
+        })();
+
+    </script>
+    
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    
+    <script>
+        // 🌌 Arcane Pulse Animation (with Magic Particles)
+        window.addEventListener('load', function(){
+            if(typeof gsap === 'undefined') return;
+            
+            const title = document.getElementById('arcane-title');
+            const canvas = title.querySelector('.magic-particles');
+            const textSpan = title.querySelector('.arcane-text');
+            
+            if(!title || !canvas || !textSpan) return;
+            
+            const ctx = canvas.getContext('2d');
+            const particles = [];
+            
+            // Create magical particles
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 1.5;
+                    this.vy = (Math.random() - 0.5) * 1.5;
+                    this.size = Math.random() * 3 + 1;
+                    this.opacity = Math.random() * 0.5 + 0.3;
+                    this.hue = Math.random() * 15 + 40; // Warm mustard-gold range
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    
+                    // Wrap around edges
+                    if(this.x < 0) this.x = canvas.width;
+                    if(this.x > canvas.width) this.x = 0;
+                    if(this.y < 0) this.y = canvas.height;
+                    if(this.y > canvas.height) this.y = 0;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `hsla(${this.hue}, 80%, 70%, ${this.opacity})`;
+                    ctx.shadowBlur = 15;
+                    ctx.shadowColor = `hsla(${this.hue}, 80%, 70%, 0.8)`;
+                    ctx.fill();
+                }
+            }
+            
+            // Initialize particles
+            for(let i = 0; i < 50; i++) {
+                particles.push(new Particle());
+            }
+            
+            // Animation loop for particles
+            let animating = false;
+            function animateParticles() {
+                if(!animating) return;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animateParticles);
+            }
+            
+            // Split text into individual letters
+            const text = textSpan.textContent;
+            textSpan.innerHTML = '';
+            
+            text.split('').forEach(char => {
+                const span = document.createElement('span');
+                span.className = 'arcane-letter';
+                span.textContent = char === ' ' ? '\u00A0' : char;
+                textSpan.appendChild(span);
+            });
+            
+            const letters = textSpan.querySelectorAll('.arcane-letter');
+            
+            // GSAP Timeline
+            const tl = gsap.timeline({
+                delay: 0.3,
+                onStart: () => {
+                    animating = true;
+                    animateParticles();
+                }
+            });
+            
+            // Initial state
+            gsap.set(canvas, {opacity: 0});
+            gsap.set(letters, {opacity: 0, y: 20, filter: 'blur(4px)'});
+            
+            // Fade in particles
+            tl.to(canvas, {
+                opacity: 1,
+                duration: 1,
+                ease: 'power2.out'
+            })
+            // Letters appear one by one
+            .to(letters, {
+                opacity: 1,
+                y: 0,
+                filter: 'blur(0px)',
+                duration: 0.6,
+                stagger: 0.05,
+                ease: 'power2.out'
+            }, '-=0.3')
+            // Add shimmer glow to letters
+            .to(letters, {
+                textShadow: '0 0 20px rgba(200,150,70,0.8), 0 0 40px rgba(180,130,50,0.5)',
+                duration: 0.8,
+                stagger: 0.05,
+                ease: 'power2.inOut'
+            }, '-=0.5')
+            // Settle to soft glow
+            .to(letters, {
+                textShadow: '0 0 15px rgba(191,160,111,0.5), 0 0 30px rgba(180,130,50,0.25)',
+                duration: 1,
+                ease: 'power2.out'
+            })
+            // Fade out particles completely
+            .to(canvas, {
+                opacity: 0,
+                duration: 1.5,
+                ease: 'power2.inOut',
+                onComplete: () => {
+                    animating = false;
+                    canvas.style.display = 'none';
+                }
+            }, '-=0.5')
+            // Add continuous glow pulse to letters
+            .to(letters, {
+                textShadow: '0 0 25px rgba(200,150,70,0.7), 0 0 50px rgba(180,130,50,0.4), 0 0 70px rgba(191,160,111,0.25)',
+                duration: 2,
+                ease: 'sine.inOut',
+                repeat: -1,
+                yoyo: true,
+                stagger: {
+                    each: 0.1,
+                    from: 'start',
+                    repeat: -1
+                }
+            });
+            // Note: Letter floating is now handled by CSS animation in home.css
+
+        });
+    </script>
+
+    <!-- Bug Report Modal Script -->
+    <script>
+        (function() {
+            const modal = document.getElementById('bug-modal');
+            const openBtn = document.getElementById('open-bug-modal');
+            const closeBtn = modal.querySelector('.modal-close');
+            const overlay = modal.querySelector('.modal-overlay');
+
+            // Open modal
+            openBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'flex';
+                // Trigger reflow for animation
+                modal.offsetHeight;
+                modal.classList.add('modal-open');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Close modal function
+            function closeModal() {
+                modal.classList.remove('modal-open');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300); // Match animation duration
+            }
+
+            // Close on X button
+            closeBtn.addEventListener('click', closeModal);
+
+            // Close on overlay click
+            overlay.addEventListener('click', closeModal);
+
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    closeModal();
                 }
             });
         })();
