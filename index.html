@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>CinderRPG Wiki</title>
-    <link rel="stylesheet" href="cinder-wiki/css/global.css?v=20251022.1">
-    <link rel="stylesheet" href="cinder-wiki/css/home.css?v=20251022.1">
+    <link rel="stylesheet" href="../css/global.css?v=20251022.1">
+    <link rel="stylesheet" href="../css/home.css?v=20251022.1">
     
     <!-- Optional: add a Google Font for the title -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         <div class="wrap header-inner">
             <a class="brand" href="#">
                 <!-- Official logo - place your PNG/SVG at assets/cinder-logo.png -->
-                <img src="cinder-wiki/images/CinderNewMegaLargePix.png" alt="Cinder Wiki logo" class="brand-img" width="36" height="36">
+                <img src="../images/CinderNewMegaLargePix.png" alt="Cinder Wiki logo" class="brand-img" width="36" height="36">
                 <!-- fallback inline svg if the image fails to load -->
                 <svg class="brand-fallback" width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display:none;">
                     <defs>
@@ -38,9 +38,11 @@
 
             <nav class="nav" aria-label="Main navigation">
                 <ul class="nav-list">
-                    <li><a class="nav-link active" href="index.html">Home</a></li>
+                    <li><a class="nav-link active" href="home.html">Home</a></li>
                     <li><a class="nav-link" href="#">Gameplay Basics</a></li>
                     <li><a class="nav-link" href="#">Mechanics</a></li>
+                    <li><a class="nav-link" href="#">Store</a></li>
+                    <li><a class="nav-link" href="#">History</a></li>
                     <li class="has-dropdown">
                         <a class="nav-link" href="#">Resources &amp; Guides</a>
                         <ul class="dropdown">
@@ -51,8 +53,6 @@
                             <li><a href="#">Items</a></li>
                         </ul>
                     </li>
-                    <li><a class="nav-link" href="#">Store</a></li>
-                    <li><a class="nav-link" href="#">History</a></li>
                 </ul>
             </nav>
 
@@ -78,7 +78,7 @@
                 <p class="hero-sub">Community-driven guides, maps and patch notes</p>
                 <div class="hero-cta">
                     <a class="btn primary" href="#getting-started">Get Started</a>
-                    <a class="btn outline" href="cinder-wiki/html/wiki.html">Explore Wiki</a>
+                    <a class="btn outline" href="wiki.html">Explore Wiki</a>
                 </div>
             </div>
         </section>
@@ -140,7 +140,7 @@
             <nav class="footer-links">
                 <!-- <a href="#">Wiki</a> -->
                 <a href="#">Patch Notes</a>
-                <a href="#">Discord</a>
+                <a href="https://discord.gg/gQ39rGdpQ7" target="_blank">Discord</a>
                 <a href="#" id="open-bug-modal">Report an Issue</a>
                 <a href="#">Terms of Service</a>
             </nav>
@@ -187,6 +187,63 @@
                 console.log('Menu toggled, open:', nav.classList.contains('open'));
             });
 
+            // Handle dropdown clicks on mobile
+            const dropdowns = document.querySelectorAll('.has-dropdown');
+            let isAnimating = false;
+            
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('.nav-link');
+                const dropdownMenu = dropdown.querySelector('.dropdown');
+                
+                if(link) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Prevent rapid clicks during animation
+                        if(isAnimating) return;
+                        isAnimating = true;
+                        
+                        // Check if opening or closing
+                        const isOpening = !dropdown.classList.contains('touch-open');
+                        
+                        // Toggle this dropdown
+                        dropdown.classList.toggle('touch-open');
+                        console.log('Dropdown toggled');
+                        
+                        // Auto-scroll to show dropdown items when opening
+                        if(isOpening && dropdownMenu) {
+                            setTimeout(() => {
+                                // Scroll the nav container to show the dropdown
+                                const navContainer = nav;
+                                const dropdownBottom = dropdown.offsetTop + dropdown.offsetHeight;
+                                
+                                navContainer.scrollTo({
+                                    top: dropdownBottom - navContainer.clientHeight + 20,
+                                    behavior: 'smooth'
+                                });
+                            }, 100); // Small delay to let the dropdown expand
+                        }
+                        
+                        // Reset animation flag after transition
+                        setTimeout(() => {
+                            isAnimating = false;
+                        }, 250);
+                    });
+                }
+            });
+
+            // Close dropdown when clicking other nav links (not dropdown items)
+            const navLinks = document.querySelectorAll('.nav-list > li:not(.has-dropdown) > .nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Don't prevent navigation, just close dropdowns
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('touch-open');
+                    });
+                });
+            });
+
             // Close menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (nav.classList.contains('open')) {
@@ -194,6 +251,10 @@
                         nav.classList.remove('open');
                         document.body.classList.remove('nav-open');
                         btn.setAttribute('aria-expanded', 'false');
+                        // Also close any open dropdowns
+                        dropdowns.forEach(dropdown => {
+                            dropdown.classList.remove('touch-open');
+                        });
                         console.log('Menu closed by clicking outside');
                     } else if (nav.contains(e.target)) {
                         console.log('Clicked inside nav!', e.target.tagName, e.target.textContent?.trim());
@@ -222,30 +283,6 @@
                         if(svg) svg.style.display='inline-block';
                     });
                 })();
-
-        // tap-to-open dropdown for touch devices
-        (function(){
-            if(!('ontouchstart' in window)) return; // only on touch devices
-            document.querySelectorAll('nav .has-dropdown > a').forEach(link => {
-                link.addEventListener('click', function(e){
-                    const li = this.parentElement;
-                    if(!li.classList.contains('touch-open')){
-                        e.preventDefault();
-                        // close other open dropdowns
-                        document.querySelectorAll('nav .has-dropdown.touch-open').forEach(o=>o.classList.remove('touch-open'));
-                        li.classList.add('touch-open');
-                    }
-                    // otherwise allow the link to follow through
-                });
-            });
-
-            // close dropdowns when touching outside
-            document.addEventListener('touchstart', (ev)=>{
-                if(!ev.target.closest('nav .has-dropdown')){
-                    document.querySelectorAll('nav .has-dropdown.touch-open').forEach(o=>o.classList.remove('touch-open'));
-                }
-            });
-        })();
 
     </script>
     
