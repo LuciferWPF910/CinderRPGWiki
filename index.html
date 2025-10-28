@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CinderRPG Wiki</title>
+    <link rel="stylesheet" href="cinder-wiki/css/global.css?v=20251027.1">
+    <link rel="stylesheet" href="cinder-wiki/css/home.css?v=20251027.1">
+    
+    <!-- Optional: add a Google Font for the title -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <!-- RPG Awesome icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="brand" href="#">
+                <!-- Official logo - place your PNG/SVG at assets/cinder-logo.png -->
+                <img src="cinder-wiki/images/CinderNewMegaLargePix.png" alt="Cinder Wiki logo" class="brand-img" width="36" height="36">
+                <!-- fallback inline svg if the image fails to load -->
+                <svg class="brand-fallback" width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display:none;">
+                    <defs>
+                        <linearGradient id="g1" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#d4c5b9" />
+                            <stop offset="100%" stop-color="#bfa06f" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="12" cy="12" r="10" fill="none" stroke="url(#g1)" stroke-width="1.6" />
+                    <path d="M7 14c1.5-2 4-4 6-6 0 3-1.5 6-3 7-1.5 1-3 0-3  -1z" fill="url(#g1)" opacity="0.95" transform="translate(0,1)"/>
+                </svg>
+                <span class="brand-text">CinderRPG</span>
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a class="nav-link active" href="index.html">Home</a></li>
+                    <li><a class="nav-link" href="#">Gameplay Basics</a></li>
+                    <li><a class="nav-link" href="#">Mechanics</a></li>
+                    <li><a class="nav-link" href="#">Store</a></li>
+                    <li><a class="nav-link" href="#">History</a></li>
+                    <li class="has-dropdown">
+                        <a class="nav-link" href="#">Resources &amp; Guides</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Commands</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Maps</a></li>
+                            <li><a href="#">Creature encyclopedia</a></li>
+                            <li><a href="#">Items</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="search-wrap">
+                <div class="search-container">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <label for="site-search" class="visually-hidden"></label>
+                    <input id="site-search" class="search" type="search" placeholder="Search..." />
+                </div>
+            </div>
+
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="wrap hero-inner">
+                <h1 class="hero-title" id="arcane-title">
+                    <canvas class="magic-particles" width="800" height="200"></canvas>
+                    <span class="arcane-text">CinderRPG Wiki</span>
+                </h1>
+                <p class="hero-sub">Community-driven guides, maps and patch notes</p>
+                <div class="hero-cta">
+                    <a class="btn primary" href="#getting-started">Get Started</a>
+                    <a class="btn outline" href="cinder-wiki/html/wiki.html">Explore Wiki</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="cards wrap">
+                        <article class="card anim-safe">
+                                <div class="icon icon--orange"><i class="ra ra-burning-embers" aria-hidden="true"></i></div>
+                                <div>
+                                    <h3>Getting Started</h3>
+                                    <p>Learn the basics of CinderRPG and how to begin your adventure.</p>
+                                </div>
+                        </article>
+
+                        <article class="card anim-safe">
+                                <div class="icon icon--gold"><i class="ra ra-shield" aria-hidden="true"></i></div>
+                                <div>
+                                    <h3>Classes & Roles</h3>
+                                    <p>Discover the various classes and roles that characters can take on.</p>
+                                </div>
+                        </article>
+
+                        <article class="card anim-safe">
+                                <div class="icon icon--muted"><i class="ra ra-crossed-swords" aria-hidden="true"></i></div>
+                                <div>
+                                    <h3>Items & Equipment</h3>
+                                    <p>Find information about the different weapons, armor, and items.</p>
+                                </div>
+                        </article>
+
+                        <article class="card anim-safe">
+                                <div class="icon icon--teal"><i class="ra ra-gem" aria-hidden="true"></i></div>
+                                <div>
+                                    <h3>Game Systems</h3>
+                                    <p>Understand mechanics, skills and attributes that define gameplay.</p>
+                                </div>
+                        </article>
+
+                        <article class="card anim-safe">
+                                <div class="icon icon--gold"><i class="ra ra-compass" aria-hidden="true"></i></div>
+                                <div>
+                                    <h3>Maps & Areas</h3>
+                                    <p>Explore the regions and locations found within the world.</p>
+                                </div>
+                        </article>
+
+                        <article class="card anim-safe">
+                                <div class="icon icon--muted"><i class="ra ra-scroll-unfurled" aria-hidden="true"></i></div>
+                                <div>
+                                    <h3>Patch Notes</h3>
+                                    <p>Read about the latest updates and changes to CinderRPG.</p>
+                                </div>
+                        </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap footer-inner">
+            <small>© 2025 CinderRPG Wiki Project | Built by <a href="https://github.com/Faris25-dev" target="_blank" rel="noopener noreferrer">Faris25-dev</a></small>
+            <nav class="footer-links">
+                <!-- <a href="#">Wiki</a> -->
+                <a href="#">Patch Notes</a>
+                <a href="https://discord.gg/gQ39rGdpQ7" target="_blank">Discord</a>
+                <a href="#" id="open-bug-modal">Report an Issue</a>
+                <a href="#">Terms of Service</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Bug Report Modal -->
+    <div id="bug-modal" class="modal" role="dialog" aria-labelledby="bug-modal-title" aria-modal="true" style="display:none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2 id="bug-modal-title">Report a Bug</h2>
+            <p class="modal-message">Help us improve the world. Tell us what broke and how it happened.</p>
+            <div class="modal-actions">
+                <a href="https://discord.gg/bighatstudios" target="_blank" rel="noopener noreferrer" class="btn primary">
+                    <i class="fa-brands fa-discord"></i>
+                    Report on Discord
+                </a>
+                <a href="mailto:sBigHatStudios+support@gmail.com?subject=CinderRPG%20Bug%20Report" class="btn outline">
+                    <i class="ph ph-envelope"></i>
+                    Email Support
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // simple nav toggle for small screens
+        (function () {
+            const btn = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('.nav');
+            
+            if(!btn || !nav) {
+                console.error('Nav elements not found!');
+                return;
+            }
+
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', !expanded);
+                nav.classList.toggle('open');
+                document.body.classList.toggle('nav-open');
+                console.log('Menu toggled, open:', nav.classList.contains('open'));
+            });
+
+            // Handle dropdown clicks on mobile
+            const dropdowns = document.querySelectorAll('.has-dropdown');
+            let isAnimating = false;
+            
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('.nav-link');
+                const dropdownMenu = dropdown.querySelector('.dropdown');
+                
+                if(link) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Prevent rapid clicks during animation
+                        if(isAnimating) return;
+                        isAnimating = true;
+                        
+                        // Check if opening or closing
+                        const isOpening = !dropdown.classList.contains('touch-open');
+                        
+                        // Toggle this dropdown
+                        dropdown.classList.toggle('touch-open');
+                        console.log('Dropdown toggled');
+                        
+                        // Auto-scroll to show dropdown items when opening
+                        if(isOpening && dropdownMenu) {
+                            setTimeout(() => {
+                                // Scroll the nav container to show the dropdown
+                                const navContainer = nav;
+                                const dropdownBottom = dropdown.offsetTop + dropdown.offsetHeight;
+                                
+                                navContainer.scrollTo({
+                                    top: dropdownBottom - navContainer.clientHeight + 20,
+                                    behavior: 'smooth'
+                                });
+                            }, 100); // Small delay to let the dropdown expand
+                        }
+                        
+                        // Reset animation flag after transition
+                        setTimeout(() => {
+                            isAnimating = false;
+                        }, 250);
+                    });
+                }
+            });
+
+            // Close dropdown when clicking other nav links (not dropdown items)
+            const navLinks = document.querySelectorAll('.nav-list > li:not(.has-dropdown) > .nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Don't prevent navigation, just close dropdowns
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('touch-open');
+                    });
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (nav.classList.contains('open')) {
+                    if (!nav.contains(e.target) && !btn.contains(e.target)) {
+                        nav.classList.remove('open');
+                        document.body.classList.remove('nav-open');
+                        btn.setAttribute('aria-expanded', 'false');
+                        // Also close any open dropdowns
+                        dropdowns.forEach(dropdown => {
+                            dropdown.classList.remove('touch-open');
+                        });
+                        console.log('Menu closed by clicking outside');
+                    } else if (nav.contains(e.target)) {
+                        console.log('Clicked inside nav!', e.target.tagName, e.target.textContent?.trim());
+                    }
+                }
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && nav.classList.contains('open')) {
+                    nav.classList.remove('open');
+                    document.body.classList.remove('nav-open');
+                    btn.setAttribute('aria-expanded', 'false');
+                    console.log('Menu closed by Escape key');
+                }
+            });
+        })();
+
+                // fallback logo if image not found
+                (function(){
+                    const img = document.querySelector('.brand-img');
+                    const svg = document.querySelector('.brand-fallback');
+                    if(!img) return;
+                    img.addEventListener('error', ()=>{
+                        img.style.display='none';
+                        if(svg) svg.style.display='inline-block';
+                    });
+                })();
+
+    </script>
+    
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    
+    <script>
+        // 🌌 Arcane Pulse Animation (with Magic Particles)
+        window.addEventListener('load', function(){
+            if(typeof gsap === 'undefined') return;
+            
+            const title = document.getElementById('arcane-title');
+            const canvas = title.querySelector('.magic-particles');
+            const textSpan = title.querySelector('.arcane-text');
+            
+            if(!title || !canvas || !textSpan) return;
+            
+            const ctx = canvas.getContext('2d');
+            const particles = [];
+            
+            // Create magical particles
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 1.5;
+                    this.vy = (Math.random() - 0.5) * 1.5;
+                    this.size = Math.random() * 3 + 1;
+                    this.opacity = Math.random() * 0.5 + 0.3;
+                    this.hue = Math.random() * 15 + 40; // Warm mustard-gold range
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    
+                    // Wrap around edges
+                    if(this.x < 0) this.x = canvas.width;
+                    if(this.x > canvas.width) this.x = 0;
+                    if(this.y < 0) this.y = canvas.height;
+                    if(this.y > canvas.height) this.y = 0;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `hsla(${this.hue}, 80%, 70%, ${this.opacity})`;
+                    ctx.shadowBlur = 15;
+                    ctx.shadowColor = `hsla(${this.hue}, 80%, 70%, 0.8)`;
+                    ctx.fill();
+                }
+            }
+            
+            // Initialize particles
+            for(let i = 0; i < 50; i++) {
+                particles.push(new Particle());
+            }
+            
+            // Animation loop for particles
+            let animating = false;
+            function animateParticles() {
+                if(!animating) return;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animateParticles);
+            }
+            
+            // Split text into individual letters
+            const text = textSpan.textContent;
+            textSpan.innerHTML = '';
+            
+            text.split('').forEach(char => {
+                const span = document.createElement('span');
+                span.className = 'arcane-letter';
+                span.textContent = char === ' ' ? '\u00A0' : char;
+                textSpan.appendChild(span);
+            });
+            
+            const letters = textSpan.querySelectorAll('.arcane-letter');
+            
+            // GSAP Timeline
+            const tl = gsap.timeline({
+                delay: 0.3,
+                onStart: () => {
+                    animating = true;
+                    animateParticles();
+                }
+            });
+            
+            // Initial state
+            gsap.set(canvas, {opacity: 0});
+            gsap.set(letters, {opacity: 0, y: 20, filter: 'blur(4px)'});
+            
+            // Fade in particles
+            tl.to(canvas, {
+                opacity: 1,
+                duration: 1,
+                ease: 'power2.out'
+            })
+            // Letters appear one by one
+            .to(letters, {
+                opacity: 1,
+                y: 0,
+                filter: 'blur(0px)',
+                duration: 0.6,
+                stagger: 0.05,
+                ease: 'power2.out'
+            }, '-=0.3')
+            // Add shimmer glow to letters
+            .to(letters, {
+                textShadow: '0 0 20px rgba(200,150,70,0.8), 0 0 40px rgba(180,130,50,0.5)',
+                duration: 0.8,
+                stagger: 0.05,
+                ease: 'power2.inOut'
+            }, '-=0.5')
+            // Settle to soft glow
+            .to(letters, {
+                textShadow: '0 0 15px rgba(191,160,111,0.5), 0 0 30px rgba(180,130,50,0.25)',
+                duration: 1,
+                ease: 'power2.out'
+            })
+            // Fade out particles completely
+            .to(canvas, {
+                opacity: 0,
+                duration: 1.5,
+                ease: 'power2.inOut',
+                onComplete: () => {
+                    animating = false;
+                    canvas.style.display = 'none';
+                }
+            }, '-=0.5')
+            // Add continuous glow pulse to letters
+            .to(letters, {
+                textShadow: '0 0 25px rgba(200,150,70,0.7), 0 0 50px rgba(180,130,50,0.4), 0 0 70px rgba(191,160,111,0.25)',
+                duration: 2,
+                ease: 'sine.inOut',
+                repeat: -1,
+                yoyo: true,
+                stagger: {
+                    each: 0.1,
+                    from: 'start',
+                    repeat: -1
+                }
+            });
+            // Note: Letter floating is now handled by CSS animation in home.css
+
+        });
+    </script>
+
+    <!-- Bug Report Modal Script -->
+    <script>
+        (function() {
+            const modal = document.getElementById('bug-modal');
+            const openBtn = document.getElementById('open-bug-modal');
+            const closeBtn = modal.querySelector('.modal-close');
+            const overlay = modal.querySelector('.modal-overlay');
+
+            // Open modal
+            openBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'flex';
+                // Trigger reflow for animation
+                modal.offsetHeight;
+                modal.classList.add('modal-open');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Close modal function
+            function closeModal() {
+                modal.classList.remove('modal-open');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300); // Match animation duration
+            }
+
+            // Close on X button
+            closeBtn.addEventListener('click', closeModal);
+
+            // Close on overlay click
+            overlay.addEventListener('click', closeModal);
+
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
