@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>CinderRPG Wiki</title>
-    <link rel="stylesheet" href="cinder-wiki/css/global.css?v=20251027.1">
-    <link rel="stylesheet" href="cinder-wiki/css/home.css?v=20251027.1">
-    
+    <link rel="stylesheet" href="cinder-wiki/css/global.css?v=20251022.1">
+    <link rel="stylesheet" href="cinder-wiki/css/home.css?v=20251022.1">
+
     <!-- Optional: add a Google Font for the title -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <!-- RPG Awesome icons -->
@@ -38,19 +38,19 @@
 
             <nav class="nav" aria-label="Main navigation">
                 <ul class="nav-list">
-                    <li><a class="nav-link active" href="index.html">Home</a></li>
-                    <li><a class="nav-link" href="#">Gameplay Basics</a></li>
-                    <li><a class="nav-link" href="#">Mechanics</a></li>
-                    <li><a class="nav-link" href="#">Store</a></li>
-                    <li><a class="nav-link" href="#">History</a></li>
+                    <li><a class="nav-link active" href="cinder-wiki/html/index.html">Home</a></li>
+                    <li><a class="nav-link" href="cinder-wiki/html/gameplay-basics.html">Gameplay Basics</a></li>
+                    <li><a class="nav-link" href="cinder-wiki/html/mechanics.html">Mechanics</a></li>
+                    <li><a class="nav-link" href="cinder-wiki/html/store.html">Store</a></li>
+                    <li><a class="nav-link" href="cinder-wiki/html/history.html">History</a></li>
                     <li class="has-dropdown">
                         <a class="nav-link" href="#">Resources &amp; Guides</a>
                         <ul class="dropdown">
-                            <li><a href="#">Commands</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Maps</a></li>
-                            <li><a href="#">Creature encyclopedia</a></li>
-                            <li><a href="#">Items</a></li>
+                            <li><a href="cinder-wiki/html/commands.html">Commands</a></li>
+                            <li><a href="cinder-wiki/html/faq.html">FAQ</a></li>
+                            <li><a href="cinder-wiki/html/map.html">Maps</a></li>
+                            <li><a href="cinder-wiki/html/creature-encyclopedia.html">Creature encyclopedia</a></li>
+                            <li><a href="cinder-wiki/html/items.html">Items</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -78,12 +78,13 @@
                 <p class="hero-sub">Community-driven guides, maps and patch notes</p>
                 <div class="hero-cta">
                     <a class="btn primary" href="#getting-started">Get Started</a>
-                    <a class="btn outline" href="cinder-wiki/html/wiki.html">Explore Wiki</a>
+                    <a class="btn outline" href="wiki.html">Explore Wiki</a>
                 </div>
             </div>
         </section>
 
         <section class="cards wrap">
+                        <a href="getting-started.html" class="card-link">
                         <article class="card anim-safe">
                                 <div class="icon icon--orange"><i class="ra ra-burning-embers" aria-hidden="true"></i></div>
                                 <div>
@@ -91,7 +92,9 @@
                                     <p>Learn the basics of CinderRPG and how to begin your adventure.</p>
                                 </div>
                         </article>
+                        </a>
 
+                        <a href="classes-roles.html" class="card-link">
                         <article class="card anim-safe">
                                 <div class="icon icon--gold"><i class="ra ra-shield" aria-hidden="true"></i></div>
                                 <div>
@@ -99,7 +102,9 @@
                                     <p>Discover the various classes and roles that characters can take on.</p>
                                 </div>
                         </article>
+                        </a>
 
+                        <a href="items-equipment.html" class="card-link">
                         <article class="card anim-safe">
                                 <div class="icon icon--muted"><i class="ra ra-crossed-swords" aria-hidden="true"></i></div>
                                 <div>
@@ -107,7 +112,9 @@
                                     <p>Find information about the different weapons, armor, and items.</p>
                                 </div>
                         </article>
+                        </a>
 
+                        <a href="game-systems.html" class="card-link">
                         <article class="card anim-safe">
                                 <div class="icon icon--teal"><i class="ra ra-gem" aria-hidden="true"></i></div>
                                 <div>
@@ -115,7 +122,9 @@
                                     <p>Understand mechanics, skills and attributes that define gameplay.</p>
                                 </div>
                         </article>
+                        </a>
 
+                        <a href="../html/map.html" class="card-link">
                         <article class="card anim-safe">
                                 <div class="icon icon--gold"><i class="ra ra-compass" aria-hidden="true"></i></div>
                                 <div>
@@ -123,7 +132,9 @@
                                     <p>Explore the regions and locations found within the world.</p>
                                 </div>
                         </article>
+                        </a>
 
+                        <a href="patch-notes.html" class="card-link">
                         <article class="card anim-safe">
                                 <div class="icon icon--muted"><i class="ra ra-scroll-unfurled" aria-hidden="true"></i></div>
                                 <div>
@@ -131,6 +142,7 @@
                                     <p>Read about the latest updates and changes to CinderRPG.</p>
                                 </div>
                         </article>
+                        </a>
         </section>
     </main>
 
@@ -290,7 +302,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
     <script>
-        // 🌌 Arcane Pulse Animation (with Magic Particles)
+        //  Arcane Pulse Animation (with Magic Particles)
         window.addEventListener('load', function(){
             if(typeof gsap === 'undefined') return;
             
