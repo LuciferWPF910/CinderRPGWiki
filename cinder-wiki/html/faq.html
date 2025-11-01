@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>FAQ - CinderRPG Wiki</title>
+    <link rel="stylesheet" href="../css/global.css?v=20251028.1">
+    <link rel="stylesheet" href="../css/home.css?v=20251028.1">
+    <link rel="stylesheet" href="../css/faq.css?v=20251028.1">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <!-- RPG Awesome icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="brand" href="../../index.html">
+                <img src="../images/CinderNewMegaLargePix.png" alt="Cinder Wiki logo" class="brand-img" width="36" height="36">
+                <svg class="brand-fallback" width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display:none;">
+                    <defs>
+                        <linearGradient id="g1" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#d4c5b9" />
+                            <stop offset="100%" stop-color="#bfa06f" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="12" cy="12" r="10" fill="none" stroke="url(#g1)" stroke-width="1.6" />
+                    <path d="M7 14c1.5-2 4-4 6-6 0 3-1.5 6-3 7-1.5 1-3 0-3  -1z" fill="url(#g1)" opacity="0.95" transform="translate(0,1)"/>
+                </svg>
+                <span class="brand-text">CinderRPG</span>
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="../../index.html">Home</a></li>
+                    <li><a class="nav-link" href="#">Gameplay Basics</a></li>
+                    <li><a class="nav-link" href="#">Mechanics</a></li>
+                    <li><a class="nav-link" href="#">Store</a></li>
+                    <li><a class="nav-link" href="#">History</a></li>
+                    <li class="has-dropdown">
+                        <a class="nav-link" href="#">Resources &amp; Guides</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Commands</a></li>
+                            <li><a href="faq.html" class="active">FAQ</a></li>
+                            <li><a href="map.html">Maps</a></li>
+                            <li><a href="#">Creature encyclopedia</a></li>
+                            <li><a href="#">Items</a></li>
+                        </ul>
+                    </li> 
+                </ul>
+            </nav>
+
+            <div class="search-wrap">
+                <div class="search-container">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <label for="site-search" class="visually-hidden"></label>
+                    <input id="site-search" class="search" type="search" placeholder="Search..." />
+                </div>
+            </div>
+
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Studio Banner -->
+        <section class="studio-banner">
+            <img src="../images/Bighat.png" alt="Bighat Studio" />
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section wrap">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about CinderRPG</p>
+            </div>
+
+            <!-- Category Filters (Optional) -->
+            <div class="faq-categories">
+                <button class="faq-category-btn active" data-category="all">All</button>
+                <button class="faq-category-btn" data-category="getting-started">Getting Started</button>
+                <button class="faq-category-btn" data-category="gameplay">Gameplay</button>
+                <button class="faq-category-btn" data-category="advice">Advice</button>
+                <button class="faq-category-btn" data-category="issues">Issues</button>
+                <button class="faq-category-btn" data-category="misc">Misc</button>
+            </div>
+
+            <div class="faq-container">
+                <!-- Getting Started Questions -->
+                <div class="faq-item" data-category="getting-started">
+                    <button class="faq-question">
+                        What's the best race? Do races matter?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Simply put, there is no “best race”, each person will have their own opinions and banter on the relations between
+                            races but the choice should always be up to the user. Races only really affect the gameplay during the very start
+                                of the game; innate points can be refunded via resetting points with a Mindwipe, and players won't alienate new
+                                    players for simply making a choice based on preference.
+                                        The choice of a race  and its weight is completely dependent on the person. Determine what you find to be a
+                                            higher priority such as, its lore and appearance, its current playerbase, its potential, or its faction-and go from there.
+                                                Races don't lock you out of gameplay, nor give outstanding advantages, you can associate with who you wish, and
+                                                    do what you wish.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-category="getting-started">
+                    <button class="faq-question">
+                        What should I do after picking a race?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Choosing a class in CinderRPG depends on your preferred playstyle. Consider whether you enjoy close combat, magic, stealth, or support roles. Each class offers unique abilities and strengths, so think about how you want to engage with the game world and other players.</p>
+                    </div>
+                </div>
+                        <!-- Gameplay Questions -->
+                <div class="faq-item" data-category="gameplay">
+                    <button class="faq-question">
+                        Can I change races?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Races are integral to many aspects and themes of Cinder. They cannot be changed, but a player's gameplay does not require implication with races, and can simply see them as cosmetic if they feel the need to. </p>
+                        <p>Visit our <a href="#" style="color: var(--beige);">Combat Mechanics Guide</a> for advanced strategies.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="gameplay">
+                    <button class="faq-question">
+                        How do I reset my class points?
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can reset your skills, including initial points added by your race, by using a Mindwipe Tonic. The first one can be obtained in the AllHollows Crypts Dungeon, in shard 1.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="gameplay">
+                    <button class="faq-question">
+                        How do I join or create a guild? Can anyone invite me?
+                    </button>
+                    <div class="faq-answer">
+                        <p>To create a guild simply do <code>/guild create (name)</code>, and invite your friends with <code>/guild invite (name)</code>.</p>
+                        <p>If you're looking for a guild then why not ask around? Players are always looking for more members to bolster their numbers with. Head on over to the #guild-recruitement channel, in the discord, and have a look for current listings or advertise yourself with your own recruitment post.</p>
+                        <p>Happy hunting!</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-category="gameplay">
+                    <button class="faq-question">
+                         Can I base/play with friends from other races?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, you can play with friends from other races. While races have unique traits and abilities, they do not restrict party formation or collaboration in gameplay.</p>
+                    </div>
+                </div>
+                <!-- Advice -->
+                <div class="faq-item" data-category="advice">
+                    <button class="faq-question">
+                        What class should I invest in?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Generally it's always safe to pick classes depending on your current situation, or simply based on personal preference. If you're playing with friends that intend on spending points in combat classes, then why not buff them with Apothecary potions, provide cover fire with destruction magic or arrows, or gather resources and funds with better efficacy via the Treasure Hunter, Collector, and Thief classes?</p>
+                    </div>
+                </div>
+                 <div class="faq-item" data-category="advice">
+                    <button class="faq-question">
+                       Can I use third party mods?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Generally it's always safe to pick classes depending on your current situation, or simply based on personal preference. If you're playing with friends that intend on spending points in combat classes, then why not buff them with Apothecary potions, provide cover fire with destruction magic or arrows, or gather resources and funds with better efficacy via the Treasure Hunter, Collector, and Thief classes?</p>
+                    </div>
+                </div>
+                <!-- Issues -->
+                <div class="faq-item" data-category="issues">
+                    <button class="faq-question">
+                        What do I do about lag/crashes?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Check your allocated RAM to make sure it's at least 3.5 GB, however do not exceed 50% of your total RAM. If you cannot see the option to improve it to 3.5 or higher then you need to update your Java Runtime Environment. If this does not work then seek assistance in the BHS Discord, or attempt to join using Cinder RPG Lite.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="issues">
+                    <button class="faq-question">
+                        Can I join with a cracked client?
+                    </button>
+                    <div class="faq-answer">
+                        <p>CinderRPG's server does not have support for cracked clients due to its usage of the minecraft authentication servers. An official version of minecraft java edition is required in order to experience the game as, whilst playable, singleplayer mode does not offer the full experience.</p>
+                    </div>
+                </div>
+                    <div class="faq-item" data-category="issues">
+                    <button class="faq-question">
+                        Where can I get help if my question isn't answered here?
+                    </button>
+                    <div class="faq-answer">
+                        <p>If your question isn't answered or you feel that it wasn't specific enough, join us on the BigHatStudios <a href="https://discord.gg/gQ39rGdpQ7" target="_blank">Discord</a>. Members of the community can provide you with much more detailed answers, and offer you advice as you progress through your playthrough.</p>   
+                    </div>
+                </div>
+                 <div class="faq-item" data-category="issues">
+                    <button class="faq-question">
+                       I found a bug, how do I report it?
+                    </button>
+                    <div class="faq-answer">
+                        <p>To report a bug, please use the <a href="#" id="open-bug-modal">bug report form</a> or reach out to the staff team via the BHS Discord.</p>
+                    </div>
+                    </div>
+                <div class="faq-item" data-category="misc">
+                    <button class="faq-question">
+                        Are there backpacks? How do I get them?
+                    </button>
+                    <div class="faq-answer">
+                        <p>A "Backpack" in cinder is known as a Witch's Pouch. These are essentially separate Ender Chests awarded upon completion of very specific quests within the shard worlds, or purchased via Shares (See Shop).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="misc">
+                    <button class="faq-question">
+                        When will the server reset for a new season?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Season 4 is currently in early Beta. There is no intention of resetting the server anytime soon for a 5th season. Considering the period of prior seasons, this season will likely last another 2 years at the very least.</p>
+                    </div>
+                </div>
+                    <div class="faq-item" data-category="misc">
+                    <button class="faq-question">
+                       Can I use third-party mods?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Mods that mostly affect the QOL of the game are completely allowed, we even have a list in our discord. However, malicious mods or ones that provide unfair advantages are against the server's rules. Players found abusing mods that grant them advantages such as automated actions/macros, Xray, or other cheats will be punished.</p>
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap footer-inner">
+            <small>© 2025 CinderRPG Wiki Project | Built by <a href="https://github.com/Faris25-dev" target="_blank" rel="noopener noreferrer">Faris25-dev</a></small>
+            <nav class="footer-links">
+                <a href="#">Patch Notes</a>
+                <a href="https://discord.gg/gQ39rGdpQ7" target="_blank">Discord</a>
+                <a href="#" id="open-bug-modal">Report an Issue</a>
+                <a href="#">Terms of Service</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Bug Report Modal -->
+    <div id="bug-modal" class="modal" role="dialog" aria-labelledby="bug-modal-title" aria-modal="true" style="display:none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2 id="bug-modal-title">Report a Bug</h2>
+            <p class="modal-message">Help us improve the world. Tell us what broke and how it happened.</p>
+            <div class="modal-actions">
+                <a href="https://discord.gg/bighatstudios" target="_blank" rel="noopener noreferrer" class="btn primary">
+                    <i class="fa-brands fa-discord"></i>
+                    Report on Discord
+                </a>
+                <a href="mailto:sBigHatStudios+support@gmail.com?subject=CinderRPG%20Bug%20Report" class="btn outline">
+                    <i class="ph ph-envelope"></i>
+                    Email Support
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.closest('.faq-item');
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Category filtering
+        document.querySelectorAll('.faq-category-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.dataset.category;
+                
+                // Update active button
+                document.querySelectorAll('.faq-category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+                
+                // Filter FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Mobile nav toggle - same as index.html
+        (function () {
+            const btn = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('.nav');
+            
+            if(!btn || !nav) {
+                console.error('Nav elements not found!');
+                return;
+            }
+
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', !expanded);
+                nav.classList.toggle('open');
+                document.body.classList.toggle('nav-open');
+                console.log('Menu toggled, open:', nav.classList.contains('open'));
+            });
+
+            // Handle dropdown clicks on mobile
+            const dropdowns = document.querySelectorAll('.has-dropdown');
+            let isAnimating = false;
+            
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('.nav-link');
+                const dropdownMenu = dropdown.querySelector('.dropdown');
+                
+                if(link) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Prevent rapid clicks during animation
+                        if(isAnimating) return;
+                        isAnimating = true;
+                        
+                        // Check if opening or closing
+                        const isOpening = !dropdown.classList.contains('touch-open');
+                        
+                        // Close other dropdowns first
+                        dropdowns.forEach(d => {
+                            if (d !== dropdown) {
+                                d.classList.remove('touch-open');
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('touch-open');
+                        
+                        console.log('Dropdown toggled:', dropdown.classList.contains('touch-open'));
+                        
+                        // Re-enable after animation
+                        setTimeout(() => {
+                            isAnimating = false;
+                        }, 300);
+                    });
+                }
+            });
+
+            // Close dropdowns when clicking a nav link
+            const navLinks = document.querySelectorAll('.nav-link:not(.has-dropdown > .nav-link), .dropdown a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Don't prevent navigation, just close dropdowns
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('touch-open');
+                    });
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (nav.classList.contains('open')) {
+                    if (!nav.contains(e.target) && !btn.contains(e.target)) {
+                        nav.classList.remove('open');
+                        document.body.classList.remove('nav-open');
+                        btn.setAttribute('aria-expanded', 'false');
+                        // Also close any open dropdowns
+                        dropdowns.forEach(dropdown => {
+                            dropdown.classList.remove('touch-open');
+                        });
+                        console.log('Menu closed by clicking outside');
+                    } else if (nav.contains(e.target)) {
+                        console.log('Clicked inside nav!', e.target.tagName, e.target.textContent?.trim());
+                    }
+                }
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && nav.classList.contains('open')) {
+                    nav.classList.remove('open');
+                    document.body.classList.remove('nav-open');
+                    btn.setAttribute('aria-expanded', 'false');
+                    console.log('Menu closed by Escape key');
+                }
+            });
+        })();
+
+        // Fallback logo if image not found
+        (function(){
+            const img = document.querySelector('.brand-img');
+            const svg = document.querySelector('.brand-fallback');
+            if(!img) return;
+            img.addEventListener('error', ()=>{
+                img.style.display='none';
+                if(svg) svg.style.display='inline-block';
+            });
+        })();
+
+        // Bug Report Modal Script
+        (function() {
+            const modal = document.getElementById('bug-modal');
+            const openBtns = document.querySelectorAll('#open-bug-modal');
+            const closeBtn = modal.querySelector('.modal-close');
+            const overlay = modal.querySelector('.modal-overlay');
+
+            // Open modal for all buttons with this ID
+            openBtns.forEach(openBtn => {
+                openBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.style.display = 'flex';
+                    // Trigger reflow for animation
+                    modal.offsetHeight;
+                    modal.classList.add('modal-open');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close modal function
+            function closeModal() {
+                modal.classList.remove('modal-open');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300); // Match animation duration
+            }
+
+            // Close on X button
+            closeBtn.addEventListener('click', closeModal);
+
+            // Close on overlay click
+            overlay.addEventListener('click', closeModal);
+
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
