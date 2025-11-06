@@ -1,345 +1,481 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Commands Reference - CinderRPG Wiki</title>
-    <link rel="stylesheet" href="../css/global.css?v=20251105.1">
-    <link rel="stylesheet" href="../css/home.css?v=20251105.1">
-    <link rel="stylesheet" href="../css/commands.css?v=20251105.1">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css?v=20251105.1" />
+    <link rel="stylesheet" href="../css/home.css?v=20251105.1" />
+    <link rel="stylesheet" href="../css/commands.css?v=20251105.1" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- RPG Awesome icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css"
+    />
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/473c5494b9.js"
+      crossorigin="anonymous"
+    ></script>
     <!--Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header Component Slot -->
     <div id="header-slot"></div>
 
     <main>
-        <!-- Commands Header -->
-        <section class="commands-header wrap">
-            <h1 class="commands-title">Commands Reference</h1>
-            <p class="commands-subtitle">Master the arcane syntax of CinderRPG</p>
-        </section>
+      <!-- Commands Header -->
+      <section class="commands-header wrap">
+        <h1 class="commands-title">Commands Reference</h1>
+        <p class="commands-subtitle">Master the arcane syntax of CinderRPG</p>
+      </section>
 
-        <!-- Category Filter -->
-        <section class="commands-filter wrap">
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-category="all">
-                    <i data-lucide="list"></i>
-                    <span>All Commands</span>
-                </button>
-                <button class="filter-btn" data-category="integral">
-                    <i data-lucide="bookmark"></i>
-                    <span>Integral</span>
-                </button>
-                <button class="filter-btn" data-category="rpg">
-                    <i data-lucide="wand-2"></i>
-                    <span>RPG</span>
-                </button>
-                <button class="filter-btn" data-category="overworld">
-                    <i data-lucide="map"></i>
-                    <span>Overworld</span>
-                </button>
-                <button class="filter-btn" data-category="rank">
-                    <i data-lucide="crown"></i>
-                    <span>Ranks</span>
-                </button>
+      <!-- Category Filter -->
+      <section class="commands-filter wrap">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-category="all">
+            <i data-lucide="list"></i>
+            <span>All Commands</span>
+          </button>
+          <button class="filter-btn" data-category="integral">
+            <i data-lucide="bookmark"></i>
+            <span>Integral</span>
+          </button>
+          <button class="filter-btn" data-category="rpg">
+            <i data-lucide="wand-2"></i>
+            <span>RPG</span>
+          </button>
+          <button class="filter-btn" data-category="overworld">
+            <i data-lucide="map"></i>
+            <span>Overworld</span>
+          </button>
+          <button class="filter-btn" data-category="rank">
+            <i data-lucide="crown"></i>
+            <span>Ranks</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Commands Content -->
+      <section class="commands-content wrap">
+        <!-- Integral Commands -->
+        <div class="command-section" data-category="integral">
+          <div class="section-header">
+            <i data-lucide="bookmark" class="section-icon"></i>
+            <h2>Integral Commands</h2>
+          </div>
+          <div class="commands-grid">
+            <div class="command-card">
+              <div class="command-name">/discord</div>
+              <div class="command-desc">
+                Get the link to the official CinderRPG Discord server
+              </div>
             </div>
-        </section>
-
-        <!-- Commands Content -->
-        <section class="commands-content wrap">
-            
-            <!-- Integral Commands -->
-            <div class="command-section" data-category="integral">
-                <div class="section-header">
-                    <i data-lucide="bookmark" class="section-icon"></i>
-                    <h2>Integral Commands</h2>
-                </div>
-                <div class="commands-grid">
-                    <div class="command-card">
-                        <div class="command-name">/discord</div>
-                        <div class="command-desc">Get the link to the official CinderRPG Discord server</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/help</div>
-                        <div class="command-desc">Display the main help menu with available commands</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/race help</div>
-                        <div class="command-desc">View detailed information about all available races</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/kits</div>
-                        <div class="command-desc">List all available starter kits and rank kits</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/kit <span class="param">(kit name)</span></div>
-                        <div class="command-desc">Claim a specific kit by name</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/back</div>
-                        <div class="command-desc">Return to your previous location after teleporting</div>
-                    </div>
-                </div>
+            <div class="command-card">
+              <div class="command-name">/help</div>
+              <div class="command-desc">
+                Display the main help menu with available commands
+              </div>
             </div>
-
-            <!-- RPG Commands -->
-            <div class="command-section" data-category="rpg">
-                <div class="section-header">
-                    <i data-lucide="wand-2" class="section-icon"></i>
-                    <h2>RPG Commands</h2>
-                </div>
-                <div class="commands-grid">
-                    <div class="command-card">
-                        <div class="command-name">/shard <span class="param">(number)</span></div>
-                        <div class="command-desc">Travel to a specific shard world (1, 2, or 3)</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/world</div>
-                        <div class="command-desc">Return to the main overworld hub</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/enchant <span class="param">(enchantment)(level)</span></div>
-                         
-                        <div class="command-desc">Open the enchantment interface for your held item</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">
-                            /refine
-                            <span class="info-icon" data-tooltip="Refine costs scale based on item rarity and level. Higher tier items require more resources.">
-                                <i data-lucide="info"></i>
-                            </span>
-                        </div>
-                        <div class="command-desc">Upgrade your equipment using refinement materials</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/class</div>
-                        <div class="command-desc">Open your class skill tree and progression menu</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/class display</div>
-                        <div class="command-desc">Toggle the display of your current class in chat</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/profile</div>
-                        <div class="command-desc">View your character profile, stats, and achievements</div>
-                    </div>
-                </div>
+            <div class="command-card">
+              <div class="command-name">/race help</div>
+              <div class="command-desc">
+                Display the list of race related commands
+              </div>
             </div>
-
-            <!-- Overworld Commands -->
-            <div class="command-section" data-category="overworld">
-                <div class="section-header">
-                    <i data-lucide="map" class="section-icon"></i>
-                    <h2>Overworld Commands</h2>
-                </div>
-                <div class="commands-grid">
-                    <div class="command-card">
-                        <div class="command-name">/sethome <span class="param">(name)</span></div>
-                        <div class="command-desc">Set a named home location at your current position</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/home <span class="param">(name)</span></div>
-                        <div class="command-desc">Teleport to one of your saved home locations</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">
-                            /trust <span class="param">(username)</span>
-                            <span class="info-icon" data-tooltip="Grants full permissions: build, container access, and permission management within your claim.">
-                                <i data-lucide="info"></i>
-                            </span>
-                        </div>
-                        <div class="command-desc">Grant another player full access to your claim</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/trustlist</div>
-                        <div class="command-desc">View all players trusted in your current claim</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">
-                            /accesstrust 
-                            <span class="param">(username)</span>
-                            <span class="info-icon" data-tooltip="Allows using buttons, levers, and beds, but not building or accessing containers.">
-                                <i data-lucide="info"></i>
-                            </span>
-                        </div>
-                        <div class="command-desc">Give limited interaction permissions in your claim</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">
-                            /containertrust <span class="param">(username)</span>
-                            <span class="info-icon" data-tooltip="Grants access to chests, furnaces, and other containers, plus all access trust permissions.">
-                                <i data-lucide="info"></i>
-                            </span>
-                        </div>
-                        <div class="command-desc">Allow container access within your claim</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">
-                            /permissiontrust <span class="param">(username)</span>
-                            <span class="info-icon" data-tooltip="Allows the player to manage trust for other players in your claim. Use with caution!">
-                                <i data-lucide="info"></i>
-                            </span>
-                        </div>
-                        <div class="command-desc">Let another player manage trust in your claim</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/claimlist</div>
-                        <div class="command-desc">Display all your claims and their locations</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/subdivideclaim</div>
-                        <div class="command-desc">Create a subdivision within an existing claim</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/abandonclaim</div>
-                        <div class="command-desc">Delete the claim you're currently standing in</div>
-                    </div>
-                    <div class="command-card">
-                        <div class="command-name">/abandonallclaims</div>
-                        <div class="command-desc">Remove all of your claims (use with caution!)</div>
-                    </div>
-                </div>
+            <div class="command-card">
+              <div class="command-name">/kits</div>
+              <div class="command-desc">
+                List all available starter kits and rank kits
+              </div>
             </div>
-
-            <!-- Rank Commands -->
-            <div class="command-section" data-category="rank">
-                <div class="section-header">
-                    <i data-lucide="crown" class="section-icon"></i>
-                    <h2>Rank Commands</h2>
-                </div>
-                <div class="rank-info">
-                    <p>Many rank commands scale with tier. Higher ranks unlock more features, better rewards, and additional customization options like colored text and prefixes.</p>
-                </div>
-
-                <!-- Rank Tiers -->
-                <div class="rank-tier" data-rank="slayer">
-                    <div class="rank-header">
-                        <i data-lucide="sword"></i>
-                        <h3>Slayer</h3>
-                    </div>
-                    <div class="rank-commands">
-                        <div class="rank-command-item">
-                            <code>/enderchest</code>
-                            <code>/ec</code>
-                            <span class="rank-desc">Access your ender chest from anywhere</span>
-                        </div>
-                        <div class="rank-command-item">
-                            <code>/nickname</code>
-                            <code>/nick</code>
-                            <span class="rank-desc">Set a custom display name</span>
-                        </div>
-                        <div class="rank-command-item">
-                            <code>/top</code>
-                            <span class="rank-desc">Teleport to the highest block at your location</span>
-                        </div>
-                        <div class="rank-command-item">
-                            <code>/buyclaimblocks</code>
-                            <span class="rank-desc info-icon" data-tooltip="Purchase additional claim blocks using in-game currency. Rate varies by rank.">
-                                Buy extra claim blocks
-                                <i data-lucide="info"></i>
-                            </span>
-                        </div>
-                        <div class="rank-command-item">
-                            <code>/transferclaimblocks</code>
-                            <span class="rank-desc">Transfer claim blocks between players</span>
-                        </div>
-                        <div class="rank-command-item">
-                            <code>/disposal</code>
-                            <span class="rank-desc">Open a disposal interface to delete items</span>
-                        </div>
-                        <div class="rank-command-item">
-                            <code>/rtp</code>
-                            <span class="rank-desc">Randomly teleport to a safe location</span>
-                        </div>
-                        <div class="rank-command-item">
-                            <code>/redeem</code>
-                            <span class="rank-desc">Claim rank-specific rewards and bonuses</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rank-tier" data-rank="undead">
-                    <div class="rank-header">
-                        <i data-lucide="skull"></i>
-                        <h3>Undead Slayer</h3>
-                        <span class="rank-badge">Includes all Slayer commands</span>
-                    </div>
-                    <div class="rank-commands">
-                        <div class="rank-command-item">
-                            <code>/craft</code>
-                            <span class="rank-desc">Open a portable crafting table</span>
-                        </div>
-                        <div class="rank-command-item">
-                            <code>/nickname</code>
-                            <code>/nick</code>
-                            <span class="rank-desc">
-                                Set a custom display name with colored text
-                                <a href="#" class="color-link">[View colors]</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rank-tier" data-rank="demon">
-                    <div class="rank-header">
-                        <i data-lucide="flame"></i>
-                        <h3>Demon Slayer</h3>
-                        <span class="rank-badge">Includes all Undead Slayer commands</span>
-                    </div>
-                    <div class="rank-commands">
-                        <div class="rank-command-item">
-                            <code>/feed</code>
-                            <span class="rank-desc">Instantly restore your hunger bar</span>
-                        </div>
-                        <div class="rank-command-item">
-                            <code>/repair</code>
-                            <span class="rank-desc">Repair the item in your hand</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rank-tier" data-rank="soul">
-                    <div class="rank-header">
-                        <i data-lucide="sparkles"></i>
-                        <h3>Soul Slayer / Custom</h3>
-                        <span class="rank-badge">Includes all Demon Slayer commands</span>
-                    </div>
-                    <div class="rank-commands">
-                        <div class="rank-command-item">
-                            <code>/repairall</code>
-                            <span class="rank-desc">Repair all items in your inventory</span>
-                        </div>
-                        <div class="rank-command-item">
-                            <code>/heal</code>
-                            <span class="rank-desc">Instantly restore your health</span>
-                        </div>
-                        <div class="rank-command-item">
-                            <code>/cinderprefix</code>
-                            <span class="rank-desc">Set a custom colored prefix before your name</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="command-card">
+              <div class="command-name">
+                /kit <span class="param">(kit name)</span>
+              </div>
+              <div class="command-desc">Claim a specific kit by name</div>
             </div>
+            <div class="command-card">
+              <div class="command-name">
+                /back<span
+                  class="info-icon"
+                  data-tooltip="Return to a location, prior to teleporting. Excludes forced teleportation, deaths, /spawn, /world, and /shard."
+                  ><i data-lucide="info"></i
+                ></span>
+              </div>
+              <div class="command-desc">
+                Return to your previous location after teleporting
+              </div>
+            </div>
+            <!--
+            <div class="command-card">
+                <div class="command-name">/vote</div>
+                <div class="command-desc">Directs you to a voting website to redeem rewards on the server</div>
+            </div> -->
+          </div>
+        </div>
 
-        </section>
+        <!-- RPG Commands -->
+        <div class="command-section" data-category="rpg">
+          <div class="section-header">
+            <i data-lucide="wand-2" class="section-icon"></i>
+            <h2>RPG Commands</h2>
+          </div>
+          <div class="commands-grid">
+            <div class="command-card">
+              <div class="command-name">
+                /shard <span class="param">(number)</span>
+              </div>
+              <div class="command-desc">
+                Travel to a specific shard world (1, 2, or 3)
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">/world</div>
+              <div class="command-desc">Return to the main overworld hub</div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">
+                /enchant <span class="param">(enchantment) (level)</span>
+                <span
+                  class="info-icon"
+                  data-tooltip="Attempts have the following success chance : (Enchanter LVL * 2) + (enchant rarity / enchant level)"
+                  ><i data-lucide="info"></i
+                ></span>
+              </div>
+              <div class="command-desc">
+                Attempts to enchant the held item using grand soul gems.
+                (Bypasses LVL cap)
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">/enchant list</div>
+              <div class="command-desc">
+                Lists the available enchantments and their rarity
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">
+                /refine
+                <span
+                  class="info-icon"
+                  data-tooltip="There are 5 tiers of refinement. The cost and difficulty of refinement increases with each tier."
+                >
+                  <i data-lucide="info"></i>
+                </span>
+              </div>
+              <div class="command-desc">
+                Attempts to upgrade your equipment using refinement materials
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">
+                /class
+                <span
+                  class="info-icon"
+                  data-tooltip="Classes can be unlocked with 5 points. Subclass upgrades require an extra point every 2 levels."
+                  ><i data-lucide="info"></i
+                ></span>
+              </div>
+              <div class="command-desc">
+                Opens the class and upgrade subclass upgrade menu
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">/class display</div>
+              <div class="command-desc">
+                Lists your spare points, and class & subclass levels
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">
+                /profile<span
+                  class="info-icon"
+                  data-tooltip="You can view other players' profiles, although certain bits of information aren't shown."
+                  ><i data-lucide="info"></i
+                ></span>
+              </div>
+              <div class="command-desc">
+                View your character profile, stats, and achievements
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <!-- Last Updated Footer -->
-        <section class="commands-footer wrap">
-            <p class="last-updated">
-                <i data-lucide="clock"></i>
-                Last updated: November 5, 2025
+        <!-- Overworld Commands -->
+        <div class="command-section" data-category="overworld">
+          <div class="section-header">
+            <i data-lucide="map" class="section-icon"></i>
+            <h2>Overworld Commands</h2>
+          </div>
+          <div class="commands-grid">
+            <div class="command-card">
+              <div class="command-name">
+                /sethome <span class="param">(name)</span>
+              </div>
+              <div class="command-desc">
+                Set a named home location at your current position
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">
+                /home <span class="param">(name)</span>
+              </div>
+              <div class="command-desc">
+                Teleport to one of your saved home locations
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">
+                /trust <span class="param">(username)</span>
+                <span
+                  class="info-icon"
+                  data-tooltip="Grants most permissions: build, container, and access permissions within your claim. Can be used outside of claims to grant permission to all your existing claims."
+                >
+                  <i data-lucide="info"></i>
+                </span>
+              </div>
+              <div class="command-desc">
+                Grant another player most permissions to your claim
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">/trustlist</div>
+              <div class="command-desc">
+                View all players trusted in your current claim
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">
+                /accesstrust <span class="param">(username)</span>
+                <span
+                  class="info-icon"
+                  data-tooltip="Allows interactions using buttons, levers, and beds, but excluding building or accessing containers."
+                >
+                  <i data-lucide="info"></i>
+                </span>
+              </div>
+              <div class="command-desc">
+                Give limited interaction permissions in your claim
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">
+                /containertrust <span class="param">(username)</span>
+                <span
+                  class="info-icon"
+                  data-tooltip="Grants access to chests, furnaces, and other containers, plus all access trust permissions."
+                >
+                  <i data-lucide="info"></i>
+                </span>
+              </div>
+              <div class="command-desc">
+                Allow container access within your claim
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">
+                /permissiontrust <span class="param">(username)</span>
+                <span
+                  class="info-icon"
+                  data-tooltip="Allows the player to manage trust for other players in your claim. Use with caution!"
+                >
+                  <i data-lucide="info"></i>
+                </span>
+              </div>
+              <div class="command-desc">
+                Let another player manage trust in your claim
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">/claimlist</div>
+              <div class="command-desc">
+                Display all your claims, their sizes, and their locations
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">/subdivideclaim</div>
+              <div class="command-desc">
+                Switches claiming modes to subdivide sections of existing claims
+                with independent trust permissions
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">/abandonclaim</div>
+              <div class="command-desc">
+                Delete the claim you're currently standing in
+              </div>
+            </div>
+            <div class="command-card">
+              <div class="command-name">/abandonallclaims</div>
+              <div class="command-desc">
+                Remove all of your claims (use with caution!)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rank Commands -->
+        <div class="command-section" data-category="rank">
+          <div class="section-header">
+            <i data-lucide="crown" class="section-icon"></i>
+            <h2>Rank Commands</h2>
+          </div>
+          <div class="rank-info">
+            <p>
+              Many rank commands scale with tier. Higher ranks unlock more
+              features, better rewards, and additional customization options
+              like colored text and prefixes.
             </p>
-        </section>
+          </div>
+
+          <!-- Rank Tiers -->
+          <div class="rank-tier" data-rank="slayer">
+            <div class="rank-header">
+              <i data-lucide="sword"></i>
+              <h3>Slayer</h3>
+            </div>
+            <div class="rank-commands">
+              <div class="rank-command-item">
+                <code>/enderchest</code>
+                <code>/ec</code>
+                <span class="rank-desc"
+                  >Access your ender chest from anywhere</span
+                >
+              </div>
+              <div class="rank-command-item">
+                <code>/nickname</code>
+                <code>/nick</code>
+                <span class="rank-desc">Set a custom display name</span>
+              </div>
+              <div class="rank-command-item">
+                <code>/top</code>
+                <span class="rank-desc"
+                  >Teleport to the highest block at your location</span
+                >
+              </div>
+              <div class="rank-command-item">
+                <code>/buyclaimblocks</code>
+                <span
+                  class="rank-desc info-icon"
+                  data-tooltip="Purchase additional claim blocks using in-game currency. Rate varies by rank."
+                >
+                  Buy extra claim blocks
+                  <i data-lucide="info"></i>
+                </span>
+              </div>
+              <div class="rank-command-item">
+                <code>/transferclaimblocks</code>
+                <span class="rank-desc"
+                  >Transfer claim blocks between players</span
+                >
+              </div>
+              <div class="rank-command-item">
+                <code>/disposal</code>
+                <span class="rank-desc"
+                  >Open a disposal interface to delete items</span
+                >
+              </div>
+              <div class="rank-command-item">
+                <code>/rtp</code>
+                <span class="rank-desc"
+                  >Randomly teleport to a safe location</span
+                >
+              </div>
+              <div class="rank-command-item">
+                <code>/redeem</code>
+                <span class="rank-desc"
+                  >Claim rank-specific rewards and bonuses</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="rank-tier" data-rank="undead">
+            <div class="rank-header">
+              <i data-lucide="skull"></i>
+              <h3>Undead Slayer</h3>
+              <span class="rank-badge">Includes all Slayer commands</span>
+            </div>
+            <div class="rank-commands">
+              <div class="rank-command-item">
+                <code>/craft</code>
+                <span class="rank-desc">Open a portable crafting table</span>
+              </div>
+              <div class="rank-command-item">
+                <code>/nickname</code>
+                <code>/nick</code>
+                <span class="rank-desc">
+                  Set a custom display name with colored text
+                  <a href="#" class="color-link">[View colors]</a>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rank-tier" data-rank="demon">
+            <div class="rank-header">
+              <i data-lucide="flame"></i>
+              <h3>Demon Slayer</h3>
+              <span class="rank-badge"
+                >Includes all Undead Slayer commands</span
+              >
+            </div>
+            <div class="rank-commands">
+              <div class="rank-command-item">
+                <code>/feed</code>
+                <span class="rank-desc">Instantly restore your hunger bar</span>
+              </div>
+              <div class="rank-command-item">
+                <code>/repair</code>
+                <span class="rank-desc">Repair the item in your hand</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rank-tier" data-rank="soul">
+            <div class="rank-header">
+              <i data-lucide="sparkles"></i>
+              <h3>Soul Slayer / Custom</h3>
+              <span class="rank-badge">Includes all Demon Slayer commands</span>
+            </div>
+            <div class="rank-commands">
+              <div class="rank-command-item">
+                <code>/repairall</code>
+                <span class="rank-desc"
+                  >Repair all items in your inventory</span
+                >
+              </div>
+              <div class="rank-command-item">
+                <code>/heal</code>
+                <span class="rank-desc">Instantly restore your health</span>
+              </div>
+              <div class="rank-command-item">
+                <code>/cinderprefix</code>
+                <span class="rank-desc"
+                  >Set a custom colored prefix before your name</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Last Updated Footer -->
+      <section class="commands-footer wrap">
+        <p class="last-updated">
+          <i data-lucide="clock"></i>
+          Last updated: November 5, 2025
+        </p>
+      </section>
     </main>
 
     <!-- Footer Component Slot -->
@@ -349,85 +485,89 @@
     <div id="modal-slot"></div>
 
     <!-- Tooltip Container -->
-    <div id="tooltip" class="tooltip" style="display:none;"></div>
+    <div id="tooltip" class="tooltip" style="display: none"></div>
 
     <!-- Load Component Manager -->
     <script src="../js/components.js"></script>
 
     <script>
-        // Initialize Lucide icons
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
+      // Initialize Lucide icons
+      if (typeof lucide !== "undefined") {
+        lucide.createIcons();
+      }
 
-        // Category filtering
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const category = button.dataset.category;
-                
-                // Update active button
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                button.classList.add('active');
-                
-                // Filter command sections
-                document.querySelectorAll('.command-section').forEach(section => {
-                    if (category === 'all' || section.dataset.category === category) {
-                        section.style.display = 'block';
-                    } else {
-                        section.style.display = 'none';
-                    }
-                });
+      // Category filtering
+      document.querySelectorAll(".filter-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          const category = button.dataset.category;
 
-                // Scroll to first visible section
-                if (category !== 'all') {
-                    const firstSection = document.querySelector(`.command-section[data-category="${category}"]`);
-                    if (firstSection) {
-                        firstSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }
-            });
+          // Update active button
+          document.querySelectorAll(".filter-btn").forEach((btn) => {
+            btn.classList.remove("active");
+          });
+          button.classList.add("active");
+
+          // Filter command sections
+          document.querySelectorAll(".command-section").forEach((section) => {
+            if (category === "all" || section.dataset.category === category) {
+              section.style.display = "block";
+            } else {
+              section.style.display = "none";
+            }
+          });
+
+          // Scroll to first visible section
+          if (category !== "all") {
+            const firstSection = document.querySelector(
+              `.command-section[data-category="${category}"]`
+            );
+            if (firstSection) {
+              firstSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          }
+        });
+      });
+
+      // Tooltip functionality
+      const tooltip = document.getElementById("tooltip");
+      document.querySelectorAll(".info-icon").forEach((icon) => {
+        icon.addEventListener("mouseenter", (e) => {
+          const text = icon.dataset.tooltip;
+          if (text) {
+            tooltip.textContent = text;
+            tooltip.style.display = "block";
+            positionTooltip(e);
+          }
         });
 
-        // Tooltip functionality
-        const tooltip = document.getElementById('tooltip');
-        document.querySelectorAll('.info-icon').forEach(icon => {
-            icon.addEventListener('mouseenter', (e) => {
-                const text = icon.dataset.tooltip;
-                if (text) {
-                    tooltip.textContent = text;
-                    tooltip.style.display = 'block';
-                    positionTooltip(e);
-                }
-            });
+        icon.addEventListener("mousemove", positionTooltip);
 
-            icon.addEventListener('mousemove', positionTooltip);
-
-            icon.addEventListener('mouseleave', () => {
-                tooltip.style.display = 'none';
-            });
+        icon.addEventListener("mouseleave", () => {
+          tooltip.style.display = "none";
         });
+      });
 
-        function positionTooltip(e) {
-            const tooltipRect = tooltip.getBoundingClientRect();
-            const x = e.clientX + 10;
-            const y = e.clientY + 10;
-            
-            // Keep tooltip on screen
-            if (x + tooltipRect.width > window.innerWidth) {
-                tooltip.style.left = (e.clientX - tooltipRect.width - 10) + 'px';
-            } else {
-                tooltip.style.left = x + 'px';
-            }
-            
-            if (y + tooltipRect.height > window.innerHeight) {
-                tooltip.style.top = (e.clientY - tooltipRect.height - 10) + 'px';
-            } else {
-                tooltip.style.top = y + 'px';
-            }
+      function positionTooltip(e) {
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const x = e.clientX + 10;
+        const y = e.clientY + 10;
+
+        // Keep tooltip on screen
+        if (x + tooltipRect.width > window.innerWidth) {
+          tooltip.style.left = e.clientX - tooltipRect.width - 10 + "px";
+        } else {
+          tooltip.style.left = x + "px";
         }
+
+        if (y + tooltipRect.height > window.innerHeight) {
+          tooltip.style.top = e.clientY - tooltipRect.height - 10 + "px";
+        } else {
+          tooltip.style.top = y + "px";
+        }
+      }
     </script>
-</body>
+  </body>
 </html>
-
