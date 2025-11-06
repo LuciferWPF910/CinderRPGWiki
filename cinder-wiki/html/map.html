@@ -17,54 +17,8 @@
     <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="site-header">
-        <div class="wrap header-inner">
-            <a class="brand" href="home.html">
-                <img src="../images/CinderNewMegaLargePix.png" alt="Cinder Wiki logo" class="brand-img" width="36" height="36">
-                <svg class="brand-fallback" width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display:none;">
-                    <defs>
-                        <linearGradient id="g1" x1="0" x2="1">
-                            <stop offset="0%" stop-color="#d4c5b9" />
-                            <stop offset="100%" stop-color="#bfa06f" />
-                        </linearGradient>
-                    </defs>
-                    <circle cx="12" cy="12" r="10" fill="none" stroke="url(#g1)" stroke-width="1.6" />
-                    <path d="M7 14c1.5-2 4-4 6-6 0 3-1.5 6-3 7-1.5 1-3 0-3  -1z" fill="url(#g1)" opacity="0.95" transform="translate(0,1)"/>
-                </svg>
-                <span class="brand-text">CinderRPG</span>
-            </a>
-
-            <nav class="nav" aria-label="Main navigation">
-                <ul class="nav-list">
-                    <li><a class="nav-link" href="index.html">Home</a></li>
-                    <li><a class="nav-link" href="#">Gameplay Basics</a></li>
-                    <li><a class="nav-link" href="#">Mechanics</a></li>
-                    <li><a class="nav-link" href="#">Store</a></li>
-                    <li><a class="nav-link" href="#">History</a></li>
-                    <li class="has-dropdown">
-                        <a class="nav-link" href="#">Resources &amp; Guides</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Commands</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="map.html" class="active">Maps</a></li>
-                            <li><a href="#">Creature encyclopedia</a></li>
-                            <li><a href="#">Items</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="search-wrap">
-                <div class="search-container">
-                    <i class="ph ph-magnifying-glass"></i>
-                    <label for="site-search" class="visually-hidden"></label>
-                    <input id="site-search" class="search" type="search" placeholder="Search..." />
-                </div>
-            </div>
-
-            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-        </div>
-    </header>
+    <!-- Header Component Slot -->
+    <div id="header-slot"></div>
 
     <main>
         <!-- Shard Selector -->
@@ -280,12 +234,12 @@
                             <span class="region-level">Level 1</span>
                         </div>
                         <p class="region-description">A peaceful starting town where new adventurers begin their journey.</p>
-                        <div class="region-difficulty">
+                        <!-- <div class="region-difficulty">
                             <span class="difficulty-label">Difficulty:</span>
                             <div class="difficulty-dots">
                                 <span class="dot"></span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="region-hover-overlay">
                         <h3 class="region-hover-name">Locfel</h3>
@@ -305,12 +259,12 @@
                             <span class="region-level">Level 5</span>
                         </div>
                         <p class="region-description">A small settlement nestled in the marshlands.</p>
-                        <div class="region-difficulty">
+                        <!-- <div class="region-difficulty">
                             <span class="difficulty-label">Difficulty:</span>
                             <div class="difficulty-dots">
                                 <span class="dot"></span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="region-hover-overlay">
                         <h3 class="region-hover-name">Fettered Fens</h3>
@@ -332,13 +286,13 @@
                             <span class="region-level">Level 10-20</span>
                         </div>
                         <p class="region-description">Ancient ruins filled with challenges and treasures.</p>
-                        <div class="region-difficulty">
+                        <!-- <div class="region-difficulty">
                             <span class="difficulty-label">Difficulty:</span>
                             <div class="difficulty-dots">
                                 <span class="dot"></span>
                                 <span class="dot"></span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="region-hover-overlay">
                         <h3 class="region-hover-name">Aridian Dungeon</h3>
@@ -358,13 +312,13 @@
                             <span class="region-level">Level 15-20</span>
                         </div>
                         <p class="region-description">A beautiful woodland filled with cherry blossoms and mysteries.</p>
-                        <div class="region-difficulty">
+                        <!-- <div class="region-difficulty">
                             <span class="difficulty-label">Difficulty:</span>
                             <div class="difficulty-dots">
                                 <span class="dot"></span>
                                 <span class="dot"></span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="region-hover-overlay">
                         <h3 class="region-hover-name">Cherry Woods</h3>
@@ -384,13 +338,13 @@
                             <span class="region-level">Level 20</span>
                         </div>
                         <p class="region-description">A bustling trading hub for mid-level adventurers.</p>
-                        <div class="region-difficulty">
+                        <!-- <div class="region-difficulty">
                             <span class="difficulty-label">Difficulty:</span>
                             <div class="difficulty-dots">
                                 <span class="dot"></span>
                                 <span class="dot"></span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="region-hover-overlay">
                         <h3 class="region-hover-name">Shaleton</h3>
@@ -411,14 +365,14 @@
                             <span class="region-level">Level 25-40</span>
                         </div>
                         <p class="region-description">Treacherous swamps filled with dangerous creatures.</p>
-                        <div class="region-difficulty">
+                        <!-- <div class="region-difficulty">
                             <span class="difficulty-label">Difficulty:</span>
                             <div class="difficulty-dots">
                                 <span class="dot"></span>
                                 <span class="dot"></span>
                                 <span class="dot"></span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="region-hover-overlay">
                         <h3 class="region-hover-name">Illeryan Swamplands</h3>
@@ -440,14 +394,14 @@
                             <span class="region-level">Level 20-35</span>
                         </div>
                         <p class="region-description">Colony of giant ants with valuable Platsilver nodes and formidable minibosses.</p>
-                        <div class="region-difficulty">
+                        <!-- <div class="region-difficulty">
                             <span class="difficulty-label">Difficulty:</span>
                             <div class="difficulty-dots">
                                 <span class="dot"></span>
                                 <span class="dot"></span>
                                 <span class="dot"></span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="region-hover-overlay">
                         <h3 class="region-hover-name">Ant Area</h3>
@@ -469,7 +423,7 @@
                             <span class="region-level">Level 30-45</span>
                         </div>
                         <p class="region-description">A haunted crypt where the undead roam freely.</p>
-                        <div class="region-difficulty">
+                        <!-- <div class="region-difficulty">
                             <span class="difficulty-label">Difficulty:</span>
                             <div class="difficulty-dots">
                                 <span class="dot"></span>
@@ -477,7 +431,7 @@
                                 <span class="dot"></span>
                                 <span class="dot"></span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="region-hover-overlay">
                         <h3 class="region-hover-name">Allhollow Crypt</h3>
@@ -497,7 +451,7 @@
                             <span class="region-level">Level 35-45</span>
                         </div>
                         <p class="region-description">A cursed wasteland where death itself holds dominion.</p>
-                        <div class="region-difficulty">
+                        <!-- <div class="region-difficulty">
                             <span class="difficulty-label">Difficulty:</span>
                             <div class="difficulty-dots">
                                 <span class="dot"></span>
@@ -505,7 +459,7 @@
                                 <span class="dot"></span>
                                 <span class="dot"></span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="region-hover-overlay">
                         <h3 class="region-hover-name">Dead Lands</h3>
@@ -644,10 +598,10 @@
                                     <span class="region-level">Level 1-15</span>
                                 </div>
                                 <p class="region-description">Frozen plains where new travelers learn to survive the cold.</p>
-                                <div class="region-difficulty">
+                                <!-- <div class="region-difficulty">
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span></div>
-                                </div>
+                                </div> -->
                             </div>
                         </article>
 
@@ -661,10 +615,10 @@
                                     <span class="region-level">Level 20-35</span>
                                 </div>
                                 <p class="region-description">Glittering caves filled with precious gems and dangers.</p>
-                                <div class="region-difficulty">
+                                <!-- <div class="region-difficulty">
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span></div>
-                                </div>
+                                </div> -->
                             </div>
                         </article>
 
@@ -678,10 +632,10 @@
                                     <span class="region-level">Level 30-45</span>
                                 </div>
                                 <p class="region-description">An abandoned fortress locked in eternal winter.</p>
-                                <div class="region-difficulty">
+                                <!-- <div class="region-difficulty">
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                                </div>
+                                </div> -->
                             </div>
                         </article>
 
@@ -695,10 +649,10 @@
                                     <span class="region-level">Level 40-55</span>
                                 </div>
                                 <p class="region-description">Savage lands where beasts and warriors clash.</p>
-                                <div class="region-difficulty">
+                                <!-- <div class="region-difficulty">
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                                </div>
+                                </div> -->
                             </div>
                         </article>
 
@@ -712,10 +666,10 @@
                                     <span class="region-level">Level 15-30</span>
                                 </div>
                                 <p class="region-description">A rare sanctuary of warmth amidst the ice.</p>
-                                <div class="region-difficulty">
+                                <!-- <div class="region-difficulty">
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span></div>
-                                </div>
+                                </div> -->
                             </div>
                         </article>
 
@@ -729,10 +683,10 @@
                                     <span class="region-level">Level 50+</span>
                                 </div>
                                 <p class="region-description">The frozen palace of the ancient ice king.</p>
-                                <div class="region-difficulty">
+                                <!-- <div class="region-difficulty">
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                                </div>
+                                </div> -->
                             </div>
                         </article>
                     </div>
@@ -867,10 +821,10 @@
                                     <span class="region-level">Level 1-15</span>
                                 </div>
                                 <p class="region-description">Eerie grasslands where shadows whisper forbidden secrets.</p>
-                                <div class="region-difficulty">
+                                <!-- <div class="region-difficulty">
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span></div>
-                                </div>
+                                </div> -->
                             </div>
                         </article>
 
@@ -884,10 +838,10 @@
                                     <span class="region-level">Level 20-35</span>
                                 </div>
                                 <p class="region-description">A chasm torn open by void energy, pulsing with dark power.</p>
-                                <div class="region-difficulty">
+                                <!-- <div class="region-difficulty">
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span></div>
-                                </div>
+                                </div> -->
                             </div>
                         </article>
 
@@ -901,10 +855,10 @@
                                     <span class="region-level">Level 30-45</span>
                                 </div>
                                 <p class="region-description">A corrupted temple where void creatures are born.</p>
-                                <div class="region-difficulty">
+                                <!-- <div class="region-difficulty">
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                                </div>
+                                </div> -->
                             </div>
                         </article>
 
@@ -918,10 +872,10 @@
                                     <span class="region-level">Level 40-55</span>
                                 </div>
                                 <p class="region-description">A warzone where reality itself becomes a weapon.</p>
-                                <div class="region-difficulty">
+                                <!-- <div class="region-difficulty">
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                                </div>
+                                </div> -->
                             </div>
                         </article>
 
@@ -935,10 +889,10 @@
                                     <span class="region-level">Level 15-30</span>
                                 </div>
                                 <p class="region-description">A pocket of sanctuary protected by ancient light magic.</p>
-                                <div class="region-difficulty">
+                                <!-- <div class="region-difficulty">
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span></div>
-                                </div>
+                                </div> -->
                             </div>
                         </article>
 
@@ -952,10 +906,10 @@
                                     <span class="region-level">Level 50+</span>
                                 </div>
                                 <p class="region-description">The epicenter of void corruption, where madness rules.</p>
-                                <div class="region-difficulty">
+                                <!-- <div class="region-difficulty">
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                                </div>
+                                </div> -->
                             </div>
                         </article>
                     </div>
@@ -964,136 +918,16 @@
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="wrap footer-inner">
-            <small>© 2025 CinderRPG Wiki Project | Built by <a href="https://github.com/Faris25-dev" target="_blank" rel="noopener noreferrer">Faris25-dev</a></small>
-            <nav class="footer-links">
-                <a href="#">Patch Notes</a>
-                <a href="https://discord.gg/gQ39rGdpQ7" target="_blank">Discord</a>
-                <a href="#" id="open-bug-modal">Report an Issue</a>
-                <a href="#">Terms of Service</a>
-            </nav>
-        </div>
-    </footer>
+    <!-- Footer Component Slot -->
+    <div id="footer-slot"></div>
 
-    <!-- Bug Report Modal -->
-    <div id="bug-modal" class="modal" role="dialog" aria-labelledby="bug-modal-title" aria-modal="true" style="display:none;">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">&times;</button>
-            <h2 id="bug-modal-title">Report a Bug</h2>
-            <p class="modal-message">Help us improve the world. Tell us what broke and how it happened.</p>
-            <div class="modal-actions">
-                <a href="https://discord.gg/bighatstudios" target="_blank" rel="noopener noreferrer" class="btn primary">
-                    <i class="fa-brands fa-discord"></i>
-                    Report on Discord
-                </a>
-                <a href="mailto:sBigHatStudios+support@gmail.com?subject=CinderRPG%20Bug%20Report" class="btn outline">
-                    <i class="ph ph-envelope"></i>
-                    Email Support
-                </a>
-            </div>
-        </div>
-    </div>
+    <!-- Modal Component Slot -->
+    <div id="modal-slot"></div>
+
+    <!-- Load Component Manager -->
+    <script src="../js/components.js"></script>
 
     <script>
-        // Hamburger menu toggle
-        const hamburger = document.querySelector('.nav-toggle');
-        const nav = document.querySelector('.nav');
-
-        if (hamburger) {
-            hamburger.addEventListener('click', () => {
-                nav.classList.toggle('open');
-                hamburger.classList.toggle('active');
-            });
-        }
-
-        // Handle dropdown clicks on mobile
-        const dropdowns = document.querySelectorAll('.has-dropdown');
-        let isAnimating = false;
-        
-        dropdowns.forEach(dropdown => {
-            const link = dropdown.querySelector('.nav-link');
-            const dropdownMenu = dropdown.querySelector('.dropdown');
-            
-            if(link) {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    // Prevent rapid clicks during animation
-                    if(isAnimating) return;
-                    isAnimating = true;
-                    
-                    // Check if opening or closing
-                    const isOpening = !dropdown.classList.contains('touch-open');
-                    
-                    // Toggle this dropdown
-                    dropdown.classList.toggle('touch-open');
-                    
-                    // Auto-scroll to show dropdown items when opening
-                    if(isOpening && dropdownMenu) {
-                        setTimeout(() => {
-                            // Scroll the nav container to show the dropdown
-                            const navContainer = nav;
-                            const dropdownBottom = dropdown.offsetTop + dropdown.offsetHeight;
-                            
-                            navContainer.scrollTo({
-                                top: dropdownBottom - navContainer.clientHeight + 20,
-                                behavior: 'smooth'
-                            });
-                        }, 100); // Small delay to let the dropdown expand
-                    }
-                    
-                    // Reset animation flag after transition
-                    setTimeout(() => {
-                        isAnimating = false;
-                    }, 250);
-                });
-            }
-        });
-
-        // Close dropdown when clicking other nav links (not dropdown items)
-        const navLinks = document.querySelectorAll('.nav-list > li:not(.has-dropdown) > .nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                // Don't prevent navigation, just close dropdowns
-                dropdowns.forEach(dropdown => {
-                    dropdown.classList.remove('touch-open');
-                });
-            });
-        });
-
-        // Close menu on outside click
-        document.addEventListener('click', (e) => {
-            if (nav && hamburger) {
-                if (nav.classList.contains('open')) {
-                    if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
-                        nav.classList.remove('open');
-                        hamburger.classList.remove('active');
-                        // Also close any open dropdowns
-                        dropdowns.forEach(dropdown => {
-                            dropdown.classList.remove('touch-open');
-                        });
-                    }
-                }
-            }
-        });
-
-        // Close menu on ESC key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && nav && hamburger) {
-                if (nav.classList.contains('open')) {
-                    nav.classList.remove('open');
-                    hamburger.classList.remove('active');
-                    // Also close any open dropdowns
-                    dropdowns.forEach(dropdown => {
-                        dropdown.classList.remove('touch-open');
-                    });
-                }
-            }
-        });
-
         // Map Filter Panel Functionality
         (function() {
             const filterPanels = document.querySelectorAll('.map-filter-panel');
@@ -1666,46 +1500,6 @@
                 }
             });
         });
-
-        // Bug Report Modal Script
-        (function() {
-            const modal = document.getElementById('bug-modal');
-            const openBtn = document.getElementById('open-bug-modal');
-            const closeBtn = modal.querySelector('.modal-close');
-            const overlay = modal.querySelector('.modal-overlay');
-
-            // Open modal
-            openBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                modal.style.display = 'flex';
-                // Trigger reflow for animation
-                modal.offsetHeight;
-                modal.classList.add('modal-open');
-                document.body.style.overflow = 'hidden';
-            });
-
-            // Close modal function
-            function closeModal() {
-                modal.classList.remove('modal-open');
-                document.body.style.overflow = '';
-                setTimeout(() => {
-                    modal.style.display = 'none';
-                }, 300); // Match animation duration
-            }
-
-            // Close on X button
-            closeBtn.addEventListener('click', closeModal);
-
-            // Close on overlay click
-            overlay.addEventListener('click', closeModal);
-
-            // Close on Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.style.display === 'flex') {
-                    closeModal();
-                }
-            });
-        })();
     </script>
 </body>
 </html>

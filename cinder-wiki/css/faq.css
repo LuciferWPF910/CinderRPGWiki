@@ -173,6 +173,15 @@
     cursor: pointer;
     font-size: 0.95rem;
     transition: all var(--anim-fast) ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.faq-category-btn i {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
 }
 
 .faq-category-btn:hover,

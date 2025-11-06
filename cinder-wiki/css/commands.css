@@ -1,0 +1,588 @@
+/* ============================================
+   Commands Reference Page Styles
+   ============================================ */
+
+/* Commands Header */
+.commands-header {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.commands-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--beige);
+    margin: 0 0 0.75rem;
+    text-shadow: 0 0 20px rgba(191, 160, 111, 0.3);
+    font-family: 'Cinzel', serif;
+}
+
+.commands-subtitle {
+    font-size: 1.125rem;
+    color: var(--muted);
+    margin: 0;
+    font-style: italic;
+}
+
+/* Category Filter */
+.commands-filter {
+    padding: 0 1.5rem 2rem;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    color: var(--muted);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--anim);
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn i {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.15;
+    transform: translate(-50%, -50%);
+    transition: width var(--anim), height var(--anim);
+}
+
+.filter-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.filter-btn:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, rgba(191, 160, 111, 0.15), rgba(212, 197, 185, 0.1));
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 20px rgba(191, 160, 111, 0.2);
+}
+
+/* Commands Content */
+.commands-content {
+    padding: 0 1.5rem 3rem;
+}
+
+.command-section {
+    margin-bottom: 3rem;
+    animation: fadeIn var(--anim-slow) ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--beige);
+    margin: 0;
+    font-family: 'Cinzel', serif;
+}
+
+.section-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--accent);
+    stroke-width: 2;
+}
+
+/* Commands Grid */
+.commands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+}
+
+.command-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: all var(--anim);
+    position: relative;
+    overflow: hidden;
+}
+
+.command-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, var(--accent), var(--beige));
+    transition: height var(--anim);
+}
+
+.command-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.command-card:hover::before {
+    height: 100%;
+}
+
+.command-name {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.command-name .param {
+    color: var(--beige);
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.command-desc {
+    font-size: 0.9375rem;
+    color: var(--text);
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* Info Icon */
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    cursor: help;
+    color: var(--accent);
+    position: relative;
+}
+
+.info-icon i {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
+    opacity: 0.7;
+    transition: opacity var(--anim-fast);
+}
+
+.info-icon:hover i {
+    opacity: 1;
+}
+
+/* Tooltip */
+.tooltip {
+    position: fixed;
+    max-width: 280px;
+    padding: 0.75rem 1rem;
+    background: var(--panel);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    z-index: 10000;
+    pointer-events: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    animation: tooltipFadeIn var(--anim-fast) ease-out;
+}
+
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Rank Commands Section */
+.rank-info {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--accent);
+}
+
+.rank-info p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.rank-tier {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: all var(--anim);
+}
+
+.rank-tier:hover {
+    border-color: var(--accent);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Rank specific colors */
+.rank-tier[data-rank="slayer"] {
+    border-left: 4px solid #8b8b8b;
+}
+
+.rank-tier[data-rank="undead"] {
+    border-left: 4px solid #6b9b6b;
+}
+
+.rank-tier[data-rank="demon"] {
+    border-left: 4px solid #d4694f;
+}
+
+.rank-tier[data-rank="soul"] {
+    border-left: 4px solid #bfa06f;
+}
+
+.rank-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(135deg, rgba(191, 160, 111, 0.1), rgba(212, 197, 185, 0.05));
+    border-bottom: 1px solid var(--border);
+}
+
+.rank-header i {
+    width: 24px;
+    height: 24px;
+    color: var(--accent);
+    stroke-width: 2;
+}
+
+.rank-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--beige);
+    margin: 0;
+    font-family: 'Cinzel', serif;
+}
+
+.rank-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    color: var(--muted);
+    margin-left: auto;
+    font-weight: 500;
+}
+
+.rank-commands {
+    padding: 1.5rem;
+}
+
+.rank-command-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    margin-bottom: 0.5rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all var(--anim-fast);
+}
+
+.rank-command-item:last-child {
+    margin-bottom: 0;
+}
+
+.rank-command-item:hover {
+    background: var(--panel);
+    border-color: var(--accent);
+    transform: translateX(4px);
+}
+
+.rank-command-item code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9375rem;
+    color: var(--accent);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    font-weight: 600;
+}
+
+.rank-command-item .rank-desc {
+    flex: 1;
+    color: var(--text);
+    font-size: 0.9375rem;
+    opacity: 0.9;
+}
+
+.rank-command-item .color-link {
+    color: var(--beige);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color var(--anim-fast);
+}
+
+.rank-command-item .color-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* Commands Footer */
+.commands-footer {
+    padding: 2rem 1.5rem 3rem;
+    text-align: center;
+}
+
+.last-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.9375rem;
+    font-style: italic;
+}
+
+.last-updated i {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+    .commands-title {
+        font-size: 2.25rem;
+    }
+
+    .commands-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .commands-grid {
+        grid-template-columns: 1fr;
+        gap: 0.875rem;
+    }
+
+    .filter-buttons {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .filter-btn i {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Mobile filter button ordering */
+    .filter-btn[data-category="all"] {
+        order: 1;
+        flex-basis: 100%;
+    }
+
+    .filter-btn[data-category="integral"] {
+        order: 2;
+    }
+
+    .filter-btn[data-category="rpg"] {
+        order: 3;
+    }
+
+    .filter-btn[data-category="overworld"] {
+        order: 4;
+    }
+
+    .filter-btn[data-category="rank"] {
+        order: 5;
+    }
+
+    .rank-header {
+        flex-wrap: wrap;
+    }
+
+    .rank-badge {
+        flex-basis: 100%;
+        margin-left: 0;
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+
+    .rank-command-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .rank-command-item code {
+        font-size: 0.875rem;
+    }
+
+    .rank-command-item .rank-desc {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .commands-header {
+        padding: 2rem 1rem 1.5rem;
+    }
+
+    .commands-title {
+        font-size: 1.875rem;
+    }
+
+    .commands-subtitle {
+        font-size: 0.9375rem;
+    }
+
+    .commands-filter {
+        padding: 0 1rem 1.5rem;
+    }
+
+    .commands-content {
+        padding: 0 1rem 2rem;
+    }
+
+    .command-section {
+        margin-bottom: 2rem;
+    }
+
+    .section-header {
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .section-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .command-card {
+        padding: 1rem;
+    }
+
+    .command-name {
+        font-size: 0.9375rem;
+    }
+
+    .command-desc {
+        font-size: 0.875rem;
+    }
+
+    .rank-header {
+        padding: 1rem;
+    }
+
+    .rank-header h3 {
+        font-size: 1.25rem;
+    }
+
+    .rank-commands {
+        padding: 1rem;
+    }
+
+    .tooltip {
+        max-width: 240px;
+        font-size: 0.8125rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .commands-title {
+        font-size: 1.625rem;
+    }
+
+    .filter-btn {
+        font-size: 0.8125rem;
+        padding: 0.5rem 0.875rem;
+    }
+
+    .command-card {
+        padding: 0.875rem;
+    }
+
+    .rank-info {
+        padding: 1rem;
+        font-size: 0.875rem;
+    }
+}

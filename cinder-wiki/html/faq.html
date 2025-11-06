@@ -15,56 +15,12 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
+    <!--Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <header class="site-header">
-        <div class="wrap header-inner">
-            <a class="brand" href="../../index.html">
-                <img src="../images/CinderNewMegaLargePix.png" alt="Cinder Wiki logo" class="brand-img" width="36" height="36">
-                <svg class="brand-fallback" width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display:none;">
-                    <defs>
-                        <linearGradient id="g1" x1="0" x2="1">
-                            <stop offset="0%" stop-color="#d4c5b9" />
-                            <stop offset="100%" stop-color="#bfa06f" />
-                        </linearGradient>
-                    </defs>
-                    <circle cx="12" cy="12" r="10" fill="none" stroke="url(#g1)" stroke-width="1.6" />
-                    <path d="M7 14c1.5-2 4-4 6-6 0 3-1.5 6-3 7-1.5 1-3 0-3  -1z" fill="url(#g1)" opacity="0.95" transform="translate(0,1)"/>
-                </svg>
-                <span class="brand-text">CinderRPG</span>
-            </a>
-
-            <nav class="nav" aria-label="Main navigation">
-                <ul class="nav-list">
-                    <li><a class="nav-link" href="../../index.html">Home</a></li>
-                    <li><a class="nav-link" href="#">Gameplay Basics</a></li>
-                    <li><a class="nav-link" href="#">Mechanics</a></li>
-                    <li><a class="nav-link" href="#">Store</a></li>
-                    <li><a class="nav-link" href="#">History</a></li>
-                    <li class="has-dropdown">
-                        <a class="nav-link" href="#">Resources &amp; Guides</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Commands</a></li>
-                            <li><a href="faq.html" class="active">FAQ</a></li>
-                            <li><a href="map.html">Maps</a></li>
-                            <li><a href="#">Creature encyclopedia</a></li>
-                            <li><a href="#">Items</a></li>
-                        </ul>
-                    </li> 
-                </ul>
-            </nav>
-
-            <div class="search-wrap">
-                <div class="search-container">
-                    <i class="ph ph-magnifying-glass"></i>
-                    <label for="site-search" class="visually-hidden"></label>
-                    <input id="site-search" class="search" type="search" placeholder="Search..." />
-                </div>
-            </div>
-
-            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-        </div>
-    </header>
+    <!-- Header Component Slot -->
+    <div id="header-slot"></div>
 
     <main>
         <!-- Studio Banner -->
@@ -82,11 +38,26 @@
             <!-- Category Filters (Optional) -->
             <div class="faq-categories">
                 <button class="faq-category-btn active" data-category="all">All</button>
-                <button class="faq-category-btn" data-category="getting-started">Getting Started</button>
-                <button class="faq-category-btn" data-category="gameplay">Gameplay</button>
-                <button class="faq-category-btn" data-category="advice">Advice</button>
-                <button class="faq-category-btn" data-category="issues">Issues</button>
-                <button class="faq-category-btn" data-category="misc">Misc</button>
+                <button class="faq-category-btn" data-category="getting-started">
+                    <i data-lucide="wand-2"></i>
+                    <span>Getting Started</span>
+                </button>
+                <button class="faq-category-btn" data-category="gameplay">
+                    <i data-lucide="swords"></i>
+                    <span>Gameplay</span>
+                </button>
+                <button class="faq-category-btn" data-category="advice">
+                    <i data-lucide="feather"></i>
+                    <span>Advice</span>
+                </button>
+                <button class="faq-category-btn" data-category="issues">
+                    <i data-lucide="alert-triangle"></i>
+                    <span>Issues</span>
+                </button>
+                <button class="faq-category-btn" data-category="misc">
+                    <i data-lucide="sparkles"></i>
+                    <span>Misc</span>
+                </button>
             </div>
 
             <div class="faq-container">
@@ -175,7 +146,23 @@
                         What do I do about lag/crashes?
                     </button>
                     <div class="faq-answer">
-                        <p>Check your allocated RAM to make sure it's at least 3.5 GB, however do not exceed 50% of your total RAM. If you cannot see the option to improve it to 3.5 or higher then you need to update your Java Runtime Environment. If this does not work then seek assistance in the BHS Discord, or attempt to join using Cinder RPG Lite.</p>
+                        <p>Check your allocated RAM to make sure it's at least 3.5 GB <I>(3-6 is recommended)</I>, however do not exceed 50% of your total RAM. If you cannot see the option to improve it to 3.5 or higher then you need to update your Java Runtime Environment. If this does not work then seek assistance in the BHS Discord, or attempt to join using Cinder RPG Lite.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-category="issues">
+                    <button class="faq-question">
+                       Why can't I increase my RAM allocation beyond 1 gig in the launcher settings?
+                    </button>
+                    <div class="faq-answer">
+                        <p>It seems like your launcher is using 32-bit Java. If your operating system is also 32-bit, unfortunately, you're limited to 1 gig. However, if you have a 64-bit system, try downloading 64-bit Java. Minecraft usually recognizes the latest Java installation, allowing for increased memory options. Keep in mind, it's not recommended to allocate more than <I>6 GB</I>, 3-6 is the sweet spot.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-category="issues">
+                    <button class="faq-question">
+                        I am on a mac and my game is crashing after launching a modpack
+                    </button>
+                    <div class="faq-answer">
+                        <p>A workaround for this has been posted in this <a href="http://forums.technicpack.net/threads/mac-os-x-nothing-starts-up-temporary-launcher-fix.49661/" target="_blank">Thread</a>.</p>
                     </div>
                 </div>
 
@@ -202,7 +189,8 @@
                     <div class="faq-answer">
                         <p>To report a bug, please use the <a href="#" id="open-bug-modal">bug report form</a> or reach out to the staff team via the BHS Discord.</p>
                     </div>
-                    </div>
+                </div>
+                
                 <div class="faq-item" data-category="misc">
                     <button class="faq-question">
                         Are there backpacks? How do I get them?
@@ -231,37 +219,14 @@
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="wrap footer-inner">
-            <small>© 2025 CinderRPG Wiki Project | Built by <a href="https://github.com/Faris25-dev" target="_blank" rel="noopener noreferrer">Faris25-dev</a></small>
-            <nav class="footer-links">
-                <a href="#">Patch Notes</a>
-                <a href="https://discord.gg/gQ39rGdpQ7" target="_blank">Discord</a>
-                <a href="#" id="open-bug-modal">Report an Issue</a>
-                <a href="#">Terms of Service</a>
-            </nav>
-        </div>
-    </footer>
+    <!-- Footer Component Slot -->
+    <div id="footer-slot"></div>
 
-    <!-- Bug Report Modal -->
-    <div id="bug-modal" class="modal" role="dialog" aria-labelledby="bug-modal-title" aria-modal="true" style="display:none;">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">&times;</button>
-            <h2 id="bug-modal-title">Report a Bug</h2>
-            <p class="modal-message">Help us improve the world. Tell us what broke and how it happened.</p>
-            <div class="modal-actions">
-                <a href="https://discord.gg/bighatstudios" target="_blank" rel="noopener noreferrer" class="btn primary">
-                    <i class="fa-brands fa-discord"></i>
-                    Report on Discord
-                </a>
-                <a href="mailto:sBigHatStudios+support@gmail.com?subject=CinderRPG%20Bug%20Report" class="btn outline">
-                    <i class="ph ph-envelope"></i>
-                    Email Support
-                </a>
-            </div>
-        </div>
-    </div>
+    <!-- Modal Component Slot -->
+    <div id="modal-slot"></div>
+
+    <!-- Load Component Manager -->
+    <script src="../js/components.js"></script>
 
     <script>
         // FAQ Accordion functionality
@@ -281,6 +246,11 @@
                 }
             });
         });
+
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
 
         // Category filtering
         document.querySelectorAll('.faq-category-btn').forEach(button => {
@@ -303,158 +273,6 @@
                 });
             });
         });
-
-        // Mobile nav toggle - same as index.html
-        (function () {
-            const btn = document.querySelector('.nav-toggle');
-            const nav = document.querySelector('.nav');
-            
-            if(!btn || !nav) {
-                console.error('Nav elements not found!');
-                return;
-            }
-
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const expanded = btn.getAttribute('aria-expanded') === 'true';
-                btn.setAttribute('aria-expanded', !expanded);
-                nav.classList.toggle('open');
-                document.body.classList.toggle('nav-open');
-                console.log('Menu toggled, open:', nav.classList.contains('open'));
-            });
-
-            // Handle dropdown clicks on mobile
-            const dropdowns = document.querySelectorAll('.has-dropdown');
-            let isAnimating = false;
-            
-            dropdowns.forEach(dropdown => {
-                const link = dropdown.querySelector('.nav-link');
-                const dropdownMenu = dropdown.querySelector('.dropdown');
-                
-                if(link) {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        
-                        // Prevent rapid clicks during animation
-                        if(isAnimating) return;
-                        isAnimating = true;
-                        
-                        // Check if opening or closing
-                        const isOpening = !dropdown.classList.contains('touch-open');
-                        
-                        // Close other dropdowns first
-                        dropdowns.forEach(d => {
-                            if (d !== dropdown) {
-                                d.classList.remove('touch-open');
-                            }
-                        });
-                        
-                        // Toggle current dropdown
-                        dropdown.classList.toggle('touch-open');
-                        
-                        console.log('Dropdown toggled:', dropdown.classList.contains('touch-open'));
-                        
-                        // Re-enable after animation
-                        setTimeout(() => {
-                            isAnimating = false;
-                        }, 300);
-                    });
-                }
-            });
-
-            // Close dropdowns when clicking a nav link
-            const navLinks = document.querySelectorAll('.nav-link:not(.has-dropdown > .nav-link), .dropdown a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    // Don't prevent navigation, just close dropdowns
-                    dropdowns.forEach(dropdown => {
-                        dropdown.classList.remove('touch-open');
-                    });
-                });
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (nav.classList.contains('open')) {
-                    if (!nav.contains(e.target) && !btn.contains(e.target)) {
-                        nav.classList.remove('open');
-                        document.body.classList.remove('nav-open');
-                        btn.setAttribute('aria-expanded', 'false');
-                        // Also close any open dropdowns
-                        dropdowns.forEach(dropdown => {
-                            dropdown.classList.remove('touch-open');
-                        });
-                        console.log('Menu closed by clicking outside');
-                    } else if (nav.contains(e.target)) {
-                        console.log('Clicked inside nav!', e.target.tagName, e.target.textContent?.trim());
-                    }
-                }
-            });
-
-            // Close menu on escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && nav.classList.contains('open')) {
-                    nav.classList.remove('open');
-                    document.body.classList.remove('nav-open');
-                    btn.setAttribute('aria-expanded', 'false');
-                    console.log('Menu closed by Escape key');
-                }
-            });
-        })();
-
-        // Fallback logo if image not found
-        (function(){
-            const img = document.querySelector('.brand-img');
-            const svg = document.querySelector('.brand-fallback');
-            if(!img) return;
-            img.addEventListener('error', ()=>{
-                img.style.display='none';
-                if(svg) svg.style.display='inline-block';
-            });
-        })();
-
-        // Bug Report Modal Script
-        (function() {
-            const modal = document.getElementById('bug-modal');
-            const openBtns = document.querySelectorAll('#open-bug-modal');
-            const closeBtn = modal.querySelector('.modal-close');
-            const overlay = modal.querySelector('.modal-overlay');
-
-            // Open modal for all buttons with this ID
-            openBtns.forEach(openBtn => {
-                openBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    modal.style.display = 'flex';
-                    // Trigger reflow for animation
-                    modal.offsetHeight;
-                    modal.classList.add('modal-open');
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-
-            // Close modal function
-            function closeModal() {
-                modal.classList.remove('modal-open');
-                document.body.style.overflow = '';
-                setTimeout(() => {
-                    modal.style.display = 'none';
-                }, 300); // Match animation duration
-            }
-
-            // Close on X button
-            closeBtn.addEventListener('click', closeModal);
-
-            // Close on overlay click
-            overlay.addEventListener('click', closeModal);
-
-            // Close on Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.style.display === 'flex') {
-                    closeModal();
-                }
-            });
-        })();
     </script>
 </body>
 </html>
