@@ -284,19 +284,19 @@
 /* Rank specific colors */
 /* Rank specific colors */
 .rank-tier[data-rank="slayer"] {
-    border-left: 4px solid #ffaa00; /* Gold - matches Slayer rank */
+    border-left: 4px solid #ffaa00;
 }
 
 .rank-tier[data-rank="undead"] {
-    border-left: 4px solid #aaaaaa; /* Silver - matches Undead Slayer rank */
+    border-left: 4px solid #aaaaaa; 
 }
 
 .rank-tier[data-rank="demon"] {
-    border-left: 4px solid #ff5555; /* Red - matches Demon Slayer rank */
+    border-left: 4px solid #ff5555; 
 }
 
 .rank-tier[data-rank="soul"] {
-    border-left: 4px solid #55ff55; /* Bright Green - matches Soul Slayer/Custom rank */
+    border-left: 4px solid #55ff55; 
 }
 
 .rank-header {
