@@ -132,6 +132,12 @@
   margin: 3rem auto;
 }
 
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .card {
   background: var(--panel);
   border: 1px solid var(--border);
@@ -161,37 +167,37 @@
   transition: left 0.5s ease;
 }
 
-.cards .card:nth-child(1) {
+.cards .card-link:nth-child(1) .card {
   border-top-color: #5da9a4;
   animation: cardIn var(--anim) cubic-bezier(.2,.9,.3,1) forwards, borderGlow1 3s ease-in-out infinite, cardFloat 4s ease-in-out infinite;
   animation-delay: 80ms, 80ms, 0.5s;
 }
 
-.cards .card:nth-child(2) {
+.cards .card-link:nth-child(2) .card {
   border-top-color: #d4894a;
   animation: cardIn var(--anim) cubic-bezier(.2,.9,.3,1) forwards, borderGlow2 3s ease-in-out infinite, cardFloat 4.2s ease-in-out infinite;
   animation-delay: 160ms, 160ms, 0.7s;
 }
 
-.cards .card:nth-child(3) {
+.cards .card-link:nth-child(3) .card {
   border-top-color: #8b6ba8;
   animation: cardIn var(--anim) cubic-bezier(.2,.9,.3,1) forwards, borderGlow3 3s ease-in-out infinite, cardFloat 4.4s ease-in-out infinite;
   animation-delay: 240ms, 240ms, 0.9s;
 }
 
-.cards .card:nth-child(4) {
+.cards .card-link:nth-child(4) .card {
   border-top-color: #c95b7a;
   animation: cardIn var(--anim) cubic-bezier(.2,.9,.3,1) forwards, borderGlow4 3s ease-in-out infinite, cardFloat 4.6s ease-in-out infinite;
   animation-delay: 320ms, 320ms, 1.1s;
 }
 
-.cards .card:nth-child(5) {
+.cards .card-link:nth-child(5) .card {
   border-top-color: #9bc95b;
   animation: cardIn var(--anim) cubic-bezier(.2,.9,.3,1) forwards, borderGlow5 3s ease-in-out infinite, cardFloat 4.8s ease-in-out infinite;
   animation-delay: 400ms, 400ms, 1.3s;
 }
 
-.cards .card:nth-child(6) {
+.cards .card-link:nth-child(6) .card {
   border-top-color: #c9a04a;
   animation: cardIn var(--anim) cubic-bezier(.2,.9,.3,1) forwards, borderGlow6 3s ease-in-out infinite, cardFloat 5s ease-in-out infinite;
   animation-delay: 480ms, 480ms, 1.5s;

@@ -1,0 +1,96 @@
+<!-- 
+     CinderRPG Wiki - Reusable Components
+     All shared components in one file
+                                         -->
+
+<!-- Navigation Component -->
+<template id="nav-component">
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="brand" href="../../index.html">
+                <!-- Official logo - place your PNG/SVG at assets/cinder-logo.png -->
+                <img src="../images/CinderNewMegaLargePix.png" alt="Cinder Wiki logo" class="brand-img" width="36" height="36">
+                <!-- fallback inline svg if the image fails to load -->
+                <svg class="brand-fallback" width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display:none;">
+                    <defs>
+                        <linearGradient id="g1" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#d4c5b9" />
+                            <stop offset="100%" stop-color="#bfa06f" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="12" cy="12" r="10" fill="none" stroke="url(#g1)" stroke-width="1.6" />
+                    <path d="M7 14c1.5-2 4-4 6-6 0 3-1.5 6-3 7-1.5 1-3 0-3  -1z" fill="url(#g1)" opacity="0.95" transform="translate(0,1)"/>
+                </svg>
+                <span class="brand-text">CinderRPG</span>
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="../../index.html">Home</a></li>
+                    <li><a class="nav-link" href="../html/gameplay-basics.html">Gameplay Basics</a></li>
+                    <li><a class="nav-link" href="../html/mechanics.html">Mechanics</a></li>
+                    <li><a class="nav-link" href="https://store.bighatstudios.com/category/ranks">Store</a></li>
+                    <li><a class="nav-link" href="../html/history.html">History</a></li>
+                    <li class="has-dropdown">
+                        <a class="nav-link" href="#">Resources &amp; Guides</a>
+                        <ul class="dropdown">
+                            <li><a href="../html/commands.html">Commands</a></li>
+                            <li><a href="../html/faq.html">FAQ</a></li>
+                            <li><a href="../html/map.html">Maps</a></li>
+                            <li><a href="../html/creature-encyclopedia.html">Creature encyclopedia</a></li>
+                            <li><a href="../html/items.html">Items</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="search-wrap">
+                <div class="search-container">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <label for="site-search" class="visually-hidden"></label>
+                    <input id="site-search" class="search" type="search" placeholder="Search..." />
+                </div>
+            </div>
+
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </header>
+</template>
+
+<!-- Footer Component -->
+<template id="footer-component">
+    <footer class="site-footer">
+        <div class="wrap footer-inner">
+            <small>© 2025 CinderRPG Wiki Project | Built by <a href="https://github.com/Faris25-dev" target="_blank" rel="noopener noreferrer">Faris25-dev</a></small>
+            <nav class="footer-links">
+                <!-- <a href="#">Wiki</a> -->
+                <a href="#">Patch Notes</a>
+                <a href="https://discord.gg/gQ39rGdpQ7" target="_blank">Discord</a>
+                <a href="#" class="open-bug-modal">Report an Issue</a>
+                <a href="#">Terms of Service</a>
+            </nav>
+        </div>
+    </footer>
+</template>
+
+<!-- Bug Report Modal Component -->
+<template id="modal-component">
+    <div id="bug-modal" class="modal" role="dialog" aria-labelledby="bug-modal-title" aria-modal="true" style="display:none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2 id="bug-modal-title">Report a Bug</h2>
+            <p class="modal-message">Help us improve the world. Tell us what broke and how it happened.</p>
+            <div class="modal-actions">
+                <a href="https://discord.gg/bighatstudios" target="_blank" rel="noopener noreferrer" class="btn primary">
+                    <i class="fa-brands fa-discord"></i>
+                    Report on Discord
+                </a>
+                <a href="mailto:sBigHatStudios+support@gmail.com?subject=CinderRPG%20Bug%20Report" class="btn outline">
+                    <i class="ph ph-envelope"></i>
+                    Email Support
+                </a>
+            </div>
+        </div>
+    </div>
+</template>

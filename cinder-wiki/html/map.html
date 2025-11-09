@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Shard 1 Map - CinderRPG Wiki</title>
+    <link rel="stylesheet" href="../css/global.css?v=20251028.1">
+    <link rel="stylesheet" href="../css/map.css?v=20251028.1">
+    <link rel="stylesheet" href="../css/home.css?v=20251028.1">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <!-- RPG Awesome icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Header Component Slot -->
+    <div id="header-slot"></div>
+
+    <main>
+        <!-- Shard Selector -->
+        <section class="shard-selector-section wrap">
+            <div class="shard-selector-wrapper">
+                <button class="shard-arrow shard-arrow-prev" aria-label="Previous shard">
+                    <i class="ph ph-caret-left"></i>
+                </button>
+                <div class="shard-tabs">
+                    <button class="shard-tab active" data-shard="1">
+                        <span class="shard-number">Shard 1</span>
+                        <!-- <span class="shard-name">EMBERFALL</span> -->
+                    </button>
+                    <button class="shard-tab" data-shard="2">
+                        <span class="shard-number">Shard 2</span>
+                        <!-- <span class="shard-name">FROSTHOLD</span> -->
+                    </button>
+                    <button class="shard-tab" data-shard="3">
+                        <span class="shard-number">Shard 3</span>
+                        <!-- <span class="shard-name">VOIDREACH</span> -->
+                    </button>
+                </div>
+                <button class="shard-arrow shard-arrow-next" aria-label="Next shard">
+                    <i class="ph ph-caret-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Interactive Map Container -->
+        <section class="map-container-section">
+            <!-- Shard 1 -->
+            <div class="shard-content active" data-shard="1">
+                <div class="map-viewer">
+                    <div class="map-controls">
+                        <div class="zoom-controls">
+                            <button class="exit-fullscreen-btn" aria-label="Exit fullscreen" style="display: none;">
+                                <i class="ph ph-x"></i>
+                            </button>
+                            <button class="zoom-btn zoom-in" aria-label="Zoom in">
+                                <i class="ph ph-plus"></i>
+                            </button>
+                            <button class="zoom-btn zoom-out" aria-label="Zoom out">
+                                <i class="ph ph-minus"></i>
+                            </button>
+                            <button class="zoom-btn zoom-reset" aria-label="Reset zoom">
+                                <i class="ph ph-arrows-out"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Filter Panel -->
+                    <div class="map-filter-panel">
+                        <button class="filter-toggle-btn" aria-label="Toggle filters">
+                            <i class="ph ph-funnel"></i>
+                            <span>FILTERS</span>
+                            <i class="ph ph-caret-down filter-caret"></i>
+                        </button>
+                        <div class="filter-dropdown">
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-select-all">
+                                <label for="filter-select-all">
+                                    <i class="ph ph-square select-all-unchecked"></i>
+                                    <i class="ph ph-check-square select-all-checked"></i>
+                                    <span>Select All</span>
+                                </label>
+                            </div>
+                            <div class="filter-separator"></div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-chest" class="filter-item">
+                                <label for="filter-chest">
+                                    <img src="../images/item.crate_chest.png" alt="Chest" class="filter-icon-img">
+                                    <span>Chest</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-sack" class="filter-item">
+                                <label for="filter-sack">
+                                    <span class="filter-emoji">📦</span>
+                                    <span>Woven Sack</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-platsilver" class="filter-item">
+                                <label for="filter-platsilver">
+                                    <img src="../images/ingredient.silver_ore.png" alt="Platsilver Node" class="filter-icon-img">
+                                    <span>Platsilver Node</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-rubysilver" class="filter-item">
+                                <label for="filter-rubysilver">
+                                    <img src="../images/ingredient.rubysilver_ore.png" alt="Rubysilver Node" class="filter-icon-img">
+                                    <span>Rubysilver Node</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-bellflower" class="filter-item">
+                                <label for="filter-bellflower">
+                                    <img src="../images/ingredient.bell_flower.png" alt="Bell Flower" class="filter-icon-img">
+                                    <span>Bell Flower</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-scarlet" class="filter-item">
+                                <label for="filter-scarlet">
+                                    <img src="../images/ingredient.scarletbulb_flower.png" alt="Scarlet Bulb" class="filter-icon-img">
+                                    <span>Scarlet Bulb</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-mushroom" class="filter-item">
+                                <label for="filter-mushroom">
+                                    <img src="../images/ingredient.redcap_mushroom.png" alt="Redcap Mushroom" class="filter-icon-img">
+                                    <span>Mushroom</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-quest" class="filter-item">
+                                <label for="filter-quest">
+                                    <img src="../images/ingredient.esterberries.png" alt="Ester Berry" class="filter-icon-img">
+                                    <span>Ester Berry</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-miniboss" class="filter-item">
+                                <label for="filter-miniboss">
+                                    <span class="filter-emoji">🧟</span>
+                                    <span>Mob Spots</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-dungeon" class="filter-item">
+                                <label for="filter-dungeon">
+                                    <img src="../images/item.gemmed_key.png" alt="Gemmed Key" class="filter-icon-img">
+                                    <span>Dungeon Entrance</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map-canvas">
+                        <div class="map-content">
+                            <img src="../images/map_shard1.png" alt="Shard 1 Map" class="map-image" draggable="false">
+                            
+                            <!-- Map Markers Overlay -->
+                            <svg class="map-markers-overlay" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+                                <!-- Chest marker -->
+                                <g class="marker marker-chest hidden" data-filter="chest" transform="translate(53, 50)">
+                                    <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.8" height="1.8" />
+                                </g>
+                                
+                                <!-- Woven Sack marker -->
+                                <g class="marker marker-sack hidden" data-filter="sack" transform="translate(55, 35)">
+                                    <text x="0" y="0" font-size="1.8" text-anchor="middle" dominant-baseline="middle">📦</text>
+                                </g>
+                                
+                                <!-- Platsilver Node marker -->
+                                <g class="marker marker-platsilver hidden" data-filter="platsilver" transform="translate(60, 45)">
+                                    <image href="../images/ingredient.silver_ore.png" x="-0.9" y="-0.9" width="1.8" height="1.8" />
+                                </g>
+                                
+                                <!-- Rubysilver Node marker -->
+                                <g class="marker marker-rubysilver hidden" data-filter="rubysilver" transform="translate(48, 55)">
+                                    <image href="../images/ingredient.rubysilver_ore.png" x="-0.9" y="-0.9" width="1.8" height="1.8" />
+                                </g>
+                                
+                                <!-- Bell Flower marker -->
+                                <g class="marker marker-bellflower hidden" data-filter="bellflower" transform="translate(40, 50)">
+                                    <image href="../images/ingredient.bell_flower.png" x="-0.9" y="-0.9" width="1.8" height="1.8" />
+                                </g>
+                                
+                                <!-- Scarlet Bulb marker -->
+                                <g class="marker marker-scarlet hidden" data-filter="scarlet" transform="translate(58, 38)">
+                                    <image href="../images/ingredient.scarletbulb_flower.png" x="-0.9" y="-0.9" width="1.8" height="1.8" />
+                                </g>
+                                
+                                <!-- Mushroom marker - placeholder (no image available) -->
+                                <g class="marker marker-mushroom hidden" data-filter="mushroom" transform="translate(35, 60)">
+                                    <image href="../images/ingredient.redcap_mushroom.png" x="-0.9" y="-0.9" width="1.8" height="1.8" />
+                                </g>
+                                
+                                <!-- Ester Berry marker (Quest filter) -->
+                                <g class="marker marker-quest hidden" data-filter="ester" transform="translate(55, 55)">
+                                    <image href="../images/ingredient.esterberries.png" x="-0.9" y="-0.9" width="1.8" height="1.8" />
+                                </g>
+                                
+                                <!-- Mob Spots marker - placeholder (no image available) -->
+                                <g class="marker marker-miniboss hidden" data-filter="miniboss" transform="translate(65, 45)">
+                                    <text x="0" y="0" font-size="1.8" text-anchor="middle" dominant-baseline="middle">🧟</text>
+                                </g>
+                                
+                                <!-- Dungeon marker - placeholder (no image available) -->
+                                <g class="marker marker-dungeon hidden" data-filter="dungeon" transform="translate(60,50)">
+                                     <image href="../images/item.gemmed_key.png" x="-0.9" y="-0.9" width="1.8" height="1.8" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shard 1 Region Cards -->
+                <div class="regions-section wrap">
+                    <div class="regions-grid">
+                <!-- Region Card 1 -->
+                <article class="region-card region-card--green">
+                    <div class="region-icon">
+                        <i class="ra ra-village"></i>
+                    </div>
+                    <div class="region-content">
+                        <h3 class="region-name">Locfel</h3>
+                        <div class="region-meta">
+                            <span class="region-tag region-tag--starting">Town</span>
+                            <span class="region-level">Level 1</span>
+                        </div>
+                        <p class="region-description">A peaceful starting town where new adventurers begin their journey.</p>
+                        <!-- <div class="region-difficulty">
+                            <span class="difficulty-label">Difficulty:</span>
+                            <div class="difficulty-dots">
+                                <span class="dot"></span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="region-hover-overlay">
+                        <h3 class="region-hover-name">Locfel</h3>
+                        <p class="region-hover-description">A serene settlement nestled in rolling hills, where newcomers learn the basics of survival and combat. The town's warm hearth and friendly merchants welcome all who seek to begin their adventure in these mysterious lands.</p>
+                    </div>
+                </article>
+
+                <!-- Region Card 2 -->
+                <article class="region-card region-card--teal">
+                    <div class="region-icon">
+                        <i class="ra ra-village"></i>
+                    </div>
+                    <div class="region-content">
+                        <h3 class="region-name">Fettered Fens</h3>
+                        <div class="region-meta">
+                            <span class="region-tag region-tag--exploration">Town</span>
+                            <span class="region-level">Level 5</span>
+                        </div>
+                        <p class="region-description">A small settlement nestled in the marshlands.</p>
+                        <!-- <div class="region-difficulty">
+                            <span class="difficulty-label">Difficulty:</span>
+                            <div class="difficulty-dots">
+                                <span class="dot"></span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="region-hover-overlay">
+                        <h3 class="region-hover-name">Fettered Fens</h3>
+                        <p class="region-hover-description">A misty hamlet built on stilts above murky swamplands. The air is thick with humidity and the croaking of mysterious creatures. Locals warn of ancient spirits that dwell in the deeper marshes.</p>
+                    </div>
+                </article>
+
+                <!-- Region Card 3 -->
+                <article class="region-card region-card--orange">
+                    <div class="region-icon">
+                        <i class="ra ra-dungeon"></i>
+                    </div>
+                    <div class="region-content">
+                        <h3 class="region-name">Aridian Dungeon</h3>
+                        <div class="region-meta">
+                            <span class="region-tag region-tag--dungeon">Dungeon</span>
+                            <span class="region-tag region-tag--resource">Resources</span>
+                             <span class="region-tag region-tag--boss">Boss</span>
+                            <span class="region-level">Level 10-20</span>
+                        </div>
+                        <p class="region-description">Ancient ruins filled with challenges and treasures.</p>
+                        <!-- <div class="region-difficulty">
+                            <span class="difficulty-label">Difficulty:</span>
+                            <div class="difficulty-dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="region-hover-overlay">
+                        <h3 class="region-hover-name">Aridian Dungeon</h3>
+                        <p class="region-hover-description">A treacherous underground labyrinth filled with ancient traps and powerful guardians. Adventurers venture here seeking rare resources and legendary artifacts, but few emerge unscathed from its depths.</p>
+                    </div>
+                </article>
+
+                <!-- Region Card 4 -->
+                <article class="region-card region-card--pink">
+                    <div class="region-icon">
+                        <i class="ra ra-forest"></i>
+                    </div>
+                    <div class="region-content">
+                        <h3 class="region-name">Cherry Woods</h3>
+                        <div class="region-meta">
+                            <span class="region-tag region-tag--exploration">Exploration</span>
+                            <span class="region-level">Level 15-20</span>
+                        </div>
+                        <p class="region-description">A beautiful woodland filled with cherry blossoms and mysteries.</p>
+                        <!-- <div class="region-difficulty">
+                            <span class="difficulty-label">Difficulty:</span>
+                            <div class="difficulty-dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="region-hover-overlay">
+                        <h3 class="region-hover-name">Cherry Woods</h3>
+                        <p class="region-hover-description">An enchanting forest where pink petals drift eternally through the air. Beneath its serene beauty lurks danger, as mystical beasts guard hidden groves and forgotten shrines deep within its depths.</p>
+                    </div>
+                </article>
+
+                <!-- Region Card 5 -->
+                <article class="region-card region-card--cyan">
+                    <div class="region-icon">
+                        <i class="ra ra-village"></i>
+                    </div>
+                    <div class="region-content">
+                        <h3 class="region-name">Shaleton</h3>
+                        <div class="region-meta">
+                            <span class="region-tag region-tag--exploration">Town</span>
+                            <span class="region-level">Level 20</span>
+                        </div>
+                        <p class="region-description">A bustling trading hub for mid-level adventurers.</p>
+                        <!-- <div class="region-difficulty">
+                            <span class="difficulty-label">Difficulty:</span>
+                            <div class="difficulty-dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="region-hover-overlay">
+                        <h3 class="region-hover-name">Shaleton</h3>
+                        <p class="region-hover-description">A thriving market town where adventurers gather to trade exotic goods and share tales of their exploits. The town square bustles with merchants hawking rare equipment, while skilled craftsmen offer their services to those preparing for greater challenges ahead.</p>
+                    </div>
+                </article>
+
+                <!-- Region Card 6 -->
+                <article class="region-card region-card--lime">
+                    <!-- <div class="region-icon">
+                        <i class="ra ra-trail"></i>
+                    </div> -->
+                    <div class="region-content">
+                        <h3 class="region-name">Illeryan Swamplands</h3>
+                        <div class="region-meta">
+                            <span class="region-tag region-tag--exploration">Exploration</span>
+                             <span class="region-tag region-tag--boss">Boss</span>
+                            <span class="region-level">Level 25-40</span>
+                        </div>
+                        <p class="region-description">Treacherous swamps filled with dangerous creatures.</p>
+                        <!-- <div class="region-difficulty">
+                            <span class="difficulty-label">Difficulty:</span>
+                            <div class="difficulty-dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="region-hover-overlay">
+                        <h3 class="region-hover-name">Illeryan Swamplands</h3>
+                        <p class="region-hover-description">A vast expanse of murky waters and twisted mangroves where visibility is scarce and danger lurks beneath every pool. Poisonous gases rise from the earth, and territorial beasts rule their domains with savage ferocity.</p>
+                    </div>
+                </article>
+
+                <!-- Region Card 7 -->
+                <article class="region-card region-card--red">
+                    <div class="region-icon">
+                        <i class="ra ra-egg"></i>
+                    </div>
+                    <div class="region-content">
+                        <h3 class="region-name">Ant Area</h3>
+                        <div class="region-meta">
+                            <span class="region-tag region-tag--exploration">Exploration</span>
+                            <span class="region-tag region-tag--boss">Boss</span>
+                            <span class="region-tag region-tag--resource">Resources</span>
+                            <span class="region-level">Level 20-35</span>
+                        </div>
+                        <p class="region-description">Colony of giant ants with valuable Platsilver nodes and formidable minibosses.</p>
+                        <!-- <div class="region-difficulty">
+                            <span class="difficulty-label">Difficulty:</span>
+                            <div class="difficulty-dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="region-hover-overlay">
+                        <h3 class="region-hover-name">Ant Area</h3>
+                        <p class="region-hover-description">A sprawling underground network where colossal ants have built their empire. The tunnels echo with clicking mandibles and the scent of precious Platsilver draws brave miners, though many fall to the colony's fierce guardians.</p>
+                    </div>
+                </article>
+
+                <!-- Region Card 8 -->
+                <article class="region-card region-card--blue">
+                    <div class="region-icon">
+                        <i class="ra ra-skull"></i>
+                    </div>
+                    <div class="region-content">
+                        <h3 class="region-name">Allhollow Crypt</h3>
+                        <div class="region-meta">
+                            <span class="region-tag region-tag--dungeon">Dungeon</span>
+                            <span class="region-tag region-tag--resource">Resources</span>
+                            <span class="region-tag region-tag--boss">Boss</span>
+                            <span class="region-level">Level 30-45</span>
+                        </div>
+                        <p class="region-description">A haunted crypt where the undead roam freely.</p>
+                        <!-- <div class="region-difficulty">
+                            <span class="difficulty-label">Difficulty:</span>
+                            <div class="difficulty-dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="region-hover-overlay">
+                        <h3 class="region-hover-name">Allhollow Crypt</h3>
+                        <p class="region-hover-description">An ancient burial ground where restless spirits refuse to find peace. Stone corridors lit by ghostly flames lead deeper into darkness, where powerful necromantic forces guard treasures lost to time and a formidable boss awaits.</p>
+                    </div>
+                </article>
+
+                <!-- Region Card 8 -->
+                <article class="region-card region-card--purple">
+                    <div class="region-icon">
+                        <i class="ra ra-death-skull"></i>
+                    </div>
+                    <div class="region-content">
+                        <h3 class="region-name">Dead Lands</h3>
+                        <div class="region-meta">
+                            <span class="region-tag region-tag--endgame">Exploration</span>
+                            <span class="region-level">Level 35-45</span>
+                        </div>
+                        <p class="region-description">A cursed wasteland where death itself holds dominion.</p>
+                        <!-- <div class="region-difficulty">
+                            <span class="difficulty-label">Difficulty:</span>
+                            <div class="difficulty-dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="region-hover-overlay">
+                        <h3 class="region-hover-name">Dead Lands</h3>
+                        <p class="region-hover-description">A desolate realm where life itself has been extinguished and only decay remains. The very ground drains vitality from those who dare tread upon it, and nightmarish abominations stalk the ashen wastes seeking fresh souls.</p>
+                    </div>
+                </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shard 2 -->
+            <div class="shard-content" data-shard="2">
+                <div class="map-viewer">
+                    <div class="map-controls">
+                        <div class="zoom-controls">
+                            <button class="exit-fullscreen-btn" aria-label="Exit fullscreen" style="display: none;">
+                                <i class="ph ph-x"></i>
+                            </button>
+                            <button class="zoom-btn zoom-in" aria-label="Zoom in">
+                                <i class="ph ph-plus"></i>
+                            </button>
+                            <button class="zoom-btn zoom-out" aria-label="Zoom out">
+                                <i class="ph ph-minus"></i>
+                            </button>
+                            <button class="zoom-btn zoom-reset" aria-label="Reset zoom">
+                                <i class="ph ph-arrows-out"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Filter Panel -->
+                    <div class="map-filter-panel">
+                        <button class="filter-toggle-btn" aria-label="Toggle filters">
+                            <i class="ph ph-funnel"></i>
+                            <span>FILTERS</span>
+                            <i class="ph ph-caret-down filter-caret"></i>
+                        </button>
+                        <div class="filter-dropdown">
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-select-all-s2">
+                                <label for="filter-select-all-s2">
+                                    <i class="ph ph-square select-all-unchecked"></i>
+                                    <i class="ph ph-check-square select-all-checked"></i>
+                                    <span>Select All</span>
+                                </label>
+                            </div>
+                            <div class="filter-separator"></div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-chest-s2" class="filter-item">
+                                <label for="filter-chest-s2">
+                                    <img src="../images/item.crate_chest.png" alt="Chest" class="filter-icon-img">
+                                    <span>Chest</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-sack-s2" class="filter-item">
+                                <label for="filter-sack-s2">
+                                    <img src="../images/ingredient.soulgem.png" alt="Woven Sack" class="filter-icon-img">
+                                    <span>Woven Sack</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-platsilver-s2" class="filter-item">
+                                <label for="filter-platsilver-s2">
+                                    <img src="../images/ingredient.silver_ore.png" alt="Platsilver Node" class="filter-icon-img">
+                                    <span>Platsilver Node</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-rubysilver-s2" class="filter-item">
+                                <label for="filter-rubysilver-s2">
+                                    <img src="../images/ingredient.rubysilver_ore.png" alt="Rubysilver Node" class="filter-icon-img">
+                                    <span>Rubysilver Node</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-bellflower-s2" class="filter-item">
+                                <label for="filter-bellflower-s2">
+                                    <img src="../images/ingredient.bell_flower.png" alt="Bell Flower" class="filter-icon-img">
+                                    <span>Bell Flower</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-scarlet-s2" class="filter-item">
+                                <label for="filter-scarlet-s2">
+                                    <img src="../images/ingredient.scarletbulb_flower.png" alt="Scarlet Bulb" class="filter-icon-img">
+                                    <span>Scarlet Bulb</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-mushroom-s2" class="filter-item">
+                                <label for="filter-mushroom-s2">
+                                    <span class="filter-emoji">🍄</span>
+                                    <span>Mushroom</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-quest-s2" class="filter-item">
+                                <label for="filter-quest-s2">
+                                    <img src="../images/ingredient.esterberries.png" alt="Ester Berry" class="filter-icon-img">
+                                    <span>Ester Berry</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-miniboss-s2" class="filter-item">
+                                <label for="filter-miniboss-s2">
+                                    <span class="filter-emoji">🧟</span>
+                                    <span>Mob Spots</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-dungeon-s2" class="filter-item">
+                                <label for="filter-dungeon-s2">
+                                    <span class="filter-emoji">🗝️</span>
+                                    <span>Dungeon Entrance</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map-canvas">
+                        <img src="../images/shard2-map.jpg" alt="Shard 2 Map" class="map-image" draggable="false">
+                    </div>
+                </div>
+
+                <!-- Shard 2 Region Cards -->
+                <div class="regions-section wrap">
+                    <div class="regions-grid">
+                        <!-- Region 1 -->
+                        <article class="region-card region-card--blue">
+                            <div class="region-icon"><i class="ra ra-ice-cube"></i></div>
+                            <div class="region-content">
+                                <h3 class="region-name">Glacial Steppes</h3>
+                                <div class="region-meta">
+                                    <span class="region-tag region-tag--starting">Starting Zone</span>
+                                    <span class="region-level">Level 1-15</span>
+                                </div>
+                                <p class="region-description">Frozen plains where new travelers learn to survive the cold.</p>
+                                <!-- <div class="region-difficulty">
+                                    <span class="difficulty-label">Difficulty:</span>
+                                    <div class="difficulty-dots"><span class="dot"></span></div>
+                                </div> -->
+                            </div>
+                        </article>
+
+                        <!-- Region 2 -->
+                        <article class="region-card region-card--cyan">
+                            <div class="region-icon"><i class="ra ra-crystal-shine"></i></div>
+                            <div class="region-content">
+                                <h3 class="region-name">Crystal Caverns</h3>
+                                <div class="region-meta">
+                                    <span class="region-tag region-tag--exploration">Exploration</span>
+                                    <span class="region-level">Level 20-35</span>
+                                </div>
+                                <p class="region-description">Glittering caves filled with precious gems and dangers.</p>
+                                <!-- <div class="region-difficulty">
+                                    <span class="difficulty-label">Difficulty:</span>
+                                    <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span></div>
+                                </div> -->
+                            </div>
+                        </article>
+
+                        <!-- Region 3 -->
+                        <article class="region-card region-card--purple">
+                            <div class="region-icon"><i class="ra ra-castle"></i></div>
+                            <div class="region-content">
+                                <h3 class="region-name">Frozen Citadel</h3>
+                                <div class="region-meta">
+                                    <span class="region-tag region-tag--dungeon">Dungeon</span>
+                                    <span class="region-level">Level 30-45</span>
+                                </div>
+                                <p class="region-description">An abandoned fortress locked in eternal winter.</p>
+                                <!-- <div class="region-difficulty">
+                                    <span class="difficulty-label">Difficulty:</span>
+                                    <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                                </div> -->
+                            </div>
+                        </article>
+
+                        <!-- Region 4 -->
+                        <article class="region-card region-card--blue">
+                            <div class="region-icon"><i class="ra ra-wolf-head"></i></div>
+                            <div class="region-content">
+                                <h3 class="region-name">Howling Tundra</h3>
+                                <div class="region-meta">
+                                    <span class="region-tag region-tag--pvp">PvP Zone</span>
+                                    <span class="region-level">Level 40-55</span>
+                                </div>
+                                <p class="region-description">Savage lands where beasts and warriors clash.</p>
+                                <!-- <div class="region-difficulty">
+                                    <span class="difficulty-label">Difficulty:</span>
+                                    <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                                </div> -->
+                            </div>
+                        </article>
+
+                        <!-- Region 5 -->
+                        <article class="region-card region-card--cyan">
+                            <div class="region-icon"><i class="ra ra-water-drop"></i></div>
+                            <div class="region-content">
+                                <h3 class="region-name">Thawspring Oasis</h3>
+                                <div class="region-meta">
+                                    <span class="region-tag region-tag--exploration">Exploration</span>
+                                    <span class="region-level">Level 15-30</span>
+                                </div>
+                                <p class="region-description">A rare sanctuary of warmth amidst the ice.</p>
+                                <!-- <div class="region-difficulty">
+                                    <span class="difficulty-label">Difficulty:</span>
+                                    <div class="difficulty-dots"><span class="dot"></span></div>
+                                </div> -->
+                            </div>
+                        </article>
+
+                        <!-- Region 6 -->
+                        <article class="region-card region-card--gold">
+                            <div class="region-icon"><i class="ra ra-crown"></i></div>
+                            <div class="region-content">
+                                <h3 class="region-name">Frostlord's Throne</h3>
+                                <div class="region-meta">
+                                    <span class="region-tag region-tag--endgame">Endgame</span>
+                                    <span class="region-level">Level 50+</span>
+                                </div>
+                                <p class="region-description">The frozen palace of the ancient ice king.</p>
+                                <!-- <div class="region-difficulty">
+                                    <span class="difficulty-label">Difficulty:</span>
+                                    <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                                </div> -->
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shard 3 -->
+            <div class="shard-content" data-shard="3">
+                <div class="map-viewer">
+                    <div class="map-controls">
+                        <div class="zoom-controls">
+                            <button class="exit-fullscreen-btn" aria-label="Exit fullscreen" style="display: none;">
+                                <i class="ph ph-x"></i>
+                            </button>
+                            <button class="zoom-btn zoom-in" aria-label="Zoom in">
+                                <i class="ph ph-plus"></i>
+                            </button>
+                            <button class="zoom-btn zoom-out" aria-label="Zoom out">
+                                <i class="ph ph-minus"></i>
+                            </button>
+                            <button class="zoom-btn zoom-reset" aria-label="Reset zoom">
+                                <i class="ph ph-arrows-out"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Filter Panel -->
+                    <div class="map-filter-panel">
+                        <button class="filter-toggle-btn" aria-label="Toggle filters">
+                            <i class="ph ph-funnel"></i>
+                            <span>FILTERS</span>
+                            <i class="ph ph-caret-down filter-caret"></i>
+                        </button>
+                        <div class="filter-dropdown">
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-select-all-s3">
+                                <label for="filter-select-all-s3">
+                                    <i class="ph ph-square select-all-unchecked"></i>
+                                    <i class="ph ph-check-square select-all-checked"></i>
+                                    <span>Select All</span>
+                                </label>
+                            </div>
+                            <div class="filter-separator"></div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-chest-s3" class="filter-item">
+                                <label for="filter-chest-s3">
+                                    <img src="../images/item.crate_chest.png" alt="Chest" class="filter-icon-img">
+                                    <span>Chest</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-sack-s3" class="filter-item">
+                                <label for="filter-sack-s3">
+                                    <span class="filter-emoji">📦</span>
+                                    <span>Woven Sack</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-platsilver-s3" class="filter-item">
+                                <label for="filter-platsilver-s3">
+                                    <img src="../images/ingredient.silver_ore.png" alt="Platsilver Node" class="filter-icon-img">
+                                    <span>Platsilver Node</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-rubysilver-s3" class="filter-item">
+                                <label for="filter-rubysilver-s3">
+                                    <img src="../images/ingredient.rubysilver_ore.png" alt="Rubysilver Node" class="filter-icon-img">
+                                    <span>Rubysilver Node</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-bellflower-s3" class="filter-item">
+                                <label for="filter-bellflower-s3">
+                                    <img src="../images/ingredient.bell_flower.png" alt="Bell Flower" class="filter-icon-img">
+                                    <span>Bell Flower</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-scarlet-s3" class="filter-item">
+                                <label for="filter-scarlet-s3">
+                                    <img src="../images/ingredient.scarletbulb_flower.png" alt="Scarlet Bulb" class="filter-icon-img">
+                                    <span>Scarlet Bulb</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-mushroom-s3" class="filter-item">
+                                <label for="filter-mushroom-s3">
+                                    <span class="filter-emoji">🍄</span>
+                                    <span>Mushroom</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-quest-s3" class="filter-item">
+                                <label for="filter-quest-s3">
+                                    <img src="../images/ingredient.esterberries.png" alt="Ester Berry" class="filter-icon-img">
+                                    <span>Ester Berry</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-miniboss-s3" class="filter-item">
+                                <label for="filter-miniboss-s3">
+                                    <span class="filter-emoji">🧟</span>
+                                    <span>Mob Spots</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-dungeon-s3" class="filter-item">
+                                <label for="filter-dungeon-s3">
+                                    <span class="filter-emoji">🗝️</span>
+                                    <span>Dungeon Entrance</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map-canvas">
+                        <img src="../images/shard3-map.jpg" alt="Shard 3 Map" class="map-image" draggable="false">
+                    </div>
+                </div>
+
+                <!-- Shard 3 Region Cards -->
+                <div class="regions-section wrap">
+                    <div class="regions-grid">
+                        <!-- Region 1 -->
+                        <article class="region-card region-card--purple">
+                            <div class="region-icon"><i class="ra ra-eyeball"></i></div>
+                            <div class="region-content">
+                                <h3 class="region-name">Whispering Fields</h3>
+                                <div class="region-meta">
+                                    <span class="region-tag region-tag--starting">Starting Zone</span>
+                                    <span class="region-level">Level 1-15</span>
+                                </div>
+                                <p class="region-description">Eerie grasslands where shadows whisper forbidden secrets.</p>
+                                <!-- <div class="region-difficulty">
+                                    <span class="difficulty-label">Difficulty:</span>
+                                    <div class="difficulty-dots"><span class="dot"></span></div>
+                                </div> -->
+                            </div>
+                        </article>
+
+                        <!-- Region 2 -->
+                        <article class="region-card region-card--purple">
+                            <div class="region-icon"><i class="ra ra-crystals"></i></div>
+                            <div class="region-content">
+                                <h3 class="region-name">Void Rift Canyon</h3>
+                                <div class="region-meta">
+                                    <span class="region-tag region-tag--exploration">Exploration</span>
+                                    <span class="region-level">Level 20-35</span>
+                                </div>
+                                <p class="region-description">A chasm torn open by void energy, pulsing with dark power.</p>
+                                <!-- <div class="region-difficulty">
+                                    <span class="difficulty-label">Difficulty:</span>
+                                    <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span></div>
+                                </div> -->
+                            </div>
+                        </article>
+
+                        <!-- Region 3 -->
+                        <article class="region-card region-card--orange">
+                            <div class="region-icon"><i class="ra ra-monster-skull"></i></div>
+                            <div class="region-content">
+                                <h3 class="region-name">Abyssal Sanctum</h3>
+                                <div class="region-meta">
+                                    <span class="region-tag region-tag--dungeon">Dungeon</span>
+                                    <span class="region-level">Level 30-45</span>
+                                </div>
+                                <p class="region-description">A corrupted temple where void creatures are born.</p>
+                                <!-- <div class="region-difficulty">
+                                    <span class="difficulty-label">Difficulty:</span>
+                                    <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                                </div> -->
+                            </div>
+                        </article>
+
+                        <!-- Region 4 -->
+                        <article class="region-card region-card--purple">
+                            <div class="region-icon"><i class="ra ra-sword"></i></div>
+                            <div class="region-content">
+                                <h3 class="region-name">Chaos Battleground</h3>
+                                <div class="region-meta">
+                                    <span class="region-tag region-tag--pvp">PvP Zone</span>
+                                    <span class="region-level">Level 40-55</span>
+                                </div>
+                                <p class="region-description">A warzone where reality itself becomes a weapon.</p>
+                                <!-- <div class="region-difficulty">
+                                    <span class="difficulty-label">Difficulty:</span>
+                                    <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                                </div> -->
+                            </div>
+                        </article>
+
+                        <!-- Region 5 -->
+                        <article class="region-card region-card--cyan">
+                            <div class="region-icon"><i class="ra ra-lantern"></i></div>
+                            <div class="region-content">
+                                <h3 class="region-name">Lightbearer's Haven</h3>
+                                <div class="region-meta">
+                                    <span class="region-tag region-tag--exploration">Exploration</span>
+                                    <span class="region-level">Level 15-30</span>
+                                </div>
+                                <p class="region-description">A pocket of sanctuary protected by ancient light magic.</p>
+                                <!-- <div class="region-difficulty">
+                                    <span class="difficulty-label">Difficulty:</span>
+                                    <div class="difficulty-dots"><span class="dot"></span></div>
+                                </div> -->
+                            </div>
+                        </article>
+
+                        <!-- Region 6 -->
+                        <article class="region-card region-card--gold">
+                            <div class="region-icon"><i class="ra ra-portal"></i></div>
+                            <div class="region-content">
+                                <h3 class="region-name">Void Heart Nexus</h3>
+                                <div class="region-meta">
+                                    <span class="region-tag region-tag--endgame">Endgame</span>
+                                    <span class="region-level">Level 50+</span>
+                                </div>
+                                <p class="region-description">The epicenter of void corruption, where madness rules.</p>
+                                <!-- <div class="region-difficulty">
+                                    <span class="difficulty-label">Difficulty:</span>
+                                    <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                                </div> -->
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component Slot -->
+    <div id="footer-slot"></div>
+
+    <!-- Modal Component Slot -->
+    <div id="modal-slot"></div>
+
+    <!-- Load Component Manager -->
+    <script src="../js/components.js"></script>
+
+    <script>
+        // Map Filter Panel Functionality
+        (function() {
+            const filterPanels = document.querySelectorAll('.map-filter-panel');
+            
+            filterPanels.forEach((panel, index) => {
+                const filterToggleBtn = panel.querySelector('.filter-toggle-btn');
+                const filterDropdown = panel.querySelector('.filter-dropdown');
+                const selectAllCheckbox = filterDropdown.querySelector('input[type="checkbox"]:not(.filter-item)');
+                const filterItems = filterDropdown.querySelectorAll('.filter-item');
+
+                // Toggle filter dropdown
+                if (filterToggleBtn) {
+                    filterToggleBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        
+                        // Close other filter panels
+                        filterPanels.forEach((otherPanel, otherIndex) => {
+                            if (otherIndex !== index) {
+                                const otherBtn = otherPanel.querySelector('.filter-toggle-btn');
+                                if (otherBtn) {
+                                    otherBtn.classList.remove('active');
+                                }
+                            }
+                        });
+                        
+                        filterToggleBtn.classList.toggle('active');
+                    });
+                }
+
+                // Prevent dropdown from closing when clicking inside
+                if (filterDropdown) {
+                    filterDropdown.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                    });
+                }
+
+                // Select All functionality
+                if (selectAllCheckbox) {
+                    selectAllCheckbox.addEventListener('change', () => {
+                        const isChecked = selectAllCheckbox.checked;
+                        filterItems.forEach(checkbox => {
+                            checkbox.checked = isChecked;
+                            toggleFilterMarkers(checkbox.id, isChecked, index);
+                        });
+                    });
+                }
+
+                // Individual filter items
+                filterItems.forEach(checkbox => {
+                    checkbox.addEventListener('change', () => {
+                        // Check if all items are checked to update "Select All"
+                        const allChecked = Array.from(filterItems).every(item => item.checked);
+                        const anyChecked = Array.from(filterItems).some(item => item.checked);
+                        
+                        if (allChecked) {
+                            selectAllCheckbox.checked = true;
+                            selectAllCheckbox.indeterminate = false;
+                        } else if (anyChecked) {
+                            selectAllCheckbox.checked = false;
+                            selectAllCheckbox.indeterminate = true;
+                        } else {
+                            selectAllCheckbox.checked = false;
+                            selectAllCheckbox.indeterminate = false;
+                        }
+
+                        // Toggle visibility for this specific filter
+                        toggleFilterMarkers(checkbox.id, checkbox.checked, index);
+                    });
+                });
+            });
+
+            // Close all filter dropdowns when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.map-filter-panel')) {
+                    filterPanels.forEach(panel => {
+                        const btn = panel.querySelector('.filter-toggle-btn');
+                        if (btn) {
+                            btn.classList.remove('active');
+                        }
+                    });
+                }
+            });
+
+            // Function to toggle map markers
+            function toggleFilterMarkers(filterId, isVisible, shardIndex) {
+                console.log(`Shard ${shardIndex + 1} - Filter ${filterId} is now ${isVisible ? 'visible' : 'hidden'}`);
+                
+                // Get the marker class name from the filter ID
+                const markerClass = filterId.replace(/filter-|(-s\d)$/g, '');
+                
+                // Get the shard content
+                const shardContent = document.querySelector(`.shard-content[data-shard="${shardIndex + 1}"]`);
+                
+                if (shardContent) {
+                    // Find all markers of this type in this shard
+                    const markers = shardContent.querySelectorAll(`.marker-${markerClass}`);
+                    
+                    markers.forEach(marker => {
+                        if (isVisible) {
+                            marker.classList.remove('hidden');
+                        } else {
+                            marker.classList.add('hidden');
+                        }
+                    });
+                }
+            }
+
+            // Close filter dropdown with ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    filterPanels.forEach(panel => {
+                        const btn = panel.querySelector('.filter-toggle-btn');
+                        if (btn && btn.classList.contains('active')) {
+                            btn.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        })();
+
+        // Shard Slider Functionality with Carousel
+        const shardTabs = document.querySelectorAll('.shard-tab');
+        const shardContents = document.querySelectorAll('.shard-content');
+        const prevArrow = document.querySelector('.shard-arrow-prev');
+        const nextArrow = document.querySelector('.shard-arrow-next');
+        let currentShardIndex = 0;
+        const totalShards = shardTabs.length;
+
+        function updateCarouselView() {
+            // Remove all classes first
+            shardTabs.forEach(tab => {
+                tab.classList.remove('active', 'prev-peek', 'next-peek');
+            });
+
+            // Set active tab
+            shardTabs[currentShardIndex].classList.add('active');
+
+            // Calculate prev and next indices with wrapping
+            const prevIndex = (currentShardIndex - 1 + totalShards) % totalShards;
+            const nextIndex = (currentShardIndex + 1) % totalShards;
+
+            // Show peek of previous and next
+            shardTabs[prevIndex].classList.add('prev-peek');
+            shardTabs[nextIndex].classList.add('next-peek');
+        }
+
+        function switchToShard(newIndex, direction = 'right') {
+            // Handle wrapping
+            if (newIndex < 0) {
+                newIndex = totalShards - 1; // Loop to last
+            } else if (newIndex >= totalShards) {
+                newIndex = 0; // Loop to first
+            }
+            
+            const oldIndex = currentShardIndex;
+            if (oldIndex === newIndex) return;
+
+            // Determine slide direction
+            const slideDirection = newIndex > oldIndex || (oldIndex === totalShards - 1 && newIndex === 0) 
+                ? 'left' 
+                : 'right';
+            
+            // Get current and target content
+            const currentContent = shardContents[oldIndex];
+            const targetContent = shardContents[newIndex];
+            
+            // Slide out current content
+            if (currentContent) {
+                currentContent.classList.add(slideDirection === 'left' ? 'slide-out-left' : 'slide-out-right');
+                
+                setTimeout(() => {
+                    currentContent.classList.remove('active', 'slide-out-left', 'slide-out-right');
+                }, 500);
+            }
+            
+            // Slide in new content
+            setTimeout(() => {
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+                
+                currentShardIndex = newIndex;
+                updateCarouselView();
+            }, 50);
+        }
+
+        // Tab click handlers (including peek tabs)
+        shardTabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                switchToShard(index);
+            });
+        });
+
+        // Arrow click handlers
+        if (prevArrow) {
+            prevArrow.addEventListener('click', () => {
+                switchToShard(currentShardIndex - 1, 'left');
+            });
+        }
+
+        if (nextArrow) {
+            nextArrow.addEventListener('click', () => {
+                switchToShard(currentShardIndex + 1, 'right');
+            });
+        }
+
+        // Keyboard navigation with looping
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                switchToShard(currentShardIndex - 1, 'left');
+            } else if (e.key === 'ArrowRight') {
+                switchToShard(currentShardIndex + 1, 'right');
+            }
+        });
+
+        // Initialize carousel view
+        updateCarouselView();
+
+        // Interactive Map Zoom & Pan
+        const mapCanvases = document.querySelectorAll('.map-canvas');
+        
+        mapCanvases.forEach(canvas => {
+            const mapContent = canvas.querySelector('.map-content');
+            const mapImage = canvas.querySelector('.map-image');
+            const mapViewer = canvas.closest('.map-viewer');
+            let scale = 1;
+            let minScale = 1;
+            let isFullscreen = false;
+            let isDragging = false;
+            let hasMoved = false; // Track if user actually moved during drag
+            let startX, startY;
+            let translateX = 0;
+            let translateY = 0;
+            let messageTimeout = null;
+            let lastMessageTime = 0;
+
+            // Drag limits in pixels
+            const MAX_DRAG_X = 300;
+            const MAX_DRAG_Y = 300;
+            const CLICK_THRESHOLD = 5; // Pixels moved to consider it a drag vs click
+
+            // Get parent shard content for button queries
+            const parentContent = canvas.closest('.shard-content');
+            const zoomInBtn = parentContent.querySelector('.zoom-in');
+            const zoomOutBtn = parentContent.querySelector('.zoom-out');
+            const zoomResetBtn = parentContent.querySelector('.zoom-reset');
+            const exitFullscreenBtn = parentContent.querySelector('.exit-fullscreen-btn');
+
+            function updateTransform(animated = false) {
+                if (animated) {
+                    mapContent.style.transition = 'transform 0.3s ease-out';
+                    setTimeout(() => {
+                        mapContent.style.transition = '';
+                    }, 300);
+                }
+                
+                if (isFullscreen) {
+                    // Constrain translation within limits
+                    const constrainedX = Math.max(-MAX_DRAG_X, Math.min(MAX_DRAG_X, translateX));
+                    const constrainedY = Math.max(-MAX_DRAG_Y, Math.min(MAX_DRAG_Y, translateY));
+                    mapContent.style.transform = `translate(${constrainedX}px, ${constrainedY}px) scale(${scale})`;
+                } else {
+                    mapContent.style.transform = `scale(${scale})`;
+                }
+            }
+
+            // Reset position with animation
+            function resetPosition() {
+                if (translateX !== 0 || translateY !== 0) {
+                    translateX = 0;
+                    translateY = 0;
+                    updateTransform(true);
+                }
+            }
+
+            // Show message to user (with throttling and fill animation)
+            function showMessage(text) {
+                const now = Date.now();
+                // Don't show message more than once per 3 seconds
+                if (now - lastMessageTime < 3000) return;
+                lastMessageTime = now;
+
+                // Remove existing message if any
+                const existing = mapViewer.querySelector('.zoom-message');
+                if (existing) existing.remove();
+
+                const message = document.createElement('div');
+                message.className = 'zoom-message';
+                message.innerHTML = `
+                    <span class="message-text">${text}</span>
+                    <div class="message-progress"></div>
+                `;
+                mapViewer.appendChild(message);
+
+                setTimeout(() => message.classList.add('show'), 10);
+                
+                if (messageTimeout) clearTimeout(messageTimeout);
+                messageTimeout = setTimeout(() => {
+                    message.classList.remove('show');
+                    setTimeout(() => message.remove(), 300);
+                }, 3000);
+            }
+
+            // Check if in fullscreen
+            function checkFullscreen() {
+                const wasFullscreen = isFullscreen;
+                isFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement);
+                
+                // Update cursor based on fullscreen state
+                if (isFullscreen) {
+                    canvas.style.cursor = 'grab';
+                    if (exitFullscreenBtn) exitFullscreenBtn.style.display = 'flex';
+                } else {
+                    canvas.style.cursor = 'default';
+                    if (exitFullscreenBtn) exitFullscreenBtn.style.display = 'none';
+                }
+                
+                return isFullscreen;
+            }
+
+            // Exit fullscreen
+            function exitFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            // Enter fullscreen
+            function enterFullscreen() {
+                if (mapViewer.requestFullscreen) {
+                    mapViewer.requestFullscreen();
+                } else if (mapViewer.webkitRequestFullscreen) {
+                    mapViewer.webkitRequestFullscreen();
+                } else if (mapViewer.mozRequestFullScreen) {
+                    mapViewer.mozRequestFullScreen();
+                } else if (mapViewer.msRequestFullscreen) {
+                    mapViewer.msRequestFullscreen();
+                }
+            }
+
+            // Listen for fullscreen changes
+            document.addEventListener('fullscreenchange', () => {
+                checkFullscreen();
+                if (!isFullscreen) {
+                    // Reset zoom and position when exiting fullscreen
+                    scale = minScale;
+                    translateX = 0;
+                    translateY = 0;
+                    updateTransform();
+                }
+            });
+
+            document.addEventListener('webkitfullscreenchange', () => {
+                checkFullscreen();
+                if (!isFullscreen) {
+                    scale = minScale;
+                    translateX = 0;
+                    translateY = 0;
+                    updateTransform();
+                }
+            });
+
+            // Zoom controls - show message if not in fullscreen, don't auto-enter
+            if (zoomInBtn) {
+                zoomInBtn.addEventListener('click', () => {
+                    if (!checkFullscreen()) {
+                        showMessage('⛶ Enter fullscreen mode first to zoom!');
+                    } else {
+                        scale = Math.min(scale + 0.3, 3);
+                        updateTransform();
+                    }
+                });
+            }
+
+            if (zoomOutBtn) {
+                zoomOutBtn.addEventListener('click', () => {
+                    if (!checkFullscreen()) {
+                        showMessage('⛶ Enter fullscreen mode first to zoom!');
+                    } else {
+                        scale = Math.max(scale - 0.3, minScale);
+                        updateTransform();
+                    }
+                });
+            }
+
+            if (zoomResetBtn) {
+                zoomResetBtn.addEventListener('click', () => {
+                    if (!checkFullscreen()) {
+                        // This is the fullscreen button, just enter fullscreen without message
+                        enterFullscreen();
+                    } else {
+                        scale = minScale;
+                        translateX = 0;
+                        translateY = 0;
+                        updateTransform();
+                    }
+                });
+            }
+
+            // Exit fullscreen button
+            if (exitFullscreenBtn) {
+                exitFullscreenBtn.addEventListener('click', () => {
+                    exitFullscreen();
+                });
+            }
+
+            // Mouse wheel zoom - only in fullscreen
+            canvas.addEventListener('wheel', (e) => {
+                if (checkFullscreen()) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const delta = e.deltaY > 0 ? -0.1 : 0.1;
+                    scale = Math.min(Math.max(scale + delta, minScale), 3);
+                    updateTransform();
+                } else {
+                    showMessage('⛶ Enter fullscreen to zoom!');
+                }
+            }, { passive: false });
+
+            // Drag to pan - only in fullscreen with limits
+            canvas.addEventListener('mousedown', (e) => {
+                if (isFullscreen) {
+                    isDragging = true;
+                    hasMoved = false;
+                    startX = e.clientX - translateX;
+                    startY = e.clientY - translateY;
+                    canvas.style.cursor = 'grabbing';
+                    e.preventDefault();
+                }
+            });
+
+            canvas.addEventListener('mousemove', (e) => {
+                if (isDragging && isFullscreen) {
+                    const newX = e.clientX - startX;
+                    const newY = e.clientY - startY;
+                    
+                    // Check if user actually moved
+                    if (!hasMoved && (Math.abs(newX - translateX) > CLICK_THRESHOLD || Math.abs(newY - translateY) > CLICK_THRESHOLD)) {
+                        hasMoved = true;
+                    }
+                    
+                    translateX = newX;
+                    translateY = newY;
+                    updateTransform();
+                }
+            });
+
+            canvas.addEventListener('mouseup', (e) => {
+                if (isDragging && isFullscreen) {
+                    isDragging = false;
+                    canvas.style.cursor = 'grab';
+                    
+                    // If user didn't drag (just clicked), reset position
+                    if (!hasMoved) {
+                        resetPosition();
+                    } else {
+                        // Animate back to constrained position if exceeded limits
+                        const constrainedX = Math.max(-MAX_DRAG_X, Math.min(MAX_DRAG_X, translateX));
+                        const constrainedY = Math.max(-MAX_DRAG_Y, Math.min(MAX_DRAG_Y, translateY));
+                        
+                        if (translateX !== constrainedX || translateY !== constrainedY) {
+                            translateX = constrainedX;
+                            translateY = constrainedY;
+                            updateTransform(true);
+                        }
+                    }
+                }
+            });
+
+            canvas.addEventListener('mouseleave', () => {
+                if (isDragging && isFullscreen) {
+                    isDragging = false;
+                    canvas.style.cursor = 'grab';
+                    
+                    // Snap back to limits
+                    const constrainedX = Math.max(-MAX_DRAG_X, Math.min(MAX_DRAG_X, translateX));
+                    const constrainedY = Math.max(-MAX_DRAG_Y, Math.min(MAX_DRAG_Y, translateY));
+                    if (translateX !== constrainedX || translateY !== constrainedY) {
+                        translateX = constrainedX;
+                        translateY = constrainedY;
+                        updateTransform(true);
+                    }
+                }
+            });
+
+            // Click on canvas background (not image) to recenter
+            canvas.addEventListener('click', (e) => {
+                if (isFullscreen && e.target === canvas) {
+                    resetPosition();
+                }
+            });
+
+            // Touch support for dragging with limits
+            let touchStartDist = 0;
+            let touchStartScale = scale;
+            let touchStartTime = 0;
+
+            canvas.addEventListener('touchstart', (e) => {
+                if (isFullscreen) {
+                    touchStartTime = Date.now();
+                    
+                    if (e.touches.length === 1) {
+                        isDragging = true;
+                        hasMoved = false;
+                        startX = e.touches[0].clientX - translateX;
+                        startY = e.touches[0].clientY - translateY;
+                    } else if (e.touches.length === 2) {
+                        isDragging = false; // Disable dragging during pinch
+                        const dx = e.touches[0].clientX - e.touches[1].clientX;
+                        const dy = e.touches[0].clientY - e.touches[1].clientY;
+                        touchStartDist = Math.sqrt(dx * dx + dy * dy);
+                        touchStartScale = scale;
+                    }
+                }
+            });
+
+            canvas.addEventListener('touchmove', (e) => {
+                if (isFullscreen) {
+                    e.preventDefault();
+                    if (e.touches.length === 1 && isDragging) {
+                        const newX = e.touches[0].clientX - startX;
+                        const newY = e.touches[0].clientY - startY;
+                        
+                        // Check if user actually moved
+                        if (!hasMoved && (Math.abs(newX - translateX) > CLICK_THRESHOLD || Math.abs(newY - translateY) > CLICK_THRESHOLD)) {
+                            hasMoved = true;
+                        }
+                        
+                        translateX = newX;
+                        translateY = newY;
+                        updateTransform();
+                    } else if (e.touches.length === 2) {
+                        const dx = e.touches[0].clientX - e.touches[1].clientX;
+                        const dy = e.touches[0].clientY - e.touches[1].clientY;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        scale = Math.min(Math.max(touchStartScale * (dist / touchStartDist), minScale), 3);
+                        updateTransform();
+                    }
+                }
+            }, { passive: false });
+
+            canvas.addEventListener('touchend', (e) => {
+                if (isFullscreen) {
+                    const touchDuration = Date.now() - touchStartTime;
+                    
+                    if (isDragging) {
+                        isDragging = false;
+                        
+                        // If it was a quick tap (not a drag), reset position
+                        if (!hasMoved && touchDuration < 300) {
+                            resetPosition();
+                        } else {
+                            // Snap back to limits if exceeded
+                            const constrainedX = Math.max(-MAX_DRAG_X, Math.min(MAX_DRAG_X, translateX));
+                            const constrainedY = Math.max(-MAX_DRAG_Y, Math.min(MAX_DRAG_Y, translateY));
+                            
+                            if (translateX !== constrainedX || translateY !== constrainedY) {
+                                translateX = constrainedX;
+                                translateY = constrainedY;
+                                updateTransform(true);
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
