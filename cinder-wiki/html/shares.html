@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Shares System | CinderRPG Wiki</title>
+    <link rel="stylesheet" href="../css/global.css?v=20251027.1">
+    <link rel="stylesheet" href="../css/home.css?v=20251027.1"> <!-- Assuming a wiki-specific CSS; adjust as needed -->
+   
+    <!-- Optional: add a Google Font for the title -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <!-- RPG Awesome icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
+    <style>
+        /* Shares Table Box Styling */
+        .table-box {
+            background-color: #DEB887; /* Burlywood - old paper-like tan, warm and non-clashing */
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 12px rgba(222, 184, 135, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .table-box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(222, 184, 135, 0.4);
+        }
+        .table-container {
+            overflow-x: auto;
+            background: transparent; /* Ensure table inherits box bg */
+        }
+        .shares-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #DEB887;
+            color: #8B4513; /* Dark brown for contrast on tan */
+        }
+        .shares-table th,
+        .shares-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+        }
+        .shares-table th {
+            background: rgba(139, 69, 19, 0.1);
+            font-weight: 600;
+            color: #8B4513;
+        }
+        .shares-table tr:hover {
+            background: rgba(139, 69, 19, 0.05);
+        }
+        .shares-table .tier-name {
+            font-weight: bold;
+            color: #5C3317; /* Slightly darker brown, uniform for all tiers */
+        }
+        /* Purchasables Table Styling */
+        .purchasables-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #DEB887;
+            color: #8B4513;
+        }
+        .purchasables-table th,
+        .purchasables-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+        }
+        .purchasables-table th {
+            background: rgba(139, 69, 19, 0.1);
+            font-weight: 600;
+            color: #8B4513;
+        }
+        .purchasables-table tr:hover {
+            background: rgba(139, 69, 19, 0.05);
+        }
+        /* Pledge Button Styling */
+        .btn.primary.pledge-btn {
+            background-color: #F5F5DC; /* Beige background */
+            color: #8B4513; /* Brown text */
+            border: 1px solid #DEB887;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn.primary.pledge-btn:hover {
+            background-color: #EDE4C9; /* Slightly darker beige on hover */
+            transform: scale(1.05);
+        }
+        /* Hyperlink Styling */
+        .wiki-content a {
+            color: #F5F5DC; /* Beige color */
+            text-decoration: underline;
+            transition: transform 0.2s ease;
+        }
+        .wiki-content a:hover {
+            transform: scale(1.05);
+        }
+        /* Map Section Styling */
+        .map-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+            align-items: start;
+        }
+        .map-image-container {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .map-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .map-marker {
+            position: absolute;
+            top: 58%; /* Adjusted for bottom round building with purple roof on right side */
+            left: 81%; /* Adjusted for right-hand town position */
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: #FFD700; /* Gold for visibility */
+            animation: bounce 2s infinite;
+            z-index: 10;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, -50%) translateY(0); }
+            40% { transform: translate(-50%, -50%) translateY(-10px); }
+            60% { transform: translate(-50%, -50%) translateY(-5px); }
+        }
+        .interior-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .map-description {
+            padding: 1rem;
+            background: rgba(222, 184, 135, 0.1); /* Subtle tan tint */
+            border-radius: 8px;
+            border-left: 4px solid #DEB887;
+        }
+        @media (max-width: 768px) {
+            .map-section {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Why Support Section at Bottom */
+        .why-support-section {
+            background: rgba(139, 69, 19, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 1px solid rgba(222, 184, 135, 0.2);
+        }
+        .why-support-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .why-support-section li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .why-support-section li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #8B4513;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="brand" href="../../index.html">
+                <!-- Official logo - place your PNG/SVG at assets/cinder-logo.png -->
+                <img src="../images/CinderNewMegaLargePix.png" alt="Cinder Wiki logo" class="brand-img" width="36" height="36">
+                <!-- fallback inline svg if the image fails to load -->
+                <svg class="brand-fallback" width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display:none;">
+                    <defs>
+                        <linearGradient id="g1" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#d4c5b9" />
+                            <stop offset="100%" stop-color="#bfa06f" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="12" cy="12" r="10" fill="none" stroke="url(#g1)" stroke-width="1.6" />
+                    <path d="M7 14c1.5-2 4-4 6-6 0 3-1.5 6-3 7-1.5 1-3 0-3 -1z" fill="url(#g1)" opacity="0.95" transform="translate(0,1)"/>
+                </svg>
+                <span class="brand-text">CinderRPG</span>
+            </a>
+            <nav class="nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="../../index.html">Home</a></li>
+                    <li><a class="nav-link" href="../html/gameplay-basics.html">Gameplay Basics</a></li>
+                    <li><a class="nav-link" href="../html/mechanics.html">Mechanics</a></li>
+                    <li><a class="nav-link" href="https://store.bighatstudios.com/category/ranks">Store</a></li>
+                    <li><a class="nav-link" href="../html/history.html">History</a></li>
+                    <li class="has-dropdown">
+                        <a class="nav-link" href="#">Resources &amp; Guides</a>
+                        <ul class="dropdown">
+                            <li><a href="../html/commands.html">Commands</a></li>
+                            <li><a href="../html/faq.html">FAQ</a></li>
+                            <li><a href="../html/map.html">Maps</a></li>
+                            <li><a href="../html/creature-encyclopedia.html">Creature encyclopedia</a></li>
+                            <li><a href="../html/items.html">Items</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="search-wrap">
+                <div class="search-container">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <label for="site-search" class="visually-hidden"></label>
+                    <input id="site-search" class="search" type="search" placeholder="Search..." />
+                </div>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </header>
+    <main>
+        <section class="hero wiki-hero">
+            <div class="wrap hero-inner">
+                <h1 class="hero-title wiki-title">
+                    <i class="ra ra-gem" aria-hidden="true"></i>
+                    <span class="arcane-text">Shares System</span>
+                </h1>
+            </div>
+        </section>
+        <section class="wiki-content wrap">
+            <!-- TL;DR Section -->
+            <article class="wiki-section tldr-section">
+                <div class="section-header">
+                    <h2><i class="ph ph-sparkle" aria-hidden="true"></i> TL;DR</h2>
+                    <p class="section-intro">Quick overview for the hasty adventurer.</p>
+                </div>
+                <div class="tldr-box">
+                    <ul class="tldr-list">
+                        <li><strong>What are Shares?</strong> A premium currency earned through real-world support, redeemable for unique in-game items, missions, cosmetics, mounts, and privileges.</li>
+                        <li><strong>How to Get Them:</strong> Purchasing packages from our store. Ranks offer monthly shares.</li>
+                        <li><strong>Key Benefits:</strong> Rewards your continued patronage and especially rewards charitable users. Players can purchase things with a real value (such as crate keys) with shares.</li>
+                        <li><strong>Pro Tip:</strong> Buying things for others in the form as a gift rewards more shares, however! purchasing things that benefits everyone, such as crate explosions net the most shares!</li>
+                    </ul>
+                </div>
+            </article>
+            <!-- In-Depth Section -->
+            <article class="wiki-section in-depth-section">
+                <div class="section-header">
+                    <h2><i class="ph ph-book-open" aria-hidden="true"></i> In-Depth Guide</h2>
+                    <p class="section-intro">Delve deeper into the Shares system, here is an in depth and detailed explaination of shares and how they work...</p>
+                </div>
+                <div class="content-grid">
+                    <div class="content-column">
+                        <h3>• The Basics of Shares</h3>
+                        <p>Shares an exclusive currency, they currently can only be earnt via patronage on our store. Either as a bonus purchase reward or a monthly reward attached to a rank. We designed shares to be our way of giving something back to those who support the CinderRPG project and its continual development, for this reason you will receive a greater number of shares for purchasing packages for others (in the form of a gift) and an even greater sum of shares for purchasing packages that benefit the entire community, for example Crate Key Explosions.</p>
+                        <p>Shares cannot be farmed through quests or looted from dungeons. They are acquired exclusively through our <a href="#">Patronage Store</a>, different purchases will offer different quantities of shares, the exact amount will be specified in the details of the package under 'shares', you should note that purchases made for others in the form of a gift will reward you with more shares then a purchase for yourself. Additionally, packages that benefit everyone- such as crate key explosions offer the largest amount of shares (by price).</p>
+                    </div>
+                </div>
+            </article>
+            <!-- Shares Table Section -->
+            <article class="wiki-section table-section">
+                <div class="section-header">
+                    <h2><i class="ph ph-table" aria-hidden="true"></i> Patronage Tiers & Yields</h2>
+                    <p class="section-intro">Behold the tiers of allegiance and their bountiful rewards. Choose wisely, for your path shapes the saga.</p>
+                </div>
+                <div class="table-box">
+                    <div class="table-container">
+                        <table class="shares-table">
+                            <thead>
+                                <tr>
+                                    <th>Tier</th>
+                                    <th>Initial Shares</th>
+                                    <th>Monthly Shares</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="tier-bronze">
+                                    <td class="tier-name">Slayer</td>
+                                    <td><i class="ra ra-coin-bronze" aria-hidden="true"></i> Self : 40, Gift : 60</td>
+                                    <td>1.5</td>
+                                </tr>
+                                <tr class="tier-silver">
+                                    <td class="tier-name">Undead Slayer</td>
+                                    <td><i class="ra ra-coin-silver" aria-hidden="true"></i> Self : 80, Gift : 120</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr class="tier-gold">
+                                    <td class="tier-name">Dragon Slayer</td>
+                                    <td><i class="ra ra-coin-gold" aria-hidden="true"></i> Self : 120, Gift : 180</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr class="tier-platinum">
+                                    <td class="tier-name">Demon Slayer</td>
+                                    <td><i class="ra ra-gem" aria-hidden="true"></i> Self : 200, Gift : 300</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr class="tier-legendary">
+                                    <td class="tier-name">God Slayer</td>
+                                    <td><i class="ra ra-gem" aria-hidden="true"></i> Self : 400, Gift : 60</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr class="tier-custom">
+                                    <td class="tier-name">Custom</td>
+                                    <td><i class="ra ra-crown" aria-hidden="true"></i> Self : 600, Gift : 800</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr class="tier-tophat">
+                                    <td class="tier-name">Top Hat</td>
+                                    <td> Self : 40, Gift : 60</td>
+                                    <td>8.5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="table-note">
+                    <p><em>*Monthly yields credited every 30 days (from last yield). All ranks above will grant you access to the various club houses and share stores.</em></p>
+                    <p><em>The initial rewards varied based on the package and whether it boughts for yourself or a gift for someone else. </p>
+                    <p><em> The rough formula is as follows, (Shares = (Price × 10) × 0.8 × Multiplier) [Self = 0.5], [Gift = 1.5] and [Global = 2.5] </em></p>
+                </div>
+            </article>
+            <!-- Purchasables Table Section -->
+            <article class="wiki-section purchasables-section">
+                <div class="section-header">
+                    <h2><i class="ph ph-shopping-cart" aria-hidden="true"></i> The Patrons Catalog</h2>
+                    <p class="section-intro">Only the finest wares for those with shares to spend!</p>
+                </div>
+                <div class="table-box">
+                    <div class="table-container">
+                        <table class="purchasables-table">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Description</th>
+                                    <th>Cost (Shares)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ender Pouch</td>
+                                    <td>Also known as a witches pouch, acts like a backpack connected to a witches chest.</td>
+                                    <td>500</td>
+                                </tr>
+                                <tr>
+                                    <td>Silver Crate Key</td>
+                                    <td>A key to the prestigious Silver-Vault, containing all sorts of various valuables.</td>
+                                    <td>45</td>
+                                </tr>
+                                <tr>
+                                    <td>Golden Crate Key</td>
+                                    <td>A key to the prestigious Golden-Vault, containing all sorts of various valuables.</td>
+                                    <td>85</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="table-note">
+                    <p><em>*Catalog may change and vary based on the share store and shard world.</em></p>
+                </div>
+            </article>
+            <!-- Map Section for Share Stores -->
+            <article class="wiki-section map-section-article">
+                <div class="section-header">
+                    <h2><i class="ph ph-map-pin" aria-hidden="true"></i> Locating Share Stores</h2>
+                    <p class="section-intro">Seek out the Share Stores scattered across the realm, where your patronage finds its forge. Look for the golden sigil in bustling holds.</p>
+                </div>
+                <div class="map-section">
+                    <div class="map-image-container">
+                        <img src="../images/map_shard1.png" alt="CinderRPG World Map with Share Store Marker" />
+                        <div class="map-marker">
+                            <i class="ph ph-map-pin" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="map-description">
+                        <h3>Shop Locations</h3>
+                        <p>You can find a share vendor in every single shard world, more often then not in a building attached or surrounding the Guild Halls.</p>
+                        <p>.</p>
+                        <img src="../images/location_clubhouse.png" alt="Clubhouse Interior" class="interior-image" />
+                    </div>
+                </div>
+            </article>
+            <!-- Why Support Section at Bottom -->
+            <article class="wiki-section why-support-article">
+                <div class="section-header">
+                    <h2><i class="ra ra-coin-gold" aria-hidden="true"></i> Why Support?</h2>
+                    <p class="section-intro">Your patronage forges the future of CinderRPG.</p>
+                </div>
+                <div class="why-support-section">
+                    <ul>
+                        <li>Sustains server and its updates</li>
+                        <li>Exclusive rewards for our patrons</li>
+                        <li>Monthly yields for ongoing prestige</li>
+                    </ul>
+                    <a href="https://store.bighatstudios.com/category/ranks" class="btn primary pledge-btn">See more</a>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="wrap footer-inner">
+            <small>© 2025 CinderRPG Wiki Project | Built by <a href="https://github.com/Faris25-dev" target="_blank" rel="noopener noreferrer">Faris25-dev</a></small>
+            <nav class="footer-links">
+                <!-- <a href="#">Wiki</a> -->
+                <a href="#">Patch Notes</a>
+                <a href="https://discord.gg/gQ39rGdpQ7" target="_blank">Discord</a>
+                <a href="#" class="open-bug-modal">Report an Issue</a>
+                <a href="#">Terms of Service</a>
+            </nav>
+        </div>
+    </footer>
+    <div id="bug-modal" class="modal" role="dialog" aria-labelledby="bug-modal-title" aria-modal="true" style="display:none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2 id="bug-modal-title">Report a Bug</h2>
+            <p class="modal-message">Help us improve the world. Tell us what broke and how it happened.</p>
+            <div class="modal-actions">
+                <a href="https://discord.gg/bighatstudios" target="_blank" rel="noopener noreferrer" class="btn primary">
+                    <i class="fa-brands fa-discord"></i>
+                    Report on Discord
+                </a>
+                <a href="mailto:sBigHatStudios+support@gmail.com?subject=CinderRPG%20Bug%20Report" class="btn outline">
+                    <i class="ph ph-envelope"></i>
+                    Email Support
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+   
+    <script>
+        // Subtle entrance animations for wiki sections
+        window.addEventListener('load', function(){
+            if(typeof gsap === 'undefined') return;
+           
+            // Animate TL;DR box on load
+            gsap.from('.tldr-box', {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: 'power2.out',
+                delay: 0.2
+            });
+            // Animate table rows with stagger
+            gsap.from('.shares-table tbody tr', {
+                opacity: 0,
+                y: 20,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power2.out',
+                delay: 0.4
+            });
+            // Glow effect on table headers
+            gsap.to('.shares-table thead th', {
+                textShadow: '0 0 10px rgba(139,69,19,0.5)',
+                duration: 1.5,
+                ease: 'sine.inOut',
+                repeat: -1,
+                yoyo: true
+            });
+            // Sidebar fade-in
+            gsap.from('.wiki-sidebar', {
+                opacity: 0,
+                x: 20,
+                duration: 0.7,
+                ease: 'power2.out',
+                delay: 0.3
+            });
+            // Map section animations
+            gsap.from('.map-section', {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: 'power2.out',
+                delay: 0.5
+            });
+            gsap.from('.interior-image', {
+                opacity: 0,
+                scale: 0.9,
+                duration: 0.6,
+                ease: 'back.out(1.7)',
+                delay: 0.6
+            });
+        });
+    </script>
+    <script>
+        // Modular init functions
+        function initNav() {
+            const btn = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('.nav');
+            if (!btn || !nav) return;
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', !expanded);
+                nav.classList.toggle('open');
+                document.body.classList.toggle('nav-open');
+            });
+            const dropdowns = document.querySelectorAll('.has-dropdown');
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('.nav-link');
+                if (link) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropdown.classList.toggle('touch-open');
+                    });
+                }
+            });
+            document.addEventListener('click', (e) => {
+                if (nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) {
+                    nav.classList.remove('open');
+                    document.body.classList.remove('nav-open');
+                    btn.setAttribute('aria-expanded', 'false');
+                    dropdowns.forEach(d => d.classList.remove('touch-open'));
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && nav.classList.contains('open')) {
+                    nav.classList.remove('open');
+                    document.body.classList.remove('nav-open');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+        function initLogoFallback() {
+            const img = document.querySelector('.brand-img');
+            const svg = document.querySelector('.brand-fallback');
+            if (!img) return;
+            img.addEventListener('error', () => {
+                img.style.display = 'none';
+                if (svg) svg.style.display = 'inline-block';
+            });
+        }
+        function initModal() {
+            const modal = document.getElementById('bug-modal');
+            const openBtn = document.querySelector('.open-bug-modal');
+            const closeBtn = modal.querySelector('.modal-close');
+            const overlay = modal.querySelector('.modal-overlay');
+            if (!openBtn) return;
+            openBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'flex';
+                modal.offsetHeight; // Trigger reflow
+                modal.classList.add('modal-open');
+                document.body.style.overflow = 'hidden';
+            });
+            function closeModal() {
+                modal.classList.remove('modal-open');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+            }
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', closeModal);
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    closeModal();
+                }
+            });
+        }
+        // Initialize scripts after insertion
+        initNav();
+        initLogoFallback();
+        initModal();
+    </script>
+</body>
+</html>
