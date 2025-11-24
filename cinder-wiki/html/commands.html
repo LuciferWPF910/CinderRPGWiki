@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Commands Reference - CinderRPG Wiki</title>
+    <link rel="icon" type="x-icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../css/global.css?v=20251105.1">
     <link rel="stylesheet" href="../css/home.css?v=20251105.1">
     <link rel="stylesheet" href="../css/commands.css?v=20251105.1">
@@ -48,6 +49,10 @@
                     <i data-lucide="map"></i>
                     <span>Overworld</span>
                 </button>
+                <button class="filter-btn" data-category="misc">
+                    <i data-lucide="map"></i>
+                    <span>Miscellaneous</span>
+                </button>
                 <button class="filter-btn" data-category="rank">
                     <i data-lucide="crown"></i>
                     <span>Ranks</span>
@@ -86,7 +91,9 @@
                         <div class="command-desc">Claim a specific kit by name</div>
                     </div>
                     <div class="command-card">
-                        <div class="command-name">/back</div>
+                        <div class="command-name">/back
+                            <span class="info-icon" data-tooltip="Returns to the last location you performed a teleport command. Excludes forced teleportation, deaths, /spawn, /world, and /shard"><i data-lucide="info"></i></span>
+                        </div>
                         <div class="command-desc">Return to your previous location after teleporting</div>
                     </div>
                 </div>
@@ -108,26 +115,31 @@
                         <div class="command-desc">Return to the main overworld hub</div>
                     </div>
                     <div class="command-card">
-                        <div class="command-name">/enchant <span class="param">(enchantment)(level)</span></div>
-                         
-                        <div class="command-desc">Open the enchantment interface for your held item</div>
+                        <div class="command-name">/enchant <span class="param">(enchantment)(level)</span>
+                        <span class="info-icon" data-tooltip="Has a success chance of : (Enchanter LVL * 2) + (enchant rarity / enchant level) + (Luck Potion * 5)"><i data-lucide="info"></i></span>
+                        </div>
+                        <div class="command-desc">Attempts to enchant the held item using Grand Soul Gems. (Ignores LVL Cap)</div>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-name">/enchant list</div>
+                        <div class="command-desc">Lists the available enchantments and their rarity</div>
                     </div>
                     <div class="command-card">
                         <div class="command-name">
                             /refine
-                            <span class="info-icon" data-tooltip="Refine costs scale based on item rarity and level. Higher tier items require more resources.">
+                            <span class="info-icon" data-tooltip="There are 5 tiers of refinement. The cost and difficulty of refinement increases with each tier.">
                                 <i data-lucide="info"></i>
                             </span>
                         </div>
-                        <div class="command-desc">Upgrade your equipment using refinement materials</div>
+                        <div class="command-desc">Attempts to upgrade your equipment using refinement materials</div>
                     </div>
                     <div class="command-card">
-                        <div class="command-name">/class</div>
-                        <div class="command-desc">Open your class skill tree and progression menu</div>
+                        <div class="command-name">/class<span class="info-icon" data-tooltip="Classes can be unlocked with 5 points. Subclass upgrades require an extra point every 2 levels."><i data-lucide="info"></i></span></div>
+                        <div class="command-desc">Opens the class and subclass upgrade menu</div>
                     </div>
                     <div class="command-card">
                         <div class="command-name">/class display</div>
-                        <div class="command-desc">Toggle the display of your current class in chat</div>
+                        <div class="command-desc">Lists your unlocked classes, subclass levels, and unspent points</div>
                     </div>
                     <div class="command-card">
                         <div class="command-name">/profile</div>
@@ -144,7 +156,7 @@
                 </div>
                 <div class="commands-grid">
                     <div class="command-card">
-                        <div class="command-name">/sethome <span class="param">(name)</span></div>
+                        <div class="command-name">/sethome <span class="param">(name)</span><span class="info-icon" data-tooltip="Default rank can only set 1 home, however there are ulterior methods to teleport to claims."><i data-lucide="info"></i></div>
                         <div class="command-desc">Set a named home location at your current position</div>
                     </div>
                     <div class="command-card">
@@ -154,11 +166,11 @@
                     <div class="command-card">
                         <div class="command-name">
                             /trust <span class="param">(username)</span>
-                            <span class="info-icon" data-tooltip="Grants full permissions: build, container access, and permission management within your claim.">
+                            <span class="info-icon" data-tooltip="Grants build, container, and access permissions within your claim. Can be used outside of claims to grant permission to all your existing claims.">
                                 <i data-lucide="info"></i>
                             </span>
                         </div>
-                        <div class="command-desc">Grant another player full access to your claim</div>
+                        <div class="command-desc">Grant another player most permissions to your claim</div>
                     </div>
                     <div class="command-card">
                         <div class="command-name">/trustlist</div>
@@ -168,7 +180,7 @@
                         <div class="command-name">
                             /accesstrust 
                             <span class="param">(username)</span>
-                            <span class="info-icon" data-tooltip="Allows using buttons, levers, and beds, but not building or accessing containers.">
+                            <span class="info-icon" data-tooltip="Allows using buttons, levers, and beds, but excluding building or accessing containers.">
                                 <i data-lucide="info"></i>
                             </span>
                         </div>
@@ -194,11 +206,11 @@
                     </div>
                     <div class="command-card">
                         <div class="command-name">/claimlist</div>
-                        <div class="command-desc">Display all your claims and their locations</div>
+                        <div class="command-desc">Display all your claims, their sizes, and their locations</div>
                     </div>
                     <div class="command-card">
                         <div class="command-name">/subdivideclaim</div>
-                        <div class="command-desc">Create a subdivision within an existing claim</div>
+                        <div class="command-desc">Create subdivisions within an existing claim, with independent trust permissions</div>
                     </div>
                     <div class="command-card">
                         <div class="command-name">/abandonclaim</div>
@@ -210,6 +222,40 @@
                     </div>
                 </div>
             </div>
+
+             <!-- Miscellaneous Commands -->
+            <div class="command-section" data-category="misc">
+                <div class="section-header">
+                    <i data-lucide="map" class="section-icon"></i>
+                    <h2>Miscellaneous Commands</h2>
+                </div>
+                <div class="commands-grid">
+                    <div class="command-card">
+                        <div class="command-name">/vote</div>
+                        <div class="command-desc">Directs you to a voting website to redeem rewards on the server</div>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-name">/ah
+                            <span class="info-icon" data-tooltip="Sales in the auction house are taxed by 6%."><i data-lucide="info"></i></span>
+                        </div>
+                        <div class="command-desc">Opens the Auction House to buy or sell items amongst players.</div>
+                    </div> 
+                    <div class="command-card">
+                        <div class="command-name">/crate</div>
+                        <div class="command-desc">Opens a menu to redeem crate keys, when your inventory was full.</div>
+                    </div> 
+                    <div class="command-card">
+                        <div class="command-name">/shares
+                            <span class="info-icon" data-tooltip="For more information on what they are and what they do, refer to our shares page"><i data-lucide="info"></i></span>
+                        </div>
+                        <div class="command-desc">Shows the amounts of shares you own</div>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-name">/pet summon <span class="param">(type)</span></div>
+                        <div class="command-desc">Summons your pet to your current location. Applies Beast Bond effect (Bonus exp).</div>
+                    </div>
+                </div>
+            </div>      
 
             <!-- Rank Commands -->
             <div class="command-section" data-category="rank">
