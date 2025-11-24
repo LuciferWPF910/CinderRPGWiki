@@ -45,7 +45,7 @@ body {
   background: linear-gradient(180deg, rgba(0,0,0,0.25), transparent);
   border-bottom: 1px solid var(--border);
   position: relative;
-  z-index: 50;
+  z-index: 100;
 }
 
 .header-inner {
@@ -53,6 +53,7 @@ body {
   gap: 1rem;
   align-items: center;
   padding: 1rem 0;
+  position: relative;
 }
 
 .brand {
@@ -230,9 +231,11 @@ body {
 /* search - redesigned to match reference */
 .search-wrap {
   margin-left: auto;
+  margin-right: 1rem;
   position: relative;
   display: flex;
   align-items: center;
+  z-index: 101;
 }
 
 .search-wrap .ph-magnifying-glass {

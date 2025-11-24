@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chronicles of Cinder - Introduction</title>
+    <link rel="stylesheet" href="../css/global.css?v=20251107.3" />
+    <link rel="stylesheet" href="../css/introduction.css?v=20251107.3" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <!-- RPG Awesome icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Header Component Slot -->
+    <div id="header-slot"></div>
+
+    <main class="intro-main book-mode">
+        <!-- Book Container -->
+        <div class="book-container">
+            <!-- Book Cover -->
+            <div class="book-cover active">
+                <div class="cover-content">
+                    <div class="book-ornament top"></div>
+                    <h1 class="book-title">CINDERRPG</h1>
+                    <div class="book-subtitle">A thematic RPG experience set in an ever-expanding world.</div>
+                    <!-- <div class="book-emblem">
+                        <i class="ra ra-fire"></i>
+                    </div> -->
+                    <p class="book-tagline">Turn the page to begin your journey...</p>
+                    <div class="book-ornament bottom"></div>
+                </div>
+                <div class="page-texture"></div>
+            </div>
+
+        <!-- Page 1: The World & How to Join -->
+        <div class="book-page page-world" data-page="1">
+            <div class="page-content">
+                <div class="content-wrapper">
+                    <div class="section-content">
+                        <h2 class="section-title">Enter the Shattered Realm</h2>
+                        <p class="section-text">
+                            CinderRPG is a dark fantasy survival world split across three mystical shards, each with unique biomes, dangers, and secrets. 
+                            Connect to our server and begin your journey through a land where fire meets frost, and the void whispers ancient promises. 
+                            Your legend starts here—claim your place among the slayers.
+                        </p>
+                        <div class="section-meta">
+                            <span class="meta-tag" data-tooltip="Copy server address: play.cinderrpg.net">
+                                <i class="ph ph-globe"></i> Server: play.cinderrpg.net
+                            </span>
+                            <span class="meta-tag" data-tooltip="Minecraft Java Edition 1.20+">
+                                <i class="ph ph-game-controller"></i> Java Edition
+                            </span>
+                        </div>
+                    </div>
+                    <div class="section-visual">
+                        <video class="section-video" autoplay loop muted playsinline>
+                            <source src="../images/cindertrailer.mp4" type="video/mp4">
+                            <img src="../images/map_shard1.png" alt="CinderRPG World" class="fallback-image">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">Page 1</div>
+        </div>
+
+        <!-- Page 2: Races & Traits -->
+        <div class="book-page page-races" data-page="2">
+            <div class="page-content">
+                <div class="content-wrapper">
+                    <div class="section-content">
+                        <h2 class="section-title">Choose Your Bloodline</h2>
+                        <p class="section-text">
+                            Six ancient races walk the Shattered Realm, each bearing unique gifts forged by their origins. 
+                            Humans adapt and endure, Elves commune with arcane energies, Dwarves master stone and steel, while shadowed races like Tieflings and Dragonborn command infernal and draconic might. 
+                            Your choice shapes your path—will you rise as a cunning survivor or an unstoppable force?
+                        </p>
+                        <div class="race-icons">
+                            <span class="race-icon" data-tooltip="Human - Versatile and resilient"><i class="ra ra-player"></i></span>
+                            <span class="race-icon" data-tooltip="Elf - Arcane affinity"><i class="ra ra-leaf"></i></span>
+                            <span class="race-icon" data-tooltip="Dwarf - Master craftsman"><i class="ra ra-anvil"></i></span>
+                            <span class="race-icon" data-tooltip="Tiefling - Infernal power"><i class="ra ra-horns"></i></span>
+                            <span class="race-icon" data-tooltip="Dragonborn - Draconic might"><i class="ra ra-dragon-head"></i></span>
+                            <span class="race-icon" data-tooltip="Halfling - Swift and lucky"><i class="ra ra-heart-bottle"></i></span>
+                        </div>
+                    </div>
+                    <div class="section-visual">
+                        <video class="section-video" autoplay loop muted playsinline>
+                            <source src="../images/cindertrailer.mp4" type="video/mp4">
+                            <img src="../images/map_shard1.png" alt="Races" class="fallback-image">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">Page 2</div>
+        </div>
+
+        <!-- Page 3: Gameplay & Systems -->
+        <div class="book-page page-gameplay" data-page="3">
+            <div class="page-content">
+                <div class="content-wrapper">
+                    <div class="section-visual">
+                        <video class="section-video" autoplay loop muted playsinline>
+                            <source src="../images/cindertrailer.mp4" type="video/mp4">
+                            <img src="../images/map_shard1.png" alt="Gameplay" class="fallback-image">
+                        </video>
+                    </div>
+                    <div class="section-content">
+                        <h2 class="section-title">Master the Forge</h2>
+                        <p class="section-text">
+                            Progress through custom classes and subclasses, refine legendary equipment with enchantments that defy mortal limits, and challenge dungeons teeming with powerful bosses. 
+                            Gather rare resources, craft mystical items, and carve your name into CinderRPG's history. 
+                            Every swing of your blade, every spell cast, brings you closer to mastery—or ruin.
+                        </p>
+                        <div class="system-highlights">
+                            <span class="highlight-badge"><i class="ra ra-sword"></i> Custom Classes</span>
+                            <span class="highlight-badge"><i class="ra ra-gem"></i> Enchanting</span>
+                            <span class="highlight-badge"><i class="ra ra-fire"></i> Refinement</span>
+                            <span class="highlight-badge"><i class="ra ra-dragon"></i> Boss Raids</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">Page 3</div>
+        </div>
+
+        <!-- Page 4: Lore & Timeline -->
+        <div class="book-page page-lore" data-page="4">
+            <div class="page-content">
+                <div class="content-wrapper">
+                    <div class="section-content">
+                        <h2 class="section-title">Chronicles of Ash</h2>
+                        <p class="section-text">
+                            Long ago, a cataclysm shattered the world into three realms—each a fragment of what once was whole. 
+                            Fire consumed the first shard, frost claimed the second, and void corruption twisted the third. 
+                            Survivors emerged as Slayers, warriors and wanderers seeking to restore balance—or claim dominion over the ruins. The chronicles are written in blood and ember, and your story begins now.
+                        </p>
+                         <div class="system-highlights">
+                            <span class="highlight-badge"><i class="ra ra-sword"></i> Custom Classes</span>
+                            <span class="highlight-badge"><i class="ra ra-gem"></i> Enchanting</span>
+                            <span class="highlight-badge"><i class="ra ra-fire"></i> Refinement</span>
+                            <span class="highlight-badge"><i class="ra ra-dragon"></i> Boss Raids</span>
+                        </div>
+                        <!-- <div class="timeline-preview">
+                            <div class="timeline-item">
+                                <span class="timeline-icon"><i class="ra ra-radial-balance"></i></span>
+                                <span class="timeline-label">The Shattering</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-icon"><i class="ra ra-fire"></i></span>
+                                <span class="timeline-label">Age of Embers</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-icon"><i class="ra ra-gem"></i></span>
+                                <span class="timeline-label">Rise of Slayers</span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="section-visual">
+                        <video class="section-video" autoplay loop muted playsinline>
+                            <source src="../images/cindertrailer.mp4" type="video/mp4">
+                            <img src="../images/map_shard1.png" alt="Lore" class="fallback-image">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">Page 4</div>
+        </div>
+
+        <!-- Page 5: Community & Rules -->
+        <div class="book-page page-community" data-page="5">
+            <div class="page-content">
+                <div class="content-wrapper">
+                    <div class="section-visual">
+                        <video class="section-video" autoplay loop muted playsinline>
+                            <source src="../images/cindertrailer.mp4" type="video/mp4">
+                            <img src="../images/map_shard1.png" alt="Community" class="fallback-image">
+                        </video>
+                    </div>
+                    <div class="section-content">
+                        <h2 class="section-title">The Slayer's Code</h2>
+                        <p class="section-text">
+                            CinderRPG thrives on respect, collaboration, and fair play. We are a community of adventurers united by a love for dark fantasy and meaningful progression. 
+                            Griefing, cheating, and toxicity have no place in our realm. 
+                            Honor the code, aid your fellow slayers, and together we'll forge a world worthy of legend.
+                        </p>
+                         <div class="system-highlights">
+                            <span class="highlight-badge"><i class="ra ra-sword"></i> Custom Classes</span>
+                            <span class="highlight-badge"><i class="ra ra-gem"></i> Enchanting</span>
+                            <span class="highlight-badge"><i class="ra ra-fire"></i> Refinement</span>
+                            <span class="highlight-badge"><i class="ra ra-dragon"></i> Boss Raids</span>
+                        </div>
+                        <!-- <div class="community-pillars">
+                            <div class="pillar">
+                                <i class="ra ra-player"></i>
+                                <span>Respect</span>
+                            </div>
+                            <div class="pillar">
+                                <i class="ra ra-double-team"></i>
+                                <span>Collaboration</span>
+                            </div>
+                            <div class="pillar">
+                                <i class="ra ra-shield"></i>
+                                <span>Fair Play</span>
+                            </div>
+                            <div class="pillar">
+                                <i class="ra ra-heart"></i>
+                                <span>Community</span>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">Page 5</div>
+        </div>
+
+        <!-- Page 6: Call to Action -->
+        <div class="book-page" data-page="6">
+            <div class="page-content">
+                <div class="cta-content">
+                    <!-- <div class="section-number">06</div> -->
+                    <h2 class="section-title">Begin Your Legend</h2>
+                    <p class="section-text">
+                        The realm awaits. Steel your heart, sharpen your blade, and step into the fire. 
+                        Will you rise as a legendary Slayer, or fade into forgotten ash?
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="commands.html" class="cta-btn primary">
+                            <i class="ra ra-book"></i>
+                            <span>View Commands</span>
+                        </a>
+                        <a href="map.html" class="cta-btn secondary">
+                            <i class="ra ra-map"></i>
+                            <span>Explore Maps</span>
+                        </a>
+                        <a href="faq.html" class="cta-btn secondary">
+                            <i class="ra ra-scroll-unfurled"></i>
+                            <span>Read FAQ</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">Page 6</div>
+        </div>
+
+        <!-- Page 7: Navigation Links -->
+        <div class="book-page" data-page="7">
+            <div class="page-content">
+                <div class="intro-nav">
+            <h3 class="nav-heading">Continue Your Journey</h3>
+            <div class="nav-grid">
+                <a href="../../index.html" class="nav-card">
+                    <i class="ra ra-burning-embers"></i>
+                    <span>Home</span>
+                </a>
+                <a href="map.html" class="nav-card">
+                    <i class="ra ra-map"></i>
+                    <span>World Map</span>
+                </a>
+                <a href="commands.html" class="nav-card">
+                    <i class="ra ra-scroll"></i>
+                    <span>Commands</span>
+                </a>
+                <a href="faq.html" class="nav-card">
+                    <i class="ra ra-scroll-unfurled"></i>
+                    <span>FAQ</span>
+                </a>
+            </div>
+            </div>
+            <div class="page-number">Page 7</div>
+        </div>
+        </div>
+    </main>
+
+    <!-- Vertical Page Navigator -->
+    <div class="page-scroll-nav">
+        <!-- Arrow Up Button -->
+        <button class="page-nav-arrow page-nav-up" aria-label="Previous page" title="Previous Page">
+            <i class="ph ph-caret-up"></i>
+        </button>
+        
+        <div class="page-nav-item" data-page="0" title="Book Cover">
+            <div class="nav-dot"></div>
+            <i class="ra ra-book"></i>
+        </div>
+        <div class="page-nav-item" data-page="1" title="The World">
+            <div class="nav-dot"></div>
+            <i class="ra ra-tower"></i>
+        </div>
+        <div class="page-nav-item" data-page="2" title="Races">
+            <div class="nav-dot"></div>
+            <i class="ra ra-player"></i>
+        </div>
+        <div class="page-nav-item" data-page="3" title="Gameplay">
+            <div class="nav-dot"></div>
+            <i class="ra ra-crossed-swords"></i>
+        </div>
+        <div class="page-nav-item" data-page="4" title="Lore">
+            <div class="nav-dot"></div>
+            <i class="ra ra-scroll-unfurled"></i>
+        </div>
+        <div class="page-nav-item" data-page="5" title="Community">
+            <div class="nav-dot"></div>
+            <i class="ra ra-round-shield"></i>
+        </div>
+        <div class="page-nav-item" data-page="6" title="Get Started">
+            <div class="nav-dot"></div>
+            <i class="ra ra-fire"></i>
+        </div>
+        <div class="page-nav-item" data-page="7" title="Navigate">
+            <div class="nav-dot"></div>
+            <i class="ra ra-compass"></i>
+        </div>
+        
+        <!-- Arrow Down Button -->
+        <button class="page-nav-arrow page-nav-down" aria-label="Next page" title="Next Page">
+            <i class="ph ph-caret-down"></i>
+        </button>
+    </div>
+
+    <!-- Book Navigation - Fixed Outside Container -->
+    <div class="book-navigation">
+        <button class="book-nav-btn prev-page" aria-label="Previous page">
+            <i class="ra ra-double-left"></i>
+            <span>Previous</span>
+        </button>
+        <div class="page-indicator">
+            <span class="current-page">Cover</span>
+            <span class="page-divider">/</span>
+            <span class="total-pages">7</span>
+        </div>
+        <button class="book-nav-btn next-page" aria-label="Next page">
+            <span>Next</span>
+            <i class="ra ra-double-right"></i>
+        </button>
+    </div>
+
+    <!-- Footer Component Slot -->
+    <div id="footer-slot"></div>
+
+    <!-- Modal Component Slot -->
+    <div id="modal-slot"></div>
+
+    <!-- Tooltip Container -->
+    <div id="tooltip" class="tooltip" style="display: none;"></div>
+
+    <!-- Load Component Manager -->
+    <script src="../js/components.js"></script>
+
+    <script>
+        // Book page-turning system
+        let currentPage = 0; // 0 = cover
+        const totalPages = 7;
+        let isTransitioning = false; // Prevent multiple clicks during transition
+        
+        const bookCover = document.querySelector('.book-cover');
+        const bookPages = document.querySelectorAll('.book-page');
+        const prevBtn = document.querySelector('.prev-page');
+        const nextBtn = document.querySelector('.next-page');
+        const currentPageSpan = document.querySelector('.current-page');
+
+        function updatePageDisplay() {
+            if (isTransitioning) return; // Prevent updates during transition
+            
+            isTransitioning = true;
+            
+            // Find currently active page/cover
+            const currentActive = document.querySelector('.book-cover.active, .book-page.active');
+            
+            // Determine target element
+            let targetElement;
+            if (currentPage === 0) {
+                targetElement = bookCover;
+            } else {
+                targetElement = bookPages[currentPage - 1];
+            }
+            
+            // If there's an active element and it's different from target, animate out
+            if (currentActive && currentActive !== targetElement) {
+                currentActive.classList.add('page-turning-out');
+                
+                setTimeout(() => {
+                    currentActive.classList.remove('active', 'page-turning-out');
+                    
+                    // Animate in the new page
+                    targetElement.classList.add('page-turning-in');
+                    targetElement.classList.add('active');
+                    
+                    setTimeout(() => {
+                        targetElement.classList.remove('page-turning-in');
+                        isTransitioning = false;
+                    }, 600);
+                }, 300);
+            } else {
+                // First load - just show
+                targetElement.classList.add('active');
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 100);
+            }
+            
+            // Update UI
+            if (currentPage === 0) {
+                currentPageSpan.textContent = 'Cover';
+            } else {
+                currentPageSpan.textContent = `Page ${currentPage}`;
+            }
+            
+            // Update button states
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage === totalPages;
+            
+            // Update vertical navigator
+            updateVerticalNav();
+        }
+
+        // Update vertical page navigator
+        function updateVerticalNav() {
+            const navItems = document.querySelectorAll('.page-nav-item');
+            navItems.forEach((item, index) => {
+                if (index === currentPage) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // Vertical navigator click handlers
+        const navItems = document.querySelectorAll('.page-nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (isTransitioning) return;
+                
+                const targetPage = parseInt(item.dataset.page);
+                if (targetPage !== currentPage) {
+                    currentPage = targetPage;
+                    updatePageDisplay();
+                }
+            });
+        });
+
+        // Vertical nav arrow buttons
+        const navUpBtn = document.querySelector('.page-nav-up');
+        const navDownBtn = document.querySelector('.page-nav-down');
+        
+        if (navUpBtn) {
+            navUpBtn.addEventListener('click', () => {
+                if (currentPage > 0 && !isTransitioning) {
+                    currentPage--;
+                    updatePageDisplay();
+                }
+            });
+        }
+        
+        if (navDownBtn) {
+            navDownBtn.addEventListener('click', () => {
+                if (currentPage < totalPages && !isTransitioning) {
+                    currentPage++;
+                    updatePageDisplay();
+                }
+            });
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < totalPages && !isTransitioning) {
+                currentPage++;
+                updatePageDisplay();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 0 && !isTransitioning) {
+                currentPage--;
+                updatePageDisplay();
+            }
+        });
+
+        // Keyboard navigation with debounce
+        let keyDebounce = false;
+        document.addEventListener('keydown', (e) => {
+            if (keyDebounce || isTransitioning) return;
+            
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                if (currentPage < totalPages) {
+                    keyDebounce = true;
+                    currentPage++;
+                    updatePageDisplay();
+                    setTimeout(() => { keyDebounce = false; }, 500);
+                }
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                if (currentPage > 0) {
+                    keyDebounce = true;
+                    currentPage--;
+                    updatePageDisplay();
+                    setTimeout(() => { keyDebounce = false; }, 500);
+                }
+            }
+        });
+
+        // Mouse wheel / touchpad scroll navigation (DESKTOP ONLY - not on mobile)
+        let scrollDebounce = false;
+        let scrollTimeout = null;
+        
+        document.addEventListener('wheel', (e) => {
+            // Skip on mobile - allow natural scrolling
+            if (window.innerWidth <= 920) return;
+            
+            if (scrollDebounce || isTransitioning) return;
+            
+            // Prevent default scrolling behavior on desktop only
+            e.preventDefault();
+            
+            // Determine scroll direction
+            const delta = e.deltaY;
+            
+            // Clear any existing timeout
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            
+            // Set a timeout to handle the scroll after a brief delay
+            scrollTimeout = setTimeout(() => {
+                if (delta > 0 && currentPage < totalPages) {
+                    // Scrolling down - next page
+                    scrollDebounce = true;
+                    currentPage++;
+                    updatePageDisplay();
+                    setTimeout(() => { scrollDebounce = false; }, 800);
+                } else if (delta < 0 && currentPage > 0) {
+                    // Scrolling up - previous page
+                    scrollDebounce = true;
+                    currentPage--;
+                    updatePageDisplay();
+                    setTimeout(() => { scrollDebounce = false; }, 800);
+                }
+            }, 50);
+        }, { passive: false });
+
+        // Touch swipe navigation for mobile
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            if (isTransitioning) return;
+            
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const xDiff = touchStartX - touchEndX;
+            const yDiff = touchStartY - touchEndY;
+
+            // Horizontal swipe only (allow vertical scrolling on mobile)
+            if (Math.abs(xDiff) > Math.abs(yDiff)) {
+                if (Math.abs(xDiff) > swipeThreshold) {
+                    if (xDiff > 0 && currentPage < totalPages) {
+                        // Swipe left - next page
+                        currentPage++;
+                        updatePageDisplay();
+                    } else if (xDiff < 0 && currentPage > 0) {
+                        // Swipe right - previous page
+                        currentPage--;
+                        updatePageDisplay();
+                    }
+                }
+            }
+            // Disable vertical swipe on mobile to allow scrolling
+            // Only enable vertical swipe on desktop
+            else if (window.innerWidth > 920 && Math.abs(yDiff) > swipeThreshold) {
+                if (yDiff > 0 && currentPage < totalPages) {
+                    // Swipe up - next page
+                    currentPage++;
+                    updatePageDisplay();
+                } else if (yDiff < 0 && currentPage > 0) {
+                    // Swipe down - previous page
+                    currentPage--;
+                    updatePageDisplay();
+                }
+            }
+        }
+
+
+        // Tooltip functionality
+        const tooltip = document.getElementById('tooltip');
+        document.querySelectorAll('[data-tooltip]').forEach(element => {
+            element.addEventListener('mouseenter', (e) => {
+                const text = element.dataset.tooltip;
+                if (text) {
+                    tooltip.textContent = text;
+                    tooltip.style.display = 'block';
+                    positionTooltip(e);
+                }
+            });
+
+            element.addEventListener('mousemove', positionTooltip);
+
+            element.addEventListener('mouseleave', () => {
+                tooltip.style.display = 'none';
+            });
+        });
+
+        function positionTooltip(e) {
+            const tooltipRect = tooltip.getBoundingClientRect();
+            const x = e.clientX + 10;
+            const y = e.clientY + 10;
+            
+            if (x + tooltipRect.width > window.innerWidth) {
+                tooltip.style.left = (e.clientX - tooltipRect.width - 10) + 'px';
+            } else {
+                tooltip.style.left = x + 'px';
+            }
+            
+            if (y + tooltipRect.height > window.innerHeight) {
+                tooltip.style.top = (e.clientY - tooltipRect.height - 10) + 'px';
+            } else {
+                tooltip.style.top = y + 'px';
+            }
+        }
+
+        // Initialize - Force first display
+        console.log('Book initialization starting...');
+        console.log('Elements found:', {
+            cover: bookCover !== null,
+            pages: bookPages.length,
+            prevBtn: prevBtn !== null,
+            nextBtn: nextBtn !== null
+        });
+        
+        setTimeout(() => {
+            updatePageDisplay();
+            console.log('Initial page display complete. Current page:', currentPage);
+        }, 100);
+    </script>
+</body>
+</html>
