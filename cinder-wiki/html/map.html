@@ -33,12 +33,16 @@
                         <span class="shard-number">Shard 1</span>
                         <!-- <span class="shard-name">EMBERFALL</span> -->
                     </button>
-                    <button class="shard-tab" data-shard="2">
-                        <span class="shard-number">Shard 2</span>
+                    <button class="shard-tab" data-shard="1.1">
+                        <span class="shard-number">Aridian Dungeon</span>
                         <!-- <span class="shard-name">FROSTHOLD</span> -->
                     </button>
-                    <button class="shard-tab" data-shard="3">
-                        <span class="shard-number">Alhollow</span>
+                    <button class="shard-tab" data-shard="1.2">
+                        <span class="shard-number">Allhollow Crypts</span>
+                        <!-- <span class="shard-name">FROSTHOLD</span> -->
+                    </button>
+                    <button class="shard-tab" data-shard="1.9">
+                        <span class="shard-number">Coming Soon...</span>
                         <!-- <span class="shard-name">VOIDREACH</span> -->
                     </button>
                 </div>
@@ -213,6 +217,9 @@
                                 <g class="marker marker-chest hidden" data-filter="chest" transform="translate(2, 52.5)">
                                     <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
                                 </g>
+                                <g class="marker marker-chest hidden" data-filter="chest" transform="translate(34.5,67.5)">
+                                    <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
+                                </g>
                                 <!-- Underground nothic chests -->
                                 <g class="marker marker-chest hidden" data-filter="chest" transform="translate(28, 16)">
                                     <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
@@ -258,7 +265,7 @@
                                     <image href="../images/ingredient.scarletbulb_flower.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
                                 </g>
                                 
-                                <!-- Mushroom marker - placeholder (no image available) -->
+                                <!-- Mushroom marker -->
                                 <g class="marker marker-mushroom hidden" data-filter="mushroom" transform="translate(35, 60)">
                                     <image href="../images/ingredient.redcap_mushroom.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
                                 </g>
@@ -268,7 +275,7 @@
                                     <image href="../images/ingredient.esterberries.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
                                 </g>
                                 
-                                <!-- Mob Spots marker - placeholder (no image available) -->
+                                <!-- Mob Spots/bosses marker - placeholder (no image available) -->
                                 <g class="marker marker-miniboss hidden" data-filter="miniboss" transform="translate(65, 45)">
                                     <image href="../images/ingredient.monster_wing.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
                                 </g>
@@ -463,7 +470,7 @@
                         <i class="ra ra-egg"></i>
                     </div>
                     <div class="region-content">
-                        <h3 class="region-name">Ant Area</h3>
+                        <h3 class="region-name">Giant Ant Territory</h3>
                         <div class="region-meta">
                             <span class="region-tag region-tag--exploration">Exploration</span>
                             <span class="region-tag region-tag--boss">Boss</span>
@@ -481,7 +488,7 @@
                         </div> -->
                     </div>
                     <div class="region-hover-overlay">
-                        <h3 class="region-hover-name">Ant Area</h3>
+                        <h3 class="region-hover-name">Giant Ant Territory</h3>
                         <p class="region-hover-description">A sprawling underground network where colossal ants have built their empire. The tunnels echo with clicking mandibles and the scent of precious Platsilver draws brave miners, though many fall to the colony's fierce guardians.</p>
                     </div>
                 </article>
@@ -547,8 +554,8 @@
                 </div>
             </div>
 
-            <!-- Shard 2 -->
-            <div class="shard-content" data-shard="2">
+            <!-- Aridian Dungeon -->
+            <div class="shard-content" data-shard="1.1">
                 <div class="map-viewer">
                     <div class="map-controls">
                         <div class="zoom-controls">
@@ -629,7 +636,7 @@
                             <div class="filter-option">
                                 <input type="checkbox" id="filter-mushroom-s2" class="filter-item">
                                 <label for="filter-mushroom-s2">
-                                    <span class="filter-emoji">🍄</span>
+                                    <img src="../images/ingredient.redcap_mushroom.png" alt="Redcap Mushroom" class="filter-icon-img">
                                     <span>Mushroom</span>
                                 </label>
                             </div>
@@ -643,14 +650,14 @@
                             <div class="filter-option">
                                 <input type="checkbox" id="filter-miniboss-s2" class="filter-item">
                                 <label for="filter-miniboss-s2">
-                                    <span class="filter-emoji">🧟</span>
+                                    <img src="../images/ingredient.monster_wing.png" alt="Mob Spot" class="filter-icon-img">
                                     <span>Mob Spots</span>
                                 </label>
                             </div>
                             <div class="filter-option">
                                 <input type="checkbox" id="filter-dungeon-s2" class="filter-item">
                                 <label for="filter-dungeon-s2">
-                                    <span class="filter-emoji">🗝️</span>
+                                    <img src="../images/item.gemmed_key.png" alt="Gemmed Key" class="filter-icon-img">
                                     <span>Dungeon Entrance</span>
                                 </label>
                             </div>
@@ -658,11 +665,36 @@
                     </div>
                     
                     <div class="map-canvas">
-                        <img src="../images/shard2-map.jpg" alt="Shard 2 Map" class="map-image" draggable="false">
+                        <div class="map-content">
+                            <img src="../images/map_aridian.png" alt="Aridian Dungeon Map" class="map-image" draggable="false">
+
+                            <!-- Map Markers Overlay -->
+                            <svg class="map-markers-overlay" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+                                <!-- Chest marker REMOVE-LATER -->
+                                <g class="marker marker-chest hidden" data-filter="chest" transform="translate(0, 0)">
+                                    <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
+                                </g>
+
+                                <!-- Woven sack marker-->
+
+                                <!-- Platsilver Node marker-->
+
+                                <!-- Rubysilver Node marker-->
+
+                                <!-- Bell Flower marker -->
+
+                                <!-- Scarlet Bulb marker -->
+
+                                <!-- Mushroom marker -->
+
+
+                                <!-- Mob Spots/Bosses marker -->
+                            </svg>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Shard 2 Region Cards -->
+                <!-- Aridian Dungeon Region Cards -->
                 <div class="regions-section wrap">
                     <div class="regions-grid">
                         <!-- Region 1 -->
@@ -770,8 +802,8 @@
                 </div>
             </div>
 
-            <!-- Shard 3 -->
-            <div class="shard-content" data-shard="3">
+            <!-- Allhollows Crypts -->
+            <div class="shard-content" data-shard="1.2">
                 <div class="map-viewer">
                     <div class="map-controls">
                         <div class="zoom-controls">
@@ -817,7 +849,7 @@
                             <div class="filter-option">
                                 <input type="checkbox" id="filter-sack-s3" class="filter-item">
                                 <label for="filter-sack-s3">
-                                    <span class="filter-emoji">📦</span>
+                                    <img src="../images/item.woven_sack.png" alt="Woven Sack" class="filter-icon-img">
                                     <span>Woven Sack</span>
                                 </label>
                             </div>
@@ -852,7 +884,7 @@
                             <div class="filter-option">
                                 <input type="checkbox" id="filter-mushroom-s3" class="filter-item">
                                 <label for="filter-mushroom-s3">
-                                    <span class="filter-emoji">🍄</span>
+                                    <img src="../images/ingredient.redcap_mushroom.png" alt="Redcap Mushroom" class="filter-icon-img">
                                     <span>Mushroom</span>
                                 </label>
                             </div>
@@ -866,14 +898,14 @@
                             <div class="filter-option">
                                 <input type="checkbox" id="filter-miniboss-s3" class="filter-item">
                                 <label for="filter-miniboss-s3">
-                                    <span class="filter-emoji">🧟</span>
+                                    <img src="../images/ingredient.monster_wing.png" alt="Mob Spot" class="filter-icon-img">
                                     <span>Mob Spots</span>
                                 </label>
                             </div>
                             <div class="filter-option">
                                 <input type="checkbox" id="filter-dungeon-s3" class="filter-item">
                                 <label for="filter-dungeon-s3">
-                                    <span class="filter-emoji">🗝️</span>
+                                    <img src="../images/item.gemmed_key.png" alt="Gemmed Key" class="filter-icon-img">
                                     <span>Dungeon Entrance</span>
                                 </label>
                             </div>
@@ -882,12 +914,62 @@
                     
                     <div class="map-canvas">
                         <div class="map-content">
-                            <img src="../images/Alhollow.png" alt="Alhollow Dungeon Map" class="map-image" draggable="false">
+                            <img src="../images/map_allhollow.png" alt="Allhollow Crypts Map" class="map-image" draggable="false">
+
+                            <!-- Map Markers Overlay -->
+                            <svg class="map-markers-overlay" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+                                <!-- Chest marker--> <!-- Filter doesnt currently function, do test later-->
+                                <g class="marker marker-chest" data-filter="chest" transform="translate(95, 40)">
+                                    <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
+                                </g>
+                                <g class="marker marker-chest" data-filter="chest" transform="translate(85, 35)">
+                                    <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
+                                </g>
+                                <g class="marker marker-chest" data-filter="chest" transform="translate(92.5, 52.5)">
+                                    <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
+                                </g>
+                                <g class="marker marker-chest" data-filter="chest" transform="translate(91.5, 73)">
+                                    <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
+                                </g>
+                                <g class="marker marker-chest" data-filter="chest" transform="translate(65.5, 74.5)">
+                                    <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
+                                </g>
+                                <g class="marker marker-chest" data-filter="chest" transform="translate(52.5, 51.5)">
+                                    <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
+                                </g>
+                                <g class="marker marker-chest" data-filter="chest" transform="translate(71, 87)">
+                                    <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
+                                </g>
+                                <g class="marker marker-chest" data-filter="chest" transform="translate(74.5, 78.5)">
+                                    <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
+                                </g>
+                                <!-- Locked Chests-->
+                                <g class="marker marker-chest" data-filter="chest" transform="translate(51, 45.5)">
+                                    <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
+                                </g>
+                                <g class="marker marker-chest" data-filter="chest" transform="translate(18.5, 28)">
+                                    <image href="../images/item.crate_chest.png" x="-0.9" y="-0.9" width="1.2" height="1.2" />
+                                </g>
+
+                                <!-- Woven sack marker-->
+
+                                <!-- Platsilver Node marker-->
+
+                                <!-- Rubysilver Node marker-->
+
+                                <!-- Bell Flower marker -->
+
+                                <!-- Scarlet Bulb marker -->
+
+                                <!-- Mushroom marker -->
+
+                                <!-- Mob Spots/Bosses marker -->
+                            </svg>
                         </div>
                     </div>
                 </div>
 
-                <!-- Shard 3 Region Cards -->
+                <!-- Allhollow Crypts Region Cards -->
                 <div class="regions-section wrap">
                     <div class="regions-grid">
                         <!-- Region 1 -->
