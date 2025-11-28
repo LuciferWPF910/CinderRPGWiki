@@ -352,6 +352,40 @@ body {
   transform: translateY(0);
 }
 
+/* Footer Feedback Button */
+.footer-feedback-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--accent);
+  border: none;
+  border-radius: 2rem;
+  color: #1a1816;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all var(--anim);
+  margin-left: 1.5rem;
+  text-align: center;
+}
+
+.footer-feedback-btn i {
+  font-size: 1.125rem;
+}
+
+.footer-feedback-btn:hover {
+  background: var(--beige);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(191, 160, 111, 0.4);
+}
+
+.footer-feedback-btn:active {
+  transform: translateY(0);
+}
+
 /* Utility */
 .btn {
   display: inline-block;
@@ -604,6 +638,13 @@ body {
 
   .footer-links a {
     margin-left: 0;
+  }
+
+  .footer-feedback-btn {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    padding: 0.5rem 1rem;
   }
 
   body.nav-open {

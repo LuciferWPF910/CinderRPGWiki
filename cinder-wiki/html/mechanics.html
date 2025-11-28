@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Game Mechanics - CinderRPG Wiki</title>
+    <link rel="icon" type="x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../css/global.css?v=20251127.1">
+    <link rel="stylesheet" href="../css/home.css?v=20251127.1">
+    <link rel="stylesheet" href="../css/mechanics.css?v=20251127.1">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <!-- RPG Awesome icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
+    <!--Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Header Component Slot -->
+    <div id="header-slot"></div>
+
+    <main>
+        <!-- Mechanics Header -->
+        <section class="mechanics-header wrap">
+            <h1 class="mechanics-title">Game Mechanics</h1>
+            <p class="mechanics-subtitle">Master the systems that define your adventure</p>
+            
+            <!-- Search Bar -->
+            <div class="mechanics-search-container">
+                <i data-lucide="search" class="search-icon"></i>
+                <input 
+                    type="text" 
+                    id="mechanics-search" 
+                    class="mechanics-search" 
+                    placeholder="Search mechanics..."
+                    autocomplete="off"
+                />
+                <span class="search-results-count" id="search-results-count"></span>
+            </div>
+        </section>
+
+        <!-- Category Filter -->
+        <section class="mechanics-filter wrap">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">
+                    <i data-lucide="grid-3x3"></i>
+                    <span>All Mechanics</span>
+                </button>
+                <button class="filter-btn" data-category="combat">
+                    <i data-lucide="swords"></i>
+                    <span>Combat</span>
+                </button>
+                <button class="filter-btn" data-category="progression">
+                    <i data-lucide="trending-up"></i>
+                    <span>Progression</span>
+                </button>
+                <button class="filter-btn" data-category="crafting">
+                    <i data-lucide="hammer"></i>
+                    <span>Crafting</span>
+                </button>
+                <button class="filter-btn" data-category="exploration">
+                    <i data-lucide="compass"></i>
+                    <span>Exploration</span>
+                </button>
+                <button class="filter-btn" data-category="social">
+                    <i data-lucide="users"></i>
+                    <span>Social</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Mechanics Grid -->
+        <section class="mechanics-content wrap">
+            <div class="mechanics-grid" id="mechanics-grid">
+                
+                <!-- Combat Mechanics -->
+                <article class="mechanic-card" data-category="combat" data-mechanic="damage-calculation">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-crossed-swords"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Damage Calculation</h3>
+                        <p class="mechanic-summary">Understanding how damage is calculated based on weapon stats, armor, and modifiers.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('damage-calculation')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="combat" data-mechanic="pvp-system">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-double-team"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">PvP System</h3>
+                        <p class="mechanic-summary">Learn about player versus player combat rules, zones, and protection mechanics.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('pvp-system')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="combat" data-mechanic="elemental-damage">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-lightning-bolt"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Elemental Damage</h3>
+                        <p class="mechanic-summary">Discover how fire, ice, lightning and other elements affect combat outcomes.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('elemental-damage')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <!-- Progression Mechanics -->
+                <article class="mechanic-card" data-category="progression" data-mechanic="leveling-system">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-level-up"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Leveling System</h3>
+                        <p class="mechanic-summary">Understand how XP is earned and how character levels affect your abilities.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('leveling-system')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="progression" data-mechanic="skill-trees">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-perspective-dice-six"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Skill Trees</h3>
+                        <p class="mechanic-summary">Explore the various skill paths and specializations available to your character.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('skill-trees')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="progression" data-mechanic="class-system">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-shield"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Class System</h3>
+                        <p class="mechanic-summary">Learn how classes work, how to unlock them, and their unique bonuses.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('class-system')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <!-- Crafting Mechanics -->
+                <article class="mechanic-card" data-category="crafting" data-mechanic="enchanting">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-gem"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Enchanting</h3>
+                        <p class="mechanic-summary">Master the art of enchanting items to gain powerful magical properties.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('enchanting')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="crafting" data-mechanic="refinement">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-anvil"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Refinement System</h3>
+                        <p class="mechanic-summary">Upgrade your equipment through five tiers of refinement for increased power.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('refinement')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="crafting" data-mechanic="crafting-recipes">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-scroll-unfurled"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Crafting Recipes</h3>
+                        <p class="mechanic-summary">Discover recipes for creating powerful items, potions, and equipment.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('crafting-recipes')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <!-- Exploration Mechanics -->
+                <article class="mechanic-card" data-category="exploration" data-mechanic="shards">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-crystal-wand"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Shard Worlds</h3>
+                        <p class="mechanic-summary">Travel between dimensional shards, each with unique challenges and rewards.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('shards')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="exploration" data-mechanic="dungeons">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-tower"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Dungeons</h3>
+                        <p class="mechanic-summary">Explore dangerous dungeons filled with enemies, puzzles, and treasure.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('dungeons')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="exploration" data-mechanic="fast-travel">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-teleport"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Fast Travel</h3>
+                        <p class="mechanic-summary">Learn about waypoints, teleportation, and efficient travel methods.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('fast-travel')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <!-- Social Mechanics -->
+                <article class="mechanic-card" data-category="social" data-mechanic="guilds">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-crown"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Guilds</h3>
+                        <p class="mechanic-summary">Form or join guilds, collaborate with others, and access guild benefits.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('guilds')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="social" data-mechanic="trading">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-gold-bar"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Trading System</h3>
+                        <p class="mechanic-summary">Trade items and currency safely with other players in the marketplace.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('trading')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="social" data-mechanic="parties">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-burning-embers"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Party System</h3>
+                        <p class="mechanic-summary">Team up with friends for shared XP, loot distribution, and group benefits.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('parties')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+            </div>
+
+            <!-- No Results Message -->
+            <div class="no-results" id="no-results" style="display: none;">
+                <i data-lucide="search-x"></i>
+                <h3>No mechanics found</h3>
+                <p>Try adjusting your search or filter criteria</p>
+            </div>
+        </section>
+
+        <!-- Last Updated Footer -->
+        <section class="mechanics-footer wrap">
+            <p class="last-updated">
+                <i data-lucide="clock"></i>
+                Last updated: November 27, 2025
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer Component Slot -->
+    <div id="footer-slot"></div>
+
+    <!-- Modal Component Slot -->
+    <div id="modal-slot"></div>
+
+    <!-- Mechanic Detail Modal -->
+    <div id="mechanic-modal" class="mechanic-modal">
+        <div class="mechanic-modal-overlay" onclick="closeMechanicModal()"></div>
+        <div class="mechanic-modal-content">
+            <button class="mechanic-modal-close" onclick="closeMechanicModal()">
+                <i data-lucide="x"></i>
+            </button>
+            <div id="mechanic-modal-body">
+                <!-- Dynamic content loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Component Manager -->
+    <script src="../js/components.js"></script>
+
+    <script>
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+
+        // Mechanic Details Data
+        const mechanicData = {
+            'damage-calculation': {
+                icon: 'ra-crossed-swords',
+                title: 'Damage Calculation',
+                category: 'Combat',
+                content: `
+                    <h4>How Damage Works</h4>
+                    <p>Damage in CinderRPG is calculated using a complex formula that takes into account multiple factors:</p>
+                    
+                    <div class="info-box">
+                        <strong>Base Damage Formula:</strong>
+                        <code>Final Damage = (Weapon Damage + Strength Bonus) × (1 - Armor Reduction) × Critical Multiplier</code>
+                    </div>
+
+                    <h4>Key Factors</h4>
+                    <ul>
+                        <li><strong>Weapon Damage:</strong> The base damage value of your equipped weapon</li>
+                        <li><strong>Strength Bonus:</strong> Additional damage from your character's strength stat</li>
+                        <li><strong>Armor Reduction:</strong> Percentage of damage blocked by enemy armor</li>
+                        <li><strong>Critical Multiplier:</strong> 2x damage on critical hits (affected by luck stat)</li>
+                    </ul>
+
+                    <h4>Damage Types</h4>
+                    <p>Different damage types interact with armor in unique ways:</p>
+                    <ul>
+                        <li><strong>Physical:</strong> Reduced by armor rating</li>
+                        <li><strong>Magical:</strong> Reduced by magic resistance</li>
+                        <li><strong>True Damage:</strong> Ignores all defenses</li>
+                    </ul>
+                `
+            },
+            'pvp-system': {
+                icon: 'ra-double-team',
+                title: 'PvP System',
+                category: 'Combat',
+                content: `
+                    <h4>Player vs Player Combat</h4>
+                    <p>CinderRPG features a structured PvP system with designated zones and protection mechanics.</p>
+
+                    <h4>PvP Zones</h4>
+                    <ul>
+                        <li><strong>Safe Zones:</strong> Spawn, towns, and hub areas (PvP disabled)</li>
+                        <li><strong>Shard Worlds:</strong> PvP enabled with combat tagging system</li>
+                        <li><strong>Arenas:</strong> Dedicated PvP areas with special rules</li>
+                    </ul>
+
+                    <div class="info-box warning">
+                        <strong>New Player Protection:</strong> Players under level 10 have automatic PvP protection that can be toggled.
+                    </div>
+
+                    <h4>Combat Rules</h4>
+                    <ul>
+                        <li>5-second combat tag after dealing or receiving damage</li>
+                        <li>Cannot teleport while combat-tagged</li>
+                        <li>Death in PvP drops a percentage of carried items</li>
+                        <li>PvP kills grant bonus XP and reputation</li>
+                    </ul>
+                `
+            },
+            'elemental-damage': {
+                icon: 'ra-lightning-bolt',
+                title: 'Elemental Damage',
+                category: 'Combat',
+                content: `
+                    <h4>Elemental System</h4>
+                    <p>Elemental damage adds strategic depth to combat through strengths and weaknesses.</p>
+
+                    <h4>Element Types</h4>
+                    <ul>
+                        <li><strong>Fire:</strong> High burst damage, applies burn effect (DoT)</li>
+                        <li><strong>Ice:</strong> Slows enemy movement and attack speed</li>
+                        <li><strong>Lightning:</strong> Chain damage to nearby enemies</li>
+                        <li><strong>Dark:</strong> Drains enemy mana and reduces healing</li>
+                        <li><strong>Holy:</strong> Extra damage to undead, provides shields</li>
+                    </ul>
+
+                    <h4>Elemental Interactions</h4>
+                    <div class="info-box">
+                        <p><strong>Super Effective (150% damage):</strong></p>
+                        <p>Fire → Ice | Ice → Lightning | Lightning → Water | Holy → Dark</p>
+                    </div>
+
+                    <h4>Resistance</h4>
+                    <p>Armor and enchantments can provide elemental resistance, reducing damage from specific elements by up to 75%.</p>
+                `
+            },
+            'leveling-system': {
+                icon: 'ra-level-up',
+                title: 'Leveling System',
+                category: 'Progression',
+                content: `
+                    <h4>Character Progression</h4>
+                    <p>Level up your character to unlock new abilities and increase your power.</p>
+
+                    <h4>XP Sources</h4>
+                    <ul>
+                        <li><strong>Combat:</strong> Defeating monsters grants XP based on their level</li>
+                        <li><strong>Quests:</strong> Complete objectives for large XP rewards</li>
+                        <li><strong>Exploration:</strong> Discover new areas and landmarks</li>
+                        <li><strong>Crafting:</strong> Create items to gain crafting XP</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>XP Formula:</strong> Each level requires progressively more XP. The formula is: <code>XP Required = 100 × (Level²)</code>
+                    </div>
+
+                    <h4>Level Benefits</h4>
+                    <p>Each level grants:</p>
+                    <ul>
+                        <li>+5 Health Points</li>
+                        <li>+2 Mana Points</li>
+                        <li>+1 Skill Point to allocate</li>
+                        <li>Access to higher tier equipment (every 5 levels)</li>
+                    </ul>
+
+                    <h4>Level Cap</h4>
+                    <p>The current maximum level is <strong>100</strong>, with prestige systems coming in future updates.</p>
+                `
+            },
+            'skill-trees': {
+                icon: 'ra-perspective-dice-six',
+                title: 'Skill Trees',
+                category: 'Progression',
+                content: `
+                    <h4>Specialization Paths</h4>
+                    <p>Customize your character with diverse skill trees tailored to different playstyles.</p>
+
+                    <h4>Available Trees</h4>
+                    <ul>
+                        <li><strong>Warrior:</strong> Melee combat, defense, and crowd control</li>
+                        <li><strong>Mage:</strong> Elemental magic, AOE damage, and utility spells</li>
+                        <li><strong>Rogue:</strong> Stealth, critical strikes, and mobility</li>
+                        <li><strong>Cleric:</strong> Healing, buffs, and holy magic</li>
+                        <li><strong>Ranger:</strong> Ranged combat, traps, and pet commands</li>
+                    </ul>
+
+                    <h4>Skill Points</h4>
+                    <p>Earn 1 skill point per level. Skills have prerequisites and can be upgraded up to 5 times for increased effectiveness.</p>
+
+                    <div class="info-box">
+                        <strong>Tip:</strong> You can reset your skill points for a fee using <code>/skills reset</code>
+                    </div>
+
+                    <h4>Hybrid Builds</h4>
+                    <p>Mix skills from multiple trees to create unique hybrid characters, but specializing in one tree unlocks powerful capstone abilities.</p>
+                `
+            },
+            'class-system': {
+                icon: 'ra-shield',
+                title: 'Class System',
+                category: 'Progression',
+                content: `
+                    <h4>Classes & Subclasses</h4>
+                    <p>Unlock powerful class bonuses that define your role in combat and provide unique abilities.</p>
+
+                    <h4>How to Unlock</h4>
+                    <p>Classes can be unlocked using <strong>Class Points</strong> earned through:</p>
+                    <ul>
+                        <li>Leveling up (gain points at specific level milestones)</li>
+                        <li>Completing class-specific quests</li>
+                        <li>Participating in events and dungeons</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Cost:</strong> Unlocking a class requires 5 points. Upgrading subclass levels costs 1 point every 2 levels.
+                    </div>
+
+                    <h4>Class Bonuses</h4>
+                    <p>Each class provides passive bonuses to your character:</p>
+                    <ul>
+                        <li><strong>Tank:</strong> +20% HP, +15% damage reduction</li>
+                        <li><strong>DPS:</strong> +25% damage, +10% critical chance</li>
+                        <li><strong>Support:</strong> +30% healing, +15% mana regen</li>
+                    </ul>
+
+                    <h4>Viewing Your Classes</h4>
+                    <p>Use <code>/class display</code> to see your unlocked classes, subclass levels, and available points.</p>
+                `
+            },
+            'enchanting': {
+                icon: 'ra-gem',
+                title: 'Enchanting',
+                category: 'Crafting',
+                content: `
+                    <h4>Magical Enhancements</h4>
+                    <p>Enchant your equipment with powerful magical properties using Grand Soul Gems.</p>
+
+                    <h4>How to Enchant</h4>
+                    <p>Use the command: <code>/enchant [enchantment] [level]</code></p>
+
+                    <div class="info-box">
+                        <strong>Success Rate:</strong> <code>(Enchanter Level × 2) + (Enchant Rarity / Enchant Level) + (Luck Potion × 5)</code>
+                    </div>
+
+                    <h4>Enchantment Rarities</h4>
+                    <ul>
+                        <li><strong>Common:</strong> Basic stat increases (e.g., +5 damage)</li>
+                        <li><strong>Rare:</strong> Moderate bonuses (e.g., +10% critical chance)</li>
+                        <li><strong>Epic:</strong> Powerful effects (e.g., lifesteal, thorns)</li>
+                        <li><strong>Legendary:</strong> Unique abilities (e.g., elemental immunity)</li>
+                    </ul>
+
+                    <h4>Tips</h4>
+                    <ul>
+                        <li>Higher enchanter levels increase success rate</li>
+                        <li>Luck potions significantly boost chances</li>
+                        <li>Failed enchants consume materials but don't destroy items</li>
+                        <li>Use <code>/enchant list</code> to see all available enchantments</li>
+                    </ul>
+                `
+            },
+            'refinement': {
+                icon: 'ra-anvil',
+                title: 'Refinement System',
+                category: 'Crafting',
+                content: `
+                    <h4>Equipment Refinement</h4>
+                    <p>Upgrade your equipment through five tiers of refinement for increased stats and power.</p>
+
+                    <h4>Refinement Tiers</h4>
+                    <ul>
+                        <li><strong>+1:</strong> +5% stats, 80% success rate</li>
+                        <li><strong>+2:</strong> +10% stats, 60% success rate</li>
+                        <li><strong>+3:</strong> +15% stats, 40% success rate</li>
+                        <li><strong>+4:</strong> +20% stats, 20% success rate</li>
+                        <li><strong>+5:</strong> +30% stats, 10% success rate</li>
+                    </ul>
+
+                    <div class="info-box warning">
+                        <strong>Warning:</strong> Failed refinement attempts can destroy your item at higher tiers. Use protection scrolls to prevent item loss.
+                    </div>
+
+                    <h4>Required Materials</h4>
+                    <p>Refinement requires specific materials that increase with tier:</p>
+                    <ul>
+                        <li>Refinement Stones (common to legendary)</li>
+                        <li>Metal Fragments (tier-specific)</li>
+                        <li>Protection Scrolls (optional, prevents destruction)</li>
+                    </ul>
+
+                    <h4>Usage</h4>
+                    <p>Hold the item you want to refine and use: <code>/refine</code></p>
+                `
+            },
+            'crafting-recipes': {
+                icon: 'ra-scroll-unfurled',
+                title: 'Crafting Recipes',
+                category: 'Crafting',
+                content: `
+                    <h4>Item Creation</h4>
+                    <p>Discover and craft a wide variety of items including weapons, armor, potions, and consumables.</p>
+
+                    <h4>Recipe Sources</h4>
+                    <ul>
+                        <li><strong>Merchants:</strong> Purchase basic recipes from NPC vendors</li>
+                        <li><strong>Dungeon Drops:</strong> Rare recipes from boss chests</li>
+                        <li><strong>Quest Rewards:</strong> Unique recipes for completing storylines</li>
+                        <li><strong>Discovery:</strong> Experiment with materials to unlock new recipes</li>
+                    </ul>
+
+                    <h4>Crafting Stations</h4>
+                    <p>Different items require specific crafting stations:</p>
+                    <ul>
+                        <li><strong>Crafting Table:</strong> Basic items and tools</li>
+                        <li><strong>Furnace:</strong> Smelting ores and cooking</li>
+                        <li><strong>Enchanting Table:</strong> Magical items and scrolls</li>
+                        <li><strong>Alchemy Station:</strong> Potions and elixirs</li>
+                    </ul>
+
+                    <h4>Crafting Quality</h4>
+                    <p>Your crafting skill level affects the quality of crafted items. Higher skill = better base stats and chance for rare bonuses.</p>
+
+                    <div class="info-box">
+                        <strong>Tip:</strong> Rank holders can use <code>/craft</code> for portable crafting!
+                    </div>
+                `
+            },
+            'shards': {
+                icon: 'ra-crystal-wand',
+                title: 'Shard Worlds',
+                category: 'Exploration',
+                content: `
+                    <h4>Dimensional Realms</h4>
+                    <p>Travel between three unique shard worlds, each with distinct environments, enemies, and loot.</p>
+
+                    <h4>Shard 1: Ember Wastes</h4>
+                    <ul>
+                        <li><strong>Level Range:</strong> 1-30</li>
+                        <li><strong>Environment:</strong> Scorched deserts and volcanic regions</li>
+                        <li><strong>Resources:</strong> Iron, coal, fire crystals</li>
+                        <li><strong>Enemies:</strong> Fire elementals, scorpions, bandits</li>
+                    </ul>
+
+                    <h4>Shard 2: Frozen Expanse</h4>
+                    <ul>
+                        <li><strong>Level Range:</strong> 30-60</li>
+                        <li><strong>Environment:</strong> Ice caverns and snowy tundras</li>
+                        <li><strong>Resources:</strong> Mithril, ice shards, rare gems</li>
+                        <li><strong>Enemies:</strong> Ice golems, frost wolves, yeti</li>
+                    </ul>
+
+                    <h4>Shard 3: Shadow Realm</h4>
+                    <ul>
+                        <li><strong>Level Range:</strong> 60-100</li>
+                        <li><strong>Environment:</strong> Dark forests and corrupted lands</li>
+                        <li><strong>Resources:</strong> Dark crystals, cursed ore, legendary materials</li>
+                        <li><strong>Enemies:</strong> Shadow demons, undead warriors, void beasts</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Travel:</strong> Use <code>/shard [1/2/3]</code> to teleport between shards. Return to hub with <code>/world</code>
+                    </div>
+                `
+            },
+            'dungeons': {
+                icon: 'ra-tower',
+                title: 'Dungeons',
+                category: 'Exploration',
+                content: `
+                    <h4>Instanced Challenges</h4>
+                    <p>Enter dangerous dungeons filled with powerful enemies, complex puzzles, and valuable rewards.</p>
+
+                    <h4>Dungeon Types</h4>
+                    <ul>
+                        <li><strong>Solo Dungeons:</strong> Designed for single players, shorter duration</li>
+                        <li><strong>Party Dungeons:</strong> Require 3-5 players, higher difficulty</li>
+                        <li><strong>Raid Dungeons:</strong> Large-scale challenges for 10+ players</li>
+                        <li><strong>Weekly Dungeons:</strong> Special rotating dungeons with unique rewards</li>
+                    </ul>
+
+                    <h4>Dungeon Mechanics</h4>
+                    <ul>
+                        <li>Each dungeon has checkpoints that save progress</li>
+                        <li>Boss encounters require strategy and coordination</li>
+                        <li>Hidden secrets and bonus rooms contain rare loot</li>
+                        <li>Difficulty scales with party size</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Loot System:</strong> Dungeons use instanced loot - everyone gets their own drops!
+                    </div>
+
+                    <h4>Dungeon Keys</h4>
+                    <p>Most dungeons require keys obtained from quests, enemy drops, or the marketplace. Keys are consumed on entry.</p>
+                `
+            },
+            'fast-travel': {
+                icon: 'ra-teleport',
+                title: 'Fast Travel',
+                category: 'Exploration',
+                content: `
+                    <h4>Transportation Methods</h4>
+                    <p>Navigate the world efficiently using various teleportation and travel systems.</p>
+
+                    <h4>Waypoints</h4>
+                    <p>Discover and activate waypoints throughout the world:</p>
+                    <ul>
+                        <li>Right-click a waypoint to bind your respawn location</li>
+                        <li>Use waypoint map to teleport to discovered locations</li>
+                        <li>Some waypoints require level or quest completion to use</li>
+                    </ul>
+
+                    <h4>Travel Commands</h4>
+                    <ul>
+                        <li><code>/spawn</code> - Return to main spawn</li>
+                        <li><code>/world</code> - Return to overworld hub</li>
+                        <li><code>/shard [1/2/3]</code> - Travel to shard worlds</li>
+                        <li><code>/back</code> - Return to previous location (excludes /spawn and deaths)</li>
+                        <li><code>/home</code> - Teleport to your set home location</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Rank Perks:</strong> Higher ranks get multiple home locations and reduced teleport cooldowns.
+                    </div>
+
+                    <h4>Travel Restrictions</h4>
+                    <ul>
+                        <li>Cannot teleport while in combat (5-second tag)</li>
+                        <li>Teleportation costs small amounts of mana</li>
+                        <li>Some areas are teleport-restricted for balance</li>
+                    </ul>
+                `
+            },
+            'guilds': {
+                icon: 'ra-crown',
+                title: 'Guilds',
+                category: 'Social',
+                content: `
+                    <h4>Guild System</h4>
+                    <p>Form or join guilds to collaborate with other players and access exclusive benefits.</p>
+
+                    <h4>Creating a Guild</h4>
+                    <ul>
+                        <li>Requires level 20 and 10,000 gold</li>
+                        <li>Choose a unique guild name and tag</li>
+                        <li>Customize guild banner and description</li>
+                        <li>Set ranks and permissions for members</li>
+                    </ul>
+
+                    <h4>Guild Benefits</h4>
+                    <ul>
+                        <li><strong>Guild Bank:</strong> Shared storage for members</li>
+                        <li><strong>Guild Chat:</strong> Private communication channel</li>
+                        <li><strong>Guild Buffs:</strong> Passive bonuses (XP, damage, etc.)</li>
+                        <li><strong>Guild Quests:</strong> Cooperative objectives with rewards</li>
+                        <li><strong>Guild Halls:</strong> Upgradeable base with utilities</li>
+                    </ul>
+
+                    <h4>Guild Levels</h4>
+                    <p>Guilds gain experience through member activities. Higher levels unlock:</p>
+                    <ul>
+                        <li>Increased member capacity</li>
+                        <li>Stronger guild buffs</li>
+                        <li>Access to guild-exclusive content</li>
+                        <li>Guild shop with unique items</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Guild Wars:</strong> Coming soon - competitive guild vs guild battles!
+                    </div>
+                `
+            },
+            'trading': {
+                icon: 'ra-gold-bar',
+                title: 'Trading System',
+                category: 'Social',
+                content: `
+                    <h4>Player Economy</h4>
+                    <p>Trade items and currency safely with other players through secure trading interfaces.</p>
+
+                    <h4>Direct Trading</h4>
+                    <p>Request trades with nearby players:</p>
+                    <ul>
+                        <li>Use <code>/trade [player]</code> to send a trade request</li>
+                        <li>Both players must confirm before trade completes</li>
+                        <li>No item loss - trades are atomic and secure</li>
+                    </ul>
+
+                    <h4>Marketplace</h4>
+                    <p>Buy and sell items in the central marketplace:</p>
+                    <ul>
+                        <li>List items with custom prices</li>
+                        <li>Search and filter available listings</li>
+                        <li>Marketplace takes 5% commission on sales</li>
+                        <li>Listings expire after 7 days</li>
+                    </ul>
+
+                    <h4>Auction House</h4>
+                    <p>Rare items can be auctioned with bidding systems:</p>
+                    <ul>
+                        <li>Set starting bid and buyout prices</li>
+                        <li>Auctions last 24-72 hours</li>
+                        <li>Highest bidder wins at auction end</li>
+                    </ul>
+
+                    <div class="info-box warning">
+                        <strong>Scam Protection:</strong> Never drop items for trades. Always use official trade systems!
+                    </div>
+                `
+            },
+            'parties': {
+                icon: 'ra-burning-embers',
+                title: 'Party System',
+                category: 'Social',
+                content: `
+                    <h4>Group Play</h4>
+                    <p>Team up with friends for shared benefits and coordinated adventures.</p>
+
+                    <h4>Creating a Party</h4>
+                    <ul>
+                        <li>Use <code>/party create</code> to start a party</li>
+                        <li>Invite players with <code>/party invite [player]</code></li>
+                        <li>Maximum party size: 5 players</li>
+                        <li>Party leader controls invites and settings</li>
+                    </ul>
+
+                    <h4>Party Benefits</h4>
+                    <ul>
+                        <li><strong>Shared XP:</strong> All members gain XP from nearby kills</li>
+                        <li><strong>XP Bonus:</strong> +10% XP for each party member</li>
+                        <li><strong>Loot Sharing:</strong> Configurable loot distribution modes</li>
+                        <li><strong>Health Bars:</strong> See party member HP and status</li>
+                        <li><strong>Party Chat:</strong> Private communication channel</li>
+                    </ul>
+
+                    <h4>Loot Distribution Modes</h4>
+                    <ul>
+                        <li><strong>Free For All:</strong> Anyone can pick up drops</li>
+                        <li><strong>Round Robin:</strong> Loot rotates between members</li>
+                        <li><strong>Leader Only:</strong> Party leader distributes items</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Party Dungeons:</strong> Some dungeons require a party to enter and have scaled difficulty!
+                    </div>
+                `
+            }
+        };
+
+        // Open mechanic detail modal
+        function openMechanicModal(mechanicId) {
+            const data = mechanicData[mechanicId];
+            if (!data) return;
+
+            const modal = document.getElementById('mechanic-modal');
+            const modalBody = document.getElementById('mechanic-modal-body');
+
+            modalBody.innerHTML = `
+                <div class="mechanic-modal-header">
+                    <div class="mechanic-modal-icon">
+                        <i class="ra ${data.icon}"></i>
+                    </div>
+                    <div>
+                        <span class="mechanic-modal-category">${data.category}</span>
+                        <h2 class="mechanic-modal-title">${data.title}</h2>
+                    </div>
+                </div>
+                <div class="mechanic-modal-body-content">
+                    ${data.content}
+                </div>
+            `;
+
+            modal.classList.add('modal-open');
+            document.body.style.overflow = 'hidden';
+
+            // Re-initialize Lucide icons for modal content
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        // Close mechanic modal
+        function closeMechanicModal() {
+            const modal = document.getElementById('mechanic-modal');
+            modal.classList.remove('modal-open');
+            document.body.style.overflow = '';
+        }
+
+        // Category filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.dataset.category;
+                
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+                
+                // Clear search when filtering
+                document.getElementById('mechanics-search').value = '';
+                
+                // Filter mechanics
+                filterMechanics(category);
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('mechanics-search');
+        const searchResultsCount = document.getElementById('search-results-count');
+        
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            const activeCategory = document.querySelector('.filter-btn.active').dataset.category;
+            
+            if (query) {
+                searchMechanics(query, activeCategory);
+            } else {
+                filterMechanics(activeCategory);
+                searchResultsCount.textContent = '';
+            }
+        });
+
+        function filterMechanics(category) {
+            const cards = document.querySelectorAll('.mechanic-card');
+            const noResults = document.getElementById('no-results');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCategory = card.dataset.category;
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = '';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'flex' : 'none';
+        }
+
+        function searchMechanics(query, category) {
+            const cards = document.querySelectorAll('.mechanic-card');
+            const noResults = document.getElementById('no-results');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCategory = card.dataset.category;
+                const name = card.querySelector('.mechanic-name').textContent.toLowerCase();
+                const summary = card.querySelector('.mechanic-summary').textContent.toLowerCase();
+                
+                const matchesSearch = name.includes(query) || summary.includes(query);
+                const matchesCategory = category === 'all' || cardCategory === category;
+
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = '';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'flex' : 'none';
+            searchResultsCount.textContent = visibleCount > 0 ? `${visibleCount} result${visibleCount !== 1 ? 's' : ''}` : 'No results';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMechanicModal();
+            }
+        });
+
+        // Load components
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof ComponentManager !== 'undefined') {
+                const cm = new ComponentManager();
+                cm.loadComponents([
+                    { template: 'header-component', target: '#header-slot' },
+                    { template: 'footer-component', target: '#footer-slot' },
+                    { template: 'modal-component', target: '#modal-slot' }
+                ]);
+            }
+        });
+    </script>
+</body>
+</html>

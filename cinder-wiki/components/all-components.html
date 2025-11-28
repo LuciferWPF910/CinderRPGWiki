@@ -68,6 +68,10 @@
                 <a href="https://discord.gg/gQ39rGdpQ7" target="_blank">Discord</a>
                 <a href="#" class="open-bug-modal">Report an Issue</a>
                 <a href="#">Terms of Service</a>
+                <button class="footer-feedback-btn open-outdated-modal">
+                    <i class="ph ph-warning-circle"></i>
+                    <span>Found Outdated Info?</span>
+                </button>
             </nav>
         </div>
     </footer>
@@ -89,6 +93,21 @@
                 <a href="mailto:sBigHatStudios+support@gmail.com?subject=CinderRPG%20Bug%20Report" class="btn outline">
                     <i class="ph ph-envelope"></i>
                     Email Support
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="outdated-modal" class="modal" role="dialog" aria-labelledby="outdated-modal-title" aria-modal="true" style="display:none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2 id="outdated-modal-title">Found Outdated Info?</h2>
+            <p class="modal-message">Help us keep the wiki accurate! Report outdated or incorrect information on our Discord server.</p>
+            <div class="modal-actions">
+                <a href="https://discord.gg/bighatstudios" target="_blank" rel="noopener noreferrer" class="btn primary">
+                    <i class="fa-brands fa-discord"></i>
+                    Report on Discord
                 </a>
             </div>
         </div>

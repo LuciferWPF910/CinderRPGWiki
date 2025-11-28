@@ -1,0 +1,726 @@
+/* ============================================
+   Mechanics Page Styles
+   ============================================ */
+
+/* Mechanics Header */
+.mechanics-header {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.mechanics-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--beige);
+    margin: 0 0 0.75rem;
+    text-shadow: 0 0 20px rgba(191, 160, 111, 0.3);
+    font-family: 'Cinzel', serif;
+}
+
+.mechanics-subtitle {
+    font-size: 1.125rem;
+    color: var(--muted);
+    margin: 0 0 2rem;
+    font-style: italic;
+}
+
+/* Search Bar */
+.mechanics-search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    width: 20px;
+    height: 20px;
+    color: var(--muted);
+    pointer-events: none;
+    z-index: 1;
+    transition: color var(--anim-fast) ease;
+}
+
+.mechanics-search {
+    width: 100%;
+    padding: 0.875rem 3rem 0.875rem 3rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    color: var(--text);
+    font-size: 1rem;
+    outline: none;
+    transition: all var(--anim);
+}
+
+.mechanics-search::placeholder {
+    color: var(--muted);
+    opacity: 0.7;
+}
+
+.mechanics-search:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(191, 160, 111, 0.1);
+    background: var(--panel);
+}
+
+.mechanics-search:focus ~ .search-icon {
+    color: var(--accent);
+}
+
+.search-results-count {
+    position: absolute;
+    right: 1rem;
+    font-size: 0.875rem;
+    color: var(--accent);
+    font-weight: 500;
+    pointer-events: none;
+}
+
+/* Category Filter */
+.mechanics-filter {
+    padding: 0 1.5rem 2rem;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    color: var(--muted);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--anim);
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn i {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.15;
+    transform: translate(-50%, -50%);
+    transition: width var(--anim), height var(--anim);
+}
+
+.filter-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.filter-btn:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, rgba(191, 160, 111, 0.15), rgba(212, 197, 185, 0.1));
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 20px rgba(191, 160, 111, 0.2);
+}
+
+/* Mechanics Content */
+.mechanics-content {
+    padding: 0 1.5rem 3rem;
+}
+
+/* Mechanics Grid */
+.mechanics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+    animation: fadeIn var(--anim-slow) ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mechanic Card */
+.mechanic-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all var(--anim);
+    position: relative;
+    overflow: hidden;
+}
+
+.mechanic-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, var(--accent), var(--beige));
+    transition: height var(--anim);
+}
+
+.mechanic-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+.mechanic-card:hover::before {
+    height: 100%;
+}
+
+/* Mechanic Icon */
+.mechanic-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, rgba(191, 160, 111, 0.2), rgba(212, 197, 185, 0.1));
+    border: 1px solid rgba(191, 160, 111, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: var(--accent);
+    transition: all var(--anim);
+    flex-shrink: 0;
+}
+
+.mechanic-card:hover .mechanic-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 20px rgba(191, 160, 111, 0.4);
+}
+
+/* Mechanic Body */
+.mechanic-body {
+    flex: 1;
+}
+
+.mechanic-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+    font-family: 'Cinzel', serif;
+}
+
+.mechanic-summary {
+    font-size: 0.9375rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Mechanic Button */
+.mechanic-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--anim-fast);
+    width: 100%;
+}
+
+.mechanic-btn i {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2.5;
+    transition: transform var(--anim-fast);
+}
+
+.mechanic-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #1a1816;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(191, 160, 111, 0.3);
+}
+
+.mechanic-btn:hover i {
+    transform: translateX(4px);
+}
+
+.mechanic-btn:active {
+    transform: translateY(0);
+}
+
+/* No Results */
+.no-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--muted);
+}
+
+.no-results i {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.no-results h3 {
+    font-size: 1.5rem;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+}
+
+.no-results p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Mechanic Detail Modal */
+.mechanic-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--anim) ease;
+}
+
+.mechanic-modal.modal-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mechanic-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+}
+
+.mechanic-modal-content {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid rgba(191, 160, 111, 0.2);
+    border-radius: var(--radius);
+    padding: 0;
+    max-width: 800px;
+    width: 92%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+    transform: scale(0.9) translateY(30px);
+    transition: transform var(--anim) cubic-bezier(.2, .9, .3, 1);
+    z-index: 1;
+}
+
+.mechanic-modal.modal-open .mechanic-modal-content {
+    transform: scale(1) translateY(0);
+}
+
+/* Custom scrollbar for modal */
+.mechanic-modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.mechanic-modal-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.mechanic-modal-content::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+.mechanic-modal-content::-webkit-scrollbar-thumb:hover {
+    background: var(--beige);
+}
+
+/* Modal Close Button */
+.mechanic-modal-close {
+    position: sticky;
+    top: 1rem;
+    right: 1rem;
+    float: right;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--anim-fast);
+    z-index: 10;
+    margin: 1rem 1rem 0 0;
+}
+
+.mechanic-modal-close i {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2.5;
+}
+
+.mechanic-modal-close:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #1a1816;
+    transform: rotate(90deg);
+}
+
+/* Modal Header */
+.mechanic-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 2rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    clear: both;
+}
+
+.mechanic-modal-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, rgba(191, 160, 111, 0.25), rgba(212, 197, 185, 0.15));
+    border: 2px solid rgba(191, 160, 111, 0.4);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.mechanic-modal-category {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.mechanic-modal-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+    font-family: 'Cinzel', serif;
+}
+
+/* Modal Body Content */
+.mechanic-modal-body-content {
+    padding: 2rem;
+}
+
+.mechanic-modal-body-content h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--beige);
+    margin: 2rem 0 1rem 0;
+    font-family: 'Cinzel', serif;
+}
+
+.mechanic-modal-body-content h4:first-child {
+    margin-top: 0;
+}
+
+.mechanic-modal-body-content p {
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0 0 1rem;
+}
+
+.mechanic-modal-body-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.mechanic-modal-body-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.mechanic-modal-body-content ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.mechanic-modal-body-content ul li strong {
+    color: var(--beige);
+    font-weight: 600;
+}
+
+.mechanic-modal-body-content code {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(191, 160, 111, 0.2);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: var(--accent);
+}
+
+/* Info Box */
+.info-box {
+    background: rgba(191, 160, 111, 0.1);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.info-box p {
+    margin: 0.5rem 0;
+}
+
+.info-box p:first-child {
+    margin-top: 0;
+}
+
+.info-box p:last-child {
+    margin-bottom: 0;
+}
+
+.info-box strong {
+    color: var(--beige);
+    font-weight: 600;
+}
+
+.info-box.warning {
+    background: rgba(255, 150, 50, 0.1);
+    border-left-color: #ff9632;
+}
+
+.info-box.warning strong {
+    color: #ff9632;
+}
+
+/* Footer */
+.mechanics-footer {
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.last-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.9375rem;
+    margin: 0;
+}
+
+.last-updated i {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mechanics-title {
+        font-size: 2.25rem;
+    }
+
+    .mechanics-subtitle {
+        font-size: 1rem;
+    }
+
+    .mechanics-search {
+        font-size: 0.9375rem;
+        padding: 0.75rem 2.5rem;
+    }
+
+    .filter-buttons {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .mechanics-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .mechanic-card {
+        padding: 1.25rem;
+    }
+
+    .mechanic-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+    }
+
+    .mechanic-name {
+        font-size: 1.125rem;
+    }
+
+    .mechanic-summary {
+        font-size: 0.875rem;
+    }
+
+    .mechanic-modal-content {
+        width: 96%;
+        max-height: 90vh;
+    }
+
+    .mechanic-modal-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+    }
+
+    .mechanic-modal-icon {
+        width: 64px;
+        height: 64px;
+        font-size: 2rem;
+    }
+
+    .mechanic-modal-title {
+        font-size: 1.75rem;
+    }
+
+    .mechanic-modal-body-content {
+        padding: 1.5rem;
+    }
+
+    .mechanic-modal-body-content h4 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mechanics-header {
+        padding: 2rem 1rem 1.5rem;
+    }
+
+    .mechanics-title {
+        font-size: 1.875rem;
+    }
+
+    .filter-btn span {
+        display: none;
+    }
+
+    .filter-btn {
+        padding: 0.625rem;
+        width: 42px;
+        height: 42px;
+        justify-content: center;
+    }
+
+    .mechanic-modal-close {
+        width: 36px;
+        height: 36px;
+        margin: 0.75rem 0.75rem 0 0;
+    }
+
+    .mechanic-modal-close i {
+        width: 20px;
+        height: 20px;
+    }
+
+    .mechanic-modal-header {
+        padding: 1.25rem;
+    }
+
+    .mechanic-modal-body-content {
+        padding: 1.25rem;
+        font-size: 0.9375rem;
+    }
+}
+
+/* Animation for cards on load */
+.mechanic-card {
+    animation: slideUp 0.4s ease-out backwards;
+}
+
+.mechanic-card:nth-child(1) { animation-delay: 0.05s; }
+.mechanic-card:nth-child(2) { animation-delay: 0.1s; }
+.mechanic-card:nth-child(3) { animation-delay: 0.15s; }
+.mechanic-card:nth-child(4) { animation-delay: 0.2s; }
+.mechanic-card:nth-child(5) { animation-delay: 0.25s; }
+.mechanic-card:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -145,6 +145,7 @@ class ComponentManager {
         this.initNavigation();
         this.initLogoFallback();
         this.initBugModal();
+        this.initOutdatedModal();
         this.setActiveNavLink();
     }
 
@@ -263,6 +264,45 @@ class ComponentManager {
     initBugModal() {
         const modal = document.getElementById('bug-modal');
         const openBtns = document.querySelectorAll('.open-bug-modal, #open-bug-modal');
+        const closeBtn = modal?.querySelector('.modal-close');
+        const overlay = modal?.querySelector('.modal-overlay');
+
+        if (!modal || openBtns.length === 0) return;
+
+        function closeModal() {
+            modal.classList.remove('modal-open');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'flex';
+                modal.offsetHeight; // Force reflow
+                modal.classList.add('modal-open');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeBtn?.addEventListener('click', closeModal);
+        overlay?.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                closeModal();
+            }
+        });
+    }
+
+    /**
+     * Outdated Info Report Modal functionality
+     */
+    initOutdatedModal() {
+        const modal = document.getElementById('outdated-modal');
+        const openBtns = document.querySelectorAll('.open-outdated-modal');
         const closeBtn = modal?.querySelector('.modal-close');
         const overlay = modal?.querySelector('.modal-overlay');
 
