@@ -724,6 +724,10 @@
                                     <div class="difficulty-dots"><span class="dot"></span></div>
                                 </div> -->
                             </div>
+                            <div class="region-hover-overlay">
+                                <h3 class="region-hover-name">Glacial Steppes</h3>
+                                <p class="region-hover-description">Frozen plains where new travelers learn to survive the cold. The first steps in the Aridian Dungeon test your resolve against icy winds and creatures.</p>
+                            </div>
                         </article>
 
                         <!-- Region 2 -->
@@ -740,6 +744,10 @@
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span></div>
                                 </div> -->
+                            </div>
+                            <div class="region-hover-overlay">
+                                <h3 class="region-hover-name">Crystal Caverns</h3>
+                                <p class="region-hover-description">Glittering caves filled with precious gems and dangers. Shimmering crystals light the way through winding passages where treasure and peril await in equal measure.</p>
                             </div>
                         </article>
 
@@ -758,6 +766,10 @@
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
                                 </div> -->
                             </div>
+                            <div class="region-hover-overlay">
+                                <h3 class="region-hover-name">Frozen Citadel</h3>
+                                <p class="region-hover-description">An abandoned fortress locked in eternal winter. Ice-encrusted halls guard ancient secrets and powerful enemies lurk in the frozen depths of this stronghold.</p>
+                            </div>
                         </article>
 
                         <!-- Region 4 -->
@@ -774,6 +786,10 @@
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
                                 </div> -->
+                            </div>
+                            <div class="region-hover-overlay">
+                                <h3 class="region-hover-name">Howling Tundra</h3>
+                                <p class="region-hover-description">Savage lands where beasts and warriors clash. Fierce winds carry the howls of predators and the battle cries of adventurers fighting for survival and glory.</p>
                             </div>
                         </article>
 
@@ -792,6 +808,10 @@
                                     <div class="difficulty-dots"><span class="dot"></span></div>
                                 </div> -->
                             </div>
+                            <div class="region-hover-overlay">
+                                <h3 class="region-hover-name">Thawspring Oasis</h3>
+                                <p class="region-hover-description">A rare sanctuary of warmth amidst the ice. Heated springs bubble from deep beneath the frozen earth, creating a haven where weary travelers can rest and rare herbs flourish.</p>
+                            </div>
                         </article>
 
                         <!-- Region 6 -->
@@ -808,6 +828,10 @@
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
                                 </div> -->
+                            </div>
+                            <div class="region-hover-overlay">
+                                <h3 class="region-hover-name">Frostlord's Throne</h3>
+                                <p class="region-hover-description">The frozen palace of the ancient ice king. At the heart of the dungeon lies the ultimate challenge - the Frostlord himself, an immortal sovereign whose icy domain has claimed countless challengers.</p>
                             </div>
                         </article>
                     </div>
@@ -1019,10 +1043,11 @@
                                     <span class="region-level">Level 1-15</span>
                                 </div>
                                 <p class="region-description">Eerie grasslands where shadows whisper forbidden secrets.</p>
-                                <!-- <div class="region-difficulty">
-                                    <span class="difficulty-label">Difficulty:</span>
-                                    <div class="difficulty-dots"><span class="dot"></span></div>
-                                </div> -->
+
+                            </div>
+                            <div class="region-hover-overlay">
+                                <h3 class="region-hover-name">Whispering Fields</h3>
+                                <p class="region-hover-description">Eerie grasslands where shadows whisper forbidden secrets. The entrance to the Allhollow Crypts, where restless spirits first begin their eternal vigil over the cursed grounds.</p>
                             </div>
                         </article>
 
@@ -1041,6 +1066,10 @@
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span></div>
                                 </div> -->
                             </div>
+                            <div class="region-hover-overlay">
+                                <h3 class="region-hover-name">Void Rift Canyon</h3>
+                                <p class="region-hover-description">A chasm torn open by void energy, pulsing with dark power. Shadowy tendrils reach from the depths where corrupted souls and necromantic energies converge.</p>
+                            </div>
                         </article>
 
                         <!-- Region 3 -->
@@ -1057,6 +1086,10 @@
                                     <span class="difficulty-label">Difficulty:</span>
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
                                 </div> -->
+                            </div>
+                            <div class="region-hover-overlay">
+                                <h3 class="region-hover-name">Abyssal Sanctum</h3>
+                                <p class="region-hover-description">A corrupted temple where void creatures are born. Ancient altars drip with dark essence as unholy rituals continue eternally in the heart of the crypts.</p>
                             </div>
                         </article>
 
@@ -1075,6 +1108,11 @@
                                     <div class="difficulty-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
                                 </div> -->
                             </div>
+                            <div class="region-hover-overlay">
+                                <h3 class="region-hover-name">Chaos Battleground</h3>
+                                <p class="region-hover-description">A warzone where reality itself becomes a weapon. The deepest chambers of the crypts host endless battles between spectral warriors reliving their final moments for eternity.</p>
+                            </div>
+                            
                         </article>
 
                         <!-- Region 5 -->
@@ -1211,13 +1249,17 @@
 
             // Function to toggle map markers
             function toggleFilterMarkers(filterId, isVisible, shardIndex) {
-                console.log(`Shard ${shardIndex + 1} - Filter ${filterId} is now ${isVisible ? 'visible' : 'hidden'}`);
+                // Map panel index to actual shard data attribute values
+                const shardMap = ['1', '1.1', '1.2', '1.9'];
+                const shardValue = shardMap[shardIndex];
+                
+                console.log(`Shard ${shardValue} - Filter ${filterId} is now ${isVisible ? 'visible' : 'hidden'}`);
                 
                 // Get the marker class name from the filter ID
                 const markerClass = filterId.replace(/filter-|(-s\d)$/g, '');
                 
-                // Get the shard content
-                const shardContent = document.querySelector(`.shard-content[data-shard="${shardIndex + 1}"]`);
+                // Get the shard content using the correct data-shard value
+                const shardContent = document.querySelector(`.shard-content[data-shard="${shardValue}"]`);
                 
                 if (shardContent) {
                     // Find all markers of this type in this shard
@@ -1230,6 +1272,8 @@
                             marker.classList.add('hidden');
                         }
                     });
+                } else {
+                    console.warn(`No shard content found for data-shard="${shardValue}"`);
                 }
             }
 

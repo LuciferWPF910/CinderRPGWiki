@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial - CinderRPG Wiki</title>
+    <link rel="icon" type="x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/home.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <!-- RPG Awesome icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Header Component Slot -->
+    <div id="header-slot"></div>
+
+    <main>
+        <!-- ========================================
+             TEMPORARY PLACEHOLDER: Remove when Tutorial page is complete
+             ======================================== -->
+        <div id="coming-soon-slot"></div>
+        <!-- END TEMPORARY PLACEHOLDER -->
+    </main>
+
+    <!-- Footer Component Slot -->
+    <div id="footer-slot"></div>
+
+    <!-- Modal Component Slot -->
+    <div id="modal-slot"></div>
+
+    <!-- Load Component Manager -->
+    <script src="../js/components.js"></script>
+
+    <!-- ========================================
+         TEMPORARY PLACEHOLDER: Remove when Tutorial page is complete
+         ======================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await window.ComponentManager.insertComponent('coming-soon-component', '#coming-soon-slot');
+        });
+    </script>
+    <!-- END TEMPORARY PLACEHOLDER -->
+</body>
+</html>
