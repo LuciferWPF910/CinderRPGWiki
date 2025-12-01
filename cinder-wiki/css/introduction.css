@@ -1,0 +1,2096 @@
+/* ============================================
+   Introduction Page Styles - Full Page Book Mode
+   ============================================ */
+
+/* Body adjustments for intro page */
+body:has(.intro-main) {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* On mobile, allow body scrolling */
+@media (max-width: 920px) {
+    body:has(.intro-main) {
+        overflow: auto;
+    }
+}
+
+/* Hide footer and modal on intro page */
+body:has(.intro-main) #footer-slot,
+body:has(.intro-main) #modal-slot {
+    display: none !important;
+}
+
+/* Ensure header is always visible and functional */
+body:has(.intro-main) header,
+body:has(.intro-main) #header-slot,
+body:has(.intro-main) .header-component,
+body:has(.intro-main) .site-header {
+    position: relative !important;
+    z-index: 10000 !important;
+    pointer-events: auto !important;
+}
+
+/* Main Container */
+.intro-main {
+    background: #1a1816;
+    min-height: calc(100vh - var(--header-height, 60px));
+    height: calc(100vh - var(--header-height, 60px));
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    top: var(--header-height, 60px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+}
+
+/* On mobile, make intro-main relative so it flows after the header naturally */
+@media (max-width: 920px) {
+    body:has(.intro-main) {
+        overflow: auto;
+    }
+    
+    .intro-main {
+        position: relative;
+        top: 0;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+    }
+    
+    .book-container {
+        position: relative;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+    }
+    
+    .book-cover {
+        position: relative;
+        inset: auto;
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+    
+    .book-page {
+        position: relative;
+        inset: auto;
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+    
+    .page-content {
+        overflow-y: visible;
+        height: auto;
+    }
+    
+    /* Optimize navigation slider for mobile - make it non-sticky */
+    .book-navigation {
+        position: relative;
+        height: 70px;
+        padding: 0 1rem;
+        background: linear-gradient(to top, rgba(10, 10, 10, 0.98), rgba(20, 20, 20, 0.95));
+        backdrop-filter: blur(8px);
+        margin-top: auto;
+        width: 100%;
+    }
+    
+    .book-nav-btn {
+        padding: 0.65rem 1rem;
+        font-size: 0.875rem;
+        gap: 0.4rem;
+        border-radius: 8px;
+        min-width: 80px;
+        justify-content: center;
+    }
+    
+    .book-nav-btn i {
+        font-size: 1rem;
+    }
+    
+    .page-indicator {
+        padding: 0.65rem 1.25rem;
+        font-size: 1rem;
+        gap: 0.5rem;
+        border-radius: 8px;
+        border-width: 1.5px;
+    }
+    
+    .current-page {
+        min-width: 60px;
+        font-size: 0.95rem;
+    }
+    
+    .page-divider,
+    .total-pages {
+        font-size: 0.95rem;
+    }
+}
+
+/* Book Container - Full Screen */
+.book-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2a2520 0%, #1a1816 100%);
+    overflow: hidden;
+    z-index: 11;
+}
+
+/* Page Texture Overlay */
+.page-texture {
+    position: absolute;
+    inset: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(191, 160, 111, 0.02) 2px,
+            rgba(191, 160, 111, 0.02) 4px
+        );
+    pointer-events: none;
+    opacity: 0.3;
+    z-index: 12;
+}
+
+/* Book Cover - Full Page */
+.book-cover {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(191, 160, 111, 0.15), transparent 70%),
+        linear-gradient(135deg, #2a2520, #1a1816);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    will-change: opacity;
+    z-index: 12;
+}
+
+.book-cover.active {
+    display: flex;
+    opacity: 1;
+}
+
+.book-cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse at 30% 50%,
+        rgba(191, 160, 111, 0.1) 0%,
+        transparent 50%
+    );
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+.cover-content {
+    text-align: center;
+    z-index: 13;
+    padding: 3rem;
+    max-width: 900px;
+}
+
+.book-ornament {
+    width: 300px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 3s forwards;
+}
+
+.book-ornament.top {
+    margin-bottom: 3rem;
+}
+
+.book-ornament.bottom {
+    margin-top: 3rem;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.book-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    color: var(--beige);
+    margin: 0 0 1rem;
+    font-family: 'Cinzel', serif;
+    text-shadow: 
+        0 0 40px rgba(191, 160, 111, 0.6),
+        0 4px 20px rgba(0, 0, 0, 0.8);
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUpTitle 1s ease-out forwards;
+}
+
+@keyframes fadeInUpTitle {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.book-subtitle {
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+    color: var(--accent);
+    font-style: italic;
+    margin-bottom: 3rem;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateY(5px);
+    animation: fadeInUpSubtitle 1.2s ease-out 0.8s forwards, subtleGlow 2s ease-in-out 2s;
+}
+
+@keyframes fadeInUpSubtitle {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtleGlow {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    25% {
+        filter: brightness(1.3) drop-shadow(0 0 8px rgba(191, 160, 111, 0.4));
+    }
+    50% {
+        filter: brightness(1.5) drop-shadow(0 0 12px rgba(191, 160, 111, 0.5));
+    }
+    75% {
+        filter: brightness(1.3) drop-shadow(0 0 8px rgba(191, 160, 111, 0.4));
+    }
+}
+
+.book-emblem {
+    font-size: 6rem;
+    color: var(--accent);
+    margin: 3rem 0;
+    animation: emberGlow 3s ease-in-out infinite;
+}
+
+@keyframes emberGlow {
+    0%, 100% { 
+        filter: drop-shadow(0 0 30px rgba(191, 160, 111, 0.6));
+        transform: scale(1);
+    }
+    50% { 
+        filter: drop-shadow(0 0 50px rgba(191, 160, 111, 0.9));
+        transform: scale(1.05);
+    }
+}
+
+.book-tagline {
+    font-size: 1.25rem;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0;
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out 1.8s forwards;
+}
+
+/* Book Pages - Full Screen */
+.book-page {
+    position: absolute;
+    inset: 0;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    will-change: opacity;
+    z-index: 12;
+    background: linear-gradient(135deg, #2a2520 0%, #1a1816 100%);
+}
+
+.book-page.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Enhanced Page Turn Animation */
+.book-page.page-turning-out {
+    animation: pageFlipOut 0.6s ease-in-out forwards;
+}
+
+.book-page.page-turning-in {
+    animation: pageFlipIn 0.6s ease-in-out forwards;
+}
+
+@keyframes pageFlipOut {
+    0% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+    50% {
+        opacity: 0.5;
+        filter: brightness(0.7);
+    }
+    100% {
+        opacity: 0;
+        filter: brightness(0.5);
+    }
+}
+
+@keyframes pageFlipIn {
+    0% {
+        opacity: 0;
+        filter: brightness(0.5);
+    }
+    50% {
+        opacity: 0.5;
+        filter: brightness(0.7);
+    }
+    100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+}
+
+/* Page Lighting Effect */
+.book-page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(
+            ellipse at var(--light-x, 50%) var(--light-y, 50%),
+            rgba(191, 160, 111, 0.08) 0%,
+            transparent 60%
+        ),
+        linear-gradient(to right, 
+            rgba(0, 0, 0, 0.2) 0%, 
+            transparent 10%, 
+            transparent 90%, 
+            rgba(0, 0, 0, 0.2) 100%
+        );
+    pointer-events: none;
+    transition: all 0.5s ease;
+    z-index: 13;
+    opacity: 0.6;
+}
+
+.book-page.active::before {
+    opacity: 0.3;
+}
+
+.book-page[data-page="1"]::before { --light-x: 30%; --light-y: 40%; }
+.book-page[data-page="2"]::before { --light-x: 70%; --light-y: 40%; }
+.book-page[data-page="3"]::before { --light-x: 30%; --light-y: 60%; }
+.book-page[data-page="4"]::before { --light-x: 70%; --light-y: 60%; }
+.book-page[data-page="5"]::before { --light-x: 50%; --light-y: 50%; }
+.book-page[data-page="6"]::before { --light-x: 50%; --light-y: 40%; }
+.book-page[data-page="7"]::before { --light-x: 50%; --light-y: 60%; }
+
+.page-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 3rem 6rem 12rem 4rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 14;
+}
+
+.page-content > * {
+    width: 100%;
+    max-width: 1600px;
+}
+
+/* ============================================
+   CUSTOM LAYOUTS FOR EACH PAGE
+   ============================================ */
+
+/* Content wrapper - flex container for all two-column pages */
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+}
+
+/* PAGE 1: Content Left, Video Right */
+.page-world .content-wrapper {
+    flex-direction: row;
+}
+
+.page-world .section-content {
+    flex: 1 1 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding-right: 2rem;
+}
+
+.page-world .section-visual {
+    flex: 1 1 45%;
+    height: 312px;
+}
+
+/* PAGE 2: Content Left, Video Right */
+.page-races .content-wrapper {
+    flex-direction: row;
+}
+
+.page-races .section-content {
+    flex: 1 1 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding-right: 2rem;
+}
+
+.page-races .section-visual {
+    flex: 1 1 45%;
+    height: 312px;
+}
+
+/* PAGE 3: Video Left, Content Right */
+.page-gameplay .content-wrapper {
+    flex-direction: row;
+}
+
+.page-gameplay .section-visual {
+    flex: 1 1 45%;
+    height: 312px;
+}
+
+.page-gameplay .section-content {
+    flex: 1 1 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding-left: 2rem;
+}
+
+/* PAGE 4: Content Left, Video Right */
+.page-lore .content-wrapper {
+    flex-direction: row;
+}
+
+.page-lore .section-content {
+    flex: 1 1 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding-right: 2rem;
+}
+
+.page-lore .section-visual {
+    flex: 1 1 45%;
+    height: 312px;
+}
+
+/* PAGE 5: Video Left, Content Right */
+.page-community .content-wrapper {
+    flex-direction: row;
+}
+
+.page-community .section-visual {
+    flex: 1 1 45%;
+    height: 312px;
+}
+
+.page-community .section-content {
+    flex: 1 1 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding-left: 2rem;
+}
+
+/* Single column layouts - Pages 6 & 7 */
+.page-content .cta-content,
+.page-content .intro-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    gap: 3rem;
+}
+
+
+.page-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.page-content::-webkit-scrollbar-track {
+    background: rgba(191, 160, 111, 0.05);
+}
+
+.page-content::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 5px;
+}
+
+.page-content::-webkit-scrollbar-thumb:hover {
+    background: var(--beige);
+}
+
+.page-number {
+    position: fixed;
+    bottom: 3rem;
+    right: 4rem;
+    font-size: 1rem;
+    color: var(--muted);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+    z-index: 50;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Book Page Footer Ornament */
+.book-page::after {
+    content: '';
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.3;
+    z-index: 99;
+    pointer-events: none;
+}
+
+.book-cover::after {
+    display: none;
+}
+
+/* Book Navigation - Fixed to Screen Edges */
+.book-navigation {
+    position: relative; /* no more fixed sticky */
+    bottom: auto;
+    left: auto;
+    right: auto;
+    height: auto;
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.98), rgba(20, 20, 20, 0.8) 60%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+    margin-top: 3rem; /* small gap from content above */
+    border-top: 1px solid rgba(191, 160, 111, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.book-navigation > * {
+    pointer-events: auto !important;
+}
+
+.book-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.5rem, 1.5vw, 0.75rem);
+    padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.25rem, 2.5vw, 2rem);
+    background: linear-gradient(135deg, rgba(42, 37, 32, 0.95), rgba(30, 27, 24, 0.95));
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--accent);
+    border-radius: clamp(8px, 1vw, 12px);
+    color: var(--beige);
+    font-size: clamp(0.875rem, 1.5vw + 0.25rem, 1.125rem);
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    will-change: transform, border-color, background-color;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.7),
+        0 0 20px rgba(191, 160, 111, 0.2);
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.book-nav-btn:hover:not(:disabled) {
+    border-color: var(--beige);
+    background: linear-gradient(135deg, rgba(191, 160, 111, 0.3), rgba(42, 37, 32, 0.95));
+    transform: translateY(-3px);
+    box-shadow: 
+        0 6px 25px rgba(0, 0, 0, 0.8),
+        0 0 30px rgba(191, 160, 111, 0.4);
+}
+
+.book-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: var(--border);
+}
+
+.book-nav-btn:active:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.book-nav-btn i {
+    font-size: 1.5rem;
+    color: var(--accent);
+    transition: color 0.2s ease;
+}
+
+.book-nav-btn:hover:not(:disabled) i {
+    color: var(--beige);
+}
+
+.page-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    color: var(--beige);
+    background: linear-gradient(135deg, rgba(42, 37, 32, 0.95), rgba(30, 27, 24, 0.95));
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    border: 2px solid var(--accent);
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.7),
+        0 0 20px rgba(191, 160, 111, 0.2);
+}
+
+.current-page {
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 80px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(191, 160, 111, 0.5);
+}
+
+.page-divider {
+    color: var(--muted);
+}
+
+.total-pages {
+    color: var(--muted);
+}
+
+/* Section Content - Typography and Spacing */
+.section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section-title {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: var(--accent-gold, #d4af37);
+    margin: 0 0 1.5rem 0;
+    font-family: 'Cinzel', serif;
+    line-height: 1.3;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.section-text {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-family: 'Crimson Text', serif;
+}
+
+/* Section Visual - Video/Image Container */
+.section-visual {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+
+.section-video,
+.fallback-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.section-video {
+    filter: brightness(0.85) contrast(1.05);
+    background: #000;
+}
+
+/* Meta Tags */
+.section-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.meta-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 2rem;
+    color: var(--accent-gold, #d4af37);
+    font-size: 1rem;
+    cursor: help;
+    transition: all 0.3s ease;
+}
+
+.meta-tag:hover {
+    border-color: var(--accent-gold, #d4af37);
+    background: rgba(212, 175, 55, 0.2);
+    transform: translateY(-2px);
+}
+
+.meta-tag i {
+    font-size: 1.2rem;
+    color: var(--accent-gold, #d4af37);
+}
+
+/* Race Icons */
+.race-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.race-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: var(--panel);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    color: var(--accent);
+    font-size: 2rem;
+    cursor: help;
+    transition: all var(--anim);
+}
+
+
+.race-icon:hover {
+    border-color: var(--accent);
+    background: rgba(191, 160, 111, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(191, 160, 111, 0.2);
+}
+
+/* System Highlights */
+.system-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.highlight-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    color: var(--beige);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all var(--anim);
+}
+
+.highlight-badge:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.highlight-badge i {
+    color: var(--accent);
+}
+
+/* Timeline Preview */
+.timeline-preview {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--panel);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    transition: all var(--anim);
+    flex: 1 1 auto;
+    min-width: 200px;
+}
+
+.timeline-item:hover {
+    background: rgba(191, 160, 111, 0.05);
+    transform: translateX(8px);
+}
+
+.timeline-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--card);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    color: var(--accent);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.timeline-label {
+    font-size: 1rem;
+    color: var(--beige);
+    font-weight: 500;
+}
+
+/* Community Pillars */
+.community-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+    transition: all var(--anim);
+}
+
+.pillar:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pillar i {
+    font-size: 2rem;
+    color: var(--accent);
+}
+
+.pillar span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--beige);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* CTA Section - Adapted for Book Page */
+.page-content .cta-content {
+    max-width: 900px;
+}
+
+.cta-content .section-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    margin-bottom: 2rem;
+}
+
+.cta-content .section-text {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    will-change: transform, background-color, border-color;
+}
+
+.cta-btn i {
+    font-size: 1.5rem;
+}
+
+.cta-btn.primary {
+    background: var(--accent);
+    color: var(--bg);
+    border: 2px solid var(--accent);
+    box-shadow: 0 4px 15px rgba(191, 160, 111, 0.3);
+}
+
+.cta-btn.primary:hover {
+    background: transparent;
+    color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(191, 160, 111, 0.4);
+}
+
+.cta-btn.secondary {
+    background: var(--panel);
+    color: var(--beige);
+    border: 2px solid var(--border);
+}
+
+.cta-btn.secondary:hover {
+    border-color: var(--accent);
+    background: rgba(191, 160, 111, 0.1);
+    transform: translateY(-3px);
+}
+
+.cta-btn i {
+    font-size: 1.25rem;
+}
+
+/* Navigation Grid - Adapted for Book Page */
+.page-content .intro-nav {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.intro-nav {
+    max-width: 1000px;
+}
+
+.nav-heading {
+    text-align: center;
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--beige);
+    margin: 0 0 3rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.05em;
+}
+
+.nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 900px;
+}
+
+.nav-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2.5rem 2rem;
+    background: var(--panel);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--beige);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    will-change: transform, border-color;
+}
+
+.nav-card:hover {
+    border-color: var(--accent);
+    background: rgba(191, 160, 111, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(191, 160, 111, 0.2);
+}
+
+.nav-card i {
+    font-size: 3rem;
+    color: var(--accent);
+    transition: all 0.2s ease;
+}
+
+.nav-card:hover i {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(191, 160, 111, 0.6));
+}
+
+.nav-card span {
+    font-size: 1.125rem;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.05em;
+}
+
+/* Tooltip */
+.tooltip {
+    position: fixed;
+    background: rgba(20, 20, 20, 0.95);
+    color: var(--beige);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    pointer-events: none;
+    z-index: 10000;
+    max-width: 300px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .page-content {
+        padding: 5rem 3rem 9rem;
+    }
+
+    .book-navigation {
+        padding: 0 2rem;
+    }
+
+    .page-number {
+        right: 3rem;
+        bottom: 2.5rem;
+    }
+
+    /* Adjust content wrapper gaps */
+    .content-wrapper {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .page-content .section-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .book-title {
+        font-size: 3rem;
+    }
+
+    .book-emblem {
+        font-size: 4.5rem;
+    }
+
+    .page-content {
+        padding: 4rem 2rem 9rem;
+    }
+
+    /* Stack all page layouts vertically on tablets */
+    .page-world .content-wrapper,
+    .page-races .content-wrapper,
+    .page-gameplay .content-wrapper,
+    .page-lore .content-wrapper,
+    .page-community .content-wrapper {
+        flex-direction: column !important;
+        gap: 2rem;
+        min-height: auto;
+    }
+
+    .page-world .section-content,
+    .page-races .section-content,
+    .page-gameplay .section-content,
+    .page-lore .section-content,
+    .page-community .section-content {
+        flex: 1 1 100% !important;
+        padding: 0 !important;
+    }
+
+    .page-world .section-visual,
+    .page-races .section-visual,
+    .page-gameplay .section-visual,
+    .page-lore .section-visual,
+    .page-community .section-visual {
+        flex: 1 1 100% !important;
+        width: 100%;
+        height: 350px;
+    }
+
+    /* Timeline items wrap better */
+    .timeline-preview {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .timeline-item {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .race-icons {
+        justify-content: center;
+    }
+
+    .community-pillars {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(0.75rem, 2vw, 1rem);
+    }
+
+    /* Mobile card layout - video on top, content below */
+    .page-world .content-wrapper,
+    .page-races .content-wrapper,
+    .page-gameplay .content-wrapper,
+    .page-lore .content-wrapper,
+    .page-community .content-wrapper {
+        flex-direction: column !important;
+        gap: 0;
+        padding: 0;
+    }
+
+    .page-world .section-visual,
+    .page-races .section-visual,
+    .page-gameplay .section-visual,
+    .page-lore .section-visual,
+    .page-community .section-visual {
+        order: -1 !important;
+        width: 100%;
+        height: 280px;
+        margin-bottom: 0;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .page-world .section-content,
+    .page-races .section-content,
+    .page-gameplay .section-content,
+    .page-lore .section-content,
+    .page-community .section-content {
+        order: 1 !important;
+        padding: 1.5rem 1rem !important;
+        background: linear-gradient(135deg, rgba(42, 37, 32, 0.98), rgba(30, 27, 24, 0.98));
+        border-radius: 0 0 12px 12px;
+        border: 2px solid rgba(212, 175, 55, 0.3);
+        border-top: none;
+    }
+
+    .section-content {
+        gap: 1rem !important;
+    }
+
+    /* Add breathing space between elements */
+    .section-title {
+        margin-bottom: 1rem;
+    }
+
+    .section-text {
+        margin-bottom: 1rem;
+        line-height: 1.7;
+    }
+
+    .meta-tags,
+    .race-icons {
+        margin-top: 1.5rem;
+    }
+    /* Adjust vertical nav for mobile */
+    .page-scroll-nav {
+        right: 1rem;
+        gap: 1rem;
+        padding: 1rem 0.5rem;
+    }
+
+    .page-nav-item {
+        width: 40px;
+        height: 40px;
+    }
+
+    .page-nav-item i {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Mobile card layout - video on top, optimized for small phones */
+    .page-world .section-visual,
+    .page-races .section-visual,
+    .page-gameplay .section-visual,
+    .page-lore .section-visual,
+    .page-community .section-visual {
+        height: 240px;
+        order: -1 !important;
+        margin-bottom: 0;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .page-world .section-content,
+    .page-races .section-content,
+    .page-gameplay .section-content,
+    .page-lore .section-content,
+    .page-community .section-content {
+        padding: 1.25rem 0.875rem !important;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .section-text {
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+
+    /* Race icons smaller */
+    .race-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.25rem;
+    }
+
+    /* Timeline items stack */
+    .timeline-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+
+    .timeline-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    /* Intro nav cards */
+    .intro-nav {
+        padding: 1.5rem;
+    }
+
+    .nav-card {
+        padding: 1.5rem;
+    }
+
+    .nav-card i {
+        font-size: 2rem;
+    }
+
+    .nav-card h3 {
+        font-size: 1.125rem;
+    }
+
+    /* Hide vertical nav on mobile - use bottom nav only */
+    .page-scroll-nav {
+        display: none !important;
+    }
+
+    /* Content wrapper adjustments */
+    .content-wrapper {
+        gap: 1.5rem;
+    }
+
+    /* Book cover adjustments */
+    .book-subtitle {
+        font-size: 1rem;
+    }
+
+    .book-emblem {
+        font-size: 3.5rem;
+        margin: 1.5rem 0;
+    }
+
+    /* Meta tags smaller */
+    .meta-tag {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.813rem;
+    }
+
+    /* Community pillars single column */
+    .community-pillars {
+        grid-template-columns: 1fr;
+    }
+
+    .pillar h4 {
+        font-size: 1.125rem;
+    }
+
+    .pillar p {
+        font-size: 0.875rem;
+    }
+}
+
+/* ============================================
+   Vertical Page Scroll Navigator
+   ============================================ */
+
+.page-scroll-nav {
+    position: fixed;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 0.75rem;
+    background: linear-gradient(135deg, rgba(42, 37, 32, 0.95), rgba(30, 27, 24, 0.95));
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--accent);
+    border-radius: 50px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.8),
+        inset 0 0 20px rgba(191, 160, 111, 0.05);
+    pointer-events: auto !important;
+    max-height: 85vh;
+}
+
+/* Arrow navigation buttons */
+.page-nav-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 40px;
+    background: rgba(191, 160, 111, 0.1);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--accent);
+    font-size: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-nav-arrow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(191, 160, 111, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.page-nav-arrow:hover {
+    background: rgba(191, 160, 111, 0.2);
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 20px rgba(191, 160, 111, 0.4),
+        inset 0 0 10px rgba(191, 160, 111, 0.2);
+}
+
+.page-nav-arrow:hover::before {
+    opacity: 1;
+}
+
+.page-nav-arrow:active {
+    transform: scale(0.98);
+}
+
+.page-nav-arrow i {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.page-nav-arrow:hover i {
+    color: var(--beige);
+    text-shadow: 0 0 10px rgba(191, 160, 111, 0.8);
+}
+
+/* Separator line after up arrow and before down arrow */
+.page-nav-up {
+    margin-bottom: 0.5rem;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.page-nav-down {
+    margin-top: 0.5rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.page-nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+
+.page-nav-item:hover {
+    transform: scale(1.15);
+    border-color: var(--accent);
+}
+
+.page-nav-item.active {
+    transform: scale(1.2);
+    border-color: var(--accent);
+    background: rgba(191, 160, 111, 0.2);
+    box-shadow: 
+        0 0 20px rgba(191, 160, 111, 0.4),
+        inset 0 0 10px rgba(191, 160, 111, 0.2);
+}
+
+.page-nav-item i {
+    font-size: 1.5rem;
+    color: var(--muted);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.page-nav-item:hover i,
+.page-nav-item.active i {
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(191, 160, 111, 0.6);
+}
+
+.nav-dot {
+    position: absolute;
+    left: -8px;
+    width: 8px;
+    height: 8px;
+    background: var(--border);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.page-nav-item.active .nav-dot {
+    background: var(--accent);
+    box-shadow: 0 0 10px rgba(191, 160, 111, 0.8);
+    width: 12px;
+    height: 12px;
+    left: -10px;
+}
+
+.page-nav-item:hover .nav-dot {
+    background: var(--accent);
+    transform: scale(1.2);
+}
+
+/* Connecting line - adjusted for arrows */
+.page-scroll-nav::before {
+    content: '';
+    position: absolute;
+    left: 0.625rem;
+    top: 4rem;
+    bottom: 4rem;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--border) 10%,
+        var(--border) 90%,
+        transparent
+    );
+}
+
+/* Show vertical nav with arrows on laptops and desktops */
+@media (min-width: 769px) {
+    .page-scroll-nav {
+        display: flex !important;
+    }
+    
+    .page-nav-arrow {
+        display: flex;
+    }
+}
+
+/* Hide arrows on tablets and below, but keep nav dots visible */
+@media (max-width: 768px) {
+    .page-nav-arrow {
+        display: none;
+    }
+    
+    .page-scroll-nav {
+        gap: 1rem;
+        padding: 1rem 0.625rem;
+    }
+    
+    .page-nav-item {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .page-nav-item i {
+        font-size: 1.5rem;
+    }
+    
+    /* Adjust connecting line when arrows are hidden */
+    .page-scroll-nav::before {
+        top: 2rem;
+        bottom: 2rem;
+        left: 0.625rem;
+    }
+}
+
+/* Tooltip on hover */
+.page-nav-item::after {
+    content: attr(title);
+    position: absolute;
+    right: calc(100% + 1rem);
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    background: rgba(42, 37, 32, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    color: var(--beige);
+    font-size: 0.875rem;
+    font-family: 'Cinzel', serif;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transform: translateX(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+}
+
+.page-nav-item:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ============================================
+   Mobile Landscape Orientation
+   ============================================ */
+@media (max-width: 896px) and (max-height: 500px) and (orientation: landscape) {
+    .page-content {
+        padding: 2rem 2rem 5rem;
+    }
+
+    .book-navigation {
+        height: 60px;
+        padding: 0 0.75rem;
+    }
+
+    .book-nav-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.813rem;
+        min-width: 70px;
+        gap: 0.3rem;
+    }
+    
+    .book-nav-btn i {
+        font-size: 0.875rem;
+    }
+
+    .page-indicator {
+        padding: 0.5rem 0.85rem;
+        font-size: 0.875rem;
+        gap: 0.4rem;
+    }
+    
+    .current-page {
+        min-width: 50px;
+        font-size: 0.813rem;
+    }
+
+    .book-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .book-emblem {
+        font-size: 3rem;
+        margin: 1rem 0;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .page-world .section-visual,
+    .page-races .section-visual,
+    .page-gameplay .section-visual,
+    .page-lore .section-visual,
+    .page-community .section-visual {
+        height: 250px;
+    }
+
+    .page-scroll-nav {
+        display: none !important;
+    }
+
+    .content-wrapper {
+        gap: 1.5rem;
+        min-height: auto;
+    }
+}
+
+/* ============================================
+   Touch Device Optimizations
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .book-nav-btn:hover,
+    .nav-card:hover,
+    .timeline-item:hover {
+        transform: none;
+    }
+
+    /* Make touch targets larger */
+    .book-nav-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .page-nav-item {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .nav-card {
+        min-height: 44px;
+    }
+
+    /* Remove tooltips on touch */
+    .page-nav-item::after {
+        display: none;
+    }
+
+    /* Enhance active states for touch feedback */
+    .book-nav-btn:active {
+        transform: scale(0.95);
+        background: rgba(191, 160, 111, 0.3);
+    }
+
+    .page-nav-item:active {
+        transform: scale(0.95);
+        background: rgba(191, 160, 111, 0.25);
+    }
+}
+
+/* ============================================
+   iPad Specific (Portrait)
+   ============================================ */
+@media only screen 
+    and (min-width: 768px) 
+    and (max-width: 1024px) 
+    and (orientation: portrait) {
+    
+    .page-content {
+        padding: 4rem 3rem 9rem;
+    }
+
+    .page-world .section-visual,
+    .page-races .section-visual,
+    .page-gameplay .section-visual,
+    .page-lore .section-visual,
+    .page-community .section-visual {
+        height: 400px;
+    }
+
+    .book-title {
+        font-size: 3.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .timeline-preview {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .timeline-item {
+        flex: 1 1 calc(50% - 1rem);
+        min-width: 250px;
+    }
+}
+
+/* ============================================
+   iPad Specific (Landscape)
+   ============================================ */
+@media only screen 
+    and (min-width: 768px) 
+    and (max-width: 1024px) 
+    and (orientation: landscape) {
+    
+    .page-world .content-wrapper,
+    .page-races .content-wrapper,
+    .page-gameplay .content-wrapper,
+    .page-lore .content-wrapper,
+    .page-community .content-wrapper {
+        flex-direction: row !important;
+    }
+
+    .page-world .section-content,
+    .page-races .section-content,
+    .page-gameplay .section-content,
+    .page-lore .section-content,
+    .page-community .section-content {
+        flex: 1 1 55% !important;
+    }
+
+    .page-world .section-visual,
+    .page-races .section-visual,
+    .page-gameplay .section-visual,
+    .page-lore .section-visual,
+    .page-community .section-visual {
+        flex: 1 1 45% !important;
+        height: 280px;
+    }
+}
+
+/* ============================================
+   Small Phones (< 375px)
+   ============================================ */
+@media (max-width: 374px) {
+    .book-title {
+        font-size: 1.75rem;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    .section-text {
+        font-size: 0.813rem;
+    }
+
+    .page-content {
+        padding: 2rem 0.75rem 6rem;
+    }
+
+    .book-nav-btn,
+    .page-indicator {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.65rem;
+    }
+    
+    .book-nav-btn {
+        min-width: 70px;
+        gap: 0.3rem;
+    }
+    
+    .book-nav-btn i {
+        font-size: 0.875rem;
+    }
+    
+    .page-indicator {
+        padding: 0.5rem 0.85rem;
+        gap: 0.4rem;
+    }
+    
+    .current-page {
+        min-width: 50px;
+        font-size: 0.875rem;
+    }
+    
+    .page-divider,
+    .total-pages {
+        font-size: 0.875rem;
+    }
+
+    .race-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.125rem;
+    }
+
+    .page-world .section-visual,
+    .page-races .section-visual,
+    .page-gameplay .section-visual,
+    .page-lore .section-visual,
+    .page-community .section-visual {
+        height: 200px;
+    }
+
+    .cta-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.875rem;
+    }
+}
+/* -------------------------------------------------
+   FIXES: nav responsiveness, video/card layout,
+   spacing, clipping on small screens
+--------------------------------------------------*/
+
+/* 1) Bottom navigation: make fully responsive, roomy, and safe-area aware */
+.book-navigation {
+  gap: clamp(0.5rem, 2vw, 1.25rem);
+  flex-wrap: wrap;
+  align-content: center;
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 10px);
+}
+
+.book-navigation .page-indicator {
+  flex: 0 1 auto;
+}
+
+@media (max-width: 820px) {
+  .book-navigation {
+    height: auto;
+    padding: 0.75rem 1rem calc(env(safe-area-inset-bottom, 0px) + 12px);
+    justify-content: center;
+    row-gap: 0.75rem;
+  }
+  .book-navigation .page-indicator {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+  .book-nav-btn {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 420px) {
+  .book-nav-btn {
+    min-width: 102px;
+    padding: 0.6rem 0.9rem;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .page-indicator {
+    padding: 0.6rem 0.9rem;
+    font-size: 1rem;
+  }
+  .current-page,
+  .page-divider,
+  .total-pages {
+    min-width: unset;
+    font-size: 0.95rem;
+  }
+}
+
+/* 2) Make each page’s main block behave like a card and stretch children */
+.content-wrapper {
+  align-items: stretch;
+  background: var(--panel);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* 3) Video container sizing: consistent aspect and space */
+.section-visual {
+  flex: 1 1 45%;
+  min-height: 280px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+.section-video,
+.fallback-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 4) Text side padding */
+.section-content {
+  padding: 2rem;
+}
+
+/* 5) Mobile stacked “card” — video on top */
+@media (max-width: 1024px) {
+  .page-world .content-wrapper,
+  .page-races .content-wrapper,
+  .page-gameplay .content-wrapper,
+  .page-lore .content-wrapper,
+  .page-community .content-wrapper {
+    flex-direction: column !important;
+  }
+  .section-visual {
+    order: -1 !important;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 220px;
+  }
+  .section-content {
+    order: 1 !important;
+    padding: 1.25rem 1rem 1.5rem;
+  }
+}
+
+/* 6) Prevent clipped titles & missing spacing */
+.page-content {
+  padding-top: clamp(2rem, 6vh, 4rem);
+  scroll-padding-top: calc(var(--header-height, 60px) + 20px);
+}
+
+.section-title,
+.section-content,
+.intro-nav,
+.cta-content {
+  scroll-margin-top: calc(var(--header-height, 60px) + 20px);
+}
+
+/* 7) Extra breathing room on small devices */
+@media (max-width: 768px) {
+  .section-content {
+    gap: 0.9rem !important;
+  }
+  .page-number {
+    bottom: 4.5rem;
+  }
+}
+
+/* 8) Keep titles visible & unbroken */
+.book-page .section-title {
+  margin-top: 0.25rem;
+  line-height: 1.25;
+  word-wrap: anywhere;
+  overflow-wrap: anywhere;
+}
+
+/* 9) Page counter readability */
+.page-indicator {
+  column-gap: 0.6rem;
+}
+
+.current-page {
+  min-width: unset;
+}
+
+/* 10) Video visibility on tall/narrow screens */
+@media (max-height: 620px) and (min-width: 900px) {
+  .section-visual {
+    min-height: 240px;
+  }
+}
+
+/* 11) Lighten overlay so videos aren’t too dim */
+.book-page::before {
+  opacity: 0.45;
+}
+
+.book-page.active::before {
+  opacity: 0.25;
+}
+
+/* 12) Add padding when height is very small */
+@media (max-height: 560px) {
+  .page-content {
+    padding-bottom: 8rem;
+  }
+}
+/* ============================================
+   MOBILE FIX: Normal page scrolling on mobile
+   ============================================ */
+@media (max-width: 920px) {
+  .intro-main,
+  .book-container,
+  .book-page {
+    position: relative !important;
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 4rem;
+  }
+}
+/* ============================================
+   FIX: Restore normal wide-screen layout (no card box)
+   ============================================ */
+@media (min-width: 1025px) {
+  .content-wrapper {
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    align-items: center; /* back to centered split layout */
+    padding: 0 3rem;
+  }
+
+  .section-visual {
+    aspect-ratio: unset;
+    height: 312px;
+    border-radius: 12px;
+  }
+
+  .section-content {
+    padding: 0;
+  }
+}
+@media (max-width: 600px) {
+  .page-number,
+  .book-page::after {
+    display: none !important;
+  }
+}
+/* ============================================
+   FIX: Remove empty bottom gap when nav is not fixed
+   ============================================ */
+.book-page,
+.page-content,
+.content-wrapper {
+  min-height: unset !important;
+  height: auto !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.book-navigation {
+  margin-top: 1.5rem; /* small spacing only */
+}

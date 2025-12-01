@@ -27,7 +27,7 @@
             <nav class="nav" aria-label="Main navigation">
                 <ul class="nav-list">
                     <li><a class="nav-link" href="../../index.html">Home</a></li>
-                    <li><a class="nav-link" href="../html/gameplay-basics.html">Gameplay Basics</a></li>
+                    <li><a class="nav-link" href="../html/introduction.html">Gameplay Basics</a></li>
                     <li><a class="nav-link" href="../html/mechanics.html">Mechanics</a></li>
                     <li><a class="nav-link" href="https://store.bighatstudios.com/category/ranks">Store</a></li>
                     <li><a class="nav-link" href="../html/history.html">History</a></li>
@@ -37,8 +37,10 @@
                             <li><a href="../html/commands.html">Commands</a></li>
                             <li><a href="../html/faq.html">FAQ</a></li>
                             <li><a href="../html/map.html">Maps</a></li>
-                            <li><a href="../html/creature-encyclopedia.html">Creature encyclopedia</a></li>
+                            <li><a href="../html/creatures.html">Creature encyclopedia</a></li>
                             <li><a href="../html/items.html">Items</a></li>
+                            <li><a href="../html/guides.html">Guides</a></li>
+                            <!-- <li><a href="../html/classes.html">Classes</a></li> -->
                         </ul>
                     </li>
                 </ul>
@@ -63,11 +65,14 @@
         <div class="wrap footer-inner">
             <small>© 2025 CinderRPG Wiki Project | Built by <a href="https://github.com/Faris25-dev" target="_blank" rel="noopener noreferrer">Faris25-dev</a></small>
             <nav class="footer-links">
-                <!-- <a href="#">Wiki</a> -->
-                <a href="#">Patch Notes</a>
+                <a href="../html/patchnotes.html">Patch Notes</a>
                 <a href="https://discord.gg/gQ39rGdpQ7" target="_blank">Discord</a>
                 <a href="#" class="open-bug-modal">Report an Issue</a>
-                <a href="#">Terms of Service</a>
+                <a href="../html/terms.html">Terms of Service</a>
+                <button class="footer-feedback-btn open-outdated-modal">
+                    <i class="ph ph-warning-circle"></i>
+                    <span>Found Outdated Info?</span>
+                </button>
             </nav>
         </div>
     </footer>
@@ -93,4 +98,54 @@
             </div>
         </div>
     </div>
+
+    <div id="outdated-modal" class="modal" role="dialog" aria-labelledby="outdated-modal-title" aria-modal="true" style="display:none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2 id="outdated-modal-title">Found Outdated Info?</h2>
+            <p class="modal-message">Help us keep the wiki accurate! Report outdated or incorrect information on our Discord server.</p>
+            <div class="modal-actions">
+                <a href="https://discord.gg/bighatstudios" target="_blank" rel="noopener noreferrer" class="btn primary">
+                    <i class="fa-brands fa-discord"></i>
+                    Report on Discord
+                </a>
+            </div>
+        </div>
+    </div>
 </template>
+
+<!-- ========================================
+     TEMPORARY PLACEHOLDER: COMING SOON COMPONENT
+     Remove this entire section when all pages are complete
+     ======================================== -->
+<template id="coming-soon-component">
+    <div class="coming-soon-container">
+        <div class="coming-soon-content">
+            <!-- Main Title -->
+            <h1 class="coming-soon-title">COMING SOON</h1>
+            
+            <!-- Subtitle -->
+            <p class="coming-soon-subtitle">Let us cook… new content is being forged.</p>
+            
+            <!-- Back to Home Button -->
+            <a href="../../index.html" class="coming-soon-btn">
+                <i class="ph ph-house"></i>
+                <span>Back to Home</span>
+            </a>
+        </div>
+        
+        <!-- Ember Particles -->
+        <div class="ember-particles">
+            <span class="ember"></span>
+            <span class="ember"></span>
+            <span class="ember"></span>
+            <span class="ember"></span>
+            <span class="ember"></span>
+            <span class="ember"></span>
+            <span class="ember"></span>
+            <span class="ember"></span>
+        </div>
+    </div>
+</template>
+<!-- END TEMPORARY PLACEHOLDER: COMING SOON COMPONENT -->
