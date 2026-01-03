@@ -3,30 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorial - CinderRPG Wiki</title>
+    <title>Beginner's Tutorial - CinderRPG Wiki</title>
     <link rel="icon" type="x-icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/global.css?v=20251204.2">
+    <link rel="stylesheet" href="../css/home.css?v=20251204.2">
+    <link rel="stylesheet" href="../css/tutorial.css?v=20251204.2">
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <!-- RPG Awesome icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
+    <!--Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <!-- Header Component Slot -->
     <div id="header-slot"></div>
 
-    <main>
-        <!-- ========================================
-             TEMPORARY PLACEHOLDER: Remove when Tutorial page is complete
-             ======================================== -->
-        <div id="coming-soon-slot"></div>
-        <!-- END TEMPORARY PLACEHOLDER -->
+    <main class="book-main">
+        
+        <!-- Book Container -->
+        <div class="book-container">
+            
+            <!-- Contents Tab -->
+            <div class="contents-tab" id="contentsTab">
+                <button class="contents-toggle" id="contentsToggle">
+                    <i class="ph ph-list"></i>
+                    <span>Contents</span>
+                </button>
+                <div class="contents-dropdown" id="contentsDropdown">
+                    <h4>Table of Contents</h4>
+                    <ul class="contents-list">
+                        <li><a href="#" data-page="0">Introduction</a></li>
+                        <li><a href="#" data-page="1">Getting Started</a></li>
+                        <li><a href="#" data-page="2">Controls & Interface</a></li>
+                        <li><a href="#" data-page="3">Choosing a Class</a></li>
+                        <li><a href="#" data-page="4">Combat Basics</a></li>
+                        <li><a href="#" data-page="5">Leveling System</a></li>
+                        <li><a href="#" data-page="6">Shards System</a></li>
+                        <li><a href="#" data-page="7">Equipment & Stats</a></li>
+                        <li><a href="#" data-page="8">Wiki Navigation</a></li>
+                        <li><a href="#" data-page="9">Help & Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+                <span class="progress-text" id="progressText">Page 1 of 10</span>
+            </div>
+
+            <!-- Book Pages -->
+            <div class="book-wrapper">
+                
+                <!-- Left Arrow -->
+                <button class="page-arrow left-arrow" id="prevPage" aria-label="Previous page">
+                    <i class="ph ph-caret-left"></i>
+                </button>
+
+                <!-- Book Content -->
+                <div class="book-pages" id="bookPages">
+                    
+                    <!-- Pages will be dynamically inserted here -->
+                    
+                </div>
+
+                <!-- Right Arrow -->
+                <button class="page-arrow right-arrow" id="nextPage" aria-label="Next page">
+                    <i class="ph ph-caret-right"></i>
+                </button>
+
+            </div>
+
+            <!-- Help Button -->
+            <button class="help-button" id="helpButton">
+                <i class="ph ph-question"></i>
+                <span>Help Me</span>
+            </button>
+
+        </div>
+
     </main>
+
+    <!-- Help Modal -->
+    <div class="help-modal" id="helpModal">
+        <div class="help-modal-overlay"></div>
+        <div class="help-modal-content">
+            <button class="help-modal-close" id="helpModalClose">&times;</button>
+            <h3>Need Help?</h3>
+            <p>If you're confused or need additional assistance, here are some resources:</p>
+            <ul>
+                <li><a href="faq.html">Visit our FAQ page</a></li>
+                <li><a href="mechanics.html">Check the Game Mechanics guide</a></li>
+                <li><a href="commands.html">View all Commands</a></li>
+                <li><a href="#">Join our Discord community</a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- Footer Component Slot -->
     <div id="footer-slot"></div>
@@ -37,14 +115,763 @@
     <!-- Load Component Manager -->
     <script src="../js/components.js"></script>
 
-    <!-- ========================================
-         TEMPORARY PLACEHOLDER: Remove when Tutorial page is complete
-         ======================================== -->
     <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            await window.ComponentManager.insertComponent('coming-soon-component', '#coming-soon-slot');
+        // Book Pages Data
+        const bookPages = [
+            {
+                title: "Introduction",
+                content: `
+                    <h2>Welcome to the Beginner's Tutorial Book</h2>
+                    <p>This book will guide you through the essential systems, features, and mechanics you'll encounter as you begin your journey in CinderRPG.</p>
+                    <p>Use the arrows on the sides of this book to flip pages, or tap the <strong>Contents</strong> tab above to jump to a specific topic.</p>
+                    <div class="page-decoration">
+                        <i class="ra ra-scroll-unfurled"></i>
+                    </div>
+                    <p class="page-note">Take your time reading through each section. Understanding the basics will make your adventure much more enjoyable!</p>
+                `
+            },
+            {
+                title: "Getting Started",
+                content: `
+                    <h2>Getting Started</h2>
+                    <h3>First Steps</h3>
+                    <p>When you first join CinderRPG, you'll spawn in the tutorial area. Here's what to do:</p>
+                    <ul>
+                        <li>Follow the glowing markers to learn basic controls</li>
+                        <li>Talk to the Tutorial NPC to understand game systems</li>
+                        <li>Complete the starter quest to receive your first equipment</li>
+                        <li>Choose your starting race (this cannot be changed later)</li>
+                    </ul>
+                    <h3>What is CinderRPG?</h3>
+                    <p>CinderRPG is a survival RPG server with custom classes, progression systems, and combat mechanics. You'll level up, acquire gear, join guilds, and explore a vast world filled with challenges.</p>
+                `
+            },
+            {
+                title: "Controls & Interface",
+                content: `
+                    <h2>Basic Movement & Interface</h2>
+                    <p>This page explains the basic controls you'll use in the game, including movement, combat fundamentals, and how to read the user interface.</p>
+                    <h3>Basic Controls</h3>
+                    <ul>
+                        <li><strong>WASD:</strong> Move your character</li>
+                        <li><strong>Space:</strong> Jump</li>
+                        <li><strong>Shift:</strong> Sprint</li>
+                        <li><strong>Left Click:</strong> Attack / Interact</li>
+                        <li><strong>Right Click:</strong> Use abilities / Block</li>
+                        <li><strong>E:</strong> Open inventory</li>
+                    </ul>
+                    <p>Understanding these basics will help you progress smoothly as you begin your adventure.</p>
+                `
+            },
+            {
+                title: "Choosing a Class",
+                content: `
+                    <h2>Core Mechanics Overview</h2>
+                    <p>This section highlights the main systems you'll interact with throughout the game.</p>
+                    <h3>Available Classes</h3>
+                    <p>CinderRPG offers six main classes:</p>
+                    <ul>
+                        <li><strong>Warrior:</strong> Melee combat specialist</li>
+                        <li><strong>Sorcerer:</strong> Magic user with powerful spells</li>
+                        <li><strong>Rogue:</strong> Stealth and agility expert</li>
+                        <li><strong>Ranger:</strong> Ranged attacks and traps</li>
+                        <li><strong>Alchemist:</strong> Potions and crafting</li>
+                        <li><strong>Packrat:</strong> Utility and trading</li>
+                    </ul>
+                    <p>These mechanics will be explained in more detail later, but this overview gives you a quick idea of what to expect.</p>
+                `
+            },
+            {
+                title: "Combat Basics",
+                content: `
+                    <h2>Combat Basics</h2>
+                    <h3>How Combat Works</h3>
+                    <p>Combat in CinderRPG is real-time and skill-based:</p>
+                    <ul>
+                        <li><strong>Left Click:</strong> Basic attack</li>
+                        <li><strong>Right Click:</strong> Block or secondary ability</li>
+                        <li><strong>R Key:</strong> Class ability (has cooldown)</li>
+                        <li><strong>Dodge:</strong> Double-tap direction to dodge</li>
+                    </ul>
+                    <h3>Damage Types</h3>
+                    <ul>
+                        <li><strong>Physical:</strong> From melee and ranged weapons</li>
+                        <li><strong>Magical:</strong> From spells and enchantments</li>
+                        <li><strong>True Damage:</strong> Ignores armor (rare)</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Leveling System",
+                content: `
+                    <h2>Leveling System</h2>
+                    <h3>How to Gain Experience</h3>
+                    <ul>
+                        <li><strong>Kill Monsters:</strong> Primary way to earn XP</li>
+                        <li><strong>Complete Quests:</strong> Large XP rewards</li>
+                        <li><strong>Explore:</strong> Discover new locations</li>
+                        <li><strong>Crafting:</strong> Small amounts of XP</li>
+                    </ul>
+                    <h3>Leveling Rewards</h3>
+                    <p>Each level up grants you:</p>
+                    <ul>
+                        <li><strong>Stat Points:</strong> Allocate to Strength, Agility, Intelligence</li>
+                        <li><strong>Skill Points:</strong> Unlock new abilities</li>
+                        <li><strong>HP/Mana:</strong> Automatically increases</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Shards System",
+                content: `
+                    <h2>Shards System</h2>
+                    <h3>What are Shards?</h3>
+                    <p>Shards are special dungeon-like areas with unique monsters, bosses, and loot.</p>
+                    <h3>How Shards Work</h3>
+                    <ul>
+                        <li><strong>Entry:</strong> Use Shard Portals in major towns</li>
+                        <li><strong>Difficulty:</strong> Each Shard has a level range</li>
+                        <li><strong>Rewards:</strong> Rare equipment and materials</li>
+                        <li><strong>Bosses:</strong> Unique mechanics and challenges</li>
+                    </ul>
+                    <h3>Progression</h3>
+                    <p>Shards 1-3 are for beginners, with higher Shards requiring teamwork and better gear.</p>
+                `
+            },
+            {
+                title: "Equipment & Stats",
+                content: `
+                    <h2>Equipment & Stats</h2>
+                    <h3>Item Rarity</h3>
+                    <ul>
+                        <li><strong class="text-gray">Common:</strong> Basic items</li>
+                        <li><strong class="text-green">Uncommon:</strong> Better stats</li>
+                        <li><strong class="text-blue">Rare:</strong> Good bonuses</li>
+                        <li><strong class="text-purple">Epic:</strong> Powerful effects</li>
+                        <li><strong class="text-orange">Legendary:</strong> Best-in-slot</li>
+                    </ul>
+                    <h3>Enchanting</h3>
+                    <p>Improve equipment by enchanting, refining, and socketing gems for bonus stats.</p>
+                `
+            },
+            {
+                title: "Wiki Navigation",
+                content: `
+                    <h2>Wiki Features</h2>
+                    <p>The Wiki contains detailed information on every system, mechanic, class, weapon, zone, and update in CinderRPG.</p>
+                    <h3>Navigation</h3>
+                    <p>Use the navigation links at the top of the page or the <strong>Contents</strong> tab to jump to any topic instantly.</p>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="classes.html">Classes & Subclasses</a></li>
+                        <li><a href="mechanics.html">Game Mechanics</a></li>
+                        <li><a href="commands.html">Commands List</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                `
+            },
+            {
+                title: "Help & Support",
+                content: `
+                    <h2>Need More Help?</h2>
+                    <p>If you are confused at any point, click the <strong>Help Me</strong> button on the right side of the book.</p>
+                    <p>This will direct you to additional resources, troubleshooting pages, or community support.</p>
+                    <h3>Additional Resources</h3>
+                    <ul>
+                        <li><strong>FAQ:</strong> Common questions answered</li>
+                        <li><strong>Discord:</strong> Join the community</li>
+                        <li><strong>Support Tickets:</strong> Get direct help</li>
+                        <li><strong>Video Tutorials:</strong> Watch guides</li>
+                    </ul>
+                    <p class="page-note">Remember: every expert player was once a beginner. Don't be afraid to ask questions!</p>
+                `
+            }
+        ];
+
+        // Current page index
+        let currentPage = 0;
+
+        // Initialize book
+        function initializeBook() {
+            renderPage(currentPage);
+            updateProgress();
+            updateArrows();
+        }
+
+        // Render a page
+        function renderPage(pageIndex) {
+            const bookPagesContainer = document.getElementById('bookPages');
+            const page = bookPages[pageIndex];
+            
+            bookPagesContainer.innerHTML = `
+                <div class="book-page active">
+                    <div class="page-content">
+                        ${page.content}
+                    </div>
+                    <div class="page-number">Page ${pageIndex + 1}</div>
+                </div>
+            `;
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const progress = ((currentPage + 1) / bookPages.length) * 100;
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            
+            progressBar.style.width = progress + '%';
+            progressText.textContent = `Page ${currentPage + 1} of ${bookPages.length}`;
+        }
+
+        // Update arrow states
+        function updateArrows() {
+            const prevBtn = document.getElementById('prevPage');
+            const nextBtn = document.getElementById('nextPage');
+            
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage === bookPages.length - 1;
+        }
+
+        // Go to specific page
+        function goToPage(pageIndex) {
+            if (pageIndex >= 0 && pageIndex < bookPages.length) {
+                currentPage = pageIndex;
+                renderPage(currentPage);
+                updateProgress();
+                updateArrows();
+                
+                // Close contents dropdown
+                document.getElementById('contentsDropdown').classList.remove('active');
+            }
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // Initialize book
+            initializeBook();
+
+            // Previous page
+            document.getElementById('prevPage').addEventListener('click', () => {
+                if (currentPage > 0) {
+                    goToPage(currentPage - 1);
+                }
+            });
+
+            // Next page
+            document.getElementById('nextPage').addEventListener('click', () => {
+                if (currentPage < bookPages.length - 1) {
+                    goToPage(currentPage + 1);
+                }
+            });
+
+            // Contents toggle
+            const contentsToggle = document.getElementById('contentsToggle');
+            const contentsDropdown = document.getElementById('contentsDropdown');
+            
+            contentsToggle.addEventListener('click', () => {
+                contentsDropdown.classList.toggle('active');
+            });
+
+            // Contents links
+            document.querySelectorAll('.contents-list a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const pageIndex = parseInt(link.dataset.page);
+                    goToPage(pageIndex);
+                });
+            });
+
+            // Help button
+            const helpButton = document.getElementById('helpButton');
+            const helpModal = document.getElementById('helpModal');
+            const helpModalClose = document.getElementById('helpModalClose');
+            
+            helpButton.addEventListener('click', () => {
+                helpModal.classList.add('active');
+            });
+
+            helpModalClose.addEventListener('click', () => {
+                helpModal.classList.remove('active');
+            });
+
+            helpModal.querySelector('.help-modal-overlay').addEventListener('click', () => {
+                helpModal.classList.remove('active');
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    if (currentPage > 0) goToPage(currentPage - 1);
+                } else if (e.key === 'ArrowRight') {
+                    if (currentPage < bookPages.length - 1) goToPage(currentPage + 1);
+                }
+            });
         });
     </script>
-    <!-- END TEMPORARY PLACEHOLDER -->
+</body>
+</html>
+            <!-- <article id="getting-started" class="tutorial-section">
+                <div class="section-header">
+                    <i data-lucide="play" class="section-icon"></i>
+                    <h2>Getting Started</h2>
+                </div>
+                <div class="section-content">
+                    <h3>First Steps</h3>
+                    <p>When you first join CinderRPG, you'll spawn in the tutorial area. Here's what to do:</p>
+                    <ul>
+                        <li>Follow the glowing markers to learn basic controls</li>
+                        <li>Talk to the Tutorial NPC to understand game systems</li>
+                        <li>Complete the starter quest to receive your first equipment</li>
+                        <li>Choose your starting race (this cannot be changed later)</li>
+                    </ul>
+
+                    <h3>What is CinderRPG?</h3>
+                    <p>CinderRPG is a survival RPG server with custom classes, progression systems, and combat mechanics. You'll level up, acquire gear, join guilds, and explore a vast world filled with challenges.</p>
+
+                    <div class="tip-box">
+                        <i data-lucide="info"></i>
+                        <p><strong>Tip:</strong> Don't rush through the tutorial. Take your time to understand each system—it will save you confusion later.</p>
+                    </div>
+                </div>
+            </article> -->
+
+            <!-- Controls & Interface -->
+            <!-- <article id="controls" class="tutorial-section">
+                <div class="section-header">
+                    <i data-lucide="gamepad-2" class="section-icon"></i>
+                    <h2>Controls & Interface</h2>
+                </div>
+                <div class="section-content">
+                    <h3>Basic Controls</h3>
+                    <ul>
+                        <li><strong>WASD:</strong> Move your character</li>
+                        <li><strong>Space:</strong> Jump</li>
+                        <li><strong>Shift:</strong> Sprint</li>
+                        <li><strong>Left Click:</strong> Attack / Interact</li>
+                        <li><strong>Right Click:</strong> Use abilities / Block</li>
+                        <li><strong>Q:</strong> Drop item</li>
+                        <li><strong>E:</strong> Open inventory</li>
+                        <li><strong>F:</strong> Quick interact with NPCs</li>
+                    </ul>
+
+                    <h3>Custom Keybinds</h3>
+                    <p>CinderRPG uses custom keybinds for abilities and special actions:</p>
+                    <ul>
+                        <li><strong>R:</strong> Use class ability (cooldown-based)</li>
+                        <li><strong>V:</strong> Open skills menu</li>
+                        <li><strong>B:</strong> Open quest log</li>
+                        <li><strong>N:</strong> Open map</li>
+                    </ul>
+
+                    <h3>User Interface (UI)</h3>
+                    <p>Your screen displays important information:</p>
+                    <ul>
+                        <li><strong>Health Bar (Red):</strong> Top-left corner, shows your current HP</li>
+                        <li><strong>Mana Bar (Blue):</strong> Below health, used for abilities</li>
+                        <li><strong>Experience Bar (Yellow):</strong> Bottom of screen, tracks progress to next level</li>
+                        <li><strong>Quest Tracker:</strong> Right side, shows active quest objectives</li>
+                        <li><strong>Minimap:</strong> Top-right corner, displays nearby areas and markers</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <i data-lucide="info"></i>
+                        <p><strong>Tip:</strong> You can customize UI elements in the settings menu. Adjust opacity and scale to your preference.</p>
+                    </div>
+                </div>
+            </article> -->
+
+            <!-- Choosing a Class -->
+            <!-- <article id="classes" class="tutorial-section">
+                <div class="section-header">
+                    <i data-lucide="swords" class="section-icon"></i>
+                    <h2>Choosing a Class</h2>
+                </div>
+                <div class="section-content">
+                    <h3>Available Classes</h3>
+                    <p>CinderRPG offers six main classes, each with four subclasses:</p>
+                    <ul>
+                        <li><strong>Warrior:</strong> Melee combat specialist, high defense</li>
+                        <li><strong>Sorcerer:</strong> Magic user, powerful spells</li>
+                        <li><strong>Rogue:</strong> Stealth and agility, critical strikes</li>
+                        <li><strong>Ranger:</strong> Ranged attacks, traps, and mobility</li>
+                        <li><strong>Alchemist:</strong> Potions, buffs, and crafting</li>
+                        <li><strong>Packrat:</strong> Utility, trading, and enchanting</li>
+                    </ul>
+
+                    <h3>How to Choose</h3>
+                    <p>Think about your playstyle:</p>
+                    <ul>
+                        <li><strong>Like close combat?</strong> Choose Warrior</li>
+                        <li><strong>Prefer magic?</strong> Choose Sorcerer</li>
+                        <li><strong>Enjoy stealth?</strong> Choose Rogue</li>
+                        <li><strong>Want ranged combat?</strong> Choose Ranger</li>
+                        <li><strong>Like support roles?</strong> Choose Alchemist</li>
+                        <li><strong>Prefer crafting/trading?</strong> Choose Packrat</li>
+                    </ul>
+
+                    <h3>Subclasses</h3>
+                    <p>After reaching level 10, you can choose a subclass. Subclasses provide specialized abilities and benefits. You can invest points into multiple subclasses, but focusing on one is recommended for beginners.</p>
+
+                    <div class="tip-box">
+                        <i data-lucide="info"></i>
+                        <p><strong>Tip:</strong> Visit the <a href="classes.html">Classes & Subclasses</a> page for detailed information on each class.</p>
+                    </div>
+                </div>
+            </article>
+ -->
+            <!-- Combat Basics -->
+            <!-- <article id="combat" class="tutorial-section">
+                <div class="section-header">
+                    <i data-lucide="shield" class="section-icon"></i>
+                    <h2>Combat Basics</h2>
+                </div>
+                <div class="section-content">
+                    <h3>How Combat Works</h3>
+                    <p>Combat in CinderRPG is real-time and skill-based:</p>
+                    <ul>
+                        <li><strong>Left Click:</strong> Basic attack with your weapon</li>
+                        <li><strong>Right Click:</strong> Block or use secondary ability</li>
+                        <li><strong>R Key:</strong> Activate your class ability (has cooldown)</li>
+                        <li><strong>Dodge Roll:</strong> Double-tap directional key to dodge</li>
+                    </ul>
+
+                    <h3>Damage Types</h3>
+                    <ul>
+                        <li><strong>Physical:</strong> Dealt by melee and ranged weapons</li>
+                        <li><strong>Magical:</strong> Dealt by spells and enchantments</li>
+                        <li><strong>True Damage:</strong> Ignores armor (rare)</li>
+                    </ul>
+
+                    <h3>Defense Mechanics</h3>
+                    <ul>
+                        <li><strong>Armor:</strong> Reduces physical damage taken</li>
+                        <li><strong>Resistance:</strong> Reduces magical damage taken</li>
+                        <li><strong>Blocking:</strong> Hold right-click with a shield to block attacks</li>
+                    </ul>
+
+                    <h3>Combat Tips</h3>
+                    <ul>
+                        <li>Always keep your health above 50% in dangerous areas</li>
+                        <li>Learn enemy attack patterns and dodge at the right time</li>
+                        <li>Use abilities strategically—don't waste cooldowns</li>
+                        <li>Carry health potions at all times</li>
+                    </ul>
+
+                    <div class="tip-box warning">
+                        <i data-lucide="alert-triangle"></i>
+                        <p><strong>Warning:</strong> Death results in dropped items and experience loss. Always be prepared before entering combat.</p>
+                    </div>
+                </div>
+            </article>
+ -->
+            <!-- Leveling -->
+            <!-- <article id="leveling" class="tutorial-section">
+                <div class="section-header">
+                    <i data-lucide="trending-up" class="section-icon"></i>
+                    <h2>Leveling</h2>
+                </div>
+                <div class="section-content">
+                    <h3>How to Gain Experience</h3>
+                    <ul>
+                        <li><strong>Kill Monsters:</strong> The primary way to earn XP</li>
+                        <li><strong>Complete Quests:</strong> Grants large XP rewards</li>
+                        <li><strong>Explore:</strong> Discover new locations for bonus XP</li>
+                        <li><strong>Crafting:</strong> Gain small amounts of XP when crafting items</li>
+                    </ul>
+
+                    <h3>Leveling Rewards</h3>
+                    <p>Each time you level up, you receive:</p>
+                    <ul>
+                        <li><strong>Stat Points:</strong> Allocate to Strength, Agility, Intelligence, etc.</li>
+                        <li><strong>Skill Points:</strong> Unlock new abilities and passives</li>
+                        <li><strong>Increased HP/Mana:</strong> Automatically increases with level</li>
+                    </ul>
+
+                    <h3>Stat Allocation</h3>
+                    <p>Distribute your stat points wisely based on your class:</p>
+                    <ul>
+                        <li><strong>Strength:</strong> Increases physical damage</li>
+                        <li><strong>Agility:</strong> Increases attack speed and dodge chance</li>
+                        <li><strong>Intelligence:</strong> Increases magic damage and mana</li>
+                        <li><strong>Vitality:</strong> Increases max health</li>
+                        <li><strong>Endurance:</strong> Increases stamina and defense</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <i data-lucide="info"></i>
+                        <p><strong>Tip:</strong> You can reset your stat points using a Mindwipe item. These are rare, so plan your build carefully.</p>
+                    </div>
+                </div>
+            </article> -->
+
+            <!-- Shards System -->
+            <!-- <article id="shards" class="tutorial-section">
+                <div class="section-header">
+                    <i data-lucide="gem" class="section-icon"></i>
+                    <h2>Shards System</h2>
+                </div>
+                <div class="section-content">
+                    <h3>What are Shards?</h3>
+                    <p>Shards are special areas scattered across the world. Each Shard contains unique monsters, bosses, and loot. Entering a Shard requires a certain level and may have entry requirements.</p>
+
+                    <h3>How Shards Work</h3>
+                    <ul>
+                        <li><strong>Entry:</strong> Use a Shard Portal located in major towns</li>
+                        <li><strong>Difficulty:</strong> Each Shard has a recommended level range</li>
+                        <li><strong>Rewards:</strong> Shards drop rare equipment and materials</li>
+                        <li><strong>Bosses:</strong> Each Shard has a boss with unique mechanics</li>
+                    </ul>
+
+                    <h3>Shard Progression</h3>
+                    <p>Shards are meant to be completed in order:</p>
+                    <ul>
+                        <li><strong>Shard 1:</strong> Level 10-20 (Tutorial Shard)</li>
+                        <li><strong>Shard 2:</strong> Level 20-35 (Forest Shard)</li>
+                        <li><strong>Shard 3:</strong> Level 35-50 (Mountain Shard)</li>
+                        <li><strong>Shard 4+:</strong> Higher levels with increased difficulty</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <i data-lucide="info"></i>
+                        <p><strong>Tip:</strong> Join a party before entering high-level Shards. Many bosses require teamwork to defeat.</p>
+                    </div>
+                </div>
+            </article> -->
+
+            <!-- Equipment & Stats -->
+            <!-- <article id="equipment" class="tutorial-section">
+                <div class="section-header">
+                    <i data-lucide="sword" class="section-icon"></i>
+                    <h2>Equipment & Stats</h2>
+                </div>
+                <div class="section-content">
+                    <h3>Equipment Slots</h3>
+                    <ul>
+                        <li><strong>Weapon:</strong> Main source of damage</li>
+                        <li><strong>Helmet:</strong> Head protection</li>
+                        <li><strong>Chestplate:</strong> Torso protection</li>
+                        <li><strong>Leggings:</strong> Leg protection</li>
+                        <li><strong>Boots:</strong> Foot protection</li>
+                        <li><strong>Accessories:</strong> Rings, amulets, and trinkets (up to 3)</li>
+                    </ul>
+
+                    <h3>Item Rarity</h3>
+                    <p>Equipment comes in different rarities, each with better stats:</p>
+                    <ul>
+                        <li><strong>Common (Gray):</strong> Basic items</li>
+                        <li><strong>Uncommon (Green):</strong> Slightly better stats</li>
+                        <li><strong>Rare (Blue):</strong> Good stats and bonuses</li>
+                        <li><strong>Epic (Purple):</strong> Powerful items with unique effects</li>
+                        <li><strong>Legendary (Orange):</strong> Best-in-slot items with special abilities</li>
+                    </ul>
+
+                    <h3>Item Stats</h3>
+                    <p>Each item has stats that affect your character:</p>
+                    <ul>
+                        <li><strong>Damage:</strong> How much damage your weapon deals</li>
+                        <li><strong>Armor:</strong> Reduces incoming physical damage</li>
+                        <li><strong>Resistance:</strong> Reduces incoming magical damage</li>
+                        <li><strong>Attack Speed:</strong> How fast you attack</li>
+                        <li><strong>Critical Chance:</strong> Chance to deal double damage</li>
+                    </ul>
+
+                    <h3>Enchanting Equipment</h3>
+                    <p>You can improve your equipment by:</p>
+                    <ul>
+                        <li><strong>Enchanting:</strong> Add bonus effects (requires Enchanting Table)</li>
+                        <li><strong>Refining:</strong> Increase item stats (requires materials)</li>
+                        <li><strong>Socketing:</strong> Add gems to equipment for bonuses</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <i data-lucide="info"></i>
+                        <p><strong>Tip:</strong> Don't over-invest in low-level gear. Save your resources for Rare and Epic items.</p>
+                    </div>
+                </div>
+            </article>
+ -->
+            <!-- Progression Path -->
+            <!-- <article id="progression" class="tutorial-section">
+                <div class="section-header">
+                    <i data-lucide="map" class="section-icon"></i>
+                    <h2>Progression Path</h2>
+                </div>
+                <div class="section-content">
+                    <h3>Beginner Path (Level 1-10)</h3>
+                    <ul>
+                        <li>Complete the tutorial and choose your race</li>
+                        <li>Select your main class</li>
+                        <li>Complete starter quests in the spawn area</li>
+                        <li>Farm basic monsters for XP and loot</li>
+                        <li>Save currency for your first weapon upgrade</li>
+                    </ul>
+
+                    <h3>Early Game (Level 10-25)</h3>
+                    <ul>
+                        <li>Choose your subclass at level 10</li>
+                        <li>Enter Shard 1 to fight tougher enemies</li>
+                        <li>Complete faction quests for reputation and rewards</li>
+                        <li>Join a guild for bonuses and group content</li>
+                        <li>Focus on upgrading your weapon and armor</li>
+                    </ul>
+
+                    <h3>Mid Game (Level 25-50)</h3>
+                    <ul>
+                        <li>Progress through Shard 2 and Shard 3</li>
+                        <li>Invest in multiple subclasses for versatility</li>
+                        <li>Participate in guild wars and events</li>
+                        <li>Farm dungeons for Rare and Epic gear</li>
+                        <li>Start enchanting and refining your equipment</li>
+                    </ul>
+
+                    <h3>Late Game (Level 50+)</h3>
+                    <ul>
+                        <li>Challenge high-level Shards and world bosses</li>
+                        <li>Acquire Legendary equipment</li>
+                        <li>Master your build with optimized stats</li>
+                        <li>Compete in PvP arenas and tournaments</li>
+                        <li>Help newer players and build your reputation</li>
+                    </ul>
+                </div>
+            </article> -->
+
+            <!-- Tips for New Players -->
+            <!-- <article id="tips" class="tutorial-section">
+                <div class="section-header">
+                    <i data-lucide="lightbulb" class="section-icon"></i>
+                    <h2>Tips for New Players</h2>
+                </div>
+                <div class="section-content">
+                    <h3>General Tips</h3>
+                    <ul>
+                        <li><strong>Join a Guild Early:</strong> Guilds provide bonuses, support, and community</li>
+                        <li><strong>Always Carry Potions:</strong> Health and mana potions can save your life</li>
+                        <li><strong>Don't Skip Quests:</strong> Quests give large XP and currency rewards</li>
+                        <li><strong>Learn the Market:</strong> Buy low, sell high to earn extra currency</li>
+                        <li><strong>Explore:</strong> Hidden areas often contain valuable loot</li>
+                    </ul>
+
+                    <h3>Combat Tips</h3>
+                    <ul>
+                        <li>Practice dodging attacks—timing is key</li>
+                        <li>Use abilities when they're off cooldown</li>
+                        <li>Don't fight multiple enemies at once</li>
+                        <li>Retreat if your health is low</li>
+                    </ul>
+
+                    <h3>Economy Tips</h3>
+                    <ul>
+                        <li>Save currency for important upgrades</li>
+                        <li>Sell unwanted loot instead of dropping it</li>
+                        <li>Invest in bag space early for more inventory</li>
+                        <li>Don't overspend on cosmetics until you're established</li>
+                    </ul>
+
+                    <h3>Social Tips</h3>
+                    <ul>
+                        <li>Ask questions in global chat—players are helpful</li>
+                        <li>Party up for Shard runs—it's safer and more fun</li>
+                        <li>Be respectful to other players</li>
+                        <li>Join Discord for community events and updates</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <i data-lucide="info"></i>
+                        <p><strong>Final Tip:</strong> Take your time and enjoy the journey. CinderRPG rewards patience and exploration!</p>
+                    </div>
+                </div>
+            </article>
+
+        </section> -->
+
+        <!-- Help Section -->
+        <!-- <section class="tutorial-footer wrap">
+            <div class="footer-card">
+                <i data-lucide="help-circle" class="footer-icon"></i>
+                <h3>Still Need Help?</h3>
+                <p>Check out our other resources or ask the community</p>
+                <div class="footer-links">
+                    <a href="faq.html" class="footer-btn">
+                        <span>Visit FAQ</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="mechanics.html" class="footer-btn">
+                        <span>Game Mechanics</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+ -->
+    <!-- Footer Component Slot -->
+    <div id="footer-slot"></div>
+
+    <!-- Modal Component Slot -->
+    <div id="modal-slot"></div>
+
+    <!-- Load Component Manager -->
+    <script src="../js/components.js"></script>
+
+    <script>
+        // Wait for components to load, then initialize everything
+        window.addEventListener('componentsLoaded', () => {
+            // Initialize Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide icons (in case componentsLoaded fires before DOMContentLoaded)
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Highlight active section in navigation
+            const sections = document.querySelectorAll('.tutorial-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     <title>Guides - CinderRPG Wiki</title>
     <link rel="icon" type="x-icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/guides.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <!-- RPG Awesome icons -->
@@ -20,12 +20,74 @@
     <!-- Header Component Slot -->
     <div id="header-slot"></div>
 
-    <main>
-        <!-- ========================================
-             TEMPORARY PLACEHOLDER: Remove when Guides page is complete
-             ======================================== -->
-        <div id="coming-soon-slot"></div>
-        <!-- END TEMPORARY PLACEHOLDER -->
+    <main class="guides-main">
+        <!-- Guides Header -->
+        <section class="guides-header wrap">
+            <h1 class="guides-title">Guides</h1>
+            <p class="guides-subtitle">Comprehensive guides to help you master every aspect of CinderRPG</p>
+            
+            <!-- Ember Particles -->
+            <div class="ember-particles">
+                <span class="ember"></span>
+                <span class="ember"></span>
+                <span class="ember"></span>
+                <span class="ember"></span>
+                <span class="ember"></span>
+                <span class="ember"></span>
+                <span class="ember"></span>
+                <span class="ember"></span>
+            </div>
+        </section>
+
+        <!-- Category Filter -->
+        <section class="guides-filter wrap">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">
+                    <i class="ph ph-grid-four"></i>
+                    <span>All Guides</span>
+                </button>
+                <button class="filter-btn" data-category="mods">
+                    <i class="ph ph-puzzle-piece"></i>
+                    <span>Mods</span>
+                </button>
+                <button class="filter-btn" data-category="cinder">
+                    <i class="ph ph-flame"></i>
+                    <span>Cinder</span>
+                </button>
+                <button class="filter-btn" data-category="misc">
+                    <i class="ph ph-gear"></i>
+                    <span>Misc</span>
+                </button>
+                <button class="filter-btn" data-category="world">
+                    <i class="ph ph-globe"></i>
+                    <span>World</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Guides Grid -->
+        <section class="guides-grid-section wrap">
+            <div class="guides-grid" id="guidesGrid">
+                <!-- Cards will be dynamically generated -->
+            </div>
+        </section>
+
+        <!-- Guide Modal -->
+        <div class="guide-modal" id="guideModal">
+            <div class="guide-modal-overlay"></div>
+            <div class="guide-modal-content">
+                <button class="guide-modal-close" id="modalClose">
+                    <i class="ph ph-x"></i>
+                </button>
+                <div class="guide-modal-header">
+                    <div class="guide-modal-icon" id="modalIcon"></div>
+                    <h2 class="guide-modal-title" id="modalTitle"></h2>
+                </div>
+                <div class="guide-modal-body" id="modalBody">
+                    <!-- Content will be dynamically inserted -->
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer Component Slot -->
@@ -37,14 +99,462 @@
     <!-- Load Component Manager -->
     <script src="../js/components.js"></script>
 
-    <!-- ========================================
-         TEMPORARY PLACEHOLDER: Remove when Guides page is complete
-         ======================================== -->
+    <!-- Guides Page Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            await window.ComponentManager.insertComponent('coming-soon-component', '#coming-soon-slot');
+        // Guides data array
+        const guidesData = [
+            {
+                id: 'botania',
+                title: 'Botania',
+                category: 'mods',
+                icon: '<i class="ph ph-flower"></i>',
+                description: 'Explore the magical world of Botania - nature magic, mana generation, and mystical flowers.',
+                content: `
+                    <h3>What is Botania?</h3>
+                    <p>Botania is a tech mod themed around natural magic. Drawing inspiration from nature and the four elements, Botania revolves around mana generation and manipulation.</p>
+                    
+                    <h3>Getting Started</h3>
+                    <ul>
+                        <li><strong>Lexica Botania:</strong> Craft this guide book for all Botania information</li>
+                        <li><strong>Mystical Flowers:</strong> Find these in the world to begin</li>
+                        <li><strong>Pure Daisy:</strong> Your first functional flower - converts blocks</li>
+                        <li><strong>Mana Pools:</strong> Store and transfer mana between devices</li>
+                    </ul>
+                    
+                    <h3>Key Systems</h3>
+                    <ul>
+                        <li><strong>Generating Flowers:</strong> Create mana from various resources</li>
+                        <li><strong>Functional Flowers:</strong> Use mana to perform tasks</li>
+                        <li><strong>Mana Spreaders:</strong> Transfer mana between devices</li>
+                        <li><strong>Runes:</strong> Craft advanced items and equipment</li>
+                        <li><strong>Terrasteel:</strong> Powerful endgame material</li>
+                    </ul>
+                    
+                    <h3>Progression Tips</h3>
+                    <p>Start with Daybloom or Nightshade for basic mana generation. Build a mana spreader and pool, then craft the Pure Daisy to convert logs into Livingwood and stone into Livingrock - essential building materials for Botania.</p>
+                `
+            },
+            {
+                id: 'cinderextras',
+                title: 'CinderExtras',
+                category: 'mods',
+                icon: '<i class="ph ph-fire"></i>',
+                description: 'Custom CinderRPG additions - unique items, mechanics, and features exclusive to our server.',
+                content: `
+                    <h3>What is CinderExtras?</h3>
+                    <p>CinderExtras is our custom mod that adds unique content specifically designed for the CinderRPG experience. It includes exclusive items, custom mechanics, and server-specific features.</p>
+                    
+                    <h3>Custom Items</h3>
+                    <ul>
+                        <li><strong>Cinder Artifacts:</strong> Powerful legendary items with unique abilities</li>
+                        <li><strong>Shard Crystals:</strong> Special currency for exclusive trades</li>
+                        <li><strong>Ancient Relics:</strong> Rare drops from bosses with powerful effects</li>
+                        <li><strong>Custom Armor Sets:</strong> Server-exclusive armor with unique bonuses</li>
+                    </ul>
+                    
+                    <h3>Exclusive Mechanics</h3>
+                    <ul>
+                        <li><strong>Prestige System:</strong> Reset progress for permanent bonuses</li>
+                        <li><strong>Daily Challenges:</strong> Complete tasks for rewards</li>
+                        <li><strong>Seasonal Events:</strong> Limited-time content and rewards</li>
+                        <li><strong>Guild Perks:</strong> Enhanced guild features and bonuses</li>
+                    </ul>
+                    
+                    <h3>How to Access</h3>
+                    <p>CinderExtras content is automatically available to all players. Check the Hub for special CinderExtras NPCs and vendors, or explore the world to find exclusive content markers.</p>
+                `
+            },
+            {
+                id: 'thaumcraft',
+                title: 'ThaumaCraft',
+                category: 'mods',
+                icon: '<i class="ph ph-magic-wand"></i>',
+                description: 'Master arcane arts, research thaumaturgy, and harness the power of Vis and Essentia.',
+                content: `
+                    <h3>What is ThaumaCraft?</h3>
+                    <p>ThaumaCraft is a magic mod focused on drawing magic from physical objects through research and experimentation. Harness the power of Vis, discover aspects, and unlock arcane knowledge.</p>
+                    
+                    <h3>Getting Started</h3>
+                    <ul>
+                        <li><strong>Thaumonomicon:</strong> Craft this research book to begin your journey</li>
+                        <li><strong>Thaumometer:</strong> Scan objects to discover aspects</li>
+                        <li><strong>Research Table:</strong> Unlock new discoveries and recipes</li>
+                        <li><strong>Wand Focus:</strong> Channel magical energy for various effects</li>
+                    </ul>
+                    
+                    <h3>Core Concepts</h3>
+                    <ul>
+                        <li><strong>Aspects:</strong> Fundamental magical elements found in all things</li>
+                        <li><strong>Vis:</strong> Magical energy drawn from aura nodes</li>
+                        <li><strong>Essentia:</strong> Distilled aspect in liquid form</li>
+                        <li><strong>Research:</strong> Discover new items and abilities through study</li>
+                        <li><strong>Warp:</strong> Side effects from forbidden knowledge</li>
+                    </ul>
+                    
+                    <h3>Progression Path</h3>
+                    <p>Start by scanning everything with your Thaumometer to discover aspects. Build a Research Table and begin unlocking discoveries in your Thaumonomicon. Create wands and foci to cast spells, then advance to golems, infusion, and eldritch research.</p>
+                `
+            },
+            {
+                id: 'hub',
+                title: 'Hub',
+                category: 'cinder',
+                icon: '<i class="ph ph-buildings"></i>',
+                description: 'Navigate the central hub and learn about its facilities and NPCs.',
+                content: `
+                    <h3>The Hub</h3>
+                    <p>The Hub serves as the central location for players to access various services, interact with NPCs, and prepare for adventures.</p>
+                    
+                    <h3>Hub Facilities</h3>
+                    <ul>
+                        <li><strong>Merchant District:</strong> Buy and sell items</li>
+                        <li><strong>Training Grounds:</strong> Practice combat and test builds</li>
+                        <li><strong>Guild Hall:</strong> Join guilds and participate in events</li>
+                        <li><strong>Crafting Workshop:</strong> Create and upgrade equipment</li>
+                        <li><strong>Portal Network:</strong> Fast travel to unlocked locations</li>
+                    </ul>
+                    
+                    <h3>Important NPCs</h3>
+                    <p>The Hub is home to many important NPCs including quest givers, trainers, and merchants who provide essential services.</p>
+                `
+            },
+            {
+                id: 'fairy-souls',
+                title: 'Fairy Souls',
+                category: 'cinder',
+                icon: '<i class="ph ph-sparkle"></i>',
+                description: 'Find hidden fairy souls to permanently increase your stats.',
+                content: `
+                    <h3>Fairy Souls</h3>
+                    <p>Fairy Souls are mystical collectibles hidden throughout the world. Finding them grants permanent stat bonuses to your character.</p>
+                    
+                    <h3>Benefits</h3>
+                    <p>Each Fairy Soul collected provides:</p>
+                    <ul>
+                        <li>+1 to Health</li>
+                        <li>+1 to Defense</li>
+                        <li>+1 to Strength</li>
+                        <li>Special milestone rewards every 10 souls</li>
+                    </ul>
+                    
+                    <h3>Finding Fairy Souls</h3>
+                    <p>Fairy Souls are hidden in various locations including:</p>
+                    <ul>
+                        <li>Behind secret passages</li>
+                        <li>On top of tall structures</li>
+                        <li>Inside hidden caves</li>
+                        <li>As rewards for solving puzzles</li>
+                    </ul>
+                    
+                    <h3>Tracking Progress</h3>
+                    <p>Check your Collections menu to see how many Fairy Souls you've found in each area.</p>
+                `
+            },
+            {
+                id: 'locations',
+                title: 'Locations',
+                category: 'world',
+                icon: '<i class="ph ph-map-pin"></i>',
+                description: 'Explore all the zones, dungeons, and hidden areas in CinderRPG.',
+                content: `
+                    <h3>World of CinderRPG</h3>
+                    <p>The world of CinderRPG is vast and filled with diverse locations to explore, each with unique enemies, resources, and secrets.</p>
+                    
+                    <h3>Major Zones</h3>
+                    <ul>
+                        <li><strong>Starter Plains:</strong> Beginner-friendly area (Level 1-10)</li>
+                        <li><strong>Dark Forest:</strong> Mysterious woodland (Level 10-20)</li>
+                        <li><strong>Volcanic Wastes:</strong> Harsh desert environment (Level 20-30)</li>
+                        <li><strong>Frozen Peaks:</strong> Treacherous mountains (Level 30-40)</li>
+                        <li><strong>Corrupted Lands:</strong> End-game area (Level 40+)</li>
+                    </ul>
+                    
+                    <h3>Dungeons</h3>
+                    <p>Special instanced areas with challenging enemies and valuable loot. Can be completed solo or with a party.</p>
+                    
+                    <h3>Hidden Areas</h3>
+                    <p>Discover secret locations by finding hidden entrances, solving puzzles, or meeting special requirements.</p>
+                `
+            },
+            {
+                id: 'minions',
+                title: 'Minions',
+                category: 'misc',
+                icon: '<i class="ph ph-users-three"></i>',
+                description: 'Summon and upgrade minions to fight alongside you.',
+                content: `
+                    <h3>Minion System</h3>
+                    <p>Minions are passive companions that generate resources and assist in combat. They continue working even when you're offline.</p>
+                    
+                    <h3>Types of Minions</h3>
+                    <ul>
+                        <li><strong>Combat Minions:</strong> Fight enemies and provide combat bonuses</li>
+                        <li><strong>Resource Minions:</strong> Gather materials and currency</li>
+                        <li><strong>Support Minions:</strong> Provide buffs and healing</li>
+                        <li><strong>Special Minions:</strong> Unique effects and abilities</li>
+                    </ul>
+                    
+                    <h3>Upgrading Minions</h3>
+                    <p>Minions can be upgraded to increase their effectiveness:</p>
+                    <ul>
+                        <li>Level up for better stats</li>
+                        <li>Evolve to unlock new abilities</li>
+                        <li>Equip with special items</li>
+                        <li>Fuse duplicate minions for bonuses</li>
+                    </ul>
+                    
+                    <h3>Minion Slots</h3>
+                    <p>You can have multiple active minion slots. Unlock more slots by leveling up and completing achievements.</p>
+                `
+            },
+            {
+                id: 'pets',
+                title: 'Pets',
+                category: 'misc',
+                icon: '<i class="ph ph-heart"></i>',
+                description: 'Collect and train pets that provide passive bonuses.',
+                content: `
+                    <h3>Pet System</h3>
+                    <p>Pets are permanent companions that provide passive stat bonuses and special abilities based on their type and rarity.</p>
+                    
+                    <h3>Pet Rarities</h3>
+                    <ul>
+                        <li><strong class="text-gray">Common:</strong> Basic stat bonuses</li>
+                        <li><strong class="text-green">Uncommon:</strong> Improved bonuses</li>
+                        <li><strong class="text-blue">Rare:</strong> Significant bonuses</li>
+                        <li><strong class="text-purple">Epic:</strong> Powerful bonuses and abilities</li>
+                        <li><strong class="text-orange">Legendary:</strong> Maximum bonuses and unique abilities</li>
+                    </ul>
+                    
+                    <h3>Obtaining Pets</h3>
+                    <p>Pets can be obtained through:</p>
+                    <ul>
+                        <li>Defeating bosses for pet drops</li>
+                        <li>Crafting using special recipes</li>
+                        <li>Trading with other players</li>
+                        <li>Special events and seasonal content</li>
+                    </ul>
+                    
+                    <h3>Pet Leveling</h3>
+                    <p>Pets gain XP as you play and level up to increase their bonuses. Higher rarity pets level up slower but provide better bonuses.</p>
+                `
+            },
+            {
+                id: 'reforging',
+                title: 'Reforging',
+                category: 'misc',
+                icon: '<i class="ph ph-hammer"></i>',
+                description: 'Modify your equipment stats through the reforging system.',
+                content: `
+                    <h3>Reforging System</h3>
+                    <p>Reforging allows you to add stat modifiers to your equipment, customizing it to match your playstyle.</p>
+                    
+                    <h3>How to Reforge</h3>
+                    <p>Visit the Reforge Station in the Hub and select an item to reforge. Each reforge costs materials and currency.</p>
+                    
+                    <h3>Reforge Stats</h3>
+                    <p>Available reforge modifiers include:</p>
+                    <ul>
+                        <li><strong>Offensive:</strong> Strength, Crit Chance, Crit Damage, Attack Speed</li>
+                        <li><strong>Defensive:</strong> Health, Defense, Speed</li>
+                        <li><strong>Utility:</strong> Magic Find, Ability Cooldown, Mana Regen</li>
+                    </ul>
+                    
+                    <h3>Reforge Tiers</h3>
+                    <ul>
+                        <li><strong>Common Reforges:</strong> Small stat bonuses</li>
+                        <li><strong>Rare Reforges:</strong> Moderate stat bonuses</li>
+                        <li><strong>Legendary Reforges:</strong> Large stat bonuses</li>
+                    </ul>
+                    
+                    <h3>Tips</h3>
+                    <p>Reforging is random - you may need multiple attempts to get your desired modifier. Save your best items for reforging.</p>
+                `
+            },
+            {
+                id: 'skills',
+                title: 'Skills',
+                category: 'cinder',
+                icon: '<i class="ph ph-lightning"></i>',
+                description: 'Level up your skills to unlock powerful abilities and bonuses.',
+                content: `
+                    <h3>Skills System</h3>
+                    <p>Skills represent your character's proficiency in various areas. Leveling skills unlocks new abilities, recipes, and bonuses.</p>
+                    
+                    <h3>Skill Categories</h3>
+                    <ul>
+                        <li><strong>Combat Skills:</strong> Swordsmanship, Archery, Magic</li>
+                        <li><strong>Gathering Skills:</strong> Mining, Foraging, Fishing</li>
+                        <li><strong>Crafting Skills:</strong> Smithing, Alchemy, Enchanting</li>
+                        <li><strong>Social Skills:</strong> Trading, Diplomacy</li>
+                    </ul>
+                    
+                    <h3>Leveling Skills</h3>
+                    <p>Gain skill XP by performing related actions:</p>
+                    <ul>
+                        <li>Combat skills: Fighting enemies with specific weapon types</li>
+                        <li>Gathering skills: Collecting resources from nodes</li>
+                        <li>Crafting skills: Creating items at workstations</li>
+                        <li>Social skills: Trading and completing social activities</li>
+                    </ul>
+                    
+                    <h3>Skill Perks</h3>
+                    <p>Every 5 levels, choose a perk from your skill tree to specialize your character.</p>
+                `
+            },
+            {
+                id: 'stats',
+                title: 'Stats',
+                category: 'cinder',
+                icon: '<i class="ph ph-chart-bar"></i>',
+                description: 'Understand all character stats and how they affect gameplay.',
+                content: `
+                    <h3>Character Stats</h3>
+                    <p>Your character has various stats that determine your effectiveness in combat and other activities.</p>
+                    
+                    <h3>Primary Stats</h3>
+                    <ul>
+                        <li><strong>Health:</strong> Maximum HP before death</li>
+                        <li><strong>Defense:</strong> Reduces incoming damage</li>
+                        <li><strong>Strength:</strong> Increases melee damage</li>
+                        <li><strong>Crit Chance:</strong> Probability of critical hits</li>
+                        <li><strong>Crit Damage:</strong> Multiplier for critical hits</li>
+                        <li><strong>Attack Speed:</strong> How fast you can attack</li>
+                        <li><strong>Speed:</strong> Movement speed</li>
+                    </ul>
+                    
+                    <h3>Secondary Stats</h3>
+                    <ul>
+                        <li><strong>Intelligence:</strong> Increases magic damage and mana</li>
+                        <li><strong>Magic Find:</strong> Increases rare drop chances</li>
+                        <li><strong>Pet Luck:</strong> Improves pet drop rates</li>
+                        <li><strong>Ability Cooldown:</strong> Reduces skill cooldowns</li>
+                    </ul>
+                    
+                    <h3>Increasing Stats</h3>
+                    <p>Stats can be improved through equipment, accessories, skills, fairy souls, and reforging.</p>
+                `
+            },
+            {
+                id: 'weapons',
+                title: 'Weapons',
+                category: 'misc',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M482.403 42.826c-10.537-8.76-24.84-4.167-43.264 11.643-76.1 65.307-202.78 179.14-282.432 269.103l21.07 21.07c82.21-87.285 203.37-205.524 304.625-301.817zm-338.477 293.42-17.17 17.028 22.302 22.303a2546.608 2546.608 0 0 1 16.41-17.79zm-56.796.03-12.728 12.728 79.196 79.196 12.728-12.728zm2.942 54.185-60.475 60.475c.372 11.49 10.708 22.336 22.628 22.627l60.474-60.474-8.137-8.136c2.657 4.264 2.84 8.705.457 11.097-3.124 3.123-9.554 1.758-14.363-3.05 4.808 4.808 6.174 11.24 3.05 14.363-3.125 3.124-9.555 1.76-14.364-3.05 4.81 4.81 6.174 11.24 3.05 14.363-3.124 3.125-9.555 1.76-14.363-3.05 4.808 4.81 6.173 11.24 3.05 14.364-3.125 3.124-9.556 1.76-14.364-3.05 4.808 4.81 6.174 11.24 3.05 14.364-3.125 3.124-9.555 1.76-14.364-3.05-4.808-4.808-6.173-11.24-3.05-14.363 3.125-3.123 9.556-1.758 14.364 3.05-4.808-4.808-6.173-11.238-3.05-14.362 3.125-3.125 9.555-1.76 14.364 3.05-4.81-4.81-6.174-11.24-3.05-14.364 3.125-3.124 9.555-1.76 14.363 3.05-4.808-4.81-6.173-11.24-3.05-14.364 3.125-3.124 9.556-1.76 14.364 3.05-4.808-4.81-6.173-11.24-3.05-14.364 2.39-2.383 6.828-2.202 11.09.45z" fill="currentColor"></path></svg>',
+                description: 'Master different weapon types and their unique abilities.',
+                content: `
+                    <h3>Weapon System</h3>
+                    <p>Weapons are your primary tools for combat. Each weapon type has unique attack patterns, abilities, and playstyles.</p>
+                    
+                    <h3>Weapon Types</h3>
+                    <ul>
+                        <li><strong>Swords:</strong> Balanced damage and speed</li>
+                        <li><strong>Axes:</strong> High damage, slower attacks</li>
+                        <li><strong>Bows:</strong> Ranged attacks, critical hits</li>
+                        <li><strong>Staves:</strong> Magic damage, area effects</li>
+                        <li><strong>Daggers:</strong> Fast attacks, critical strikes</li>
+                        <li><strong>Hammers:</strong> Heavy damage, knockback</li>
+                    </ul>
+                    
+                    <h3>Weapon Abilities</h3>
+                    <p>Most weapons come with special abilities that can be activated in combat. These abilities have cooldowns and may consume mana.</p>
+                    
+                    <h3>Weapon Upgrades</h3>
+                    <ul>
+                        <li><strong>Sharpening:</strong> Increase base damage</li>
+                        <li><strong>Enchanting:</strong> Add magical properties</li>
+                        <li><strong>Reforging:</strong> Modify stat bonuses</li>
+                        <li><strong>Socketing:</strong> Add gems for extra effects</li>
+                    </ul>
+                `
+            }
+        ];
+
+        // Initialize guides page
+        function initGuidesPage() {
+            const guidesGrid = document.getElementById('guidesGrid');
+            const modal = document.getElementById('guideModal');
+            const modalClose = document.getElementById('modalClose');
+            const modalOverlay = modal.querySelector('.guide-modal-overlay');
+
+            // Generate guide cards
+            guidesData.forEach(guide => {
+                const card = document.createElement('div');
+                card.className = 'guide-card';
+                card.dataset.category = guide.category;
+                card.innerHTML = `
+                    <div class="guide-card-icon">${guide.icon}</div>
+                    <h3 class="guide-card-title">${guide.title}</h3>
+                    <p class="guide-card-description">${guide.description}</p>
+                `;
+
+                // Open modal on click
+                card.addEventListener('click', () => {
+                    openGuideModal(guide);
+                });
+
+                guidesGrid.appendChild(card);
+            });
+
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const category = btn.dataset.category;
+                    
+                    // Update active button
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Filter cards
+                    const cards = document.querySelectorAll('.guide-card');
+                    cards.forEach(card => {
+                        if (category === 'all' || card.dataset.category === category) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // Close modal handlers
+            modalClose.addEventListener('click', closeGuideModal);
+            modalOverlay.addEventListener('click', closeGuideModal);
+
+            // Close on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeGuideModal();
+                }
+            });
+        }
+
+        // Open guide modal
+        function openGuideModal(guide) {
+            const modal = document.getElementById('guideModal');
+            const modalIcon = document.getElementById('modalIcon');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+
+            modalIcon.innerHTML = guide.icon;
+            modalTitle.textContent = guide.title;
+            modalBody.innerHTML = guide.content;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close guide modal
+        function closeGuideModal() {
+            const modal = document.getElementById('guideModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Initialize on DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            initGuidesPage();
         });
     </script>
-    <!-- END TEMPORARY PLACEHOLDER -->
 </body>
 </html>

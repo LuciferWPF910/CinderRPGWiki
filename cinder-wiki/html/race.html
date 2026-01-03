@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History & Factions - CinderRPG Wiki</title>
+    <link rel="icon" type="x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/history.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <!-- RPG Awesome icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Header Component Slot -->
+    <div id="header-slot"></div>
+
+    <main class="history-main">
+        <!-- History Header -->
+        <section class="history-header wrap">
+            <h1 class="history-title">Lore</h1>
+            <p class="history-subtitle">Discover the ancient powers that shaped the world of CinderRPG</p>
+            
+            <!-- Ember Particles -->
+            <div class="ember-particles">
+                <span class="ember"></span>
+                <span class="ember"></span>
+                <span class="ember"></span>
+                <span class="ember"></span>
+                <span class="ember"></span>
+                <span class="ember"></span>
+                <span class="ember"></span>
+                <span class="ember"></span>
+            </div>
+        </section>
+
+        <!-- Factions Grid -->
+        <section class="factions-section wrap">
+            <div class="factions-grid" id="factionsGrid">
+                <!-- Faction cards will be dynamically generated -->
+            </div>
+        </section>
+
+        <!-- Faction Modal -->
+        <div class="faction-modal" id="factionModal">
+            <div class="faction-modal-overlay"></div>
+            <div class="faction-modal-content">
+                <button class="faction-modal-close" id="modalClose">
+                    <i class="ph ph-x"></i>
+                </button>
+                <div class="faction-modal-header">
+                    <div class="faction-modal-emblem" id="modalEmblem"></div>
+                    <h2 class="faction-modal-title" id="modalTitle"></h2>
+                </div>
+                <div class="faction-modal-body" id="modalBody">
+                    <!-- Content will be dynamically inserted -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Component Slot -->
+    <div id="footer-slot"></div>
+
+    <!-- Modal Component Slot -->
+    <div id="modal-slot"></div>
+
+    <!-- Load Component Manager -->
+    <script src="../js/components.js"></script>
+
+    <!-- Faction Page Script -->
+    <script>
+        // Faction data array
+        const factionsData = [
+            {
+                id: 'horde-darkmoon',
+                name: 'Horde of the DARKMOON',
+                emblem: '../images/race/characterLich.png',
+                placeholder: '../images/race/characterLich.png',
+                description: 'Lich - Masters of necromancy and undeath.',
+                lore: `
+                    <h3>Origin</h3>
+                    <p>Born from the ashes of the First Flame, the Ashen Knights were once mortal warriors who swore an eternal oath to protect the realm from the encroaching darkness. Their sacrifice bound their souls to the flame, granting them immortality at the cost of their humanity.</p>
+                    
+                    <h3>Philosophy</h3>
+                    <p>The Knights believe that only through sacrifice and duty can the world be saved. They view weakness as a corruption that must be burned away, and they test themselves constantly through combat and trials.</p>
+                    
+                    <h3>Current Status</h3>
+                    <p>Though their numbers have dwindled over the ages, the remaining Ashen Knights continue their eternal vigil. They can be found in the Ember Citadel, training new recruits and defending against the forces of darkness.</p>
+                `
+            },
+            {
+                id: 'horde-darkmoon-kenku',
+                name: 'Horde of the DARKMOON',
+                emblem: '../images/race/characterKenku.png',
+                placeholder: '../images/race/characterKenku.png',
+                description: 'Kenku - Avian shadow walkers and mimics.',
+                lore: `
+                    <h3>Origins in Shadow</h3>
+                    <p>The Crimson Covenant emerged from the ruins of a failed magical experiment. These blood mages discovered that life essence could be harnessed to fuel powerful spells, leading them down a dark path of hemomancy.</p>
+                    
+                    <h3>Dark Practices</h3>
+                    <p>Members of the Covenant practice blood magic, drawing power from their own vitality and that of others. They believe that blood contains the essence of the soul, and through its manipulation, they can achieve immortality and ultimate power.</p>
+                    
+                    <h3>The Blood Pact</h3>
+                    <p>To join the Covenant, initiates must undergo the Blood Pact - a ritual that binds their life force to the collective. This grants them access to the accumulated knowledge of all members but slowly drains their humanity.</p>
+                `
+            },
+            {
+                id: 'disciples-abyss',
+                name: 'Disciples of the ABYSS',
+                emblem: '../images/race/characterDarkelf.png',
+                placeholder: '../images/race/characterDarkelf.png',
+                description: 'Dark Elf - Masters of shadow magic and deception.',
+                lore: `
+                    <h3>Duality Philosophy</h3>
+                    <p>The Eclipse Order believes that neither light nor darkness alone can bring salvation. They seek the perfect balance between opposing forces, walking the razor's edge between both extremes.</p>
+                    
+                    <h3>The Twilight Path</h3>
+                    <p>Members train in both holy and dark arts, learning to channel opposing energies simultaneously. This dangerous practice requires exceptional mental discipline, as the conflicting powers constantly threaten to tear the wielder apart.</p>
+                    
+                    <h3>Sacred Duty</h3>
+                    <p>The Order views themselves as mediators between the eternal conflict of light and dark. They intervene when either force grows too strong, maintaining cosmic equilibrium at any cost.</p>
+                `
+            },
+            {
+                id: 'disciples-abyss-eldritch',
+                name: 'Disciples of the ABYSS',
+                emblem: '../images/race/characterEldritch.png',
+                placeholder: '../images/race/characterEldritch.png',
+                description: 'Eldritch - Beings of cosmic horror and madness.',
+                lore: `
+                    <h3>Forged in Battle</h3>
+                    <p>The Iron Wardens are the oldest military order in the realm, tracing their lineage back to the first conflicts of the Age of Embers. They are known for their impenetrable defenses and unwavering loyalty.</p>
+                    
+                    <h3>Code of Iron</h3>
+                    <p>Every Warden lives by the Code of Iron: never retreat, never surrender, protect the innocent at all costs. Their armor, forged from meteoric iron, is said to be unbreakable and grows stronger with each battle survived.</p>
+                    
+                    <h3>The Living Bulwark</h3>
+                    <p>Wardens are trained not just as individual warriors but as a unified force. Their shield wall tactics are legendary, capable of holding against overwhelming odds. Many settlements owe their survival to the timely arrival of Iron Wardens.</p>
+                `
+            },
+            {
+                id: 'conscript-dawn',
+                name: 'Conscript of the DAWN',
+                emblem: '../images/race/characterHuman.png',
+                placeholder: '../images/race/characterHuman.png',
+                description: 'Human - Versatile warriors of light and hope.',
+                lore: `
+                    <h3>Born from Darkness</h3>
+                    <p>The Shadow Syndicate operates from the darkness, a network of spies, assassins, and information brokers. Their origins are mysterious, with some claiming they've existed since before recorded history.</p>
+                    
+                    <h3>The Veil of Whispers</h3>
+                    <p>Members communicate through coded messages and hidden signs. They trade in secrets, selling information to the highest bidder while maintaining their own hidden agenda. No one knows who truly leads the Syndicate.</p>
+                    
+                    <h3>Shadow Arts</h3>
+                    <p>Syndicate operatives master stealth, deception, and lethal precision. They can blend into any crowd, eliminate targets without a trace, and extract information from the most secure locations. Their motto: "Unseen, unheard, undeniable."</p>
+                `
+            },
+            {
+                id: 'conscript-dawn-sentinel',
+                name: 'Conscript of the DAWN',
+                emblem: '../images/race/characterSentinel.png',
+                placeholder: '../images/race/characterSentinel.png',
+                description: 'Sentinel - Ancient guardians bound by duty.',
+                lore: `
+                    <h3>Keepers of Nature</h3>
+                    <p>The Verdant Circle are druids who have sworn to protect the natural world from corruption and destruction. They believe that civilization has grown too far from its roots, threatening the balance of nature itself.</p>
+                    
+                    <h3>Wild Magic</h3>
+                    <p>Circle members can communicate with beasts, control plants, and even transform into animals. Their power comes directly from the land itself, making them strongest in untamed wilderness and weakest in cities of stone.</p>
+                    
+                    <h3>The Green Accord</h3>
+                    <p>While generally peaceful, the Circle will not hesitate to eliminate those who threaten the natural order. They have been known to reclaim entire settlements, allowing the forest to swallow buildings and return the land to its primal state.</p>
+                `
+            },
+            {
+                id: 'acolytes-verdantia-myconoid',
+                name: 'Acolytes of VERDANTIA',
+                emblem: '../images/race/characterMyconoid.png',
+                placeholder: '../images/race/characterMyconoid.png',
+                description: 'Myconoid - Fungal beings of nature and decay.',
+                lore: `
+                    <h3>Keepers of Nature</h3>
+                    <p>The Verdant Circle are druids who have sworn to protect the natural world from corruption and destruction. They believe that civilization has grown too far from its roots, threatening the balance of nature itself.</p>
+                    
+                    <h3>Wild Magic</h3>
+                    <p>Circle members can communicate with beasts, control plants, and even transform into animals. Their power comes directly from the land itself, making them strongest in untamed wilderness and weakest in cities of stone.</p>
+                    
+                    <h3>The Green Accord</h3>
+                    <p>While generally peaceful, the Circle will not hesitate to eliminate those who threaten the natural order. They have been known to reclaim entire settlements, allowing the forest to swallow buildings and return the land to its primal state.</p>
+                `
+            },
+            {
+                id: 'acolytes-verdantia-orc',
+                name: 'Acolytes of VERDANTIA',
+                emblem: '../images/race/characterOrc.png',
+                placeholder: '../images/race/characterOrc.png',
+                description: 'Orc - Savage warriors of primal strength.',
+                lore: `
+                    <h3>Keepers of Nature</h3>
+                    <p>The Verdant Circle are druids who have sworn to protect the natural world from corruption and destruction. They believe that civilization has grown too far from its roots, threatening the balance of nature itself.</p>
+                    
+                    <h3>Wild Magic</h3>
+                    <p>Circle members can communicate with beasts, control plants, and even transform into animals. Their power comes directly from the land itself, making them strongest in untamed wilderness and weakest in cities of stone.</p>
+                    
+                    <h3>The Green Accord</h3>
+                    <p>While generally peaceful, the Circle will not hesitate to eliminate those who threaten the natural order. They have been known to reclaim entire settlements, allowing the forest to swallow buildings and return the land to its primal state.</p>
+                `
+            }
+        ];
+
+        // Initialize factions page
+        function initFactionsPage() {
+            const factionsGrid = document.getElementById('factionsGrid');
+            const modal = document.getElementById('factionModal');
+            const modalClose = document.getElementById('modalClose');
+            const modalOverlay = modal.querySelector('.faction-modal-overlay');
+
+            // Generate faction cards
+            factionsData.forEach(faction => {
+                const card = document.createElement('div');
+                card.className = 'faction-card';
+                card.innerHTML = `
+                    <div class="faction-card-image" style="background-image: url('${faction.placeholder}');">
+                    </div>
+                    <div class="faction-card-content">
+                        <h3 class="faction-card-name">${faction.name}</h3>
+                        <p class="faction-card-description">${faction.description}</p>
+                    </div>
+                `;
+
+                // Open modal on click
+                card.addEventListener('click', () => {
+                    openFactionModal(faction);
+                });
+
+                factionsGrid.appendChild(card);
+            });
+
+            // Close modal handlers
+            modalClose.addEventListener('click', closeFactionModal);
+            modalOverlay.addEventListener('click', closeFactionModal);
+
+            // Close on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeFactionModal();
+                }
+            });
+        }
+
+        // Open faction modal
+        function openFactionModal(faction) {
+            const modal = document.getElementById('factionModal');
+            const modalEmblem = document.getElementById('modalEmblem');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+
+            const emblemContent = faction.emblem.includes('.png') 
+                ? `<img src="${faction.emblem}" alt="${faction.name}" style="width: 100%; height: 100%; object-fit: contain;">` 
+                : faction.emblem;
+            modalEmblem.innerHTML = emblemContent;
+            modalTitle.textContent = faction.name;
+            modalBody.innerHTML = faction.lore;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close faction modal
+        function closeFactionModal() {
+            const modal = document.getElementById('factionModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Initialize on DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            initFactionsPage();
+        });
+    </script>
+</body>
+</html>

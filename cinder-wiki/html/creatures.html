@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creatures - CinderRPG Wiki</title>
+    <title>Bestiary - CinderRPG Wiki</title>
     <link rel="icon" type="x-icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/creatures.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Minecraft Pixel Font -->
+    <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
     <!-- RPG Awesome icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
     <!-- Phosphor Icons -->
@@ -20,12 +22,57 @@
     <!-- Header Component Slot -->
     <div id="header-slot"></div>
 
-    <main>
+    <main class="bestiary-main">
         <!-- ========================================
-             TEMPORARY PLACEHOLDER: Remove when Creatures page is complete
+             ⚠️ PLACEHOLDER DATA WARNING ⚠️
+             All creature data below is placeholder content for demonstration purposes.
+             Remove this warning and replace with actual creature data when ready.
              ======================================== -->
-        <div id="coming-soon-slot"></div>
-        <!-- END TEMPORARY PLACEHOLDER -->
+        
+        <!-- Placeholder Warning Banner -->
+        <div style="background: linear-gradient(135deg, #8B4513 0%, #654321 100%); border: 3px solid #d4af37; border-radius: 8px; padding: 1.5rem; margin: 0 2rem 2rem 2rem; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-triangle-exclamation" style="color: #ffaa00; font-size: 2rem;"></i>
+                <h3 style="font-family: 'Cinzel', serif; color: #d4af37; font-size: 1.5rem; letter-spacing: 2px; margin: 0; text-transform: uppercase;">Placeholder Data Warning</h3>
+                <i class="fa-solid fa-triangle-exclamation" style="color: #ffaa00; font-size: 2rem;"></i>
+            </div>
+            <p style="color: #d4c5a9; margin: 0; font-size: 1rem;">All creature information displayed on this page is placeholder content for demonstration purposes only. Actual CinderRPG creature data will be added soon.</p>
+        </div>
+        
+        <div class="bestiary-container">
+            <!-- Left Sidebar: Creature List -->
+            <aside class="bestiary-sidebar">
+                <div class="bestiary-header">
+                    <div class="bestiary-count" id="creatureCount">0 / 0</div>
+                    <h1 class="bestiary-title">Bestiary</h1>
+                    <div class="bestiary-total">
+                        <i class="ra ra-hood"></i>
+                        <span id="totalCount">0</span>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="bestiary-search">
+                    <div class="search-box">
+                        <i class="ph ph-magnifying-glass"></i>
+                        <input type="text" id="creatureSearch" placeholder="Search creatures...">
+                    </div>
+                </div>
+
+                <!-- Creature List -->
+                <div class="creature-list" id="creatureList">
+                    <!-- Creatures will be dynamically populated here -->
+                </div>
+            </aside>
+
+            <!-- Right Panel: Creature Details -->
+            <section class="bestiary-details" id="creatureDetails">
+                <div class="empty-state">
+                    <i class="ra ra-dragon"></i>
+                    <p class="empty-state-text">Select a creature to view details</p>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- Footer Component Slot -->
@@ -37,14 +84,274 @@
     <!-- Load Component Manager -->
     <script src="../js/components.js"></script>
 
-    <!-- ========================================
-         TEMPORARY PLACEHOLDER: Remove when Creatures page is complete
-         ======================================== -->
     <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            await window.ComponentManager.insertComponent('coming-soon-component', '#coming-soon-slot');
-        });
+        // ========================================
+        // ⚠️ PLACEHOLDER DATA WARNING ⚠️
+        // All creature data below is placeholder content for demonstration purposes.
+        // Replace with actual CinderRPG creature data when ready.
+        // ========================================
+        const creaturesData = [
+            {
+                id: 1,
+                name: "Giant Clam",
+                icon: "../images/creatures/giant_clam.png",
+                image: "../images/creatures/giant_clam_full.png",
+                category: "Abyssal Creature",
+                disposition: "Hostile",
+                soulYield: "Moderate",
+                difficulty: 3,
+                description: "A colossal mollusk that lies dormant upon the ocean floor, mistaken for stone by the careless and the doomed.\n\nIts shell bears the scars of ages, sealed shut around a hunger that has never waned.",
+                weaknesses: ["Thunder", "Resonant Force"],
+                drops: [
+                    { name: "Luminous Pearl", icon: "../images/items/luminous_pearl.png" },
+                    { name: "Ancient Shell Fragment", icon: "../images/items/shell_fragment.png" }
+                ],
+                quote: "Do not mistake stillness for mercy.",
+                location: "Deep Ocean",
+                level: "40-45"
+            },
+            {
+                id: 2,
+                name: "Aero Slime",
+                icon: "../images/creatures/aero_slime.png",
+                image: "../images/creatures/aero_slime_full.png",
+                category: "Elemental",
+                disposition: "Neutral",
+                soulYield: "Low",
+                difficulty: 1,
+                description: "A translucent creature of wind and moisture, drifting through the air currents with mindless serenity. Though seemingly harmless, its acidic touch can dissolve flesh and steel alike.",
+                weaknesses: ["Fire", "Piercing Damage"],
+                drops: [
+                    { name: "Aero Essence", icon: "../images/items/aero_essence.png" },
+                    { name: "Slime Core", icon: "../images/items/slime_core.png" }
+                ],
+                quote: "Even the wind has teeth.",
+                location: "Sky Islands",
+                level: "10-15"
+            },
+            {
+                id: 3,
+                name: "Amber Crawler",
+                icon: "../images/creatures/amber_crawler.png",
+                image: "../images/creatures/amber_crawler_full.png",
+                category: "Arthropod",
+                disposition: "Hostile",
+                soulYield: "Moderate",
+                difficulty: 2,
+                description: "A chitinous horror preserved in ancient amber, somehow brought to terrible life. Its crystallized carapace refracts light in unsettling patterns as it stalks its prey.",
+                weaknesses: ["Blunt Damage", "Cold"],
+                drops: [
+                    { name: "Amber Shard", icon: "../images/items/amber_shard.png" },
+                    { name: "Fossilized Chitin", icon: "../images/items/chitin.png" }
+                ],
+                quote: "The past hungers still.",
+                location: "Ancient Ruins",
+                level: "20-25"
+            },
+            {
+                id: 4,
+                name: "Amethyst Crawler",
+                icon: "../images/creatures/amethyst_crawler.png",
+                image: "../images/creatures/amethyst_crawler_full.png",
+                category: "Arthropod",
+                disposition: "Hostile",
+                soulYield: "High",
+                difficulty: 4,
+                description: "A rare variant suffused with arcane energy, its purple crystalline form pulses with barely contained magic. Far more dangerous than its amber cousin.",
+                weaknesses: ["Lightning", "Arcane"],
+                drops: [
+                    { name: "Amethyst Shard", icon: "../images/items/amethyst_shard.png" },
+                    { name: "Arcane Core", icon: "../images/items/arcane_core.png" }
+                ],
+                quote: "Power crystallized, hunger eternal.",
+                location: "Mage Towers",
+                level: "35-40"
+            },
+            {
+                id: 5,
+                name: "Box Jellyfish",
+                icon: "../images/creatures/box_jellyfish.png",
+                image: "../images/creatures/box_jellyfish_full.png",
+                category: "Aquatic",
+                disposition: "Hostile",
+                soulYield: "Low",
+                difficulty: 2,
+                description: "A translucent nightmare drifting through dark waters, its tentacles trailing with lethal venom. One touch brings paralysis, a second brings death.",
+                weaknesses: ["Fire", "Blunt Damage"],
+                drops: [
+                    { name: "Venom Sac", icon: "../images/items/venom_sac.png" },
+                    { name: "Jellyfish Membrane", icon: "../images/items/membrane.png" }
+                ],
+                quote: "Beauty is often poisonous.",
+                location: "Deep Waters",
+                level: "15-20"
+            }
+        ];
+
+        let selectedCreature = null;
+
+        // Initialize the page
+        function init() {
+            renderCreatureList(creaturesData);
+            updateCounts();
+            setupSearchFilter();
+            
+            // Select first creature by default
+            if (creaturesData.length > 0) {
+                selectCreature(creaturesData[0]);
+            }
+        }
+
+        // Render creature list
+        function renderCreatureList(creatures) {
+            const listContainer = document.getElementById('creatureList');
+            listContainer.innerHTML = '';
+
+            creatures.forEach(creature => {
+                const item = document.createElement('div');
+                item.className = 'creature-item';
+                item.dataset.creatureId = creature.id;
+                
+                item.innerHTML = `
+                    <img src="${creature.icon}" alt="${creature.name}" class="creature-icon" 
+                         onerror="this.src='../images/placeholder.png'">
+                    <div class="creature-item-info">
+                        <h3 class="creature-item-name">${creature.name}</h3>
+                        <p class="creature-item-category">${creature.category}</p>
+                    </div>
+                `;
+
+                item.addEventListener('click', () => selectCreature(creature));
+                listContainer.appendChild(item);
+            });
+        }
+
+        // Select and display creature details
+        function selectCreature(creature) {
+            selectedCreature = creature;
+
+            // Update active state in list
+            document.querySelectorAll('.creature-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.creatureId == creature.id) {
+                    item.classList.add('active');
+                }
+            });
+
+            // Render creature details
+            renderCreatureDetails(creature);
+        }
+
+        // Render creature details panel
+        function renderCreatureDetails(creature) {
+            const detailsContainer = document.getElementById('creatureDetails');
+            
+            const stars = Array(5).fill(0).map((_, i) => 
+                i < creature.difficulty 
+                    ? '<i class="fa-solid fa-star"></i>' 
+                    : '<i class="fa-regular fa-star"></i>'
+            ).join('');
+
+            const weaknessesList = creature.weaknesses.map(w => 
+                `<li class="weakness-item">${w}</li>`
+            ).join('');
+
+            const dropsList = creature.drops.map(drop => 
+                `<li class="drop-item">
+                    <img src="${drop.icon}" alt="${drop.name}" class="drop-icon" 
+                         onerror="this.src='../images/placeholder.png'">
+                    <span>${drop.name}</span>
+                </li>`
+            ).join('');
+
+            const dispositionClass = creature.disposition.toLowerCase();
+
+            detailsContainer.innerHTML = `
+                <div class="creature-header">
+                    <h2 class="creature-name">${creature.name}</h2>
+                </div>
+
+                <div class="creature-content">
+                    <div class="creature-info-column">
+                        <div class="creature-stats">
+                            <div class="stat-row">
+                                <span class="stat-label">Category:</span>
+                                <span class="stat-value">${creature.category}</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Disposition:</span>
+                                <span class="stat-value ${dispositionClass}">${creature.disposition}</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Soul Yield:</span>
+                                <span class="stat-value">${creature.soulYield}</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Difficulty:</span>
+                                <div class="creature-stars">${stars}</div>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Level:</span>
+                                <span class="stat-value">${creature.level}</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Location:</span>
+                                <span class="stat-value">${creature.location}</span>
+                            </div>
+                        </div>
+
+                        <div class="creature-description">
+                            <h3 class="description-title">Description</h3>
+                            <p class="description-text">${creature.description}</p>
+                        </div>
+
+                        <div class="creature-weaknesses">
+                            <h3 class="section-title">Weaknesses</h3>
+                            <ul class="weakness-list">${weaknessesList}</ul>
+                        </div>
+
+                        <div class="creature-drops">
+                            <h3 class="section-title">Drops</h3>
+                            <ul class="drop-list">${dropsList}</ul>
+                        </div>
+                    </div>
+
+                    <div class="creature-image-column">
+                        <div class="creature-image-container">
+                            <img src="${creature.image}" alt="${creature.name}" class="creature-image"
+                                 onerror="this.src='../images/placeholder.png'">
+                        </div>
+
+                        <div class="creature-quote">
+                            ${creature.quote}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update creature counts
+        function updateCounts() {
+            const total = creaturesData.length;
+            document.getElementById('creatureCount').textContent = `${total} / ${total}`;
+            document.getElementById('totalCount').textContent = total;
+        }
+
+        // Setup search filter
+        function setupSearchFilter() {
+            const searchInput = document.getElementById('creatureSearch');
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                const filtered = creaturesData.filter(creature => 
+                    creature.name.toLowerCase().includes(query) ||
+                    creature.category.toLowerCase().includes(query)
+                );
+                renderCreatureList(filtered);
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', init);
     </script>
-    <!-- END TEMPORARY PLACEHOLDER -->
 </body>
 </html>
