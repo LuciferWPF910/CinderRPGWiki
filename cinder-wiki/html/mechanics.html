@@ -50,25 +50,25 @@
                     <i data-lucide="grid-3x3"></i>
                     <span>All Mechanics</span>
                 </button>
-                <button class="filter-btn" data-category="combat">
+                <button class="filter-btn" data-category="basic">
                     <i data-lucide="swords"></i>
-                    <span>Combat</span>
+                    <span>Fundamentals</span>
                 </button>
-                <button class="filter-btn" data-category="progression">
+                <button class="filter-btn" data-category="rpg">
                     <i data-lucide="trending-up"></i>
-                    <span>Progression</span>
+                    <span>RPG & Combat</span>
                 </button>
-                <button class="filter-btn" data-category="crafting">
+                <button class="filter-btn" data-category="gear">
                     <i data-lucide="hammer"></i>
-                    <span>Crafting</span>
+                    <span>Gear</span>
                 </button>
-                <button class="filter-btn" data-category="exploration">
+                <button class="filter-btn" data-category="resource">
                     <i data-lucide="compass"></i>
-                    <span>Exploration</span>
+                    <span>Resources</span>
                 </button>
-                <button class="filter-btn" data-category="social">
+                <button class="filter-btn" data-category="misc">
                     <i data-lucide="users"></i>
-                    <span>Social</span>
+                    <span>Misc</span>
                 </button>
             </div>
         </section>
@@ -77,157 +77,99 @@
         <section class="mechanics-content wrap">
             <div class="mechanics-grid" id="mechanics-grid">
                 
-                <!-- Combat Mechanics -->
-                <article class="mechanic-card" data-category="combat" data-mechanic="damage-calculation">
+                <!-- Fundamental Mechanics -->
+                <article class="mechanic-card" data-category="basic" data-mechanic="races">
                     <div class="mechanic-icon">
                         <i class="ra ra-crossed-swords"></i>
                     </div>
                     <div class="mechanic-body">
-                        <h3 class="mechanic-name">Damage Calculation</h3>
-                        <p class="mechanic-summary">Understanding how damage is calculated based on weapon stats, armor, and modifiers.</p>
+                        <h3 class="mechanic-name">Races</h3>
+                        <p class="mechanic-summary">Learn about the races of Cinder and their respective attributes & affinities.</p>
                     </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('damage-calculation')">
+                    <button class="mechanic-btn" onclick="openMechanicModal('races')">
                         <span>Learn More</span>
                         <i data-lucide="chevron-right"></i>
                     </button>
                 </article>
 
-                <article class="mechanic-card" data-category="combat" data-mechanic="pvp-system">
+                <article class="mechanic-card" data-category="basic" data-mechanic="level">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-crossed-swords"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Levels & EXP</h3>
+                        <p class="mechanic-summary">Understand how EXP is calculated and the effects of levelling up.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('level')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="basic" data-mechanic="class">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-crossed-swords"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Classes</h3>
+                        <p class="mechanic-summary">Learn what the varied classes offer and the unique differences between them.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('class')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="basic" data-mechanic="guild">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-crossed-swords"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Guild System</h3>
+                        <p class="mechanic-summary">Join or form a guild with trusted allies, and acquire group-wide benefits.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('guild')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="basic" data-mechanic="quests">
                     <div class="mechanic-icon">
                         <i class="ra ra-double-team"></i>
                     </div>
                     <div class="mechanic-body">
-                        <h3 class="mechanic-name">PvP System</h3>
-                        <p class="mechanic-summary">Learn about player versus player combat rules, zones, and protection mechanics.</p>
+                        <h3 class="mechanic-name">Quests</h3>
+                        <p class="mechanic-summary">Accept numerous quests, each with unique dialogue and context.</p>
                     </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('pvp-system')">
+                    <button class="mechanic-btn" onclick="openMechanicModal('quests')">
                         <span>Learn More</span>
                         <i data-lucide="chevron-right"></i>
                     </button>
                 </article>
 
-                <article class="mechanic-card" data-category="combat" data-mechanic="elemental-damage">
+                <article class="mechanic-card" data-category="basic" data-mechanic="mod-progression">
                     <div class="mechanic-icon">
                         <i class="ra ra-lightning-bolt"></i>
                     </div>
                     <div class="mechanic-body">
-                        <h3 class="mechanic-name">Elemental Damage</h3>
-                        <p class="mechanic-summary">Discover how fire, ice, lightning and other elements affect combat outcomes.</p>
+                        <h3 class="mechanic-name">Mod Progression</h3>
+                        <p class="mechanic-summary">Learn about the how Cinder affects the progression of popular mods, alongside it's very own.</p>
                     </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('elemental-damage')">
+                    <button class="mechanic-btn" onclick="openMechanicModal('mod-progression')">
                         <span>Learn More</span>
                         <i data-lucide="chevron-right"></i>
                     </button>
                 </article>
 
-                <!-- Progression Mechanics -->
-                <article class="mechanic-card" data-category="progression" data-mechanic="leveling-system">
+                <!-- RPG Mechanics -->
+                <article class="mechanic-card" data-category="rpg" data-mechanic="dungeons">
                     <div class="mechanic-icon">
                         <i class="ra ra-level-up"></i>
                     </div>
                     <div class="mechanic-body">
-                        <h3 class="mechanic-name">Leveling System</h3>
-                        <p class="mechanic-summary">Understand how XP is earned and how character levels affect your abilities.</p>
-                    </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('leveling-system')">
-                        <span>Learn More</span>
-                        <i data-lucide="chevron-right"></i>
-                    </button>
-                </article>
-
-                <article class="mechanic-card" data-category="progression" data-mechanic="skill-trees">
-                    <div class="mechanic-icon">
-                        <i class="ra ra-perspective-dice-six"></i>
-                    </div>
-                    <div class="mechanic-body">
-                        <h3 class="mechanic-name">Skill Trees</h3>
-                        <p class="mechanic-summary">Explore the various skill paths and specializations available to your character.</p>
-                    </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('skill-trees')">
-                        <span>Learn More</span>
-                        <i data-lucide="chevron-right"></i>
-                    </button>
-                </article>
-
-                <article class="mechanic-card" data-category="progression" data-mechanic="class-system">
-                    <div class="mechanic-icon">
-                        <i class="ra ra-shield"></i>
-                    </div>
-                    <div class="mechanic-body">
-                        <h3 class="mechanic-name">Class System</h3>
-                        <p class="mechanic-summary">Learn how classes work, how to unlock them, and their unique bonuses.</p>
-                    </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('class-system')">
-                        <span>Learn More</span>
-                        <i data-lucide="chevron-right"></i>
-                    </button>
-                </article>
-
-                <!-- Crafting Mechanics -->
-                <article class="mechanic-card" data-category="crafting" data-mechanic="enchanting">
-                    <div class="mechanic-icon">
-                        <i class="ra ra-gem"></i>
-                    </div>
-                    <div class="mechanic-body">
-                        <h3 class="mechanic-name">Enchanting</h3>
-                        <p class="mechanic-summary">Master the art of enchanting items to gain powerful magical properties.</p>
-                    </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('enchanting')">
-                        <span>Learn More</span>
-                        <i data-lucide="chevron-right"></i>
-                    </button>
-                </article>
-
-                <article class="mechanic-card" data-category="crafting" data-mechanic="refinement">
-                    <div class="mechanic-icon">
-                        <i class="ra ra-anvil"></i>
-                    </div>
-                    <div class="mechanic-body">
-                        <h3 class="mechanic-name">Refinement System</h3>
-                        <p class="mechanic-summary">Upgrade your equipment through five tiers of refinement for increased power.</p>
-                    </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('refinement')">
-                        <span>Learn More</span>
-                        <i data-lucide="chevron-right"></i>
-                    </button>
-                </article>
-
-                <article class="mechanic-card" data-category="crafting" data-mechanic="crafting-recipes">
-                    <div class="mechanic-icon">
-                        <i class="ra ra-scroll-unfurled"></i>
-                    </div>
-                    <div class="mechanic-body">
-                        <h3 class="mechanic-name">Crafting Recipes</h3>
-                        <p class="mechanic-summary">Discover recipes for creating powerful items, potions, and equipment.</p>
-                    </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('crafting-recipes')">
-                        <span>Learn More</span>
-                        <i data-lucide="chevron-right"></i>
-                    </button>
-                </article>
-
-                <!-- Exploration Mechanics -->
-                <article class="mechanic-card" data-category="exploration" data-mechanic="shards">
-                    <div class="mechanic-icon">
-                        <i class="ra ra-crystal-wand"></i>
-                    </div>
-                    <div class="mechanic-body">
-                        <h3 class="mechanic-name">Shard Worlds</h3>
-                        <p class="mechanic-summary">Travel between dimensional shards, each with unique challenges and rewards.</p>
-                    </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('shards')">
-                        <span>Learn More</span>
-                        <i data-lucide="chevron-right"></i>
-                    </button>
-                </article>
-
-                <article class="mechanic-card" data-category="exploration" data-mechanic="dungeons">
-                    <div class="mechanic-icon">
-                        <i class="ra ra-tower"></i>
-                    </div>
-                    <div class="mechanic-body">
                         <h3 class="mechanic-name">Dungeons</h3>
-                        <p class="mechanic-summary">Explore dangerous dungeons filled with enemies, puzzles, and treasure.</p>
+                        <p class="mechanic-summary">Uncover & explore challenging, monster-ridden dungeons.</p> <!--Fix later, this is horrible-->
                     </div>
                     <button class="mechanic-btn" onclick="openMechanicModal('dungeons')">
                         <span>Learn More</span>
@@ -235,58 +177,396 @@
                     </button>
                 </article>
 
-                <article class="mechanic-card" data-category="exploration" data-mechanic="fast-travel">
+                <article class="mechanic-card" data-category="rpg" data-mechanic="magic">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-perspective-dice-six"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Mana & Magic</h3>
+                        <p class="mechanic-summary">Find out more about sorcery and it's expendable resource.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('magic')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="rpg" data-mechanic="damage-type">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-shield"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Damage Types</h3>
+                        <p class="mechanic-summary">Understand what types of damage there are & their effective against the varying types of creatures.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('damage-type')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="rpg" data-mechanic="obelisk">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-level-up"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Obelisks</h3>
+                        <p class="mechanic-summary">Understand how the trials of the Obelisks function & the rewards one may gain.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('obelisk')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="rpg" data-mechanic="potion-effect">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-level-up"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Potion Effects</h3>
+                        <p class="mechanic-summary">Learn what each Potion Effect does, what they're useful for, and how you get them.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('potion-effect')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="rpg" data-mechanic="creature-type">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-level-up"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Creature Types</h3>
+                        <p class="mechanic-summary">Learn about the different creature types and common traits between them.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('creature-type')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="rpg" data-mechanic="combat-tag">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-level-up"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Combat Tag</h3>
+                        <p class="mechanic-summary">Learn about the restrictions of Combat and the designated safe zones.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('combat-tag')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="rpg" data-mechanic="weapon-abilities">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-level-up"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Weapon Abilities</h3>
+                        <p class="mechanic-summary">Find out more about the abilities each weapon type possess.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('weapon-abilities')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <!-- Gear Mechanics -->
+                <article class="mechanic-card" data-category="gear" data-mechanic="modifiers">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-gem"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Modifiers</h3>
+                        <p class="mechanic-summary">Learn about all the random modifiers that can be rolled on weapons.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('modifiers')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="gear" data-mechanic="quality">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-anvil"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Tool & Armor Quality</h3>
+                        <p class="mechanic-summary">Learn about how tool & armor quality affects your items and to what extent.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('quality')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="gear" data-mechanic="rarity">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-scroll-unfurled"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Item Rarity</h3>
+                        <p class="mechanic-summary">Understand what separates items between rarities and their implications or effects.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('rarity')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="gear" data-mechanic="enchanting">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-scroll-unfurled"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Enchantment</h3>
+                        <p class="mechanic-summary">Understand how enchantments are handled in CinderRPG, and how to apply or upgrade them.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('enchanting')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="gear" data-mechanic="refinement">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-scroll-unfurled"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Refinement</h3>
+                        <p class="mechanic-summary">Understand how refinement affects your weapons, it's cost and it's rate of success.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('refinement')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="gear" data-mechanic="baubles">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-scroll-unfurled"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Baubles</h3>
+                        <p class="mechanic-summary">Learn about the various baubles that've been created and implemented into the server, alongside their acquisition.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('baubles')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="gear" data-mechanic="mounts">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-scroll-unfurled"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Mounts</h3>
+                        <p class="mechanic-summary">Find out more about the various mounts that can be summoned to traverse the various shards.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('mounts')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="gear" data-mechanic="pets">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-scroll-unfurled"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Pets</h3>
+                        <p class="mechanic-summary">Find out what pets do, what they offer, and how to obtain them.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('crafting-recipes')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <!-- Resources Mechanics -->
+                <article class="mechanic-card" data-category="resource" data-mechanic="pets">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-crystal-wand"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Chests & Treasure</h3>
+                        <p class="mechanic-summary">Learn about the minor mechanics and calculations that go into chests & treasure.</p> <!--Revise later-->
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('shards')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="resource" data-mechanic="plants">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-tower"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Plants & Crops</h3>
+                        <p class="mechanic-summary">Learn more about the various natural ingredients used for food & potions.</p> <!--Revise later-->
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('plants')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="resource" data-mechanic="ores">
                     <div class="mechanic-icon">
                         <i class="ra ra-teleport"></i>
                     </div>
                     <div class="mechanic-body">
-                        <h3 class="mechanic-name">Fast Travel</h3>
-                        <p class="mechanic-summary">Learn about waypoints, teleportation, and efficient travel methods.</p>
+                        <h3 class="mechanic-name">Ores & Minerals</h3>
+                        <p class="mechanic-summary">Learn more about the materials used to craft tools, armor and utility items.</p> <!--Revise later-->
                     </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('fast-travel')">
+                    <button class="mechanic-btn" onclick="openMechanicModal('ores')">
                         <span>Learn More</span>
                         <i data-lucide="chevron-right"></i>
                     </button>
                 </article>
 
-                <!-- Social Mechanics -->
-                <article class="mechanic-card" data-category="social" data-mechanic="guilds">
+                <article class="mechanic-card" data-category="resource" data-mechanic="consumables">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-teleport"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Consumables</h3>
+                        <p class="mechanic-summary">Get details on what buffs or effects are provided from utility items, such as potions or repair kits.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('consumables')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="resource" data-mechanic="utility">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-teleport"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Utility Items</h3>
+                        <p class="mechanic-summary">Uncover the abilities of useful items & tools, and find ingenious ways to utilize them.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('utility')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <!-- Misc Mechanics -->
+                <article class="mechanic-card" data-category="misc" data-mechanic="auction-house">
                     <div class="mechanic-icon">
                         <i class="ra ra-crown"></i>
                     </div>
                     <div class="mechanic-body">
-                        <h3 class="mechanic-name">Guilds</h3>
-                        <p class="mechanic-summary">Form or join guilds, collaborate with others, and access guild benefits.</p>
+                        <h3 class="mechanic-name">Auction House</h3>
+                        <p class="mechanic-summary">Comprehend how the auction house functions, it's taxes, and how to sell your wares.</p>
                     </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('guilds')">
+                    <button class="mechanic-btn" onclick="openMechanicModal('auction-house')">
                         <span>Learn More</span>
                         <i data-lucide="chevron-right"></i>
                     </button>
                 </article>
 
-                <article class="mechanic-card" data-category="social" data-mechanic="trading">
+                <article class="mechanic-card" data-category="misc" data-mechanic="sign-shop">
                     <div class="mechanic-icon">
                         <i class="ra ra-gold-bar"></i>
                     </div>
                     <div class="mechanic-body">
-                        <h3 class="mechanic-name">Trading System</h3>
-                        <p class="mechanic-summary">Trade items and currency safely with other players in the marketplace.</p>
+                        <h3 class="mechanic-name">Sign Shops</h3>
+                        <p class="mechanic-summary">Find out how to create your own sign shops & the interest in doing so.</p>
                     </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('trading')">
+                    <button class="mechanic-btn" onclick="openMechanicModal('sign-shop')">
                         <span>Learn More</span>
                         <i data-lucide="chevron-right"></i>
                     </button>
                 </article>
 
-                <article class="mechanic-card" data-category="social" data-mechanic="parties">
+                <article class="mechanic-card" data-category="misc" data-mechanic="exp-weekend">
                     <div class="mechanic-icon">
                         <i class="ra ra-burning-embers"></i>
                     </div>
                     <div class="mechanic-body">
-                        <h3 class="mechanic-name">Party System</h3>
+                        <h3 class="mechanic-name">EXP Weekend</h3>
                         <p class="mechanic-summary">Team up with friends for shared XP, loot distribution, and group benefits.</p>
                     </div>
-                    <button class="mechanic-btn" onclick="openMechanicModal('parties')">
+                    <button class="mechanic-btn" onclick="openMechanicModal('exp-weekend')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="misc" data-mechanic="lore">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-crown"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Lore</h3>
+                        <p class="mechanic-summary">Uncover the lore of Cinder through various visuals or thematic hints, scattered across the shards.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('lore')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="misc" data-mechanic="interact">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-crown"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Interact-able Blocks</h3>
+                        <p class="mechanic-summary">Find interesting interactions that can be made, using certain blocks within the CinderExtras mod.</p> <!--Revise later-->
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('interact')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="misc" data-mechanic="plush">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-crown"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Plushes & Achievements</h3>
+                        <p class="mechanic-summary">Learn about achievements that may award you with your very own plush.</p> <!--Revise later-->
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('plush')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="misc" data-mechanic="cosmetic">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-crown"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Cosmetics</h3>
+                        <p class="mechanic-summary">Have a look at various cosmetics, their methods of acquisition, and how to apply them.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('cosmetic')">
+                        <span>Learn More</span>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </article>
+
+                <article class="mechanic-card" data-category="misc" data-mechanic="disabled">
+                    <div class="mechanic-icon">
+                        <i class="ra ra-crown"></i>
+                    </div>
+                    <div class="mechanic-body">
+                        <h3 class="mechanic-name">Disabled Items</h3>
+                        <p class="mechanic-summary">Find out more about disabled items, their reasoning for being removed, and what this implicates.</p>
+                    </div>
+                    <button class="mechanic-btn" onclick="openMechanicModal('disabled')">
                         <span>Learn More</span>
                         <i data-lucide="chevron-right"></i>
                     </button>
@@ -341,10 +621,10 @@
 
         // Mechanic Details Data
         const mechanicData = {
-            'damage-calculation': {
+            'races': {
                 icon: 'ra-crossed-swords',
                 title: 'Damage Calculation',
-                category: 'Combat',
+                category: 'Fundamentals',
                 content: `
                     <h4>How Damage Works</h4>
                     <p>Damage in CinderRPG is calculated using a complex formula that takes into account multiple factors:</p>
@@ -371,10 +651,10 @@
                     </ul>
                 `
             },
-            'pvp-system': {
+            'quests': {
                 icon: 'ra-double-team',
                 title: 'PvP System',
-                category: 'Combat',
+                category: 'Fundamentals',
                 content: `
                     <h4>Player vs Player Combat</h4>
                     <p>CinderRPG features a structured PvP system with designated zones and protection mechanics.</p>
@@ -399,10 +679,10 @@
                     </ul>
                 `
             },
-            'elemental-damage': {
+            'mod-progression': {
                 icon: 'ra-lightning-bolt',
                 title: 'Elemental Damage',
-                category: 'Combat',
+                category: 'Fundamentals',
                 content: `
                     <h4>Elemental System</h4>
                     <p>Elemental damage adds strategic depth to combat through strengths and weaknesses.</p>
@@ -426,7 +706,7 @@
                     <p>Armor and enchantments can provide elemental resistance, reducing damage from specific elements by up to 75%.</p>
                 `
             },
-            'leveling-system': {
+            'Dungeons': {
                 icon: 'ra-level-up',
                 title: 'Leveling System',
                 category: 'Progression',
