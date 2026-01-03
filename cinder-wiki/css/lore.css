@@ -1,0 +1,1191 @@
+/* ============================================
+   Lore Page Styles - Dark Fantasy
+   CINDER RPG - Chronicles of Ash & Ember
+   ============================================ */
+
+/* Page-wide effects */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.5) 100%),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="300" height="300" filter="url(%23noise)" opacity="0.05"/></svg>');
+    pointer-events: none;
+    z-index: 1;
+}
+
+main {
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================
+   Lore Header
+   ============================================ */
+.lore-header {
+    text-align: center;
+    padding: 4rem 1.5rem 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.lore-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--beige);
+    margin: 0 0 1.5rem;
+    font-family: 'Cinzel', serif;
+    text-shadow: 
+        0 0 30px rgba(191, 160, 111, 0.4),
+        0 2px 10px rgba(0, 0, 0, 0.8);
+    letter-spacing: 0.02em;
+}
+
+.lore-subtitle {
+    font-size: 1.125rem;
+    color: var(--muted);
+    margin: 1.5rem 0 0 0;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* ============================================
+   SECTION 1: Lore Cards Filter
+   ============================================ */
+.lore-cards-section {
+    padding: 2rem 0 4rem;
+    position: relative;
+}
+
+.lore-filter {
+    padding: 0 1.5rem 2.5rem;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.lore-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--muted);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--anim);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.03em;
+}
+
+.lore-filter-btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(0deg, rgba(191, 160, 111, 0.15), transparent);
+    transition: height var(--anim) ease;
+    z-index: 0;
+}
+
+.lore-filter-btn i {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    z-index: 1;
+    transition: all var(--anim-fast);
+}
+
+.lore-filter-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.lore-filter-btn:hover {
+    border-color: rgba(191, 160, 111, 0.5);
+    color: var(--beige);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(191, 160, 111, 0.2);
+}
+
+.lore-filter-btn:hover::before {
+    height: 100%;
+}
+
+.lore-filter-btn:hover i {
+    transform: scale(1.15);
+    color: var(--accent);
+}
+
+.lore-filter-btn.active {
+    background: linear-gradient(135deg, rgba(191, 160, 111, 0.2), rgba(212, 197, 185, 0.1));
+    border-color: var(--accent);
+    color: var(--beige);
+    box-shadow: 
+        0 0 20px rgba(191, 160, 111, 0.3),
+        inset 0 1px 2px rgba(191, 160, 111, 0.2);
+}
+
+.lore-filter-btn.active i {
+    color: var(--accent);
+    filter: drop-shadow(0 0 4px rgba(191, 160, 111, 0.6));
+}
+
+/* ============================================
+   Lore Cards Slider - Horizontal Rail (4 Cards)
+   ============================================ */
+.lore-slider-container {
+    position: relative;
+    padding: 0 4rem;
+    margin-bottom: 2.5rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lore-cards-wrapper {
+    overflow: hidden;
+    position: relative;
+    padding: 1rem 0;
+}
+
+.lore-cards-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+/* Slider Navigation Arrows */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--anim);
+    z-index: 10;
+    color: var(--muted);
+}
+
+.slider-nav:hover {
+    background: var(--panel);
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 24px rgba(191, 160, 111, 0.4);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-nav:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.slider-nav i {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2.5;
+}
+
+.slider-nav-left {
+    left: 0;
+}
+
+.slider-nav-right {
+    right: 0;
+}
+
+.slider-nav:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Slider Indicators */
+.slider-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0 1.5rem;
+}
+
+.slider-indicator {
+    width: 10px;
+    height: 10px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--anim);
+}
+
+.slider-indicator:hover {
+    background: rgba(191, 160, 111, 0.3);
+    border-color: var(--accent);
+    transform: scale(1.2);
+}
+
+.slider-indicator.active {
+    width: 32px;
+    border-radius: 5px;
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(191, 160, 111, 0.6);
+}
+
+/* ============================================
+   Lore Cards - 4 Equal Medium-Sized Tiles
+   ============================================ */
+.lore-card {
+    background: 
+        linear-gradient(135deg, rgba(31, 28, 26, 0.95), rgba(21, 19, 17, 0.98)),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3"/></filter><rect width="200" height="200" filter="url(%23noise)" opacity="0.08"/></svg>');
+    background-blend-mode: normal;
+    border: 1px solid rgba(74, 67, 61, 0.6);
+    border-radius: 12px;
+    padding: 2rem;
+    width: calc(25% - 1.125rem);
+    min-width: calc(25% - 1.125rem);
+    max-width: calc(25% - 1.125rem);
+    min-height: 365px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(191, 160, 111, 0.05);
+}
+
+.lore-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, rgba(191, 160, 111, 0.3), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.lore-card::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 50%, rgba(191, 160, 111, 0.15), transparent 60%);
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.lore-card:hover {
+    border-color: rgba(191, 160, 111, 0.7);
+    transform: translateY(-4px);
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.6),
+        0 0 32px rgba(191, 160, 111, 0.4),
+        0 0 48px rgba(212, 130, 49, 0.2),
+        inset 0 1px 0 rgba(191, 160, 111, 0.15);
+}
+
+.lore-card:hover::before {
+    opacity: 1;
+}
+
+.lore-card:hover::after {
+    opacity: 1;
+}
+
+/* Lore Card Title - At Top */
+.lore-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--beige);
+    margin: 0 0 0.625rem;
+    font-family: 'Cinzel', serif;
+    line-height: 1.3;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Lore Card Summary - 2-3 Lines */
+.lore-card-summary {
+    font-size: 0.875rem;
+    color: rgba(212, 197, 185, 0.85);
+    line-height: 1.65;
+    margin: 0 0 auto;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Simplified Card Header */
+.lore-card-header {
+    display: none;
+}
+
+.lore-card-icon {
+    display: none;
+}
+
+.lore-card-category {
+    font-size: 0.6875rem;
+    color: rgba(191, 160, 111, 0.7);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Cinzel', serif;
+    margin: 0 0 0.5rem 0;
+    display: block;
+}
+
+/* Lore Card Button - Simplified */
+.lore-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(191, 160, 111, 0.08);
+    border: 1px solid rgba(191, 160, 111, 0.25);
+    border-radius: 8px;
+    color: var(--beige);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.03em;
+    margin-top: auto;
+}
+
+.lore-card-btn i {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2.5;
+    transition: transform 0.3s ease;
+}
+
+.lore-card-btn:hover {
+    background: rgba(191, 160, 111, 0.2);
+    border-color: rgba(191, 160, 111, 0.6);
+    color: var(--accent);
+    box-shadow: 0 0 20px rgba(191, 160, 111, 0.4);
+    transform: translateY(-1px);
+}
+
+.lore-card-btn:hover i {
+    transform: translateX(3px);
+}
+
+.lore-card-btn:active {
+    transform: scale(0.98) translateY(0);
+}
+
+.lore-card.hidden {
+    display: none;
+}
+
+/* Responsive - Maintain 4 cards on larger screens */
+@media (max-width: 1400px) {
+    .lore-card {
+        width: calc(25% - 1.125rem);
+        min-width: calc(25% - 1.125rem);
+        max-width: calc(25% - 1.125rem);
+    }
+}
+
+@media (max-width: 1024px) {
+    .lore-slider-container {
+        padding: 0 3rem;
+    }
+    .lore-card {
+        width: calc(33.333% - 1rem);
+        min-width: calc(33.333% - 1rem);
+        max-width: calc(33.333% - 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .lore-slider-container {
+        padding: 0 2.5rem;
+    }
+    .lore-card {
+        width: calc(50% - 0.75rem);
+        min-width: calc(50% - 0.75rem);
+        max-width: calc(50% - 0.75rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .lore-slider-container {
+        padding: 0 2rem;
+    }
+    .lore-card {
+        width: calc(100% - 0.5rem);
+        min-width: calc(100% - 0.5rem);
+        max-width: calc(100% - 0.5rem);
+    }
+}
+
+/* ============================================
+   Lore Detail Modal
+   ============================================ */
+.lore-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--anim) ease;
+}
+
+.lore-modal.modal-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lore-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+}
+
+.lore-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    max-height: 85vh;
+    background: var(--panel);
+    border: 1px solid rgba(191, 160, 111, 0.3);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transform: scale(0.9);
+    transition: transform var(--anim) cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 24px 64px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(191, 160, 111, 0.2);
+}
+
+.lore-modal.modal-open .lore-modal-content {
+    transform: scale(1);
+}
+
+/* Modal Close Button */
+.lore-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--anim-fast);
+    z-index: 10;
+    color: var(--muted);
+}
+
+.lore-modal-close:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #1a1816;
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 0 20px rgba(191, 160, 111, 0.5);
+}
+
+.lore-modal-close i {
+    width: 20px;
+    height: 20px;
+    stroke-width: 3;
+}
+
+/* Modal Header */
+.lore-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: linear-gradient(180deg, rgba(191, 160, 111, 0.1), transparent);
+    border-bottom: 1px solid rgba(191, 160, 111, 0.2);
+}
+
+.lore-modal-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(191, 160, 111, 0.25), rgba(212, 197, 185, 0.15));
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    box-shadow: 0 0 30px rgba(191, 160, 111, 0.3);
+}
+
+.lore-modal-title-section {
+    flex: 1;
+}
+
+.lore-modal-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--beige);
+    margin: 0 0 0.5rem;
+    font-family: 'Cinzel', serif;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.lore-modal-category {
+    font-size: 0.875rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Cinzel', serif;
+}
+
+/* Modal Body */
+.lore-modal-body {
+    overflow-y: auto;
+    max-height: calc(85vh - 150px);
+}
+
+.lore-modal-body-content {
+    padding: 2rem;
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.lore-modal-body-content h4 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--beige);
+    margin: 1.75rem 0 1rem;
+    font-family: 'Cinzel', serif;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.lore-modal-body-content h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.lore-modal-body-content h4:first-child {
+    margin-top: 0;
+}
+
+.lore-modal-body-content p {
+    margin: 0 0 1.25rem;
+    color: var(--text);
+}
+
+.lore-modal-body-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.lore-modal-body-content ul li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.875rem;
+    color: var(--text);
+    line-height: 1.7;
+}
+
+.lore-modal-body-content ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.lore-modal-body-content strong {
+    color: var(--beige);
+    font-weight: 600;
+}
+
+/* Info Box in Modal */
+.info-box {
+    background: rgba(191, 160, 111, 0.1);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.75rem 0;
+}
+
+.info-box p {
+    margin: 0.5rem 0;
+}
+
+.info-box p:first-child {
+    margin-top: 0;
+}
+
+.info-box p:last-child {
+    margin-bottom: 0;
+}
+
+.info-box strong {
+    color: var(--beige);
+    font-weight: 600;
+}
+
+/* ============================================
+   SECTION 2: Timeline
+   ============================================ */
+.timeline-section {
+    padding: 4rem 0;
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.3) 20%, rgba(0,0,0,0.3) 80%, transparent);
+    position: relative;
+}
+
+.timeline-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+}
+
+.timeline-header {
+    text-align: center;
+    padding: 0 1.5rem 3rem;
+}
+
+.timeline-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--beige);
+    margin: 0 0 0.75rem;
+    font-family: 'Cinzel', serif;
+    text-shadow: 0 0 20px rgba(191, 160, 111, 0.3);
+}
+
+.timeline-subtitle {
+    font-size: 1rem;
+    color: var(--muted);
+    margin: 0;
+    font-style: italic;
+}
+
+/* Timeline Filter */
+.timeline-filter {
+    padding: 0 1.5rem 3rem;
+}
+
+.timeline-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.timeline-buttons::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border) 10%, var(--border) 90%, transparent);
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.timeline-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all var(--anim);
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: var(--border);
+    border-radius: 50%;
+    transition: all var(--anim);
+    z-index: -1;
+}
+
+.timeline-era-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--muted);
+    font-family: 'Cinzel', serif;
+    transition: color var(--anim-fast);
+    white-space: nowrap;
+    margin-bottom: 0.375rem;
+}
+
+.timeline-era-sub {
+    font-size: 0.6875rem;
+    color: var(--muted);
+    font-style: italic;
+    transition: color var(--anim-fast);
+    opacity: 0.7;
+    white-space: nowrap;
+    margin-top: 0.375rem;
+}
+
+.timeline-btn:hover .timeline-era-label {
+    color: var(--beige);
+}
+
+.timeline-btn:hover .timeline-era-sub {
+    color: var(--accent);
+    opacity: 1;
+}
+
+.timeline-btn:hover::before {
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(191, 160, 111, 0.5);
+}
+
+.timeline-btn.active::before {
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    box-shadow: 0 0 16px rgba(191, 160, 111, 0.6);
+    border: 2px solid var(--bg);
+}
+
+.timeline-btn.active .timeline-era-label {
+    color: var(--beige);
+    text-shadow: 0 0 8px rgba(191, 160, 111, 0.4);
+}
+
+.timeline-btn.active .timeline-era-sub {
+    color: var(--accent);
+    opacity: 1;
+}
+
+/* Timeline Events List */
+.timeline-events {
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* Timeline Event Card */
+.timeline-event {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    transition: all var(--anim);
+    position: relative;
+    overflow: hidden;
+    opacity: 1;
+    animation: fadeSlideIn var(--anim-slow) ease-out;
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, var(--accent), transparent);
+    transition: height var(--anim-slow) ease;
+}
+
+.timeline-event:hover {
+    border-color: rgba(191, 160, 111, 0.5);
+    transform: translateX(8px);
+    box-shadow: 
+        0 12px 32px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(191, 160, 111, 0.15);
+}
+
+.timeline-event:hover::before {
+    height: 100%;
+}
+
+.timeline-event.hidden {
+    display: none;
+}
+
+/* Timeline Event Image */
+.timeline-event-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(191, 160, 111, 0.15), rgba(212, 197, 185, 0.05));
+    border: 1px solid rgba(191, 160, 111, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--anim);
+}
+
+.timeline-event:hover .timeline-event-image {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(191, 160, 111, 0.3);
+}
+
+.event-placeholder {
+    font-size: 4rem;
+    color: var(--accent);
+    opacity: 0.3;
+    transition: all var(--anim);
+}
+
+.timeline-event:hover .event-placeholder {
+    opacity: 0.6;
+    transform: scale(1.1);
+}
+
+/* Timeline Event Content */
+.timeline-event-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.timeline-event-time {
+    font-size: 0.875rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Cinzel', serif;
+}
+
+.timeline-event-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--beige);
+    margin: 0 0 0.5rem;
+    font-family: 'Cinzel', serif;
+    line-height: 1.3;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.timeline-event-description {
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation for timeline events */
+.timeline-event:nth-child(1) { animation-delay: 0.05s; }
+.timeline-event:nth-child(2) { animation-delay: 0.1s; }
+.timeline-event:nth-child(3) { animation-delay: 0.15s; }
+.timeline-event:nth-child(4) { animation-delay: 0.2s; }
+.timeline-event:nth-child(5) { animation-delay: 0.25s; }
+.timeline-event:nth-child(6) { animation-delay: 0.3s; }
+.timeline-event:nth-child(7) { animation-delay: 0.35s; }
+.timeline-event:nth-child(8) { animation-delay: 0.4s; }
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 1024px) {
+    .lore-slider-container {
+        padding: 0 4rem;
+    }
+
+    .lore-card {
+        min-width: calc(33.333% - 1rem);
+    }
+
+    .timeline-event {
+        grid-template-columns: 250px 1fr;
+        gap: 1.5rem;
+    }
+
+    .timeline-event-image {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .lore-title {
+        font-size: 2.5rem;
+    }
+
+    .lore-subtitle {
+        font-size: 1rem;
+    }
+
+    .filter-buttons {
+        gap: 0.5rem;
+    }
+
+    .lore-filter-btn {
+        padding: 0.625rem 1.125rem;
+        font-size: 0.875rem;
+    }
+
+    .lore-slider-container {
+        padding: 0 3.5rem;
+    }
+
+    .lore-card {
+        min-width: calc(50% - 0.75rem);
+        padding: 1.5rem;
+    }
+
+    .lore-card-title {
+        font-size: 1.25rem;
+    }
+
+    .slider-nav {
+        width: 44px;
+        height: 44px;
+    }
+
+    .slider-nav i {
+        width: 20px;
+        height: 20px;
+    }
+
+    .timeline-title {
+        font-size: 2rem;
+    }
+
+    .timeline-buttons {
+        gap: 0.75rem;
+    }
+
+    .timeline-btn {
+        min-width: 120px;
+        padding: 0.875rem 1.25rem;
+    }
+
+    .timeline-event {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 1.5rem;
+    }
+
+    .timeline-event-image {
+        height: 160px;
+    }
+
+    .timeline-event-title {
+        font-size: 1.5rem;
+    }
+
+    .lore-modal-content {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .lore-modal-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+    }
+
+    .lore-modal-icon {
+        width: 64px;
+        height: 64px;
+        font-size: 2rem;
+    }
+
+    .lore-modal-title {
+        font-size: 1.75rem;
+    }
+
+    .lore-modal-body-content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .lore-header {
+        padding: 3rem 1rem 2rem;
+    }
+
+    .lore-title {
+        font-size: 2rem;
+    }
+
+    .lore-subtitle {
+        font-size: 0.9375rem;
+    }
+
+    .lore-filter-btn span {
+        display: none;
+    }
+
+    .lore-filter-btn {
+        padding: 0.75rem;
+        width: 46px;
+        height: 46px;
+        justify-content: center;
+    }
+
+    .lore-slider-container {
+        padding: 0 3rem;
+    }
+
+    .lore-card {
+        min-width: 100%;
+    }
+
+    .lore-cards-track {
+        gap: 1rem;
+    }
+
+    .slider-nav {
+        width: 38px;
+        height: 38px;
+    }
+
+    .slider-nav i {
+        width: 18px;
+        height: 18px;
+    }
+
+    .timeline-btn {
+        min-width: 100px;
+        padding: 0.75rem 1rem;
+    }
+
+    .timeline-era-label {
+        font-size: 0.9375rem;
+    }
+
+    .timeline-era-sub {
+        font-size: 0.75rem;
+    }
+
+    .timeline-event {
+        padding: 1.25rem;
+    }
+
+    .timeline-event-image {
+        height: 140px;
+    }
+
+    .timeline-event-title {
+        font-size: 1.25rem;
+    }
+
+    .timeline-event-description {
+        font-size: 0.9375rem;
+    }
+
+    .lore-modal-close {
+        width: 36px;
+        height: 36px;
+        top: 0.75rem;
+        right: 0.75rem;
+    }
+
+    .lore-modal-header {
+        padding: 1.25rem;
+    }
+
+    .lore-modal-body-content {
+        padding: 1.25rem;
+        font-size: 0.9375rem;
+    }
+}

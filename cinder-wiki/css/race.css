@@ -1,0 +1,395 @@
+/* ===================================
+   History & Factions Page
+   =================================== */
+
+/* Main Container */
+.history-main {
+  min-height: calc(100vh - 100px);
+  padding: 2rem 0 4rem;
+}
+
+/* History Header */
+.history-header {
+  position: relative;
+  text-align: center;
+  padding: 4rem 0 3rem;
+  background: transparent;
+  border-bottom: none;
+  overflow: hidden;
+}
+
+.history-title {
+  position: relative;
+  z-index: 2;
+  font-family: 'Cinzel', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--beige);
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 30px rgba(191, 160, 111, 0.3);
+}
+
+.history-subtitle {
+  position: relative;
+  z-index: 2;
+  font-size: 1.15rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Factions Section */
+.factions-section {
+  padding: 4rem 0;
+}
+
+.factions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Faction Card */
+.faction-card {
+  position: relative;
+  background: #1f1c1a;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  aspect-ratio: 3/4;
+}
+
+.faction-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  z-index: 1;
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+}
+
+.faction-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 32px rgba(191, 160, 111, 0.3), 0 0 40px rgba(191, 160, 111, 0.2);
+}
+
+.faction-card:hover::before {
+  opacity: 0.4;
+}
+
+.faction-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #2c2a28;
+  transition: transform 0.4s ease;
+}
+
+.faction-card:hover .faction-card-image {
+  transform: scale(1.05);
+}
+
+.faction-card-emblem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6rem;
+  color: var(--accent);
+  opacity: 0.3;
+  z-index: 0;
+  transition: all 0.4s ease;
+  text-shadow: 0 0 40px rgba(191, 160, 111, 0.5);
+}
+
+.faction-card:hover .faction-card-emblem {
+  opacity: 0.6;
+  transform: translate(-50%, -50%) scale(1.1);
+  text-shadow: 0 0 60px rgba(191, 160, 111, 0.8);
+}
+
+.faction-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  z-index: 2;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 30%);
+}
+
+.faction-card-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: var(--beige);
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.faction-card-description {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Faction Modal */
+.faction-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.faction-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.faction-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.faction-modal-content {
+  position: relative;
+  z-index: 1;
+  background: #1f1c1a;
+  border: 2px solid var(--accent);
+  border-radius: 16px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 85vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6), 0 0 60px rgba(191, 160, 111, 0.3);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.faction-modal.active .faction-modal-content {
+  transform: scale(1);
+}
+
+.faction-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.faction-modal-close:hover {
+  color: var(--text);
+  background: rgba(191, 160, 111, 0.1);
+}
+
+.faction-modal-header {
+  padding: 2.5rem 3rem 1.5rem;
+  border-bottom: 2px solid var(--border);
+  text-align: center;
+  background: linear-gradient(180deg, rgba(191, 160, 111, 0.05) 0%, transparent 100%);
+}
+
+.faction-modal-emblem {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.faction-modal-emblem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.faction-modal-emblem i {
+  font-size: 5rem;
+  color: var(--accent);
+  text-shadow: 0 0 30px rgba(191, 160, 111, 0.5);
+}
+
+.faction-modal-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.25rem;
+  color: var(--beige);
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.faction-modal-body {
+  padding: 2.5rem 3rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.faction-modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.faction-modal-body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.faction-modal-body::-webkit-scrollbar-thumb {
+  background: rgba(191, 160, 111, 0.3);
+  border-radius: 4px;
+}
+
+.faction-modal-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(191, 160, 111, 0.5);
+}
+
+.faction-modal-body h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: var(--beige);
+  margin: 2rem 0 1rem 0;
+  letter-spacing: 0.03em;
+}
+
+.faction-modal-body h3:first-child {
+  margin-top: 0;
+}
+
+.faction-modal-body p {
+  color: var(--text);
+  line-height: 1.8;
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .history-title {
+    font-size: 2.5rem;
+  }
+
+  .history-subtitle {
+    font-size: 1rem;
+  }
+
+  .factions-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .faction-card-emblem {
+    font-size: 4rem;
+  }
+
+  .faction-card-content {
+    padding: 1.5rem;
+  }
+
+  .faction-card-name {
+    font-size: 1.25rem;
+  }
+
+  .faction-modal-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .faction-modal-header {
+    padding: 2rem 2rem 1.25rem;
+  }
+
+  .faction-modal-emblem {
+    width: 80px;
+    height: 80px;
+  }
+
+  .faction-modal-emblem i {
+    font-size: 4rem;
+  }
+
+  .faction-modal-title {
+    font-size: 1.75rem;
+  }
+
+  .faction-modal-body {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .history-header {
+    padding: 3rem 0 2rem;
+  }
+
+  .history-title {
+    font-size: 2rem;
+  }
+
+  .factions-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .faction-card-emblem {
+    font-size: 3.5rem;
+  }
+
+  .faction-modal-header {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+
+  .faction-modal-title {
+    font-size: 1.5rem;
+  }
+
+  .faction-modal-body {
+    padding: 1.5rem;
+  }
+
+  .faction-modal-body h3 {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,547 @@
+/* ===================================
+   Bestiary Page - Dark Souls/Elden Ring Style
+   =================================== */
+
+/* Main Container */
+.bestiary-main {
+  min-height: calc(100vh - 100px);
+  padding: 2rem 0;
+  background: linear-gradient(180deg, #0a0908 0%, #1a1512 100%);
+}
+
+.bestiary-container {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 450px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ===================================
+   LEFT SIDEBAR - CREATURE LIST
+   =================================== */
+
+.bestiary-sidebar {
+  position: sticky;
+  top: 2rem;
+  background: linear-gradient(135deg, #1a1512 0%, #0f0d0b 100%);
+  border: 3px solid #3d3126;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.bestiary-header {
+  background: linear-gradient(90deg, #2c2417 0%, #1a1512 50%, #2c2417 100%);
+  border-bottom: 2px solid #3d3126;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.bestiary-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  color: #d4af37;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3), 0 2px 4px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.bestiary-title::before,
+.bestiary-title::after {
+  content: '⚔';
+  font-size: 1.2rem;
+  opacity: 0.6;
+}
+
+.bestiary-count {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #3d3126;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #c9b998;
+}
+
+.bestiary-total {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #c9b998;
+  font-size: 0.9rem;
+}
+
+/* Search Section */
+.bestiary-search {
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid #3d3126;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box i {
+  position: absolute;
+  left: 1rem;
+  color: #8a7d6f;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 3rem;
+  background: #1a1512;
+  border: 2px solid #3d3126;
+  border-radius: 6px;
+  color: #d4c5a9;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+  background: #211f1c;
+}
+
+.search-box input::placeholder {
+  color: #5a5248;
+}
+
+/* Creature List */
+.creature-list {
+  max-height: 600px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+.creature-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.creature-list::-webkit-scrollbar-track {
+  background: #0f0d0b;
+  border-radius: 5px;
+}
+
+.creature-list::-webkit-scrollbar-thumb {
+  background: #3d3126;
+  border-radius: 5px;
+  border: 2px solid #0f0d0b;
+}
+
+.creature-list::-webkit-scrollbar-thumb:hover {
+  background: #4d4136;
+}
+
+.creature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  margin: 0.3rem 0;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.creature-item:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: #3d3126;
+  transform: translateX(4px);
+}
+
+.creature-item.active {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.05) 100%);
+  border-color: #d4af37;
+  border-left-width: 4px;
+}
+
+.creature-item.active::before {
+  content: '▸';
+  position: absolute;
+  left: 0.5rem;
+  color: #d4af37;
+  font-size: 1.2rem;
+}
+
+.creature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  border: 2px solid #3d3126;
+  object-fit: cover;
+  background: #0a0908;
+  flex-shrink: 0;
+}
+
+.creature-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.creature-item-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: #d4c5a9;
+  margin: 0 0 0.2rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.creature-item.active .creature-item-name {
+  color: #d4af37;
+}
+
+.creature-item-category {
+  font-size: 0.85rem;
+  color: #8a7d6f;
+  margin: 0;
+}
+
+/* ===================================
+   RIGHT PANEL - CREATURE DETAILS
+   =================================== */
+
+.bestiary-details {
+  background: linear-gradient(135deg, #1a1512 0%, #0f0d0b 100%);
+  border: 3px solid #3d3126;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  min-height: 700px;
+}
+
+.creature-header {
+  text-align: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #3d3126;
+  margin-bottom: 2rem;
+}
+
+.creature-name {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  color: #d4af37;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.4), 0 2px 8px rgba(0, 0, 0, 0.9);
+  margin: 0 0 1rem 0;
+}
+
+.creature-content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+}
+
+/* Left Column - Info */
+.creature-info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.creature-stats {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid #3d3126;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(61, 49, 38, 0.3);
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  color: #c9b998;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 0.95rem;
+  color: #d4c5a9;
+  font-weight: 500;
+}
+
+.stat-value.hostile {
+  color: #ff4444;
+}
+
+.stat-value.neutral {
+  color: #ffaa44;
+}
+
+.stat-value.friendly {
+  color: #44ff44;
+}
+
+.creature-stars {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.creature-stars i {
+  color: #d4af37;
+  font-size: 1rem;
+}
+
+.creature-description {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid #3d3126;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.description-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: #d4af37;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+}
+
+.description-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #c9b998;
+  font-style: italic;
+  margin: 0;
+}
+
+.creature-weaknesses,
+.creature-drops {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid #3d3126;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: #d4af37;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+}
+
+.weakness-list,
+.drop-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.weakness-item,
+.drop-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem 0;
+  color: #d4c5a9;
+  font-size: 0.95rem;
+}
+
+.weakness-item::before {
+  content: '•';
+  color: #d4af37;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.drop-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.drop-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: 2px solid #3d3126;
+  background: #0a0908;
+  object-fit: contain;
+  padding: 2px;
+}
+
+/* Right Column - Image */
+.creature-image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.creature-image-container {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid #3d3126;
+  border-radius: 6px;
+  padding: 1rem;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.creature-image-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none;
+}
+
+.creature-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
+  position: relative;
+  z-index: 1;
+}
+
+.creature-quote {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid #3d3126;
+  border-radius: 6px;
+  padding: 1.5rem;
+  text-align: center;
+  font-style: italic;
+  color: #c9b998;
+  font-size: 1rem;
+  line-height: 1.6;
+  position: relative;
+}
+
+.creature-quote::before {
+  content: '"';
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  font-size: 3rem;
+  color: #3d3126;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.creature-quote::after {
+  content: '"';
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+  font-size: 3rem;
+  color: #3d3126;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  color: #8a7d6f;
+  text-align: center;
+}
+
+.empty-state i {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  opacity: 0.3;
+}
+
+.empty-state-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .bestiary-container {
+    grid-template-columns: 400px 1fr;
+  }
+
+  .creature-content {
+    grid-template-columns: 1fr 350px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .bestiary-container {
+    grid-template-columns: 1fr;
+  }
+
+  .bestiary-sidebar {
+    position: relative;
+    top: 0;
+  }
+
+  .creature-content {
+    grid-template-columns: 1fr;
+  }
+
+  .creature-image-column {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .bestiary-container {
+    padding: 0 1rem;
+  }
+
+  .bestiary-details {
+    padding: 1.5rem;
+  }
+
+  .creature-name {
+    font-size: 2rem;
+  }
+
+  .creature-image-container {
+    height: 300px;
+  }
+}

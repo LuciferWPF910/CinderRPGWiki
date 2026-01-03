@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lore - CinderRPG Wiki</title>
+    <link rel="icon" type="x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../css/global.css?v=20251229.1">
+    <link rel="stylesheet" href="../css/home.css?v=20251229.1">
+    <link rel="stylesheet" href="../css/lore.css?v=20251229.1">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <!-- RPG Awesome icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
+    <!--Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Header Component Slot -->
+    <div id="header-slot"></div>
+
+    <main>
+        <!-- Lore Header -->
+        <section class="lore-header wrap">
+            <h1 class="lore-title">Chronicles of Cinder</h1>
+            <p class="lore-subtitle">Uncover the forgotten tales etched in ash and ember</p>
+        </section>
+
+        <!-- SECTION 1: LORE CARDS -->
+        <section class="lore-cards-section">
+            <!-- Category Filter -->
+            <div class="lore-filter wrap">
+                <div class="filter-buttons">
+                    <button class="lore-filter-btn active" data-category="all">
+                        <i data-lucide="flame"></i>
+                        <span>All Lore</span>
+                    </button>
+                    <button class="lore-filter-btn" data-category="races">
+                        <i data-lucide="users"></i>
+                        <span>Races</span>
+                    </button>
+                    <button class="lore-filter-btn" data-category="deities">
+                        <i class="ra ra-angel-wings"></i>
+                        <span>Deities</span>
+                    </button>
+                    <button class="lore-filter-btn" data-category="figures">
+                        <i class="ra ra-crown"></i>
+                        <span>Historical Figures</span>
+                    </button>
+                    <button class="lore-filter-btn" data-category="events">
+                        <i class="ra ra-burning-embers"></i>
+                        <span>Major Events</span>
+                    </button>
+                    <button class="lore-filter-btn" data-category="creatures">
+                        <i class="ra ra-dragon"></i>
+                        <span>Creatures</span>
+                    </button>
+                    <button class="lore-filter-btn" data-category="locations">
+                        <i data-lucide="map-pin"></i>
+                        <span>Locations</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lore Cards Slider -->
+            <div class="lore-slider-container wrap">
+                <button class="slider-nav slider-nav-left" id="slider-prev">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+
+                <div class="lore-cards-wrapper">
+                    <div class="lore-cards-track" id="lore-cards-track">
+                        
+                        <!-- Lore Card: The Ashen King -->
+                        <article class="lore-card" data-categories="figures events" data-lore="ashen-king">
+                            <span class="lore-card-category">Historical Figure</span>
+                            <h3 class="lore-card-title">The Ashen King</h3>
+                            <p class="lore-card-summary">Once a noble ruler who sought immortality through dark rituals. His reign ended in catastrophe when the ritual consumed his kingdom.</p>
+                            <button class="lore-card-btn" 
+                            onclick="openLoreModal('ashen-king')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+
+                        <!-- Lore Card: Children of Ember -->
+                        <article class="lore-card" data-categories="races" data-lore="ember-children">
+                            <span class="lore-card-category">Race</span>
+                            <h3 class="lore-card-title">Children of Ember</h3>
+                            <p class="lore-card-summary">Born from the ashes of the Great Burning, these beings possess an innate connection to flame and can withstand extreme heat.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('ember-children')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+
+                        <!-- Lore Card: Sorath the Scorched -->
+                        <article class="lore-card" data-categories="deities" data-lore="sorath">
+                            <span class="lore-card-category">Deity</span>
+                            <h3 class="lore-card-title">Sorath, the Scorched God</h3>
+                            <p class="lore-card-summary">The deity of rebirth through destruction. Sorath teaches that only through fire can true transformation occur.</p>
+                            <button class="lore-card-btn" 
+                            onclick="openLoreModal('sorath')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+
+                        <!-- Lore Card: The Great Burning -->
+                        <article class="lore-card" data-categories="events" data-lore="great-burning">
+                            <span class="lore-card-category">Major Event</span>
+                            <h3 class="lore-card-title">The Great Burning</h3>
+                            <p class="lore-card-summary">An apocalyptic event that reshaped the world. The sky turned black with ash for a century as civilizations crumbled.</p>
+                            <button class="lore-card-btn" 
+                            onclick="openLoreModal('great-burning')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+
+                        <!-- Lore Card: Cinder Wyrms -->
+                        <article class="lore-card" data-categories="creatures" data-lore="cinder-wyrms">
+                            <span class="lore-card-category">Creature</span>
+                            <h3 class="lore-card-title">Cinder Wyrms</h3>
+                            <p class="lore-card-summary">Serpentine beasts that burrow through volcanic rock. Their scales glow with internal heat, and their breath melts steel.</p>
+                            <button class="lore-card-btn" 
+                            onclick="openLoreModal('cinder-wyrms')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+
+                        <!-- Lore Card: The Scorched Citadel -->
+                        <article class="lore-card" data-categories="locations" data-lore="scorched-citadel">
+                            <span class="lore-card-category">Location</span>
+                            <h3 class="lore-card-title">The Scorched Citadel</h3>
+                            <p class="lore-card-summary">An ancient fortress built within an active volcano. Its obsidian walls serve as sanctuary for those who embrace the flame.</p>
+                            <button class="lore-card-btn" 
+                            onclick="openLoreModal('scorched-citadel')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+
+                        <!-- Lore Card: Ashborn -->
+                        <article class="lore-card" data-categories="races" data-lore="ashborn">
+                            <span class="lore-card-category">Race</span>
+                            <h3 class="lore-card-title">The Ashborn</h3>
+                            <p class="lore-card-summary">Pale-skinned humanoids who thrive in ash-choked wastelands, adapted to breathe toxic air and sense heat through smoke.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('ashborn')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+
+                        <!-- Lore Card: Lady Emberlyn -->
+                        <article class="lore-card" data-categories="figures" data-lore="lady-emberlyn">
+                            <span class="lore-card-category">Historical Figure</span>
+                            <h3 class="lore-card-title">Lady Emberlyn</h3>
+                            <p class="lore-card-summary">A pyromancer of unparalleled skill whose sacrifice created the Eternal Pyre, a flame burning for 500 years without fuel.</p>
+                            <button class="lore-card-btn" 
+                            onclick="openLoreModal('lady-emberlyn')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+
+                    </div>
+                </div>
+
+                <button class="slider-nav slider-nav-right" id="slider-next">
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Slider Indicators -->
+            <div class="slider-indicators wrap" id="slider-indicators"></div>
+        </section>
+
+        <!-- SECTION 2: TIMELINE EVENTS -->
+        <section class="timeline-section">
+            <div class="timeline-header wrap">
+                <h2 class="timeline-title">The Age of Cinder</h2>
+                <p class="timeline-subtitle">Chronicle the epochs that shaped our world</p>
+            </div>
+
+            <!-- Timeline Filter -->
+            <div class="timeline-filter wrap">
+                <div class="timeline-buttons">
+                    <button class="timeline-btn active" data-era="all">
+                        <span class="timeline-era-label">All Eras</span> 
+                        <span class="timeline-era-sub">Eternal Record</span>
+                    </button>
+                    <button class="timeline-btn" data-era="50">
+                        <span class="timeline-era-label">50th of Sol</span>
+                        <span class="timeline-era-sub">The Ignition</span>
+                    </button>
+                    <button class="timeline-btn" data-era="100">
+                        <span class="timeline-era-label">100th of Sol</span>
+                        <span class="timeline-era-sub">Age of Ash</span>
+                    </button>
+                    <button class="timeline-btn" data-era="150">
+                        <span class="timeline-era-label">150th of Sol</span>
+                        <span class="timeline-era-sub">The Rekindling</span>
+                    </button>
+                    <button class="timeline-btn" data-era="200">
+                        <span class="timeline-era-label">200th of Sol</span>
+                        <span class="timeline-era-sub">Modern Era</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Timeline Events List -->
+            <div class="timeline-events wrap" id="timeline-events">
+                
+                <!-- Event 1 -->
+                <article class="timeline-event" data-era="50">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-burning-embers"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">Year 47 of Sol</span>
+                        <h3 class="timeline-event-title">The First Flame Awakens</h3>
+                        <p class="timeline-event-description">Deep beneath the mountains, an ancient fire stirs. Miners report hearing whispers in the depths, speaking in a language lost to time. The temperature rises with each passing day. Within weeks, the volcano erupts with unprecedented fury, birthing the Children of Ember and marking the beginning of a new age. The world would never be the same.</p>
+                    </div>
+                </article>
+
+                <!-- Event 2 -->
+                <article class="timeline-event" data-era="50">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-crown"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">Year 52 of Sol</span>
+                        <h3 class="timeline-event-title">Rise of the Ashen King</h3>
+                        <p class="timeline-event-description">King Malachar discovers an ancient tome that promises eternal life through mastery of flame. Driven by fear of mortality, he begins conducting dark rituals in secret. His advisors notice his changing demeanor—obsessive, withdrawn, speaking of "transcending the flesh." The kingdom prospers under his rule, unaware of the doom he is bringing upon them all.</p>
+                    </div>
+                </article>
+
+                <!-- Event 3 -->
+                <article class="timeline-event" data-era="100">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-lightning-bolt"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">Year 98 of Sol</span>
+                        <h3 class="timeline-event-title">The Great Burning</h3>
+                        <p class="timeline-event-description">The Ashen King completes his ritual. What follows is catastrophic. A pillar of black flame erupts from the castle, spreading across the land like wildfire. Entire cities turn to ash in moments. The sky darkens with soot that will not clear for a hundred years. Survivors speak of seeing shadows in the smoke—the souls of the consumed. This marks the darkest period in recorded history.</p>
+                    </div>
+                </article>
+
+                <!-- Event 4 -->
+                <article class="timeline-event" data-era="100">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-tower"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">Year 105 of Sol</span>
+                        <h3 class="timeline-event-title">Foundation of the Scorched Citadel</h3>
+                        <p class="timeline-event-description">Amid the chaos, a group of flame-wielders establishes a sanctuary within an active volcano. They recognize that fire, while destructive, can also protect. The Citadel becomes a beacon for refugees who can withstand the heat. Its founders develop techniques to channel volcanic energy into protective wards, creating the only truly safe haven in the Age of Ash.</p>
+                    </div>
+                </article>
+
+                <!-- Event 5 -->
+                <article class="timeline-event" data-era="150">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-lightning-helix"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">Year 149 of Sol</span>
+                        <h3 class="timeline-event-title">Lady Emberlyn's Sacrifice</h3>
+                        <p class="timeline-event-description">Ice elementals pour through a rift in the north, threatening to extinguish all flame and freeze the world. Lady Emberlyn, the realm's most powerful pyromancer, leads a desperate defense. In the final battle, she channels all her life force into a single spell—the Eternal Pyre. The flame banishes the elementals and seals the rift, but costs her everything. The pyre burns still, a monument to her sacrifice.</p>
+                    </div>
+                </article>
+
+                <!-- Event 6 -->
+                <article class="timeline-event" data-era="150">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i data-lucide="sunrise"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">Year 157 of Sol</span>
+                        <h3 class="timeline-event-title">The Ash Clears</h3>
+                        <p class="timeline-event-description">For the first time in nearly sixty years, survivors glimpse the sun. The perpetual ashfall finally subsides, settling into a thick layer that blankets the land. New plant life begins to emerge—strange flora adapted to the ash-rich soil. The Ashborn race is discovered living in the ruins, having evolved to thrive in the toxic environment. Hope returns, cautious but genuine.</p>
+                    </div>
+                </article>
+
+                <!-- Event 7 -->
+                <article class="timeline-event" data-era="200">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-anvil"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">Year 198 of Sol</span>
+                        <h3 class="timeline-event-title">The New Covenant</h3>
+                        <p class="timeline-event-description">The major races convene at the Scorched Citadel to forge an alliance. The Children of Ember, Ashborn, and surviving human kingdoms agree to share knowledge and resources. Flame magic is regulated through a council to prevent another catastrophe. Trade routes are established through the ash wastes. Civilization begins to rebuild, forever changed by the trials of fire.</p>
+                    </div>
+                </article>
+
+                <!-- Event 8 -->
+                <article class="timeline-event" data-era="200">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-dragon"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">Year 203 of Sol</span>
+                        <h3 class="timeline-event-title">Discovery of the Cinder Wyrms</h3>
+                        <p class="timeline-event-description">Explorers venturing into volcanic regions encounter massive serpentine creatures—Cinder Wyrms. These beings seem to have existed dormant during the Great Burning, awakening only now. Initial conflicts prove costly, but eventually a fragile understanding is reached. The wyrms are intelligent and ancient, possessing knowledge of the world before the flames. Their testimony rewrites history.</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Lore Detail Modal -->
+        <div class="lore-modal" id="lore-modal">
+            <div class="lore-modal-overlay" onclick="closeLoreModal()"></div>
+            <div class="lore-modal-content">
+                <button class="lore-modal-close" onclick="closeLoreModal()">
+                    <i data-lucide="x"></i>
+                </button>
+                <div class="lore-modal-header">
+                    <div class="lore-modal-icon" id="modal-icon">
+                        <i class="ra ra-crown"></i>
+                    </div>
+                    <div class="lore-modal-title-section">
+                        <h2 class="lore-modal-title" id="modal-title">Lore Title</h2>
+                        <span class="lore-modal-category" id="modal-category">Category</span>
+                    </div>
+                </div>
+                <div class="lore-modal-body">
+                    <div class="lore-modal-body-content" id="modal-content">
+                        <!-- Content will be added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Component Slot -->
+    <div id="footer-slot"></div>
+
+    <!-- Modal Component Slot -->
+    <div id="modal-slot"></div>
+
+    <!-- Load Components -->
+    <script src="../js/components.js"></script>
+    
+    <!-- Lore Page Script -->
+    <script src="../js/lore.js"></script>
+</body>
+</html>
