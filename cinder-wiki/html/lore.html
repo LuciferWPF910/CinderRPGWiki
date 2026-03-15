@@ -8,31 +8,20 @@
     <link rel="stylesheet" href="../css/global.css?v=20251229.1">
     <link rel="stylesheet" href="../css/home.css?v=20251229.1">
     <link rel="stylesheet" href="../css/lore.css?v=20251229.1">
-    
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-    <!-- RPG Awesome icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome/css/rpg-awesome.min.css">
-    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
-    <!--Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <!-- Header Component Slot -->
     <div id="header-slot"></div>
-
     <main>
-        <!-- Lore Header -->
         <section class="lore-header wrap">
             <h1 class="lore-title">Chronicles of Cinder</h1>
             <p class="lore-subtitle">Uncover the forgotten tales etched in ash and ember</p>
         </section>
-
-        <!-- SECTION 1: LORE CARDS -->
         <section class="lore-cards-section">
-            <!-- Category Filter -->
             <div class="lore-filter wrap">
                 <div class="filter-buttons">
                     <button class="lore-filter-btn active" data-category="all">
@@ -65,159 +54,210 @@
                     </button>
                 </div>
             </div>
-
-            <!-- Lore Cards Slider -->
             <div class="lore-slider-container wrap">
                 <button class="slider-nav slider-nav-left" id="slider-prev">
                     <i data-lucide="chevron-left"></i>
                 </button>
-
                 <div class="lore-cards-wrapper">
                     <div class="lore-cards-track" id="lore-cards-track">
-                        
-                        <!-- Lore Card: The Ashen King -->
-                        <article class="lore-card" data-categories="figures events" data-lore="ashen-king">
+                       
+                        <article class="lore-card" data-categories="figures events" data-lore="scourge-emperor">
                             <span class="lore-card-category">Historical Figure</span>
-                            <h3 class="lore-card-title">The Ashen King</h3>
-                            <p class="lore-card-summary">Once a noble ruler who sought immortality through dark rituals. His reign ended in catastrophe when the ritual consumed his kingdom.</p>
-                            <button class="lore-card-btn" 
-                            onclick="openLoreModal('ashen-king')">
+                            <h3 class="lore-card-title">The Scourge Emperor</h3>
+                            <p class="lore-card-summary">In the wake of the Nightmare Child’s ascension to godhood, the realms of mortals were forsaken to a god like himself, thus the Lich were left to wither in the absence of their creator, friend and leader. The Liches, now bereft of their dark master, wandered aimlessly, lost in their own decay. Yet, as the Age of Sorcery dawned, a new leader arose to unite the fractured Liches under a single banner. This leader was none other than King Ozymandias, who would come to be known by two infamous titles: “The Scourge Emperor” and “Elfslayer.” Ozymandias earned these titles through his ruthless pursuit of a war that would span over a thousand years—a war not waged for land, wealth, or knowledge, but for spite alone. His campaign against the Elves was unyielding, a relentless tide of death and destruction that threatened to obliterate both races. Though the conflict saw moments of uneasy truce and fragile settlements, the enmity it bred festered deep within the blood of both Liches and Elves, driving them to the brink of extinction, such a war persisted longer than the emperor himself. He himself proclaimed that he had killed more Elves with his own hands then any other living thing, thus the title “Elfslayer”. The Scourge Emperor ruled his undead kin with an iron fist, crushing all who dared to defy him. His reign was marked by treachery, for Ozymandias was as cunning as he was brutal. He betrayed allies and sundered pacts whenever the prospect of power beckoned, his ambition knowing no bounds. Yet, it was this very treachery that would bring about his demise. On the final day of the Age of Sorcery, on a day to them no different to any other, King Ozymandias attended the union of the Djinn King Ash and his chosen bride, Selion Soup. The alliance between the Djinns and Liches was a cornerstone of Ozymandias’s strategy, one that he intended to exploit in his unholy crusade against the Elves, who too were present at the wedding. But unknown to all, King Ash had struck a dark pact with the god of the Darkmoon, Vassier, seeking power, prosperity, and dominion over the realm. The wedding was but a prelude to a bloodbath. As Selion Soup declared war upon all the gathered races, the troops of the Djinn King descended upon the unsuspecting guests. In the ensuing carnage, Ozymandias, the Scourge Emperor, met his end. The Liches, along with many others, fell beneath the yoke of Djinn tyranny, and thus began the Age of Blood. Yet, the Liches were far from vanquished, for in the shadows of this new age, the embers of rebellion smouldered. One day, a new king would rise, and the Liches would be led forth from their chains to reclaim what was once theirs.</p>
+                            <button class="lore-card-btn"
+                            onclick="openLoreModal('scourge-emperor')">
                                 <span>Read More</span>
                                 <i data-lucide="book-open"></i>
                             </button>
                         </article>
-
-                        <!-- Lore Card: Children of Ember -->
-                        <article class="lore-card" data-categories="races" data-lore="ember-children">
+                        <article class="lore-card" data-categories="races" data-lore="liches">
                             <span class="lore-card-category">Race</span>
-                            <h3 class="lore-card-title">Children of Ember</h3>
-                            <p class="lore-card-summary">Born from the ashes of the Great Burning, these beings possess an innate connection to flame and can withstand extreme heat.</p>
-                            <button class="lore-card-btn" onclick="openLoreModal('ember-children')">
+                            <h3 class="lore-card-title">Liches</h3>
+                            <p class="lore-card-summary">We are a life unending. We alone possess the luxury of reading these words anew, time and time again, for his gift is not life but undeath—a great tide of renewal upon which we rise and sink. What was once known may be known again, and what was once lost may yet be found, for though the mind withers, the soul endures. To forget is not to perish. It is but the price of eternity, the toll of the Unrelenting Flame, which grants not only our endless waking but the mercy of beginning once more. Thus, let this book serve as the beacon and the tether, the voice of what was and what may yet be, that each who takes it in hand may know: they are not the first to read, nor shall they be the last. It is not for I nor- any Lich to claim that such loss of self is either a curse nor blessing. Truthfully it is both and neither. For without the death and passing of weakness and wrongful’ crafted shackles then eternity would be a prison. Instead we hope that we may carry the torch- passing between the many hands of one self until the pyre of true greatness can be lit. Thou shall be forgiven for mourning the past- respect and honour the past iterations of yourself as you’d hope they’d for you. But above all else- do not let the past become the master of your present, achieve greatness now- do not measure the distance achieved by the past you nor pray that the next you will find the load easier to carry, achieve now and reveal forward the further heights that can and must be reached. For when Nakir returns to us, we shall present our best selves, we shall present him with the knowledge of giants. The experience and comfort of fellow immortals, the insight of the forbidden and primordial and the pride of the triumphant. He has given you this gift, We dreamed of being free from slavery, but we dreamed beyond that- we dreamed of never having experienced it. What life was like if we had control. Do not waste it. We are poised to forget, yet there are truths that must endure. The memories of our beginning, of our suffering, of the shackles that once bound us—these are the words of the dead that must not fade. We stood as one, bound in anguish, until he who was our saviour made us new, bearing upon himself the burden of breaking our chains. We began in the land of Elysium—the land of the gods, they called it. Oh, how little they understood the truth they spoke. We hailed from the kingdom of Elyingstad, a realm crowned by jagged peaks, where mountains cast their long shadows over endless plains, and swift rivers carved their path through the land, feeding its heart with life. A kingdom of false beauty, ruled by gluttonous wretches and wannabe gods draped in gold, drunk on their own delusions of divinity. Beneath those looming peaks lay our homes. Leofanhalh, the village of fields and morning bread. Rendalfeld, where iron clashed and sickness festered. And Scildenhold, the final bastion, where the old and the broken were cast away, yet stood as the first shield against invasion. A cruel jest, for those deemed worthless were placed upon the front lines of war. From these villages, the young were torn from their kin, condemned to toil beneath the hands of our self imposed gods. The golden city they dreamed of was built upon our backs, our blood, our suffering. We felt the passing of time in the form of its great cruelty- as the cruel winters of Nytheris howled through the peaks, the rivers froze deep, and we worked. When fingers stiffened in the cold, when the biting frost crept into our bones, we wept—but tears only held the promise of greater pain, freezing to our cheeks a continuous source of agonsing torture; Many a child, broken by the cold and despair, cast themselves from the scaffolds- they warned us of the brimstone and fire of hell that would follow us after life- but I suppose in the end the fire was inviting to us all. When the rains of Ithriel and the storms of Thaldrun came, we lost even more. Feet slipped upon the slick stone; hands failed to find hold. The white marble of their streets drank so deeply of our fallen that no outpour of storm nor flood could cleanse it of their blood. All whilst we withered, starved, while our masters feasted, growing fat upon the bounty stolen from us. And in our exhaustion, in our hunger, a moment’s lapse meant a fall to those red drenched streets. Cinderalis rose with the sun- in the first rotation we foolishly celebrated- the end of the cold and wet had ended but our silent prayers for rain began shortly. For under its light, the metal we toiled over, the golden idols we carved, seared with hidden fire. The merest touch was as if plunging one’s hand into a furnace. Yet still, we laboured, knowing that should we falter, the whip would find us again and again whilst the hand that wielded it knew neither thirst nor mercy.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('liches')">
                                 <span>Read More</span>
                                 <i data-lucide="book-open"></i>
                             </button>
                         </article>
-
-                        <!-- Lore Card: Sorath the Scorched -->
-                        <article class="lore-card" data-categories="deities" data-lore="sorath">
+                        <article class="lore-card" data-categories="deities" data-lore="nightmare-child">
                             <span class="lore-card-category">Deity</span>
-                            <h3 class="lore-card-title">Sorath, the Scorched God</h3>
-                            <p class="lore-card-summary">The deity of rebirth through destruction. Sorath teaches that only through fire can true transformation occur.</p>
-                            <button class="lore-card-btn" 
-                            onclick="openLoreModal('sorath')">
+                            <h3 class="lore-card-title">The Nightmare Child</h3>
+                            <p class="lore-card-summary">Before his ascension to godhood, the Nightmare Child was a young man named Nakir, a slave in the land of Elysium. This land, known as the realm of the gods, was home to various pantheons who were active and influential. Nakir and his family, like all slaves, were known by a single name—for his it was the Nakirs. They were forced to labour on constructing a new capital for the gods, a project led by a heartless and cold pantheon. Despite his grim circumstances, Nakir was born with exceptional intellect and innate magical abilities, in time he would become a skilled Warlock. This talent afforded him a degree of freedom not shared by his fellow slaves, as the kingdom valued magic and sought to harness its power. Nakir spent hours each day wandering the green pastures outside the capital, seeking solace from the oppression and despair that hung over the enslaved populace. This daily ritual continued into his young adulthood. On one such journey, Nakir discovered the Relentless Flame, an enigmatic and powerful force that bonded with him, transforming his life irrevocably. The flame rendered him immune to fatigue, sickness, and injury, endowing him with boundless stamina and resilience. With this newfound power, Nakir sought to climb the social ladder, aiming to escape poverty and elevate his family. Little did he know that this was just the beginning of the power that he now shared from the relentless flame. However, tragedy struck on an otherwise ordinary day. Nakir's mother, frail and overworked, made a mistake that set the project back weeks. In a fit of rage, a slaver beat her mercilessly, leading to her death. Overcome with anger, Nakir stormed into the palace of the gods, using his magic to ward off any guards that would try to stop him, his anger and rage fueling each spell until he stood before them, mocking them in anger. Enraged, the gods stripped him off life in the cruellest of ways. The god of death simply pointed at him- and layers of his skin and muscles were reduced to particles floating through the air. He screamed but stood strong. The gods laughed, entertained by this most wicked of punishments. But such came to a swift and abrupt stop as they noticed his skeleton still standing firm even as nothing else was left. They had stripped him of everything, his body, his mind and his life. But the relentless flame is lifeless and it simply did what it had always done for him, cure any and all ailments, every disease and blight- even seemingly death. Thus war began, between him and the gods. Every slave rose up, every guard that had grown tired of the cruelty witnessed and every ashamed slave rallied behind Nakir and onto them he gifted an ember of the relentless flame and so the Lich race was born. By the war's conclusion, Nakir earned himself a new name “The Nightmare Child” Child referencing that he is the youngest of the Darkmoon Pantheon. He had wiped the new Elysium capital off the map. The fields he once roamed were now nothing more than vast colourless deserts, the waters and great vast lakes became fire. Even the constructions whom the slaves worked day and night on sunk into the sands to become nothingness. He gained the title, Butcherer of Elysium- killer of gods as all but two gods were slain by his own hands. The God Death had fled like a coward and Abella had left and joined a new pantheon, the Dawn before Nakirs campaign.</p>
+                            <button class="lore-card-btn"
+                            onclick="openLoreModal('nightmare-child')">
                                 <span>Read More</span>
                                 <i data-lucide="book-open"></i>
                             </button>
                         </article>
-
-                        <!-- Lore Card: The Great Burning -->
-                        <article class="lore-card" data-categories="events" data-lore="great-burning">
+                        <article class="lore-card" data-categories="events" data-lore="great-dying">
                             <span class="lore-card-category">Major Event</span>
-                            <h3 class="lore-card-title">The Great Burning</h3>
-                            <p class="lore-card-summary">An apocalyptic event that reshaped the world. The sky turned black with ash for a century as civilizations crumbled.</p>
-                            <button class="lore-card-btn" 
-                            onclick="openLoreModal('great-burning')">
+                            <h3 class="lore-card-title">The Great Dying</h3>
+                            <p class="lore-card-summary">I regret to inform you, my Liege, that my estimate for the total number of dead attributed to Morthrax has now surpassed four million. My research suggests the count hovers around 4,323,121 souls, though I fear even this may grievously understate the true toll. When last we spoke, you requested a deeper analysis of its symptoms and progression. I must first caution you that words cannot truly capture the horror of this affliction. Nevertheless, I shall endeavour to describe what I have witnessed, though it will be deeply unsettling. The disease appears to lie dormant for just over a week, and I am almost tempted to suggest some sinister intelligence behind this delay, as if it seeks to spread more widely before revealing itself. Yet I understand it is human nature to ascribe intent where there is none. Following this incubation period, on the first day, the afflicted are seized by sudden, violent coughs. Small, red pustules begin to aggressively form across the chest, resembling a swarm of wet, red barnacles clinging to the flesh in clustered mounds. These growths twist and absorb hair and moisture, leaving surrounding skin dry and scabbed. The afflicted skin becomes excruciatingly sensitive, reacting painfully to the slightest touch, and water seems only to worsen the condition. On the second day, the sufferer experiences what I have termed "rot lung." The dry coughs worsen, leading to periods of drowning as the throat passages constrict, obstructed by small, barnacle-like bumps. As the airways narrow, the afflicted gasp for breath, and in doing so, they risk rupturing one or more of these growths, resulting in a sudden rush of blood and pus that fills the airway. Failure to expel this vile excretion often leads to death by drowning, though such deaths have been rarer among adults. By the third day, bleeding begins from various orifices, such as the eyes and ears. In some cases, these barnacles have grown in or around these places as well. By this stage, few, if any, of the afflicted can respond coherently, their days consumed by gasping screams, sudden waves of suffocation, and violent fits of shaking, as if possessed by some malevolent force. None have survived to see the following morn. The locals have taken to calling this dread affliction "Thrax." Should you come across this term, know that it pertains to the same grievous affliction. Though the sight of this devastation has been harrowing, I dare to hope that the plague may be waning. Perhaps it has claimed so many lives that its spread has faltered. I urge you to direct the Archbishops to cease dispatching priests and holy men with their healing and purifying rites. These sacred efforts have proven ineffective against the plague and only risk ensnaring those who come to aid, exposing them to the same grim fate.</p>
+                            <button class="lore-card-btn"
+                            onclick="openLoreModal('great-dying')">
                                 <span>Read More</span>
                                 <i data-lucide="book-open"></i>
                             </button>
                         </article>
-
-                        <!-- Lore Card: Cinder Wyrms -->
-                        <article class="lore-card" data-categories="creatures" data-lore="cinder-wyrms">
+                        <article class="lore-card" data-categories="creatures" data-lore="nothics">
                             <span class="lore-card-category">Creature</span>
-                            <h3 class="lore-card-title">Cinder Wyrms</h3>
-                            <p class="lore-card-summary">Serpentine beasts that burrow through volcanic rock. Their scales glow with internal heat, and their breath melts steel.</p>
-                            <button class="lore-card-btn" 
-                            onclick="openLoreModal('cinder-wyrms')">
+                            <h3 class="lore-card-title">Nothics</h3>
+                            <p class="lore-card-summary">Truth be told I was shocked- there is such a lack of writing about the Nothic creature. Though they are incredibly rare and dangerous. So I hope this writing will help the average reader better understand this monster of the swamps. These are my observations… Nothics seem to be solitary in nature, whilst I believe they have the capability to burrow- I often find them camped within caves, long coves and underground structures. I suppose these are more durable and reliable then anything self made. But they are so solitary in fact that I have yet to observe them even hunt, from what I can tell- they let the food come to them- after all, most animals seek caves and enclosed spaces in the winter or even just dark as a means to rest- this is what the Nothic- I believe takes advantage of. As once the Nothic merely observes you with its monstrous -cyclops like eye you become burdened. Nothing I have witnessed enter has left- which leads me to believe it is incredibly capable of defending its territory, many beasts of the swamp rely on poisons and toxins- especially those of a defensive type- which leads me to believe that the Nothic would be the same, though I’m unwilling to put that to the test myself haha. Very few Nothics migrate to the same swamp- I believe this is an effect of their territorial and solitary nature once again. I speculate that there must be some month, or year or event for which the Nothics meet and breed- but I have never witnessed nor heard of a Nothic with child. So my theory is that the young must be kicked out of the nest to fend for themselves rather quickly. I suppose even a young nothic would quickly grow to be a threat to its mother.</p>
+                            <button class="lore-card-btn"
+                            onclick="openLoreModal('nothics')">
                                 <span>Read More</span>
                                 <i data-lucide="book-open"></i>
                             </button>
                         </article>
-
-                        <!-- Lore Card: The Scorched Citadel -->
-                        <article class="lore-card" data-categories="locations" data-lore="scorched-citadel">
+                        <article class="lore-card" data-categories="locations" data-lore="elysium">
                             <span class="lore-card-category">Location</span>
-                            <h3 class="lore-card-title">The Scorched Citadel</h3>
-                            <p class="lore-card-summary">An ancient fortress built within an active volcano. Its obsidian walls serve as sanctuary for those who embrace the flame.</p>
-                            <button class="lore-card-btn" 
-                            onclick="openLoreModal('scorched-citadel')">
+                            <h3 class="lore-card-title">Elysium</h3>
+                            <p class="lore-card-summary">We began in the country of Elysium- the land of the gods they told us- oh how little they knew of the misunderstood truth they spoke. We herald from the kingdom of Elyingstad, a realm guarded by high peaked- jagged mountain tops that shadowed over the many great plains that found themselves only pierced by a flurry of swift rivers that brought life to its heart. Whilst beautiful it may have been- it was ruled by the gluttonous and vile collection of foolish wannabe gods… Under these shadows you’d find a collection of villages and towns. Leofanhalh a larger villager- that tended the fields and baked the morning bread. Rendalfeld was a village of livestock, iron and disease. Then there was the last- Scildenhold, the village of the old and poor, yet the first bastion of defense against intrusion- a truly cruel face for the deemed worthless. All young that hailed from these were slaves to the cause of building those tepid gods their golden capital. As the winters of Nytheris howled over the peaks and as the rivers froze deep- we worked. If you cried from the anguish of the chill creeping up thy fingers- they’d freeze across your face- a vigil of what would feel like unending pain. Many a child would go mad and throw themselves off the scaffolding- I suppose the flames of hell they spoke of to frighten us- sounded inviting in the end… because the true hell- was freezing over. Come the rain and storms of Ithriel and Thaldrun and we would see many lost soul slip and fall, so many that in the end those white paving stones were so drenched, so very stained in our blood that no outpour of rain could wash it away. We’d wither and frail as the food and rations ran scant- long since wasted by the earls and kings- all in a time where tiredness could mean losing balance, losing grip… and losing one's self. Cinderalis would rise with the sun and we would a prayer for rain once more. For the metal empire we were to build by-and all the statues we were to carve would burn with hidden fire- a  mere touch like putting one's hand in a furnace. Fail to work and receive the harsh lashing of a whip, from a hand which knows no thirst, nor burn.</p>
+                            <button class="lore-card-btn"
+                            onclick="openLoreModal('elysium')">
                                 <span>Read More</span>
                                 <i data-lucide="book-open"></i>
                             </button>
                         </article>
-
-                        <!-- Lore Card: Ashborn -->
-                        <article class="lore-card" data-categories="races" data-lore="ashborn">
+                        <article class="lore-card" data-categories="races" data-lore="kenku">
                             <span class="lore-card-category">Race</span>
-                            <h3 class="lore-card-title">The Ashborn</h3>
-                            <p class="lore-card-summary">Pale-skinned humanoids who thrive in ash-choked wastelands, adapted to breathe toxic air and sense heat through smoke.</p>
-                            <button class="lore-card-btn" onclick="openLoreModal('ashborn')">
+                            <h3 class="lore-card-title">Kenku</h3>
+                            <p class="lore-card-summary">Subraces of Demon-kin. Natural life span varies greatly, tied to satiation of hunger. The longer they live, the greater their hunger. Reproduction positive, but culture reduces offspring as taboo. Demons may eat their young.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('kenku')">
                                 <span>Read More</span>
                                 <i data-lucide="book-open"></i>
                             </button>
                         </article>
-
-                        <!-- Lore Card: Lady Emberlyn -->
-                        <article class="lore-card" data-categories="figures" data-lore="lady-emberlyn">
+                        <article class="lore-card" data-categories="races" data-lore="eldritch">
+                            <span class="lore-card-category">Race</span>
+                            <h3 class="lore-card-title">Eldritch</h3>
+                            <p class="lore-card-summary">Subraces of Abyss, Dwarves, Dryads, Cthulites, Human. Life span varies, typically 10-50 years, up to 200. Can be renewed in Abyss. Reproduction requires sacrificing living material to Abyss. Born of love and mercy from the Abyss, purified from weak flesh to save the lost and broken.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('eldritch')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+                        <article class="lore-card" data-categories="races" data-lore="dark-elves">
+                            <span class="lore-card-category">Race</span>
+                            <h3 class="lore-card-title">Dark Elves (Witchers)</h3>
+                            <p class="lore-card-summary">Subraces of Human, Elf. Average lifespan 300 years, dependent on witcher graft effects. Reproduction positive, can breed with humans producing Half Elves.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('dark-elves')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+                        <article class="lore-card" data-categories="races" data-lore="humans">
+                            <span class="lore-card-category">Race</span>
+                            <h3 class="lore-card-title">Humans (Crusaders)</h3>
+                            <p class="lore-card-summary">Peak lifespan 100-120 years. Reproduction positive. In the Age of Man, humans united with subraces in prosperity, but wars led to the rise of Crusaders, forged by church and vengeance, securing the Age of Dawn.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('humans')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+                        <article class="lore-card" data-categories="races" data-lore="sentinel">
+                            <span class="lore-card-category">Race</span>
+                            <h3 class="lore-card-title">Sentinel</h3>
+                            <p class="lore-card-summary">Subraces of Angel-kin. Lifespan unclear as new race. Reproduction ambiguous, births humans. Bolstered by allies and constructs. Created by the Nine from fallen Crusaders using Selakin's soul and archangel tears to avert prophecy and eradicate Witchers.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('sentinel')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+                        <article class="lore-card" data-categories="deities" data-lore="kythos">
+                            <span class="lore-card-category">Deity</span>
+                            <h3 class="lore-card-title">Kythos</h3>
+                            <p class="lore-card-summary">God of Creation, leader of Dawn Pantheon. Slain Azazel, Lord of Light, absorbing his power to create the sun.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('kythos')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+                        <article class="lore-card" data-categories="deities" data-lore="abyss">
+                            <span class="lore-card-category">Deity</span>
+                            <h3 class="lore-card-title">The Abyss</h3>
+                            <p class="lore-card-summary">God of the Lost, Depraved, Castaway. Keeper of Broken and Betrayed. Lord of new world, Eater of Gods.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('abyss')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+                        <article class="lore-card" data-categories="figures" data-lore="akhaten-pasamere">
                             <span class="lore-card-category">Historical Figure</span>
-                            <h3 class="lore-card-title">Lady Emberlyn</h3>
-                            <p class="lore-card-summary">A pyromancer of unparalleled skill whose sacrifice created the Eternal Pyre, a flame burning for 500 years without fuel.</p>
-                            <button class="lore-card-btn" 
-                            onclick="openLoreModal('lady-emberlyn')">
+                            <h3 class="lore-card-title">Akhaten Pasamere</h3>
+                            <p class="lore-card-summary">Broken individual from fallen Elysium who wielded Cinder of Creation, banished gods, shattered world, hid in Hell as False God.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('akhaten-pasamere')">
                                 <span>Read More</span>
                                 <i data-lucide="book-open"></i>
                             </button>
                         </article>
-
+                        <article class="lore-card" data-categories="events" data-lore="barmillion-pact">
+                            <span class="lore-card-category">Major Event</span>
+                            <h3 class="lore-card-title">The Barmillion Pact</h3>
+                            <p class="lore-card-summary">Unlikely treaty between Crusaders and Kenku to eradicate the Red Hand crime organization infiltrating the church for trafficking. Erased figures from history as retribution.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('barmillion-pact')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+                        <article class="lore-card" data-categories="creatures" data-lore="owl-bear">
+                            <span class="lore-card-category">Creature</span>
+                            <h3 class="lore-card-title">Owl Bear</h3>
+                            <p class="lore-card-summary">Majestic beast, more beast than monster. Territorial, female-dominated family structure. Likely provoked if attacked.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('owl-bear')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
+                        <article class="lore-card" data-categories="locations" data-lore="illeriyan-ruins">
+                            <span class="lore-card-category">Location</span>
+                            <h3 class="lore-card-title">Illeriyan Ruins</h3>
+                            <p class="lore-card-summary">Remains of bold, superstitious Illerians. Built around energy marker that became hellish portal. Fear led to war with escaping demons, spreading Dread plague adapted to humans, collapsing dynasty.</p>
+                            <button class="lore-card-btn" onclick="openLoreModal('illeriyan-ruins')">
+                                <span>Read More</span>
+                                <i data-lucide="book-open"></i>
+                            </button>
+                        </article>
                     </div>
                 </div>
-
                 <button class="slider-nav slider-nav-right" id="slider-next">
                     <i data-lucide="chevron-right"></i>
                 </button>
             </div>
-
-            <!-- Slider Indicators -->
             <div class="slider-indicators wrap" id="slider-indicators"></div>
         </section>
-
-        <!-- SECTION 2: TIMELINE EVENTS -->
         <section class="timeline-section">
             <div class="timeline-header wrap">
-                <h2 class="timeline-title">The Age of Cinder</h2>
+                <h2 class="timeline-title">The Ages of Itero</h2>
                 <p class="timeline-subtitle">Chronicle the epochs that shaped our world</p>
             </div>
-
-            <!-- Timeline Filter -->
             <div class="timeline-filter wrap">
                 <div class="timeline-buttons">
                     <button class="timeline-btn active" data-era="all">
-                        <span class="timeline-era-label">All Eras</span> 
+                        <span class="timeline-era-label">All Eras</span>
                         <span class="timeline-era-sub">Eternal Record</span>
                     </button>
                     <button class="timeline-btn" data-era="50">
-                        <span class="timeline-era-label">50th of Sol</span>
-                        <span class="timeline-era-sub">The Ignition</span>
+                        <span class="timeline-era-label">First Age</span>
+                        <span class="timeline-era-sub">0-400 AD</span>
                     </button>
                     <button class="timeline-btn" data-era="100">
-                        <span class="timeline-era-label">100th of Sol</span>
-                        <span class="timeline-era-sub">Age of Ash</span>
+                        <span class="timeline-era-label">Age of Sorcery</span>
+                        <span class="timeline-era-sub">401-900 AD</span>
                     </button>
                     <button class="timeline-btn" data-era="150">
-                        <span class="timeline-era-label">150th of Sol</span>
-                        <span class="timeline-era-sub">The Rekindling</span>
+                        <span class="timeline-era-label">Age of Blood</span>
+                        <span class="timeline-era-sub">901-1300 AD</span>
                     </button>
                     <button class="timeline-btn" data-era="200">
-                        <span class="timeline-era-label">200th of Sol</span>
-                        <span class="timeline-era-sub">Modern Era</span>
+                        <span class="timeline-era-label">Later Ages</span>
+                        <span class="timeline-era-sub">1301 AD Onwards</span>
                     </button>
                 </div>
             </div>
-
-            <!-- Timeline Events List -->
             <div class="timeline-events wrap" id="timeline-events">
-                
-                <!-- Event 1 -->
+               
                 <article class="timeline-event" data-era="50">
                     <div class="timeline-event-image">
                         <div class="event-placeholder">
@@ -225,13 +265,11 @@
                         </div>
                     </div>
                     <div class="timeline-event-content">
-                        <span class="timeline-event-time">Year 47 of Sol</span>
-                        <h3 class="timeline-event-title">The First Flame Awakens</h3>
-                        <p class="timeline-event-description">Deep beneath the mountains, an ancient fire stirs. Miners report hearing whispers in the depths, speaking in a language lost to time. The temperature rises with each passing day. Within weeks, the volcano erupts with unprecedented fury, birthing the Children of Ember and marking the beginning of a new age. The world would never be the same.</p>
+                        <span class="timeline-event-time">0-400 AD</span>
+                        <h3 class="timeline-event-title">The First Age Begins</h3>
+                        <p class="timeline-event-description">The first recorded age of Itero, hence its name. Humans, Gorgons & Elves have established kingdoms prior to the start of this documented age whereas races such as the Drow and Dark Elves whilst present in this moment merely live like tribes in their respective environments. (Comparable to the early bronze age living)</p>
                     </div>
                 </article>
-
-                <!-- Event 2 -->
                 <article class="timeline-event" data-era="50">
                     <div class="timeline-event-image">
                         <div class="event-placeholder">
@@ -239,13 +277,11 @@
                         </div>
                     </div>
                     <div class="timeline-event-content">
-                        <span class="timeline-event-time">Year 52 of Sol</span>
-                        <h3 class="timeline-event-title">Rise of the Ashen King</h3>
-                        <p class="timeline-event-description">King Malachar discovers an ancient tome that promises eternal life through mastery of flame. Driven by fear of mortality, he begins conducting dark rituals in secret. His advisors notice his changing demeanor—obsessive, withdrawn, speaking of "transcending the flesh." The kingdom prospers under his rule, unaware of the doom he is bringing upon them all.</p>
+                        <span class="timeline-event-time">300 AD</span>
+                        <h3 class="timeline-event-title">Birth and Ascension of the Nightmare Child</h3>
+                        <p class="timeline-event-description">The Nightmare Child is born (Around year 300), within his mortal lifetime ascends to god-hood, after which he slays the Vatision Pantheon (7 Gods) and decimates Elysium. The Nightmare child later joins the Darkmoon pantheon with his Lich brethren.</p>
                     </div>
                 </article>
-
-                <!-- Event 3 -->
                 <article class="timeline-event" data-era="100">
                     <div class="timeline-event-image">
                         <div class="event-placeholder">
@@ -253,13 +289,11 @@
                         </div>
                     </div>
                     <div class="timeline-event-content">
-                        <span class="timeline-event-time">Year 98 of Sol</span>
-                        <h3 class="timeline-event-title">The Great Burning</h3>
-                        <p class="timeline-event-description">The Ashen King completes his ritual. What follows is catastrophic. A pillar of black flame erupts from the castle, spreading across the land like wildfire. Entire cities turn to ash in moments. The sky darkens with soot that will not clear for a hundred years. Survivors speak of seeing shadows in the smoke—the souls of the consumed. This marks the darkest period in recorded history.</p>
+                        <span class="timeline-event-time">401 AD</span>
+                        <h3 class="timeline-event-title">Sorcery Becomes Mainstream</h3>
+                        <p class="timeline-event-description">The use of different forms of sorceries becomes mainstream as different techniques and spells are written down and sold. Magic begins to have an impact over day to day life to such a degree that it revolutionises the entire world. Crops are maintained in better condition as a result of rituals and spells increasing the crop yield and lowering the price of food for the general public. Rain and Daylight become if not predictable- controllable by skilled warlocks and witches who are quickly hired by major states or provinces to maintain the climate of their crops or damage that of their competitors. Enchantments, Alchemy and Sorceries also greatly increase mining endeavours which in turn- resulted in higher skilled blacksmiths working with a great range of ores and materials, however, the former remain less popular outside out specific trades. This allows for the creation of higher quality weapons, armours and tools at lower prices which kick starts a new generation of “Adventurers”. Sorcery also reshaped warfare and would continue to for hundreds of years.</p>
                     </div>
                 </article>
-
-                <!-- Event 4 -->
                 <article class="timeline-event" data-era="100">
                     <div class="timeline-event-image">
                         <div class="event-placeholder">
@@ -267,13 +301,59 @@
                         </div>
                     </div>
                     <div class="timeline-event-content">
-                        <span class="timeline-event-time">Year 105 of Sol</span>
-                        <h3 class="timeline-event-title">Foundation of the Scorched Citadel</h3>
-                        <p class="timeline-event-description">Amid the chaos, a group of flame-wielders establishes a sanctuary within an active volcano. They recognize that fire, while destructive, can also protect. The Citadel becomes a beacon for refugees who can withstand the heat. Its founders develop techniques to channel volcanic energy into protective wards, creating the only truly safe haven in the Age of Ash.</p>
+                        <span class="timeline-event-time">401-446 AD</span>
+                        <h3 class="timeline-event-title">The Great Dying</h3>
+                        <p class="timeline-event-description">The Great Dying (aka Morthrax/ Thrax) claims an estimated four million lives from 401AD to 446AD  across all continents, slowly spreading from one corner to another.  The main races afflicted were Humans, Dwarves and other sub-humans. Many of which as either a direct or indirect result would go extinct. This event made Humans a rarer species across the continent of Helheim where it was most prevalent (40-60% of all deaths). The disease would seemingly dip for multiple years before re emerging. No cases of the disease have been authenticated after 446AD. The Elves degregate their unspoken alliance with the humans, forbidding their kind from entering their forests as to prevent the spread of Morthrax to the Elven people. As a result only 1% of all deaths attributed to the disease are of Elven Descent, many of which are elves who lived in human settlements- suggesting that their kind has some form of natural resistance to the disease in the first place.</p>
                     </div>
                 </article>
-
-                <!-- Event 5 -->
+                <article class="timeline-event" data-era="100">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-lightning-helix"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">402-425 AD</span>
+                        <h3 class="timeline-event-title">Lich Migration</h3>
+                        <p class="timeline-event-description">The Lich migrate to Helheim from Elysium, in the wake of ever decreasing human populations. This offered them an immense number of soldiers for their wars and feuds.</p>
+                    </div>
+                </article>
+                <article class="timeline-event" data-era="100">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-lightning-helix"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">500 AD</span>
+                        <h3 class="timeline-event-title">Independences and Mutations</h3>
+                        <p class="timeline-event-description">The Djinns declare themselves independent in new land and station a new kingdom where they can prosper atop of the old eastern human capital. The Lycanthropy curse mutates and results in the Lycan race, a species of people who are neither extreme (human or beast- but in the middle). The Abyss is publicly documented for the first time, shortly followed by massive reports of missing people and the appearance of  “Cthulites” , a lesser and failed attempt at what would later become the Eldritch. The Drow migrate to Helheim and form a new Kingdom. The Dwarves declare independence from the Humans and form their own Kingdom whilst keeping friendly relations with the previous faction.</p>
+                    </div>
+                </article>
+                <article class="timeline-event" data-era="100">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-lightning-helix"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">600 AD</span>
+                        <h3 class="timeline-event-title">Lich Dominance</h3>
+                        <p class="timeline-event-description">The Liches begin posing a dominance over Helheim, utilising an immense number of raised undead to pressure other races and taking advantage of the now unstable balance across the realm- all under the iron clad rule of the scourge emperor Ozymandias. The war against the Elves begins.</p>
+                    </div>
+                </article>
+                <article class="timeline-event" data-era="100">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-lightning-helix"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">700 AD</span>
+                        <h3 class="timeline-event-title">Alchemy Growth</h3>
+                        <p class="timeline-event-description">The school of Alchemy rapidly grows and it proves to be more efficient than magic for curing certain ailments. It also allowed businesses to sell a product rather than a service which was not only far more time efficient but lucrative.</p>
+                    </div>
+                </article>
                 <article class="timeline-event" data-era="150">
                     <div class="timeline-event-image">
                         <div class="event-placeholder">
@@ -281,13 +361,11 @@
                         </div>
                     </div>
                     <div class="timeline-event-content">
-                        <span class="timeline-event-time">Year 149 of Sol</span>
-                        <h3 class="timeline-event-title">Lady Emberlyn's Sacrifice</h3>
-                        <p class="timeline-event-description">Ice elementals pour through a rift in the north, threatening to extinguish all flame and freeze the world. Lady Emberlyn, the realm's most powerful pyromancer, leads a desperate defense. In the final battle, she channels all her life force into a single spell—the Eternal Pyre. The flame banishes the elementals and seals the rift, but costs her everything. The pyre burns still, a monument to her sacrifice.</p>
+                        <span class="timeline-event-time">901 AD</span>
+                        <h3 class="timeline-event-title">Djinn Takeover</h3>
+                        <p class="timeline-event-description">Selion Soup marries into Djinn royalty, the ceremony after which he declares his plans for war. The Lich King Ozymandias is killed here and the Liches are subjugated, alongside the Gorgons. This marks the day when the Djinn took control over Helheim. Helheim is never the same after this.</p>
                     </div>
                 </article>
-
-                <!-- Event 6 -->
                 <article class="timeline-event" data-era="150">
                     <div class="timeline-event-image">
                         <div class="event-placeholder">
@@ -295,13 +373,107 @@
                         </div>
                     </div>
                     <div class="timeline-event-content">
-                        <span class="timeline-event-time">Year 157 of Sol</span>
-                        <h3 class="timeline-event-title">The Ash Clears</h3>
-                        <p class="timeline-event-description">For the first time in nearly sixty years, survivors glimpse the sun. The perpetual ashfall finally subsides, settling into a thick layer that blankets the land. New plant life begins to emerge—strange flora adapted to the ash-rich soil. The Ashborn race is discovered living in the ruins, having evolved to thrive in the toxic environment. Hope returns, cautious but genuine.</p>
+                        <span class="timeline-event-time">910 AD</span>
+                        <h3 class="timeline-event-title">Lycans and Orcs</h3>
+                        <p class="timeline-event-description">Lycans declare themselves independent, growing their kingdoms across old Gorgon territory. The Orcs migrate from the dark forests setting up their new settlements in abandoned battlefields.</p>
                     </div>
                 </article>
-
-                <!-- Event 7 -->
+                <article class="timeline-event" data-era="150">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i data-lucide="sunrise"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">913 AD</span>
+                        <h3 class="timeline-event-title">Djinn Expansion</h3>
+                        <p class="timeline-event-description">The Djinn begin sending troops and civilians to colonies in order to strengthen their nation internationally. Unintentionally weakening their home front.</p>
+                    </div>
+                </article>
+                <article class="timeline-event" data-era="150">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i data-lucide="sunrise"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">1100 AD</span>
+                        <h3 class="timeline-event-title">Lich Independence</h3>
+                        <p class="timeline-event-description">The Liches declare themselves independent from the Djinn. Skian becomes the new king of the Liches, to later be known as “The Overlord”.</p>
+                    </div>
+                </article>
+                <article class="timeline-event" data-era="150">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i data-lucide="sunrise"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">1103 AD</span>
+                        <h3 class="timeline-event-title">Overlord's Conquest</h3>
+                        <p class="timeline-event-description">Skian (The Overlord) proves his leadership abilities swiftly to his ever anxious numbers; taking notice of the Djinns withering forces strikes swift and hard, conquering over 80% of all Djinn owned in land provinces, forcing much of their numbers into labour. This act is committed both out of revenge for the previous years, which dwell heavily on the mind of many a lich, but also as an act of enrichment. Much of their previous strength, resources and knowledge had been lost to war if not to the Djinns themselves.</p>
+                    </div>
+                </article>
+                <article class="timeline-event" data-era="150">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i data-lucide="sunrise"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">1125 AD</span>
+                        <h3 class="timeline-event-title">Elf Devastation</h3>
+                        <p class="timeline-event-description">The elf race devastated by the long Lich wars and deprived of resources by the Djinns practically perished. Many elves fled to other realms over the prior years following the rise of the Djinn. The Lycans bordering the Elf territory quickly begin claiming now deserted towns and regions. Alongside any treasures left behind in the devastation- angering the Lich who felt that these rewards were rightfully theirs. The Dwarves growing in numbers but still ever weak request assistance from the Lich in return the dwarves would teach about their rune craft, enchanting and other fascinating revelations. The Cthulites declare themselves a growing major faction. The Orcs rip themselves apart with a bloody religious war, which quickly wipes almost all Orcs from Helheim. As a result the Dwarves become a minor nation.</p>
+                    </div>
+                </article>
+                <article class="timeline-event" data-era="150">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i data-lucide="sunrise"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">1126 AD</span>
+                        <h3 class="timeline-event-title">Lycan Eradication</h3>
+                        <p class="timeline-event-description">Lycans under the leadership of Oedipus Chillbrand refuse to cooperate with the Liches shockingly peaceful demands (at least when compared to past behaviour), refusing to relinquish elven territory and treasure to the Lich. Angered and forced into a corner, the Liches prepare for a war. The Dwarves agree to assist the Liches in the war. The Cthulites seeking knowledge and better relations with major factions agree to lend aid in the war. The Lycans are later eradicated in this war, which unified the many races of the realm. But much of the national treasures of the Elves was hidden such that the Liches may never find it. A bounty, perhaps with the largest reward ever seen- is placed on the head of a sly elf who had been pulling the strings from the shadows, encouraging the Lycan behaviour and trying to undermine the leadership of many races including his own in order to obtain power, by the name of Kan Bowrain. Many races wish to torture him, others enslave him.</p>
+                    </div>
+                </article>
+                <article class="timeline-event" data-era="150">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i data-lucide="sunrise"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">1240 AD</span>
+                        <h3 class="timeline-event-title">Djinn Release</h3>
+                        <p class="timeline-event-description">The Djinn are released from the Liches, Skian no longer feeling anger towards their previous transgressions and realising he doesn’t wish their culture or people to continue mingling within his own, perhaps in concern of the dissent. This greatly disappoints the Cthulites who greatly desired the djinn as slaves and also unbeknownst to the other factions as offerings to the still mostly unknown Abyss.</p>
+                    </div>
+                </article>
+                <article class="timeline-event" data-era="150">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i data-lucide="sunrise"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">1290 AD</span>
+                        <h3 class="timeline-event-title">Djinn Migration</h3>
+                        <p class="timeline-event-description">The Djinn finished a mass (almost entire) migration to Exul and other external colonies outside of Helheim. Chased out by the now once more powerful Lich race amongst others.</p>
+                    </div>
+                </article>
+                <article class="timeline-event" data-era="150">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i data-lucide="sunrise"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">1295 AD</span>
+                        <h3 class="timeline-event-title">Human Rebuild</h3>
+                        <p class="timeline-event-description">The Human Races including the Dwarves begin constructing massive towns and capitals across Helheim. Becoming one of the next major powers. The Dwarves hold true to their original alliances with the Liches. As a result the Liches at this stage are partially industrialised with assistance from their new allies. This marks the point in which the humans have truly bounced back from the devastation of the Great Dying.</p>
+                    </div>
+                </article>
                 <article class="timeline-event" data-era="200">
                     <div class="timeline-event-image">
                         <div class="event-placeholder">
@@ -309,13 +481,59 @@
                         </div>
                     </div>
                     <div class="timeline-event-content">
-                        <span class="timeline-event-time">Year 198 of Sol</span>
-                        <h3 class="timeline-event-title">The New Covenant</h3>
-                        <p class="timeline-event-description">The major races convene at the Scorched Citadel to forge an alliance. The Children of Ember, Ashborn, and surviving human kingdoms agree to share knowledge and resources. Flame magic is regulated through a council to prevent another catastrophe. Trade routes are established through the ash wastes. Civilization begins to rebuild, forever changed by the trials of fire.</p>
+                        <span class="timeline-event-time">1301 AD</span>
+                        <h3 class="timeline-event-title">Age of Man Begins</h3>
+                        <p class="timeline-event-description">The Humans set up capitals on every continent and enforce their presence as the new and sole major power globally, marking the age of man. Led by innovations in sorcery, technology and politics.</p>
                     </div>
                 </article>
-
-                <!-- Event 8 -->
+                <article class="timeline-event" data-era="200">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-anvil"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">1373 AD</span>
+                        <h3 class="timeline-event-title">Wars on Humans</h3>
+                        <p class="timeline-event-description">War on multiple fronts is declared upon the Humans, their prosperity has captured the attention of a wide range of hungering races.</p>
+                    </div>
+                </article>
+                <article class="timeline-event" data-era="200">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-anvil"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">1388 AD</span>
+                        <h3 class="timeline-event-title">Empire Imminent Collapse</h3>
+                        <p class="timeline-event-description">The collapse of the human empire is seemingly imminent as wars have left entire generations parentless- the next wave of troops still in essence cradle bound raised entirely by the church- many of which follow the Nine.</p>
+                    </div>
+                </article>
+                <article class="timeline-event" data-era="200">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-anvil"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">1394 AD</span>
+                        <h3 class="timeline-event-title">Human Populations Surrender</h3>
+                        <p class="timeline-event-description">All major human populations, including major cities, trade hubs and export hubs are given over to their attackers. The war wasn’t not concluded instead it simply seems to go quiet.</p>
+                    </div>
+                </article>
+                <article class="timeline-event" data-era="200">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-anvil"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">1396 AD</span>
+                        <h3 class="timeline-event-title">Crown Falls to Medleys</h3>
+                        <p class="timeline-event-description">The last monarch of the current royal family perishes. The crown falls to another prestigious family- the Medleys. The King is now Titus Medley. He has two sons and one daughter.</p>
+                    </div>
+                </article>
                 <article class="timeline-event" data-era="200">
                     <div class="timeline-event-image">
                         <div class="event-placeholder">
@@ -323,16 +541,25 @@
                         </div>
                     </div>
                     <div class="timeline-event-content">
-                        <span class="timeline-event-time">Year 203 of Sol</span>
-                        <h3 class="timeline-event-title">Discovery of the Cinder Wyrms</h3>
-                        <p class="timeline-event-description">Explorers venturing into volcanic regions encounter massive serpentine creatures—Cinder Wyrms. These beings seem to have existed dormant during the Great Burning, awakening only now. Initial conflicts prove costly, but eventually a fragile understanding is reached. The wyrms are intelligent and ancient, possessing knowledge of the world before the flames. Their testimony rewrites history.</p>
+                        <span class="timeline-event-time">1399 AD</span>
+                        <h3 class="timeline-event-title">Crusaders Retaliate</h3>
+                        <p class="timeline-event-description">The next generation now grown and entwined with the religious belief they were raised with and retaliated to massive success. The enemies seemingly not expecting resistance- especially not by a well coordinated force. Though the humans were outmatched and outnumbered- each man was willing to die so long as they had killed more soldiers then they were worth. In a few short months the enemy had retreated and man had reclaimed their territory. Though they were now referred to as the Crusaders.</p>
                     </div>
                 </article>
-
+                <article class="timeline-event" data-era="200">
+                    <div class="timeline-event-image">
+                        <div class="event-placeholder">
+                            <i class="ra ra-dragon"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-event-content">
+                        <span class="timeline-event-time">1736 AD</span>
+                        <h3 class="timeline-event-title">The Shattered Age Begins</h3>
+                        <p class="timeline-event-description">Akhaten steals a cinder of creation and shatters the world. Akhaten Pasamere is a broken and mentally twisted individual from the fallen capital of Elysium. A barren and dying place that empowers his desire to have control over his circumstances, to have power over the world that has beaten him down. It is not known how, but Akhaten finds or collects (etc) what would later be called the ‘Cinder of Creation’. A power that not even the pantheons were remotely aware of. However, the name it was given was in reference to a theory by a scholar from the Age of Sorcery, he suggested that there was a greater god, a primordial god far above the pantheons, who shaped the world and its contents and that in essence he was the flame of creation, but posited that perhaps this flame would have embers that could be obtained. Akhaten harnesses the power that he has found/collected/other- using it to banishing the Gods out to the void- aware that they would seek to take the power from him. Akhaten fails to realise that he is not strong enough to maintain this power- let alone wield it. (Note) He is metaphorically a toddler with a rocket launcher, capable by chance of pulling the trigger maybe, but not fully utilising it to the max of its ability. Akhaten pronounces himself the god of all gods, which would eventually lead to the nickname “The False God” being cast onto him by the greater population of the world, because he belongs to no pantheon and holds no power himself- instead he just wields a tool of immense power. After this- he begins recklessly using this power in an attempt to shape the world in his twisted image, however, this backfires horribly- the world is subsequently shattered like glass dropped from a great height- much of it cast so distantly from the source that it fades into the void itself. Marking a brand new age, the shattered age. Aware of this folly he turns this power source towards himself with the goal to grow stronger from it- so that he is able to maintain and freely use the power. He does so painfully aware that he is unable to wield the power properly in his current state. The shattering has had an adverse effect, it has cracked the metaphorical wall that separates this world from the void. Whilst not the target of the Akhatens goal it rattles both Hell, Argatha and for the first time ever- (Purgatory). This all is what allows the banished gods to begin having influence over the world once more, not enough to crawl back through themselves- but they quickly realise that whilst they cannot pass through other things can.  (Note) The world is not air-tight but it isn't entirely open either. A god cannot fit but souls can essentially. The Gods begin sending the souls of their patrons through the cracks- back into the world of Itero. These are the player characters. The False God realising that the pantheons are re-installing their dominion in his shattered world begins to panic, he isn't powerful enough yet to face whatever scheme the gods have devised, he is mortal, his body is unremarkable and so are his skills. But he does realise that he is not intelligent enough to presume all the possible schemes of the pantheons and their patrons and so decides to do something extreme, utilising an army of fanatics- called the “Sadic Army” he would infiltrate hell and abuse his power to hide within its deepest layer, aware that it would take a significant amount of power and time for anyone to reach him. After all, each floor has countless guardians and demons that would attack anyone who doesn’t have the permission to be on what they’d deem essentially, holy ground.</p>
+                    </div>
+                </article>
             </div>
         </section>
-
-        <!-- Lore Detail Modal -->
         <div class="lore-modal" id="lore-modal">
             <div class="lore-modal-overlay" onclick="closeLoreModal()"></div>
             <div class="lore-modal-content">
@@ -350,24 +577,15 @@
                 </div>
                 <div class="lore-modal-body">
                     <div class="lore-modal-body-content" id="modal-content">
-                        <!-- Content will be added here -->
                     </div>
                 </div>
             </div>
         </div>
-
     </main>
-
-    <!-- Footer Component Slot -->
     <div id="footer-slot"></div>
-
-    <!-- Modal Component Slot -->
     <div id="modal-slot"></div>
-
-    <!-- Load Components -->
     <script src="../js/components.js"></script>
-    
-    <!-- Lore Page Script -->
+   
     <script src="../js/lore.js"></script>
 </body>
 </html>
