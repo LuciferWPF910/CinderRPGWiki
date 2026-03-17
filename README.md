@@ -5,4 +5,4 @@ This is the official github for our WIKI specifically for the CinderRPG modpack 
 Please ensure new updates are pushed to the FrostsBranch before being merged to main!
 Please utilise the discord to highlight any bugs, spelling mistakes or errors made.
 
-
+https://wiki.bighatstudios.com/
