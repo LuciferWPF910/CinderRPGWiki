@@ -4,9 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>CinderRPG Wiki</title>
-    <link rel="icon" type="x-icon" href="cinder-wiki/images/favicon.ico">
-    <link rel="stylesheet" href="cinder-wiki/css/global.css?v=20251022.1">
-    <link rel="stylesheet" href="cinder-wiki/css/home.css?v=20251022.1">
+    <meta name="description" content="The community wiki for the CinderRPG modpack server: guides, classes, items, maps and patch notes.">
+    <link rel="icon" type="x-icon" href="/cinder-wiki/images/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="CinderRPG Wiki">
+    <link rel="stylesheet" href="/cinder-wiki/css/global.css?v=20261028.1">
+    <link rel="stylesheet" href="/cinder-wiki/css/home.css?v=20261028.1">
+    <link rel="stylesheet" href="/cinder-wiki/css/landing.css?v=20261028.1">
 
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <!-- RPG Awesome icons -->
@@ -17,10 +20,47 @@
     <script src="https://kit.fontawesome.com/473c5494b9.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- Header Component Slot -->
-    <div id="header-slot"></div>
+    <!-- ============ HEADER ============ -->
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="brand" href="/">
+                <img src="/cinder-wiki/images/CinderNewMegaLargePix.png" alt="" class="brand-img" width="36" height="36">
+                <span class="brand-text">CinderRPG</span>
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a class="nav-link active" href="/">Home</a></li>
+                    <li><a class="nav-link" data-page="Category:Guides" href="/index.php/Category:Guides">Guides</a></li>
+                    <li><a class="nav-link" data-page="Special:AllPages" href="/index.php/Special:AllPages">All Entries</a></li>
+                    <li><a class="nav-link" data-page="Special:RecentChanges" href="/index.php/Special:RecentChanges">Recent Changes</a></li>
+                    <li><a class="nav-link" href="https://store.bighatstudios.com/category/ranks">Store</a></li>
+                    <li class="has-dropdown">
+                        <a class="nav-link" href="#">More</a>
+                        <ul class="dropdown">
+                            <li><a data-page="Special:Categories" href="/index.php/Special:Categories">Categories</a></li>
+                            <li><a data-page="Patch Notes" href="/index.php/Patch_Notes">Patch Notes</a></li>
+                            <li><a data-page="FAQ" href="/index.php/FAQ">FAQ</a></li>
+                            <li><a data-page="Special:Random" href="/index.php/Special:Random">Random Page</a></li>
+                            <li><a data-page="Help:Contents" href="/index.php/Help:Contents">Editing Help</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="account-wrap">
+                <a class="account-link" id="account-link" data-page="Special:UserLogin" href="/index.php/Special:UserLogin">
+                    <i class="ph ph-user-circle" aria-hidden="true"></i>
+                    <span id="account-name">Log in</span>
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </header>
 
     <main>
+        <!-- ============ HERO ============ -->
         <section class="hero">
             <div class="wrap hero-inner">
                 <h1 class="hero-title" id="arcane-title">
@@ -28,233 +68,199 @@
                     <span class="arcane-text">CinderRPG Wiki</span>
                 </h1>
                 <p class="hero-sub">Community-driven guides, maps and patch notes</p>
+
+                <form class="hero-search" id="hero-search" action="/index.php" method="get" role="search" autocomplete="off">
+                    <input type="hidden" name="title" value="Special:Search">
+                    <i class="ph ph-magnifying-glass hero-search-icon" aria-hidden="true"></i>
+                    <label for="hero-search-input" class="visually-hidden">Search the wiki</label>
+                    <input id="hero-search-input" class="hero-search-input" type="search" name="search"
+                           placeholder="Search items, classes, mobs, quests…"
+                           role="combobox" aria-expanded="false" aria-controls="hero-search-results" aria-autocomplete="list">
+                    <kbd class="hero-search-kbd" aria-hidden="true">/</kbd>
+                    <button type="submit" class="hero-search-btn" name="go" value="Go">Search</button>
+                    <ul class="search-results" id="hero-search-results" role="listbox" hidden></ul>
+                </form>
+
+                <div class="wiki-stats" id="wiki-stats" aria-live="polite">
+                    <span><strong data-stat="articles">–</strong> articles</span>
+                    <span class="dot" aria-hidden="true">•</span>
+                    <span><strong data-stat="edits">–</strong> edits</span>
+                    <span class="dot" aria-hidden="true">•</span>
+                    <span><strong data-stat="activeusers">–</strong> active editors</span>
+                </div>
+
                 <div class="hero-cta">
-                    <a class="btn primary" href="cinder-wiki/html/introduction.html">Get Started</a>
-                    <a class="btn outline" href="cinder-wiki/html/introduction.html">Explore Wiki</a>
+                    <a class="btn primary" data-page="Introduction" href="/index.php/Introduction">Get Started</a>
+                    <a class="btn outline" data-page="Special:AllPages" href="/index.php/Special:AllPages">Browse All Entries</a>
                 </div>
             </div>
         </section>
 
-        <section class="cards wrap">
-                        <a href="cinder-wiki/html/introduction.html" class="card-link">
-                        <article class="card anim-safe">
-                                <div class="icon icon--orange"><i class="ra ra-burning-embers" aria-hidden="true"></i></div>
-                                <div>
-                                    <h3>Introduction</h3>
-                                    <p>Begin your journey by understanding the very core of the server and its themes.</p>
-                                </div>
-                        </article>
-                        </a>
+        <!-- ============ START HERE CARDS ============ -->
+        <section class="cards wrap" aria-label="Start here">
+            <a data-page="Introduction" href="/index.php/Introduction" class="card-link">
+                <article class="card anim-safe">
+                    <div class="icon icon--orange"><i class="ra ra-burning-embers" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>Introduction</h3>
+                        <p>Begin your journey by understanding the very core of the server and its themes.</p>
+                    </div>
+                </article>
+            </a>
 
-                        <a href="cinder-wiki/html/classes.html" class="card-link">
-                        <article class="card anim-safe">
-                                <div class="icon icon--gold"><i class="ra ra-shield" aria-hidden="true"></i></div>
-                                <div>
-                                    <h3>Classes & Subclasses</h3>
-                                    <p>Discover the various classes and bonuses they provide to both yourself, and allies.</p>
-                                </div>
-                        </article>
-                        </a>
+            <a data-page="Classes" href="/index.php/Classes" class="card-link">
+                <article class="card anim-safe">
+                    <div class="icon icon--gold"><i class="ra ra-shield" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>Classes &amp; Subclasses</h3>
+                        <p>Discover the various classes and bonuses they provide to both yourself, and allies.</p>
+                    </div>
+                </article>
+            </a>
 
-                        <a href="cinder-wiki/html/items.html" class="card-link">
-                        <article class="card anim-safe">
-                                <div class="icon icon--muted"><i class="ra ra-crossed-swords" aria-hidden="true"></i></div>
-                                <div>
-                                    <h3>Items & Equipment</h3>
-                                    <p>Find out more about our unique assortment of weapons, armor, and tools.</p>
-                                </div>
-                        </article>
-                        </a>
+            <a data-page="Items" href="/index.php/Items" class="card-link">
+                <article class="card anim-safe">
+                    <div class="icon icon--muted"><i class="ra ra-crossed-swords" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>Items &amp; Equipment</h3>
+                        <p>Find out more about our unique assortment of weapons, armor, and tools.</p>
+                    </div>
+                </article>
+            </a>
 
-                        <a href="cinder-wiki/html/mechanics.html" class="card-link">
-                        <article class="card anim-safe">
-                                <div class="icon icon--teal"><i class="ra ra-gem" aria-hidden="true"></i></div>
-                                <div>
-                                    <h3>Game Systems</h3>
-                                    <p>Learn the mechanics and features that define gameplay.</p>
-                                </div>
-                        </article>
-                        </a>
+            <a data-page="Mechanics" href="/index.php/Mechanics" class="card-link">
+                <article class="card anim-safe">
+                    <div class="icon icon--teal"><i class="ra ra-gem" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>Game Systems</h3>
+                        <p>Learn the mechanics and features that define gameplay.</p>
+                    </div>
+                </article>
+            </a>
 
-                        <a href="cinder-wiki/html/map.html" class="card-link">
-                        <article class="card anim-safe">
-                                <div class="icon icon--gold"><i class="ra ra-compass" aria-hidden="true"></i></div>
-                                <div>
-                                    <h3>Maps & Areas</h3>
-                                    <p>Locate resources and regions within shards & dungeons.</p>
-                                </div>
-                        </article>
-                        </a>
+            <a data-page="Maps" href="/index.php/Maps" class="card-link">
+                <article class="card anim-safe">
+                    <div class="icon icon--gold"><i class="ra ra-compass" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>Maps &amp; Areas</h3>
+                        <p>Locate resources and regions within shards &amp; dungeons.</p>
+                    </div>
+                </article>
+            </a>
 
-                        <a href="cinder-wiki/html/faq.html" class="card-link">
-                        <article class="card anim-safe">
-                                <div class="icon icon--muted"><i class="ra ra-scroll-unfurled" aria-hidden="true"></i></div>
-                                <div>
-                                    <h3>Frequently Asked Questions</h3>
-                                    <p>Read through our commonly asked questions.</p>
-                                </div>
-                        </article>
-                        </a>
+            <a data-page="FAQ" href="/index.php/FAQ" class="card-link">
+                <article class="card anim-safe">
+                    <div class="icon icon--muted"><i class="ra ra-scroll-unfurled" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>Frequently Asked Questions</h3>
+                        <p>Read through our commonly asked questions.</p>
+                    </div>
+                </article>
+            </a>
+        </section>
+
+        <!-- ============ EXPLORE ============ -->
+        <section class="explore wrap" aria-label="Explore the wiki">
+            <div class="explore-main panel">
+                <div class="panel-head">
+                    <h2 class="section-title">Explore</h2>
+                    <div class="tabs" role="tablist" aria-label="Page lists">
+                        <button class="tab is-active" role="tab" aria-selected="true" data-tab="popular" id="tab-popular" aria-controls="tabpanel">
+                            <i class="ph ph-fire" aria-hidden="true"></i> Popular
+                        </button>
+                        <button class="tab" role="tab" aria-selected="false" data-tab="recent" id="tab-recent" aria-controls="tabpanel" tabindex="-1">
+                            <i class="ph ph-clock-counter-clockwise" aria-hidden="true"></i> Recently Updated
+                        </button>
+                        <button class="tab" role="tab" aria-selected="false" data-tab="new" id="tab-new" aria-controls="tabpanel" tabindex="-1">
+                            <i class="ph ph-sparkle" aria-hidden="true"></i> New Pages
+                        </button>
+                    </div>
+                </div>
+                <div id="tabpanel" role="tabpanel" aria-labelledby="tab-popular" tabindex="0">
+                    <ul class="page-list" id="page-list" aria-busy="true">
+                        <li class="page-skeleton"></li>
+                        <li class="page-skeleton"></li>
+                        <li class="page-skeleton"></li>
+                        <li class="page-skeleton"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="explore-side">
+                <div class="panel">
+                    <h2 class="section-title small">Quick Links</h2>
+                    <ul class="quick-links">
+                        <li><a data-page="Category:Guides" href="/index.php/Category:Guides"><i class="ph ph-book-open-text" aria-hidden="true"></i>Guides</a></li>
+                        <li><a data-page="Special:AllPages" href="/index.php/Special:AllPages"><i class="ph ph-list-bullets" aria-hidden="true"></i>All Entries</a></li>
+                        <li><a data-page="Special:Categories" href="/index.php/Special:Categories"><i class="ph ph-folders" aria-hidden="true"></i>Categories</a></li>
+                        <li><a data-page="Commands" href="/index.php/Commands"><i class="ph ph-terminal-window" aria-hidden="true"></i>Commands</a></li>
+                        <li><a data-page="Patch Notes" href="/index.php/Patch_Notes"><i class="ph ph-scroll" aria-hidden="true"></i>Patch Notes</a></li>
+                        <li><a data-page="Special:Random" href="/index.php/Special:Random"><i class="ph ph-shuffle" aria-hidden="true"></i>Random Page</a></li>
+                    </ul>
+                </div>
+
+                <div class="panel contribute">
+                    <h2 class="section-title small">Help Build the Wiki</h2>
+                    <p>Spotted something missing or out of date? Editors can fix it straight from any page.</p>
+                    <div class="contribute-actions">
+                        <a class="btn primary" id="contribute-primary" data-page="Special:UserLogin" href="/index.php/Special:UserLogin">Log in to edit</a>
+                        <a class="btn outline" data-page="Help:Contents" href="/index.php/Help:Contents">How to edit</a>
+                    </div>
+                </div>
+            </aside>
         </section>
     </main>
 
-    <!-- Footer Component Slot -->
-    <div id="footer-slot"></div>
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <div class="wrap footer-inner">
+            <small>© <span id="year">2026</span> CinderRPG Wiki Project | Built by <a href="https://github.com/Faris25-dev" target="_blank" rel="noopener noreferrer">Faris Asaad</a></small>
+            <nav class="footer-links">
+                <a data-page="Patch Notes" href="/index.php/Patch_Notes">Patch Notes</a>
+                <a href="https://discord.gg/gQ39rGdpQ7" target="_blank" rel="noopener noreferrer">Discord</a>
+                <a href="#" class="open-modal" data-modal="bug-modal">Report an Issue</a>
+                <a data-page="Terms of Service" href="/index.php/Terms_of_Service">Terms of Service</a>
+                <button class="footer-feedback-btn open-modal" data-modal="outdated-modal">
+                    <i class="ph ph-warning-circle"></i>
+                    <span>Found Outdated Info?</span>
+                </button>
+            </nav>
+        </div>
+    </footer>
 
-    <!-- Modal Component Slot -->
-    <div id="modal-slot"></div>
+    <!-- ============ MODALS ============ -->
+    <div id="bug-modal" class="modal" role="dialog" aria-labelledby="bug-modal-title" aria-modal="true" style="display:none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2 id="bug-modal-title">Report a Bug</h2>
+            <p class="modal-message">Help us improve the world. Tell us what broke and how it happened.</p>
+            <div class="modal-actions">
+                <a href="https://discord.gg/bighatstudios" target="_blank" rel="noopener noreferrer" class="btn primary">
+                    <i class="fa-brands fa-discord"></i> Report on Discord
+                </a>
+                <a href="mailto:sBigHatStudios+support@gmail.com?subject=CinderRPG%20Bug%20Report" class="btn outline">
+                    <i class="ph ph-envelope"></i> Email Support
+                </a>
+            </div>
+        </div>
+    </div>
 
-    <!-- Load Component Manager -->
-    <script src="cinder-wiki/js/components.js"></script>
-    
-    <!-- GSAP Animation Library -->
+    <div id="outdated-modal" class="modal" role="dialog" aria-labelledby="outdated-modal-title" aria-modal="true" style="display:none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2 id="outdated-modal-title">Found Outdated Info?</h2>
+            <p class="modal-message">Every page on the wiki has an Edit button, so if you have an account you can fix it right away. Otherwise, let us know on Discord.</p>
+            <div class="modal-actions">
+                <a href="https://discord.gg/bighatstudios" target="_blank" rel="noopener noreferrer" class="btn primary">
+                    <i class="fa-brands fa-discord"></i> Report on Discord
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    
-    <script>
-        //  Arcane Pulse Animation (with Magic Particles)
-        window.addEventListener('load', function(){
-            if(typeof gsap === 'undefined') return;
-            
-            const title = document.getElementById('arcane-title');
-            const canvas = title.querySelector('.magic-particles');
-            const textSpan = title.querySelector('.arcane-text');
-            
-            if(!title || !canvas || !textSpan) return;
-            
-            const ctx = canvas.getContext('2d');
-            const particles = [];
-            
-            // Create magical particles
-            class Particle {
-                constructor() {
-                    this.reset();
-                }
-                reset() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.vx = (Math.random() - 0.5) * 1.5;
-                    this.vy = (Math.random() - 0.5) * 1.5;
-                    this.size = Math.random() * 3 + 1;
-                    this.opacity = Math.random() * 0.5 + 0.3;
-                    this.hue = Math.random() * 15 + 40; 
-                }
-                update() {
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    
-                    // Wrap around edges
-                    if(this.x < 0) this.x = canvas.width;
-                    if(this.x > canvas.width) this.x = 0;
-                    if(this.y < 0) this.y = canvas.height;
-                    if(this.y > canvas.height) this.y = 0;
-                }
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `hsla(${this.hue}, 80%, 70%, ${this.opacity})`;
-                    ctx.shadowBlur = 15;
-                    ctx.shadowColor = `hsla(${this.hue}, 80%, 70%, 0.8)`;
-                    ctx.fill();
-                }
-            }
-            
-            // Initialize particles
-            for(let i = 0; i < 50; i++) {
-                particles.push(new Particle());
-            }
-            
-            // Animation loop for particles
-            let animating = false;
-            function animateParticles() {
-                if(!animating) return;
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                });
-                requestAnimationFrame(animateParticles);
-            }
-            
-            // Split text into individual letters
-            const text = textSpan.textContent;
-            textSpan.innerHTML = '';
-            
-            text.split('').forEach(char => {
-                const span = document.createElement('span');
-                span.className = 'arcane-letter';
-                span.textContent = char === ' ' ? '\u00A0' : char;
-                textSpan.appendChild(span);
-            });
-            
-            const letters = textSpan.querySelectorAll('.arcane-letter');
-            
-            // GSAP Timeline
-            const tl = gsap.timeline({
-                delay: 0.3,
-                onStart: () => {
-                    animating = true;
-                    animateParticles();
-                }
-            });
-            
-            // Initial state
-            gsap.set(canvas, {opacity: 0});
-            gsap.set(letters, {opacity: 0, y: 20, filter: 'blur(4px)'});
-            
-            // Fade in particles
-            tl.to(canvas, {
-                opacity: 1,
-                duration: 1,
-                ease: 'power2.out'
-            })
-            // Letters appear one by one
-            .to(letters, {
-                opacity: 1,
-                y: 0,
-                filter: 'blur(0px)',
-                duration: 0.6,
-                stagger: 0.05,
-                ease: 'power2.out'
-            }, '-=0.3')
-            // Add shimmer glow to letters
-            .to(letters, {
-                textShadow: '0 0 20px rgba(200,150,70,0.8), 0 0 40px rgba(180,130,50,0.5)',
-                duration: 0.8,
-                stagger: 0.05,
-                ease: 'power2.inOut'
-            }, '-=0.5')
-            // Settle to soft glow
-            .to(letters, {
-                textShadow: '0 0 15px rgba(191,160,111,0.5), 0 0 30px rgba(180,130,50,0.25)',
-                duration: 1,
-                ease: 'power2.out'
-            })
-            // Fade out particles completely
-            .to(canvas, {
-                opacity: 0,
-                duration: 1.5,
-                ease: 'power2.inOut',
-                onComplete: () => {
-                    animating = false;
-                    canvas.style.display = 'none';
-                }
-            }, '-=0.5')
-            // Add continuous glow pulse to letters
-            .to(letters, {
-                textShadow: '0 0 25px rgba(200,150,70,0.7), 0 0 50px rgba(180,130,50,0.4), 0 0 70px rgba(191,160,111,0.25)',
-                duration: 2,
-                ease: 'sine.inOut',
-                repeat: -1,
-                yoyo: true,
-                stagger: {
-                    each: 0.1,
-                    from: 'start',
-                    repeat: -1
-                }
-            });
-            // Note: Letter floating is now handled by CSS animation in home.css
-
-        });
-    </script>
+    <script src="/cinder-wiki/js/landing.js?v=20261028.1"></script>
 </body>
 </html>
