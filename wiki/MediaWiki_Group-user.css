@@ -1,0 +1,28 @@
+/* CinderWiki: live values from the mod ({{V|...}}).
+   This page loads only for logged-in users, so readers see plain text. */
+.cw-var {
+	position: relative;
+	border-bottom: 1px dotted #72777d;
+}
+.cw-var:hover::after {
+	content: attr(data-var);
+	position: absolute;
+	left: 0;
+	bottom: 100%;
+	z-index: 10;
+	white-space: nowrap;
+	padding: 1px 6px;
+	border-radius: 2px;
+	background: #202122;
+	color: #fff;
+	font-size: 12px;
+	font-weight: normal;
+	font-style: normal;
+}
+.cw-var-removed {
+	border-bottom: 1px dashed #d33;
+}
+.cw-var-stale,
+.cw-var-error {
+	border-bottom: 1px dashed #ac6600;
+}

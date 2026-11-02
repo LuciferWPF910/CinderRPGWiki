@@ -1,0 +1,4 @@
+__HIDDENCAT__
+Pages here use a <code><nowiki>{{V|...}}</nowiki></code> name that does not exist. Check the spelling against [[Project:Variables]].
+
+This category fills itself; it empties again once the pages are fixed.

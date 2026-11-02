@@ -1,0 +1,39 @@
+<includeonly>{{#invoke:Vars|get}}</includeonly><noinclude>
+Shows a live value from the mod. The number updates by itself whenever the mod changes, so pages never go out of date.
+
+* <code><nowiki>{{V|food.slots}}</nowiki></code> shows the value with its unit.
+* <code><nowiki>{{V|food.keg.duration|unit=no}}</nowiki></code> leaves the unit off.
+* <code><nowiki>{{V|food.keg.duration|raw=1}}</nowiki></code> gives the exact number from the code.
+* <code><nowiki>{{V|item.ashenblade.damage}}</nowiki></code> and <code><nowiki>{{V|spell.firebolt.mana}}</nowiki></code> show item and spell stats.
+
+Every name you can use is on [[Project:Variables]]. Capitals do not matter. A mistyped name shows a red message with the closest match.
+
+<templatedata>
+{
+	"description": "Shows a live value from the mod, such as a buff amount, a duration or an item stat. It updates by itself when the mod changes. All names are listed on Project:Variables.",
+	"params": {
+		"1": {
+			"label": "Variable",
+			"description": "Name from Project:Variables, or item.<id>.<stat> or spell.<key>.<stat>. Capitals do not matter.",
+			"example": "food.keg.duration",
+			"type": "string",
+			"required": true
+		},
+		"unit": {
+			"label": "Unit",
+			"description": "Set to no to leave the unit off (\"8m\" stays \"8m\", \"3 blocks\" becomes \"3\").",
+			"type": "string",
+			"suggestedvalues": ["no"]
+		},
+		"raw": {
+			"label": "Raw number",
+			"description": "Set to 1 to show the exact number from the code instead of the formatted value.",
+			"type": "boolean"
+		}
+	},
+	"format": "inline"
+}
+</templatedata>
+
+[[Category:Templates]]
+</noinclude>

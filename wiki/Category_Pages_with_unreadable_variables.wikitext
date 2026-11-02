@@ -1,0 +1,4 @@
+__HIDDENCAT__
+Pages here use a value the mod could not read during the last sync. It shows its last known value (or ?). Staff: see [[Project:CinderWiki/Report]].
+
+This category fills itself; it empties again once the pages are fixed.

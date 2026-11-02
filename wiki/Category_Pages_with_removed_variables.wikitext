@@ -1,0 +1,4 @@
+__HIDDENCAT__
+Pages here use a value the mod no longer has. It still shows its last value; please rewrite the sentence or pick a new variable from [[Project:Variables]].
+
+This category fills itself; it empties again once the pages are fixed.
