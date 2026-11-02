@@ -1,0 +1,27 @@
+<includeonly>{{#invoke:Map|regionCards}}</includeonly><noinclude>
+A row of Region card boxes that wraps on narrow screens.
+
+<pre>
+{{Region cards|
+{{Region card|name=Locfel|tags=Town|level=Level 1|colour=green|text=A peaceful starting town.|more=Longer text shown on hover.}}
+}}
+</pre>
+
+Part of the [[Project:Design kit|design kit]]. Marker types are listed in [[Module:Map/types]].
+
+<templatedata>
+{
+	"description": "A row of Region card boxes that wraps on narrow screens.",
+	"format": "block",
+	"params": {
+		"1": {
+			"label": "Cards",
+			"description": "Region card lines.",
+			"type": "content",
+			"required": true
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

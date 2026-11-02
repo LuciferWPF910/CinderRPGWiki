@@ -1,0 +1,73 @@
+<includeonly>{{#invoke:Map|regionCard}}</includeonly><noinclude>
+A card for a town, dungeon or area, with coloured tags and longer text that appears on hover.
+
+<pre>
+{{Region card|name=Aridian Dungeon|tags=Dungeon, Resources, Boss|level=Level 10-20|colour=orange|text=Ancient ruins filled with challenges and treasures.|more=A treacherous underground labyrinth.}}
+</pre>
+
+Part of the [[Project:Design kit|design kit]]. Marker types are listed in [[Module:Map/types]].
+
+<templatedata>
+{
+	"description": "A card for a town, dungeon or area, with coloured tags and longer text that appears on hover.",
+	"format": "block",
+	"params": {
+		"name": {
+			"label": "Name",
+			"description": "Region name.",
+			"type": "line",
+			"required": true
+		},
+		"tags": {
+			"label": "Tags",
+			"description": "Comma-separated: Town, Exploration, Dungeon, Boss, Resources, Endgame, PvP, Quest.",
+			"type": "string"
+		},
+		"level": {
+			"label": "Level",
+			"description": "e.g. Level 10-20.",
+			"type": "line"
+		},
+		"colour": {
+			"label": "Colour",
+			"description": "Card colour.",
+			"type": "string",
+			"suggestedvalues": [
+				"green",
+				"teal",
+				"orange",
+				"pink",
+				"cyan",
+				"lime",
+				"red",
+				"blue",
+				"purple",
+				"gold",
+				"grey"
+			]
+		},
+		"text": {
+			"label": "Short text",
+			"description": "Always shown.",
+			"type": "content"
+		},
+		"more": {
+			"label": "Hover text",
+			"description": "Shown when the card is hovered.",
+			"type": "content"
+		},
+		"icon": {
+			"label": "Icon",
+			"description": "Picture instead of the symbol.",
+			"type": "wiki-file-name"
+		},
+		"link": {
+			"label": "Link",
+			"description": "Page the name links to.",
+			"type": "wiki-page-name"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

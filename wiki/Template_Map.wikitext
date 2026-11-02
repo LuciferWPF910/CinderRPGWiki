@@ -1,0 +1,85 @@
+<includeonly>{{#invoke:Map|map}}</includeonly><noinclude>
+An interactive map: zoom, drag, filters, fullscreen and markers with popups. Put Map marker lines inside it.
+
+<pre>
+{{Map|image=map_shard1.png|title=Shard 1|
+{{Map marker|chest|52.5|51.5}}
+{{Map marker|boss|7|12.5|name=Ogre King|text=Drops the Ogre Club.}}
+}}
+</pre>
+
+Part of the [[Project:Design kit|design kit]]. Marker types are listed in [[Module:Map/types]].
+
+<templatedata>
+{
+	"description": "An interactive map: zoom, drag, filters, fullscreen and markers with popups. Put Map marker lines inside it.",
+	"format": "block",
+	"params": {
+		"1": {
+			"label": "Markers",
+			"description": "Map marker lines.",
+			"type": "content",
+			"required": true
+		},
+		"image": {
+			"label": "Map picture",
+			"description": "Uploaded file name, without File:.",
+			"type": "wiki-file-name",
+			"required": true
+		},
+		"title": {
+			"label": "Title",
+			"description": "Bar above the map.",
+			"type": "line"
+		},
+		"caption": {
+			"label": "Caption",
+			"description": "Text under the map.",
+			"type": "line"
+		},
+		"hidden": {
+			"label": "Hidden at start",
+			"description": "Marker types hidden until a reader ticks them, separated by commas.",
+			"type": "string",
+			"example": "chest,sack"
+		},
+		"size": {
+			"label": "Marker size",
+			"description": "Marker size in pixels (12 to 64). Default 26.",
+			"type": "number"
+		},
+		"width": {
+			"label": "Width",
+			"description": "Largest width in pixels.",
+			"type": "number"
+		},
+		"pixel": {
+			"label": "Pixel art",
+			"description": "yes for small pixel-art maps, to keep them sharp.",
+			"type": "boolean"
+		},
+		"x1": {
+			"label": "World X (left)",
+			"description": "In-game X at the left edge, to show X/Z in popups.",
+			"type": "number"
+		},
+		"z1": {
+			"label": "World Z (top)",
+			"description": "In-game Z at the top edge.",
+			"type": "number"
+		},
+		"x2": {
+			"label": "World X (right)",
+			"description": "In-game X at the right edge.",
+			"type": "number"
+		},
+		"z2": {
+			"label": "World Z (bottom)",
+			"description": "In-game Z at the bottom edge.",
+			"type": "number"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

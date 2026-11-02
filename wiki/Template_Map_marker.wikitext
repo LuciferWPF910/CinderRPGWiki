@@ -1,0 +1,86 @@
+<includeonly>{{#invoke:Map|marker}}</includeonly><noinclude>
+One marker on a Map. Position is a percentage of the picture: x from the left, y from the top. Logged-in editors can click the target button on any map to get this code for the spot they click.
+
+<pre>
+{{Map marker|chest|52.5|51.5}}
+{{Map marker|boss|7|12.5|name=Ogre King|text=Drops the Ogre Club.|link=Ogre King}}
+</pre>
+
+Part of the [[Project:Design kit|design kit]]. Marker types are listed in [[Module:Map/types]].
+
+<templatedata>
+{
+	"description": "One marker on a Map. Position is a percentage of the picture: x from the left, y from the top. Logged-in editors can click the target button on any map to get this code for the spot they click.",
+	"format": "inline",
+	"params": {
+		"1": {
+			"label": "Type",
+			"description": "Marker type (see Module:Map/types).",
+			"type": "string",
+			"required": true,
+			"suggestedvalues": [
+				"chest",
+				"sack",
+				"platsilver",
+				"rubysilver",
+				"bellflower",
+				"scarlet",
+				"mushroom",
+				"ester",
+				"soulgem",
+				"mob",
+				"boss",
+				"dungeon",
+				"obelisk",
+				"quest",
+				"town",
+				"poi"
+			]
+		},
+		"2": {
+			"label": "X",
+			"description": "Percent from the left edge, 0 to 100.",
+			"type": "number",
+			"required": true
+		},
+		"3": {
+			"label": "Y",
+			"description": "Percent from the top edge, 0 to 100.",
+			"type": "number",
+			"required": true
+		},
+		"name": {
+			"label": "Name",
+			"description": "Popup title.",
+			"type": "line"
+		},
+		"text": {
+			"label": "Text",
+			"description": "Popup text.",
+			"type": "content"
+		},
+		"link": {
+			"label": "Link",
+			"description": "Page the popup links to.",
+			"type": "wiki-page-name"
+		},
+		"icon": {
+			"label": "Icon",
+			"description": "Different picture for just this marker.",
+			"type": "wiki-file-name"
+		},
+		"label": {
+			"label": "Filter label",
+			"description": "Name in the filter list for a type not in Module:Map/types.",
+			"type": "line"
+		},
+		"colour": {
+			"label": "Dot colour",
+			"description": "Colour for dot markers, like #ff5555.",
+			"type": "string"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

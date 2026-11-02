@@ -1,0 +1,484 @@
+/* Interactive maps and region cards (Module:Map).
+   The map frame is always dark, like the old site; region cards use
+   see-through shades so they work on light and dark skins. */
+
+/* ---- Map frame ---- */
+.cw-map {
+	position: relative;
+	margin: 0 auto 1.2em;
+	background: #1b1916;
+	border: 1px solid rgba(191, 160, 111, 0.35);
+	border-radius: 10px;
+	box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+	overflow: hidden;
+	color: #e8dcc4;
+}
+.cw-map-title {
+	padding: 8px 14px;
+	border-bottom: 1px solid rgba(191, 160, 111, 0.25);
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 115%;
+	letter-spacing: 0.04em;
+	color: #e8c98a;
+}
+.cw-map-caption {
+	padding: 6px 14px 8px;
+	border-top: 1px solid rgba(191, 160, 111, 0.25);
+	font-size: 88%;
+	opacity: 0.85;
+}
+.cw-map-view {
+	position: relative;
+	overflow: hidden;
+	touch-action: pan-y;
+}
+.cw-map-ready .cw-map-view {
+	cursor: grab;
+}
+.cw-map-dragging .cw-map-view {
+	cursor: grabbing;
+}
+.cw-map-picking .cw-map-view {
+	cursor: crosshair;
+}
+.cw-map-stage {
+	position: relative;
+	margin: 0 auto;
+	transform-origin: 0 0;
+}
+.cw-map-smooth .cw-map-stage {
+	transition: transform 0.18s ease-out;
+}
+.cw-map-img {
+	position: relative;
+}
+.cw-map-img img {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: none;
+	user-select: none;
+}
+/* Soft dark edge over the picture (under the markers). */
+.cw-map-img::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: radial-gradient(ellipse at center, transparent 58%, rgba(20, 18, 15, 0.3) 85%, rgba(20, 18, 15, 0.6) 100%);
+}
+.cw-map-pixel .cw-map-img img {
+	image-rendering: pixelated;
+}
+.cw-map-markers {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 2;
+}
+.cw-map-markers > p {
+	margin: 0;
+}
+
+/* ---- Markers ---- */
+.cw-map-mk {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 26px;
+	height: 26px;
+	margin: -13px 0 0 -13px;
+	transform-origin: 50% 50%;
+	cursor: pointer;
+	z-index: 1;
+	filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.9));
+	transition: filter 0.15s ease;
+}
+.cw-map-mk:hover,
+.cw-map-mk-open {
+	z-index: 6;
+	filter: drop-shadow(0 0 4px rgba(255, 220, 150, 0.95));
+}
+.cw-map-mk img {
+	width: 24px;
+	height: 24px;
+	image-rendering: pixelated;
+}
+.cw-map-mk-off {
+	display: none;
+}
+.cw-map-dot {
+	display: block;
+	width: 14px;
+	height: 14px;
+	border: 2px solid #ffffff;
+	border-radius: 50%;
+	background-color: #bfa06f;
+}
+
+/* ---- Marker popups ---- */
+.cw-map-pop {
+	display: none;
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	width: max-content;
+	max-width: 230px;
+	margin-bottom: 6px;
+	padding: 6px 10px;
+	transform: translateX(-50%);
+	background: rgba(16, 0, 16, 0.96);
+	border: 1px solid #bfa06f;
+	border-radius: 5px;
+	color: #eeeeee;
+	font-size: 13px;
+	line-height: 1.4;
+	text-align: left;
+	white-space: normal;
+	cursor: auto;
+	filter: none;
+	z-index: 10;
+}
+.cw-map-mk:hover .cw-map-pop,
+.cw-map-mk-open .cw-map-pop {
+	display: block;
+}
+.cw-map-pop-below .cw-map-pop {
+	bottom: auto;
+	top: 100%;
+	margin: 6px 0 0;
+}
+.cw-map-pop-left .cw-map-pop {
+	left: 0;
+	transform: none;
+}
+.cw-map-pop-right .cw-map-pop {
+	left: auto;
+	right: 0;
+	transform: none;
+}
+.cw-map-pop-name {
+	font-weight: bold;
+	color: #e8c98a;
+}
+.cw-map-pop-type,
+.cw-map-pop-coords {
+	font-size: 90%;
+	color: #aaaaaa;
+}
+.cw-map-pop-text {
+	margin-top: 3px;
+}
+.cw-map-pop a {
+	color: #8fb8ff;
+}
+
+/* ---- Controls (added by the script) ---- */
+.cw-map-controls {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 20;
+	display: flex;
+	flex-direction: column;
+}
+.cw-map-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 34px;
+	height: 34px;
+	margin-bottom: 6px;
+	padding: 0 8px;
+	background: rgba(16, 14, 12, 0.88);
+	border: 1px solid rgba(191, 160, 111, 0.55);
+	border-radius: 6px;
+	color: #e8dcc4;
+	font: inherit;
+	font-size: 17px;
+	line-height: 1;
+	cursor: pointer;
+}
+.cw-map-btn:hover {
+	border-color: #e8c98a;
+	color: #ffffff;
+}
+.cw-map-btn-on {
+	background: #bfa06f;
+	color: #15130f;
+}
+.cw-map-filters {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: 20;
+	font-size: 14px;
+}
+.cw-map-filter-toggle {
+	font-size: 13px;
+	font-weight: bold;
+	letter-spacing: 0.08em;
+}
+.cw-map-filter-list {
+	display: none;
+	margin-top: 6px;
+	padding: 6px;
+	max-height: 60vh;
+	overflow-y: auto;
+	background: rgba(16, 14, 12, 0.95);
+	border: 1px solid rgba(191, 160, 111, 0.55);
+	border-radius: 6px;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+.cw-map-filters-open .cw-map-filter-list {
+	display: block;
+}
+.cw-map-filter {
+	display: flex;
+	align-items: center;
+	padding: 3px 6px;
+	border-radius: 4px;
+	cursor: pointer;
+	white-space: nowrap;
+	user-select: none;
+}
+.cw-map-filter:hover {
+	background: rgba(191, 160, 111, 0.15);
+}
+.cw-map-filter input {
+	margin: 0 8px 0 0;
+}
+.cw-map-filter img {
+	width: 20px;
+	height: 20px;
+	margin-right: 6px;
+	image-rendering: pixelated;
+}
+.cw-map-filter .cw-map-dot {
+	width: 12px;
+	height: 12px;
+	margin: 0 10px 0 4px;
+}
+.cw-map-filter-count {
+	margin-left: auto;
+	padding-left: 12px;
+	opacity: 0.6;
+	font-size: 90%;
+}
+.cw-map-filter-all {
+	margin-bottom: 4px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid rgba(191, 160, 111, 0.3);
+	font-weight: bold;
+}
+.cw-map-hint {
+	position: absolute;
+	left: 50%;
+	bottom: 12px;
+	z-index: 20;
+	padding: 5px 12px;
+	transform: translateX(-50%);
+	background: rgba(16, 14, 12, 0.9);
+	border-radius: 999px;
+	font-size: 13px;
+	opacity: 0;
+	transition: opacity 0.25s ease;
+}
+.cw-map-hint-on {
+	opacity: 1;
+}
+.cw-map-pick {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	z-index: 21;
+	max-width: calc(100% - 20px);
+	padding: 8px 10px;
+	background: rgba(16, 14, 12, 0.95);
+	border: 1px solid #bfa06f;
+	border-radius: 6px;
+	font-size: 13px;
+}
+.cw-map-pick code {
+	display: block;
+	margin: 4px 0;
+	padding: 3px 6px;
+	background: #000000;
+	color: #e8c98a;
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+.cw-map-pin {
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	margin: -7px 0 0 -7px;
+	border: 2px solid #ffffff;
+	border-radius: 50%;
+	background: #ff3b3b;
+	box-shadow: 0 0 6px #ff3b3b;
+	z-index: 7;
+}
+
+/* ---- Fullscreen (class set by the script) ---- */
+.cw-map-full {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: none;
+	border-radius: 0;
+	background: #0d0c0a;
+}
+.cw-map-full .cw-map-view {
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+}
+
+/* ---- Region cards ---- */
+.cw-regions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin: 1em 0;
+}
+.cw-regions > p {
+	display: none;
+}
+.cw-region {
+	position: relative;
+	display: flex;
+	flex: 1 1 260px;
+	max-width: 400px;
+	padding: 12px;
+	overflow: hidden;
+	background: rgba(128, 128, 128, 0.07);
+	border: 1px solid rgba(128, 128, 128, 0.3);
+	border-top: 3px solid #bfa06f;
+	border-radius: 6px;
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.cw-region:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+.cw-region-icon {
+	display: flex;
+	flex: 0 0 auto;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	margin-right: 12px;
+	border: 2px solid currentColor;
+	border-radius: 50%;
+	font-size: 22px;
+	line-height: 1;
+}
+.cw-region-body {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+.cw-region-name {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 118%;
+	font-weight: bold;
+}
+.cw-region-meta {
+	margin: 3px 0 5px;
+}
+.cw-region-tag {
+	display: inline-block;
+	margin: 0 4px 3px 0;
+	padding: 0 8px;
+	border-radius: 999px;
+	background: #6b7280;
+	color: #ffffff;
+	font-size: 78%;
+	font-weight: bold;
+	line-height: 1.7;
+}
+.cw-region-level {
+	font-size: 85%;
+	opacity: 0.8;
+	white-space: nowrap;
+}
+.cw-region-text {
+	font-size: 92%;
+}
+.cw-region-more {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 12px 14px;
+	overflow: auto;
+	background: #0e0c0a;
+	color: #eeeeee;
+	font-size: 92%;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.cw-region:hover .cw-region-more {
+	opacity: 1;
+	visibility: visible;
+}
+.cw-region-more-name {
+	margin-bottom: 4px;
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 115%;
+	font-weight: bold;
+}
+
+/* Card colours */
+.cw-rc-green { border-top-color: #7cb342; }
+.cw-rc-green .cw-region-icon, .cw-rc-green .cw-region-more-name { color: #7cb342; }
+.cw-rc-teal { border-top-color: #00897b; }
+.cw-rc-teal .cw-region-icon, .cw-rc-teal .cw-region-more-name { color: #26a69a; }
+.cw-rc-orange { border-top-color: #ff7043; }
+.cw-rc-orange .cw-region-icon, .cw-rc-orange .cw-region-more-name { color: #ff7043; }
+.cw-rc-pink { border-top-color: #ec407a; }
+.cw-rc-pink .cw-region-icon, .cw-rc-pink .cw-region-more-name { color: #ec407a; }
+.cw-rc-cyan { border-top-color: #26c6da; }
+.cw-rc-cyan .cw-region-icon, .cw-rc-cyan .cw-region-more-name { color: #26c6da; }
+.cw-rc-lime { border-top-color: #9ccc65; }
+.cw-rc-lime .cw-region-icon, .cw-rc-lime .cw-region-more-name { color: #9ccc65; }
+.cw-rc-red { border-top-color: #e53935; }
+.cw-rc-red .cw-region-icon, .cw-rc-red .cw-region-more-name { color: #ef5350; }
+.cw-rc-blue { border-top-color: #42a5f5; }
+.cw-rc-blue .cw-region-icon, .cw-rc-blue .cw-region-more-name { color: #42a5f5; }
+.cw-rc-purple { border-top-color: #ab47bc; }
+.cw-rc-purple .cw-region-icon, .cw-rc-purple .cw-region-more-name { color: #ba68c8; }
+.cw-rc-gold { border-top-color: #ffb300; }
+.cw-rc-gold .cw-region-icon, .cw-rc-gold .cw-region-more-name { color: #ffb300; }
+.cw-rc-grey { border-top-color: #9097a3; }
+.cw-rc-grey .cw-region-icon, .cw-rc-grey .cw-region-more-name { color: #9097a3; }
+
+/* Tag colours */
+.cw-rt-town { background: #558b2f; }
+.cw-rt-explore { background: #00796b; }
+.cw-rt-dungeon { background: #e64a19; }
+.cw-rt-boss { background: #c62828; }
+.cw-rt-resource { background: #a1772a; }
+.cw-rt-endgame { background: #7b1fa2; }
+.cw-rt-pvp { background: #ad1457; }
+.cw-rt-quest { background: #1565c0; }
+
+/* ---- Phones ---- */
+@media screen and (max-width: 720px) {
+	.cw-region {
+		max-width: none;
+	}
+	.cw-map-btn {
+		min-width: 30px;
+		height: 30px;
+		font-size: 15px;
+	}
+}
