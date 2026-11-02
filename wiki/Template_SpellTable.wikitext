@@ -1,0 +1,16 @@
+<includeonly>{{#invoke:CinderData|spellTable}}</includeonly><noinclude>
+A sortable table of every spell in the game, read from the mod.
+
+Usage: <code><nowiki>{{SpellTable}}</nowiki></code>
+
+The bot adds this to new pages. You do not need to change it; write your text around it. The data is read from the <code>Data:</code> pages and drawn by [[Module:CinderData]].
+
+<templatedata>
+{
+	"description": "A sortable table of every spell in the game, read from the mod.",
+	"format": "block",
+	"params": {}
+}
+</templatedata>
+[[Category:CinderWiki templates]]
+</noinclude>

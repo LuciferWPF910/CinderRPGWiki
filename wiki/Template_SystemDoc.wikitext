@@ -1,0 +1,24 @@
+<includeonly>{{#invoke:CinderData|systemDoc|id={{{id|}}}}}</includeonly><noinclude>
+A documented game system: summary, sections, formulas and its current values, each with the <code><nowiki>{{V}}</nowiki></code> code to use it in other articles.
+
+Usage: <code><nowiki>{{SystemDoc|id=damage-ledger}}</nowiki></code>
+
+The bot adds this to new pages. You do not need to change it; write your text around it. The data is read from the <code>Data:</code> pages and drawn by [[Module:CinderData]].
+
+<templatedata>
+{
+	"description": "A documented game system: summary, sections, formulas and its current values, each with the {{V}} code to use it in other articles.",
+	"format": "block",
+	"params": {
+		"id": {
+			"label": "System ID",
+			"description": "The system's ID from the mod, e.g. damage-ledger.",
+			"example": "damage-ledger",
+			"type": "string",
+			"required": true
+		}
+	}
+}
+</templatedata>
+[[Category:CinderWiki templates]]
+</noinclude>

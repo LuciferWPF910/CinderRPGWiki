@@ -1,0 +1,24 @@
+<includeonly>{{#invoke:CinderData|spell|key={{{key|}}}}}</includeonly><noinclude>
+The stats box for one spell, read from the mod.
+
+Usage: <code><nowiki>{{Spell|key=FireBolt}}</nowiki></code>
+
+The bot adds this to new pages. You do not need to change it; write your text around it. The data is read from the <code>Data:</code> pages and drawn by [[Module:CinderData]].
+
+<templatedata>
+{
+	"description": "The stats box for one spell, read from the mod.",
+	"format": "block",
+	"params": {
+		"key": {
+			"label": "Spell key",
+			"description": "The spell's key from the mod, e.g. FireBolt. Capitals do not matter.",
+			"example": "FireBolt",
+			"type": "string",
+			"required": true
+		}
+	}
+}
+</templatedata>
+[[Category:CinderWiki templates]]
+</noinclude>

@@ -1,0 +1,153 @@
+/* Styles for Module:CinderData (item, tab, spell, class and system pages).
+   Loaded once per page by TemplateStyles. Colours work on light and dark skins:
+   the tooltip box is always dark like the in-game tooltip, everything else
+   uses see-through shades over the skin's own background. */
+
+/* ---- Tooltip infobox ---- */
+.cw-tip {
+	float: right;
+	clear: right;
+	width: 300px;
+	margin: 0 0 1em 1.5em;
+	padding: 8px 10px 10px;
+	background: #100010;
+	color: #e6e6e6;
+	border: 2px solid #5000ff;
+	border-radius: 3px;
+	box-shadow: inset 0 0 0 1px #000000, 0 2px 8px rgba(0, 0, 0, 0.35);
+	font-size: 90%;
+	line-height: 1.45;
+}
+.cw-tip a {
+	color: inherit;
+	text-decoration: underline;
+}
+.cw-tip-title {
+	font-size: 125%;
+	font-weight: bold;
+	color: #ffffff;
+}
+.cw-tip-sub {
+	margin-bottom: 4px;
+	color: #aaaaaa;
+}
+.cw-tip-req {
+	color: #ff5555;
+}
+.cw-tip-event {
+	font-weight: bold;
+}
+.cw-tip-head {
+	margin-top: 8px;
+	padding-bottom: 2px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+	color: #ffaa00;
+	font-size: 85%;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+.cw-tip-row {
+	display: flex;
+	justify-content: space-between;
+	padding: 1px 0;
+}
+.cw-tip-label {
+	color: #aaaaaa;
+}
+.cw-tip-value {
+	margin-left: 12px;
+	text-align: right;
+	color: #ffffff;
+}
+.cw-tip-desc {
+	margin-top: 6px;
+	color: #55ffff;
+}
+.cw-tip-lore {
+	margin-top: 8px;
+	color: #c75ac7;
+	font-style: italic;
+}
+.cw-tip-note {
+	margin-top: 4px;
+	color: #aaaaaa;
+	font-size: 92%;
+}
+
+/* ---- Tables ---- */
+.cw-table td.cw-none {
+	opacity: 0.45;
+	text-align: center;
+}
+
+/* ---- Card grids (tab pages, class list) ---- */
+.cw-count {
+	margin-bottom: 0.5em;
+	opacity: 0.7;
+	font-size: 90%;
+}
+.cw-group {
+	clear: both;
+	margin: 1.2em 0 0.5em;
+	padding-bottom: 2px;
+	border-bottom: 1px solid rgba(128, 128, 128, 0.35);
+	font-size: 115%;
+	font-weight: bold;
+}
+.cw-grid {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -4px;
+}
+.cw-card {
+	flex: 1 1 190px;
+	max-width: 280px;
+	margin: 4px;
+	padding: 6px 10px;
+	background: rgba(128, 128, 128, 0.08);
+	border: 1px solid rgba(128, 128, 128, 0.3);
+	border-left: 4px solid rgba(128, 128, 128, 0.6);
+	border-radius: 3px;
+}
+.cw-card-name {
+	font-weight: bold;
+}
+.cw-card-sub {
+	font-size: 88%;
+	opacity: 0.85;
+}
+.cw-class ul {
+	margin: 0.3em 0 0 1.2em;
+}
+
+/* ---- Notices ---- */
+.cw-missing,
+.cw-help {
+	margin: 0.5em 0 1em;
+	padding: 6px 10px;
+	border-left: 4px solid #ac6600;
+	background: rgba(255, 170, 0, 0.08);
+	font-size: 92%;
+}
+.cw-missing {
+	border-left-color: #888888;
+	background: rgba(128, 128, 128, 0.08);
+}
+
+/* ---- Systems ---- */
+.cw-summary {
+	font-size: 105%;
+}
+
+/* ---- Phones: infobox goes full width above the text ---- */
+@media screen and (max-width: 720px) {
+	.cw-tip {
+		float: none;
+		width: auto;
+		margin: 0 0 1em;
+	}
+	.cw-card {
+		max-width: none;
+	}
+}

@@ -1,0 +1,24 @@
+<includeonly>{{#invoke:CinderData|classPage|key={{{key|}}}}}</includeonly><noinclude>
+The summary box for a class or subclass.
+
+Usage: <code><nowiki>{{ClassPage|key=SAMURAI}}</nowiki></code>
+
+The bot adds this to new pages. You do not need to change it; write your text around it. The data is read from the <code>Data:</code> pages and drawn by [[Module:CinderData]].
+
+<templatedata>
+{
+	"description": "The summary box for a class or subclass.",
+	"format": "block",
+	"params": {
+		"key": {
+			"label": "Class key",
+			"description": "The class or subclass key from the mod, e.g. SAMURAI. Capitals do not matter.",
+			"example": "SAMURAI",
+			"type": "string",
+			"required": true
+		}
+	}
+}
+</templatedata>
+[[Category:CinderWiki templates]]
+</noinclude>

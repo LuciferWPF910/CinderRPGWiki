@@ -1,0 +1,24 @@
+<includeonly>{{#invoke:CinderData|itemTable|tab={{{tab|}}}}}</includeonly><noinclude>
+A sortable table of every item in one creative tab. Columns appear only when at least one item has that stat. Each row is a link target, so /wiki/<item id> jumps straight to its row.
+
+Usage: <code><nowiki>{{ItemTable|tab=cinderblocks}}</nowiki></code>
+
+The bot adds this to new pages. You do not need to change it; write your text around it. The data is read from the <code>Data:</code> pages and drawn by [[Module:CinderData]].
+
+<templatedata>
+{
+	"description": "A sortable table of every item in one creative tab. Columns appear only when at least one item has that stat. Each row is a link target, so /wiki/<item id> jumps straight to its row.",
+	"format": "block",
+	"params": {
+		"tab": {
+			"label": "Tab",
+			"description": "The creative tab key the bot used, e.g. cinderblocks.",
+			"example": "cinderblocks",
+			"type": "string",
+			"required": true
+		}
+	}
+}
+</templatedata>
+[[Category:CinderWiki templates]]
+</noinclude>

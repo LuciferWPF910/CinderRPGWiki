@@ -1,0 +1,16 @@
+<includeonly>{{#invoke:CinderData|classList}}</includeonly><noinclude>
+Every class with its subclasses, linked to their pages.
+
+Usage: <code><nowiki>{{ClassList}}</nowiki></code>
+
+The bot adds this to new pages. You do not need to change it; write your text around it. The data is read from the <code>Data:</code> pages and drawn by [[Module:CinderData]].
+
+<templatedata>
+{
+	"description": "Every class with its subclasses, linked to their pages.",
+	"format": "block",
+	"params": {}
+}
+</templatedata>
+[[Category:CinderWiki templates]]
+</noinclude>

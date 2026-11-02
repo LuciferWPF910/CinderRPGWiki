@@ -1,0 +1,29 @@
+<includeonly><templatestyles src="Template:CinderData/styles.css" /><div class="cw-help">'''{{#switch:{{{1|}}}
+ |intro = This page has no introduction yet.
+ |obtaining = Nobody has written how to get this yet.
+ |#default = This section has not been written yet.
+}}''' Know about it? [{{fullurl:{{FULLPAGENAME}}|action=edit}} Edit this page] and replace this box with your text.</div>{{#ifeq:{{NAMESPACE}}|{{ns:0}}|[[Category:Pages needing writing]]}}</includeonly><noinclude>
+Marks a section that still needs writing. The bot adds it to new pages; editors replace it with real text.
+
+* <code><nowiki>{{Help write|description}}</nowiki></code> for an empty section
+* <code><nowiki>{{Help write|intro}}</nowiki></code> for a missing introduction
+* <code><nowiki>{{Help write|obtaining}}</nowiki></code> for how to get an item
+
+Pages using it are listed in [[:Category:Pages needing writing]], which is a good place to find something to write.
+
+<templatedata>
+{
+	"description": "Marks a section that still needs writing. Replace it with your own text.",
+	"format": "inline",
+	"params": {
+		"1": {
+			"label": "What is missing",
+			"description": "intro, description or obtaining",
+			"type": "string",
+			"suggestedvalues": ["intro", "description", "obtaining"]
+		}
+	}
+}
+</templatedata>
+[[Category:CinderWiki templates]]
+</noinclude>

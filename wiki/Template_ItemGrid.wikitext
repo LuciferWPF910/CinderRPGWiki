@@ -1,0 +1,24 @@
+<includeonly>{{#invoke:CinderData|itemGrid|tab={{{tab|}}}}}</includeonly><noinclude>
+A grid of cards linking to every item page in one creative tab, grouped by weapon type or slot and sorted by rarity.
+
+Usage: <code><nowiki>{{ItemGrid|tab=cinderweaponry}}</nowiki></code>
+
+The bot adds this to new pages. You do not need to change it; write your text around it. The data is read from the <code>Data:</code> pages and drawn by [[Module:CinderData]].
+
+<templatedata>
+{
+	"description": "A grid of cards linking to every item page in one creative tab, grouped by weapon type or slot and sorted by rarity.",
+	"format": "block",
+	"params": {
+		"tab": {
+			"label": "Tab",
+			"description": "The creative tab key the bot used, e.g. cinderweaponry.",
+			"example": "cinderweaponry",
+			"type": "string",
+			"required": true
+		}
+	}
+}
+</templatedata>
+[[Category:CinderWiki templates]]
+</noinclude>

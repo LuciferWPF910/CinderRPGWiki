@@ -1,0 +1,4 @@
+__HIDDENCAT__
+Pages here call a template whose data the mod has not published (yet). Usually it appears after the next sync. If a page stays here, its item, spell, class or system may have been removed from the game, or the template has a typo in its ID.
+
+This category fills itself; it empties again once the data exists.

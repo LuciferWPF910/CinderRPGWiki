@@ -1,0 +1,1 @@
+Templates that draw pages from the mod's data. They are kept in sync from GitHub, so change them there rather than on the wiki.

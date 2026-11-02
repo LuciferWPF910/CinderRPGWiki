@@ -1,0 +1,24 @@
+<includeonly>{{#invoke:CinderData|item|id={{{id|}}}}}</includeonly><noinclude>
+The stats box for one item. The bot puts it at the top of every item page; the numbers come from the mod and update by themselves after each sync.
+
+Usage: <code><nowiki>{{Item|id=ashenblade}}</nowiki></code>
+
+The bot adds this to new pages. You do not need to change it; write your text around it. The data is read from the <code>Data:</code> pages and drawn by [[Module:CinderData]].
+
+<templatedata>
+{
+	"description": "The stats box for one item. The bot puts it at the top of every item page; the numbers come from the mod and update by themselves after each sync.",
+	"format": "block",
+	"params": {
+		"id": {
+			"label": "Item ID",
+			"description": "The item's registry path, as in its page title.",
+			"example": "ashenblade",
+			"type": "string",
+			"required": true
+		}
+	}
+}
+</templatedata>
+[[Category:CinderWiki templates]]
+</noinclude>
