@@ -1,0 +1,362 @@
+{{Banner|kicker=For editors|title=Design kit|subtitle=Everything you need to make pages look good. Copy any example, paste it into a page, change the words.}}
+
+__NOTOC__
+
+{{Callout|type=tip|title=Using the visual editor?|Choose '''Insert''' then '''Template''', type the name (for example ''Box'' or ''Callout'') and fill in the boxes. Options with a fixed list, like themes and callout types, show a dropdown.}}
+
+== Themes ==
+
+Put <code><nowiki>{{Theme|frost}}</nowiki></code> once at the top of a page to change its accent colour: section lines, picture-button panels and every kit component on the page follow it. A single component can use its own colour with <code>theme=</code> or any colour with <code>colour=#55ccff</code>.
+
+{{Columns
+
+|{{Box|title=Gold|theme=gold|Cinder gold (the default)<br><code><nowiki>{{Theme|gold}}</nowiki></code>}}
+{{Box|title=Verdant|theme=verdant|Forests, plants, nature<br><code><nowiki>{{Theme|verdant}}</nowiki></code>}}
+{{Box|title=Abyss|theme=abyss|Sea, depths, the unknown<br><code><nowiki>{{Theme|abyss}}</nowiki></code>}}
+{{Box|title=Plague|theme=plague|Poison, rot, swamps<br><code><nowiki>{{Theme|plague}}</nowiki></code>}}
+
+|{{Box|title=Ember|theme=ember|Fire and forges<br><code><nowiki>{{Theme|ember}}</nowiki></code>}}
+{{Box|title=Arcane|theme=arcane|Magic and sorcery<br><code><nowiki>{{Theme|arcane}}</nowiki></code>}}
+{{Box|title=Holy|theme=holy|Holy, light, temples<br><code><nowiki>{{Theme|holy}}</nowiki></code>}}
+
+|{{Box|title=Frost|theme=frost|Ice and the north<br><code><nowiki>{{Theme|frost}}</nowiki></code>}}
+{{Box|title=Blood|theme=blood|Bosses, danger, war<br><code><nowiki>{{Theme|blood}}</nowiki></code>}}
+{{Box|title=Shadow|theme=shadow|Stealth, ruins, the dead<br><code><nowiki>{{Theme|shadow}}</nowiki></code>}}
+
+}}
+
+== Page look ==
+
+=== Theme ===
+
+Changes the accent colour of this page: kit components, heading lines and picture-button panels. Put it once at the top of the page. See [[Template:Theme]] for every option.
+
+=== Banner ===
+
+A large header for the top of a page, with an optional background picture. See [[Template:Banner]] for every option.
+
+{{Banner|title=The Ashlands|subtitle=A scorched waste south of Wendsey|theme=ember}}
+{{Banner|kicker=Guide|title=Getting started|align=left}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Banner|title=The Ashlands|subtitle=A scorched waste south of Wendsey|theme=ember}}
+{{Banner|kicker=Guide|title=Getting started|align=left}}
+</pre>
+}}
+
+=== Divider ===
+
+A decorative line across the page, with an optional word in the middle. See [[Template:Divider]] for every option.
+
+{{Divider}}
+{{Divider|Chapter II}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Divider}}
+{{Divider|Chapter II}}
+</pre>
+}}
+
+== Layout ==
+
+=== Box ===
+
+A panel with an optional title bar. Can float beside the text. See [[Template:Box]] for every option.
+
+{{Box|title=Did you know?|Spears outrange swords by one block.}}
+{{Box|title=Quick facts|float=right|width=260px|theme=arcane|
+* Fact one
+* Fact two
+}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Box|title=Did you know?|Spears outrange swords by one block.}}
+{{Box|title=Quick facts|float=right|width=260px|theme=arcane|
+* Fact one
+* Fact two
+}}
+</pre>
+}}
+
+{{Divider}}
+
+=== Columns ===
+
+Two to four columns side by side. They stack on phones. See [[Template:Columns]] for every option.
+
+{{Columns
+|Left column text.
+|Right column text.
+}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Columns
+|Left column text.
+|Right column text.
+}}
+</pre>
+}}
+
+=== Tabs ===
+
+Content split into tabs (up to 10). Without JavaScript the tabs show one after another. See [[Template:Tabs]] for every option.
+
+{{Tabs
+|tab1=Overview|content1=Text for the first tab.
+|tab2=Drops|content2=* Bone
+* Ash
+}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Tabs
+|tab1=Overview|content1=Text for the first tab.
+|tab2=Drops|content2=* Bone
+* Ash
+}}
+</pre>
+}}
+
+=== Collapse ===
+
+A section readers can open and close. Closed by default. See [[Template:Collapse]] for every option.
+
+{{Collapse|title=Full drop table|
+* Bone x2
+* Ashen shard (5%)
+}}
+{{Collapse|title=Spoilers|open=yes|Text}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Collapse|title=Full drop table|
+* Bone x2
+* Ashen shard (5%)
+}}
+{{Collapse|title=Spoilers|open=yes|Text}}
+</pre>
+}}
+
+=== Infobox ===
+
+A general information box for characters, places, factions, events or anything else. See [[Template:Infobox]] for every option.
+
+{{Infobox
+|title=Elder Morwen
+|subtitle=Keeper of the Ember Codex
+|header1=Details
+|label1=Race|data1=Human
+|label2=Location|data2=[[Ashen Library]]
+|header3=Combat
+|label3=Hostile|data3=No
+|theme=ember
+}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Infobox
+|title=Elder Morwen
+|subtitle=Keeper of the Ember Codex
+|header1=Details
+|label1=Race|data1=Human
+|label2=Location|data2=[[Ashen Library]]
+|header3=Combat
+|label3=Hostile|data3=No
+|theme=ember
+}}
+</pre>
+}}
+
+{{Divider}}
+
+== Notices and text ==
+
+=== Callout ===
+
+A coloured notice: tip, note, info, warning, danger, lore or success. See [[Template:Callout]] for every option.
+
+{{Callout|type=tip|Sneak past sleeping bosses to skip the fight.}}
+{{Callout|type=warning|title=Careful|Lava below this bridge.}}
+{{Callout|type=lore|The old kings buried their dead with their blades.}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Callout|type=tip|Sneak past sleeping bosses to skip the fight.}}
+{{Callout|type=warning|title=Careful|Lava below this bridge.}}
+{{Callout|type=lore|The old kings buried their dead with their blades.}}
+</pre>
+}}
+
+=== Quote ===
+
+A styled quotation for lore and dialogue. See [[Template:Quote]] for every option.
+
+{{Quote|The ash remembers what the fire forgets.|Elder Morwen|The Ember Codex}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Quote|The ash remembers what the fire forgets.|Elder Morwen|The Ember Codex}}
+</pre>
+}}
+
+=== Spoiler ===
+
+Blurred text that shows when hovered or tapped. See [[Template:Spoiler]] for every option.
+
+{{Spoiler|The innkeeper is the cult leader.}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Spoiler|The innkeeper is the cult leader.}}
+</pre>
+}}
+
+=== Hover ===
+
+Text with a hint that appears on hover. See [[Template:Hover]] for every option.
+
+{{Hover|DPS|Damage per second}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Hover|DPS|Damage per second}}
+</pre>
+}}
+
+== Buttons and labels ==
+
+=== Button ===
+
+A link that looks like a button. Works with wiki pages and web addresses. See [[Template:Button]] for every option.
+
+{{Button|Weapons|Browse weapons}}
+{{Button|https://discord.gg/example|Join the Discord|style=outline|theme=arcane}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Button|Weapons|Browse weapons}}
+{{Button|https://discord.gg/example|Join the Discord|style=outline|theme=arcane}}
+</pre>
+}}
+
+=== Badge ===
+
+A small rounded label. See [[Template:Badge]] for every option.
+
+{{Badge|New}}
+{{Badge|Boss|theme=blood}}
+{{Badge|Event|colour=#ff66cc}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Badge|New}}
+{{Badge|Boss|theme=blood}}
+{{Badge|Event|colour=#ff66cc}}
+</pre>
+}}
+
+=== Rarity ===
+
+A rarity name in its in-game colour. See [[Template:Rarity]] for every option.
+
+{{Rarity|Legendary}}
+{{Rarity|super rare}}
+{{Rarity|mythic|Mythic blade}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Rarity|Legendary}}
+{{Rarity|super rare}}
+{{Rarity|mythic|Mythic blade}}
+</pre>
+}}
+
+== Guides and stats ==
+
+=== Step ===
+
+One numbered step of a guide. See [[Template:Step]] for every option.
+
+{{Step|n=1|title=Build a workbench|Place four planks in a square.}}
+{{Step|n=2|title=Craft the forge|You need 8 stone.}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Step|n=1|title=Build a workbench|Place four planks in a square.}}
+{{Step|n=2|title=Craft the forge|You need 8 stone.}}
+</pre>
+}}
+
+=== Stat bar ===
+
+A labelled bar showing a value out of a maximum. See [[Template:Stat bar]] for every option.
+
+{{Stat bar|label=Damage|value=72|max=100}}
+{{Stat bar|label=Speed|value=1.6|max=4|text=1.6 per second|theme=frost}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Stat bar|label=Damage|value=72|max=100}}
+{{Stat bar|label=Speed|value=1.6|max=4|text=1.6 per second|theme=frost}}
+</pre>
+}}
+
+=== Key ===
+
+Keyboard keys. See [[Template:Key]] for every option.
+
+{{Key|E}}
+{{Key|Shift|Right click}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Key|E}}
+{{Key|Shift|Right click}}
+</pre>
+}}
+
+=== Coords ===
+
+In-game coordinates. Hover shows the teleport command. See [[Template:Coords]] for every option.
+
+{{Coords|120|64|-300}}
+{{Coords|120|64|-300|Nether}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{Coords|120|64|-300}}
+{{Coords|120|64|-300|Nether}}
+</pre>
+}}
+
+=== MC ===
+
+Text in Minecraft colours, as it looks in game chat and tooltips. See [[Template:MC]] for every option.
+
+{{MC|gold|Ashen Blade}}
+{{MC|&6Legendary &7Katana &c&lCursed}}
+{{MC|aqua|plain text colour|plain=yes}}
+
+{{Collapse|title=Code|open=no|
+<pre>
+{{MC|gold|Ashen Blade}}
+{{MC|&6Legendary &7Katana &c&lCursed}}
+{{MC|aqua|plain text colour|plain=yes}}
+</pre>
+}}
+
+== Picture buttons ==
+
+Picture-button panels for introduction pages are [[Template:Tiles]] and [[Template:Tile]].
+
+{{Tiles|title=Example|size=small|
+{{Tile|Weapons|text=Every blade}}
+{{Tile|Spells|text=All schools}}
+{{Tile|Classes}}
+}}
+
+[[Category:Design kit]]

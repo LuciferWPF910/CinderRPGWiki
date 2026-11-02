@@ -1,0 +1,911 @@
+/* Cinder design kit (Module:Kit). Shared by every kit template.
+   Colours: structural colours are see-through greys that work on light and
+   dark skins; accent colours come from the theme section at the bottom and
+   from Template:Theme/<name>.css. Change accents there, not here. */
+
+.cw-k {
+	box-sizing: border-box;
+}
+
+/* ---- Banner ---- */
+.cw-k-banner {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 180px;
+	margin: 0 0 1.2em;
+	padding: 28px 24px;
+	background: #0e0d12;
+	color: #f4efe6;
+	border-bottom: 3px solid #bfa06f;
+	border-radius: 4px;
+	text-align: center;
+}
+.cw-k-banner-left {
+	justify-content: flex-start;
+	text-align: left;
+}
+.cw-k-banner-img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0.45;
+}
+.cw-k-banner-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.cw-k-banner-inner {
+	position: relative;
+	max-width: 760px;
+}
+.cw-k-banner-kicker {
+	margin-bottom: 4px;
+	font-size: 80%;
+	font-weight: bold;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+.cw-k-banner-title {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 260%;
+	line-height: 1.15;
+	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+.cw-k-banner-sub {
+	margin-top: 8px;
+	font-size: 112%;
+	opacity: 0.88;
+	text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+}
+.cw-k-banner-rule {
+	width: 90px;
+	height: 3px;
+	margin: 14px auto 0;
+	border-radius: 2px;
+}
+.cw-k-banner-left .cw-k-banner-rule {
+	margin-left: 0;
+}
+.cw-k-banner a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+/* ---- Box ---- */
+.cw-k-box {
+	margin: 0 0 1em;
+	background: rgba(128, 128, 128, 0.06);
+	border: 1px solid rgba(128, 128, 128, 0.3);
+	border-top: 3px solid #bfa06f;
+	border-radius: 4px;
+}
+.cw-k-box-head {
+	display: flex;
+	align-items: center;
+	padding: 7px 12px;
+	font-weight: bold;
+	font-size: 108%;
+}
+.cw-k-box-icon {
+	margin-right: 8px;
+	line-height: 0;
+}
+.cw-k-box-body {
+	padding: 4px 14px 10px;
+}
+.cw-k-float-right {
+	float: right;
+	clear: right;
+	width: 300px;
+	margin: 0 0 1em 1.5em;
+}
+.cw-k-float-left {
+	float: left;
+	clear: left;
+	width: 300px;
+	margin: 0 1.5em 1em 0;
+}
+
+/* ---- Callouts ---- */
+.cw-k-callout {
+	display: flex;
+	margin: 0 0 1em;
+	padding: 8px 12px;
+	border-left: 4px solid #72777d;
+	border-radius: 0 4px 4px 0;
+	background: rgba(114, 119, 125, 0.12);
+}
+.cw-k-callout-icon {
+	flex: 0 0 auto;
+	width: 26px;
+	font-size: 125%;
+	line-height: 1.4;
+}
+.cw-k-callout-body {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+.cw-k-callout-body > div > p:first-child {
+	margin-top: 0;
+}
+.cw-k-callout-title {
+	font-weight: bold;
+}
+.cw-k-callout-tip { border-left-color: #3fa66b; background: rgba(63, 166, 107, 0.12); }
+.cw-k-callout-tip .cw-k-callout-icon { color: #3fa66b; }
+.cw-k-callout-note { border-left-color: #6b8fd6; background: rgba(107, 143, 214, 0.12); }
+.cw-k-callout-note .cw-k-callout-icon { color: #6b8fd6; }
+.cw-k-callout-info { border-left-color: #36a3c9; background: rgba(54, 163, 201, 0.12); }
+.cw-k-callout-info .cw-k-callout-icon { color: #36a3c9; }
+.cw-k-callout-warning { border-left-color: #d99a1f; background: rgba(217, 154, 31, 0.14); }
+.cw-k-callout-warning .cw-k-callout-icon { color: #d99a1f; }
+.cw-k-callout-danger { border-left-color: #d33b3b; background: rgba(211, 59, 59, 0.13); }
+.cw-k-callout-danger .cw-k-callout-icon { color: #d33b3b; }
+.cw-k-callout-lore { border-left-color: #a46bd6; background: rgba(164, 107, 214, 0.12); font-style: italic; }
+.cw-k-callout-lore .cw-k-callout-icon { color: #a46bd6; font-style: normal; }
+.cw-k-callout-success { border-left-color: #4caf50; background: rgba(76, 175, 80, 0.12); }
+.cw-k-callout-success .cw-k-callout-icon { color: #4caf50; }
+
+/* ---- Columns ---- */
+.cw-k-cols {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	margin: 0 0 1em;
+}
+.cw-k-col {
+	flex: 1 1 0;
+	min-width: 0;
+}
+.cw-k-col > p:first-child {
+	margin-top: 0;
+}
+
+/* ---- Buttons ---- */
+.cw-k-btn {
+	display: inline-block;
+	margin: 2px 4px 2px 0;
+	border: 2px solid #bfa06f;
+	border-radius: 4px;
+	font-weight: bold;
+	line-height: 1.2;
+	vertical-align: middle;
+	transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.cw-k-btn a {
+	display: block;
+	padding: 7px 16px;
+	text-decoration: none;
+}
+.cw-k-btn:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+.cw-k-btn-solid {
+	background-color: #bfa06f;
+}
+.cw-k-btn-solid a,
+.cw-k-btn-solid a:visited {
+	color: #15130f;
+}
+.cw-k-btn-outline a,
+.cw-k-btn-outline a:visited,
+.cw-k-btn-ghost a,
+.cw-k-btn-ghost a:visited {
+	color: inherit;
+}
+.cw-k-btn-ghost {
+	border-color: transparent;
+}
+.cw-k-btn-ghost:hover {
+	background: rgba(128, 128, 128, 0.15);
+}
+.cw-k-btn-small a {
+	padding: 3px 10px;
+	font-size: 88%;
+}
+.cw-k-btn-large a {
+	padding: 11px 24px;
+	font-size: 115%;
+}
+
+/* ---- Badges and rarity ---- */
+.cw-k-badge {
+	display: inline-block;
+	padding: 0 8px;
+	border: 1px solid #bfa06f;
+	border-radius: 999px;
+	font-size: 85%;
+	font-weight: bold;
+	line-height: 1.6;
+	vertical-align: baseline;
+}
+.cw-k-rarity {
+	display: inline-block;
+	padding: 0 8px;
+	background: #16131c;
+	border-radius: 3px;
+	font-weight: bold;
+	font-size: 92%;
+	line-height: 1.6;
+}
+
+/* ---- Divider ---- */
+.cw-k-divider {
+	display: flex;
+	align-items: center;
+	margin: 1.4em 0;
+	clear: both;
+}
+.cw-k-divider-line {
+	flex: 1 1 auto;
+	height: 1px;
+	opacity: 0.6;
+}
+.cw-k-divider-mark {
+	flex: 0 0 auto;
+	padding: 0 12px;
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 110%;
+	letter-spacing: 0.08em;
+}
+
+/* ---- Quote ---- */
+.cw-k-quote {
+	position: relative;
+	margin: 0 0 1em;
+	padding: 10px 16px 10px 44px;
+	border-left: 3px solid #bfa06f;
+	background: rgba(128, 128, 128, 0.06);
+	border-radius: 0 4px 4px 0;
+}
+.cw-k-quote::before {
+	content: '\201C';
+	position: absolute;
+	top: -6px;
+	left: 10px;
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 300%;
+	opacity: 0.35;
+}
+.cw-k-quote-text {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-style: italic;
+	font-size: 106%;
+}
+.cw-k-quote-text > p:first-child {
+	margin-top: 0;
+}
+.cw-k-quote-cite {
+	margin-top: 4px;
+	font-size: 90%;
+	opacity: 0.8;
+	text-align: right;
+}
+
+/* ---- Stat bar ---- */
+.cw-k-stat {
+	margin: 0 0 8px;
+}
+.cw-k-stat-top {
+	display: flex;
+	justify-content: space-between;
+	font-size: 92%;
+}
+.cw-k-stat-label {
+	font-weight: bold;
+}
+.cw-k-stat-value {
+	opacity: 0.85;
+}
+.cw-k-stat-track {
+	height: 8px;
+	margin-top: 3px;
+	background: rgba(128, 128, 128, 0.22);
+	border-radius: 4px;
+	overflow: hidden;
+}
+.cw-k-stat-fill {
+	height: 100%;
+	background-color: #bfa06f;
+	border-radius: 4px;
+}
+
+/* ---- Steps ---- */
+.cw-k-step {
+	display: flex;
+	margin: 0 0 12px;
+}
+.cw-k-step-num {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	margin-right: 12px;
+	border-radius: 50%;
+	background-color: #bfa06f;
+	color: #15130f;
+	font-weight: bold;
+}
+.cw-k-step-body {
+	flex: 1 1 auto;
+	min-width: 0;
+	padding-top: 4px;
+}
+.cw-k-step-body > div > p:first-child {
+	margin-top: 0;
+}
+.cw-k-step-title {
+	font-weight: bold;
+	font-size: 105%;
+}
+
+/* ---- Collapse ---- */
+.cw-k-collapse {
+	margin: 0 0 1em;
+	padding: 6px 12px;
+	border: 1px solid rgba(128, 128, 128, 0.3);
+	border-left: 4px solid #bfa06f;
+	border-radius: 0 4px 4px 0;
+	background: rgba(128, 128, 128, 0.05);
+}
+.cw-k-collapse-head {
+	font-weight: bold;
+	padding-right: 6em;
+}
+.cw-k-collapse-body {
+	padding-top: 4px;
+}
+
+/* ---- Tabs ---- */
+.cw-k-tabs {
+	margin: 0 0 1em;
+}
+.cw-k-tab-fallback {
+	margin: 0.8em 0 0.4em;
+	padding-bottom: 2px;
+	border-bottom: 2px solid #bfa06f;
+	font-weight: bold;
+}
+.cw-k-tabs-ready .cw-k-tab-fallback {
+	display: none;
+}
+.cw-k-tab-bar {
+	display: flex;
+	flex-wrap: wrap;
+	border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+}
+.cw-k-tab-btn {
+	margin: 0 2px -1px 0;
+	padding: 6px 14px;
+	border: 1px solid transparent;
+	border-bottom: 3px solid transparent;
+	background: none;
+	color: inherit;
+	font: inherit;
+	font-weight: bold;
+	cursor: pointer;
+	opacity: 0.7;
+}
+.cw-k-tab-btn:hover {
+	opacity: 1;
+	background: rgba(128, 128, 128, 0.1);
+}
+.cw-k-tab-btn.cw-k-tab-active {
+	opacity: 1;
+	border-bottom-color: #bfa06f;
+}
+.cw-k-tabs-ready .cw-k-tab-panel {
+	display: none;
+	padding-top: 6px;
+}
+.cw-k-tabs-ready .cw-k-tab-panel.cw-k-tab-shown {
+	display: block;
+}
+
+/* ---- Infobox ---- */
+.cw-k-infobox {
+	float: right;
+	clear: right;
+	width: 290px;
+	margin: 0 0 1em 1.5em;
+	background: rgba(128, 128, 128, 0.07);
+	border: 1px solid rgba(128, 128, 128, 0.35);
+	border-top: 4px solid #bfa06f;
+	border-radius: 4px;
+	font-size: 92%;
+}
+.cw-k-infobox-left {
+	float: left;
+	clear: left;
+	margin: 0 1.5em 1em 0;
+}
+.cw-k-infobox-title {
+	padding: 8px 10px;
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 135%;
+	font-weight: bold;
+	text-align: center;
+}
+.cw-k-infobox-sub {
+	padding: 0 10px 6px;
+	text-align: center;
+	font-style: italic;
+	opacity: 0.85;
+}
+.cw-k-infobox-img {
+	padding: 6px;
+	text-align: center;
+}
+.cw-k-infobox-img img {
+	max-width: 100%;
+	height: auto;
+}
+.cw-k-infobox-caption {
+	font-size: 88%;
+	opacity: 0.8;
+}
+.cw-k-infobox-rows {
+	padding: 4px 10px 8px;
+}
+.cw-k-infobox-header {
+	margin: 8px 0 4px;
+	padding-bottom: 2px;
+	border-bottom: 2px solid #bfa06f;
+	font-weight: bold;
+	text-align: center;
+}
+.cw-k-infobox-row {
+	display: flex;
+	padding: 3px 0;
+	border-bottom: 1px solid rgba(128, 128, 128, 0.18);
+}
+.cw-k-infobox-label {
+	flex: 0 0 40%;
+	padding-right: 8px;
+	font-weight: bold;
+}
+.cw-k-infobox-data {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+.cw-k-infobox-data > p:first-child,
+.cw-k-infobox-below > p:first-child {
+	margin-top: 0;
+}
+.cw-k-infobox-full .cw-k-infobox-data {
+	text-align: center;
+}
+.cw-k-infobox-below {
+	padding: 6px 10px 8px;
+	font-size: 92%;
+	text-align: center;
+}
+
+/* ---- Keys, coordinates, spoilers, hover, Minecraft text ---- */
+.cw-k-keys {
+	white-space: nowrap;
+}
+.cw-k-key {
+	display: inline-block;
+	min-width: 1.4em;
+	padding: 0 6px;
+	border: 1px solid rgba(128, 128, 128, 0.6);
+	border-bottom-width: 3px;
+	border-radius: 4px;
+	background: rgba(128, 128, 128, 0.12);
+	font-family: monospace;
+	font-size: 88%;
+	line-height: 1.5;
+	text-align: center;
+}
+.cw-k-plus {
+	padding: 0 3px;
+	opacity: 0.7;
+}
+.cw-k-coords {
+	display: inline-block;
+	padding: 0 8px;
+	border: 1px solid rgba(128, 128, 128, 0.45);
+	border-radius: 999px;
+	background: rgba(128, 128, 128, 0.1);
+	font-family: monospace;
+	font-size: 90%;
+	white-space: nowrap;
+	cursor: help;
+}
+.cw-k-coords-pin {
+	margin-right: 4px;
+	opacity: 0.7;
+}
+.cw-k-coords-world {
+	margin-left: 6px;
+	padding-left: 6px;
+	border-left: 1px solid rgba(128, 128, 128, 0.45);
+	opacity: 0.8;
+}
+.cw-k-spoiler {
+	filter: blur(5px);
+	transition: filter 0.2s ease;
+	cursor: help;
+	background: rgba(128, 128, 128, 0.2);
+	border-radius: 3px;
+}
+.cw-k-spoiler:hover,
+.cw-k-spoiler:active {
+	filter: none;
+	background: none;
+}
+.cw-k-hover {
+	border-bottom: 1px dotted currentColor;
+	cursor: help;
+}
+.cw-k-mc {
+	display: inline-block;
+	padding: 0 6px;
+	background: #1d1a24;
+	border-radius: 3px;
+	color: #ffffff;
+	font-family: monospace;
+	text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
+}
+.cw-k-mc-plain {
+	padding: 0;
+	background: none;
+	font-family: inherit;
+	text-shadow: none;
+}
+
+/* ---- Phones ---- */
+@media screen and (max-width: 720px) {
+	.cw-k-float-right,
+	.cw-k-float-left,
+	.cw-k-infobox,
+	.cw-k-infobox-left {
+		float: none;
+		width: auto;
+		margin: 0 0 1em;
+	}
+	.cw-k-cols {
+		flex-direction: column;
+	}
+	.cw-k-banner-title {
+		font-size: 190%;
+	}
+}
+
+
+/* ==================================================================
+   Theme colours. Default page theme (gold) here; {{Theme|name}} loads
+   Template:Theme/<name>.css, which overrides it for the whole page.
+   theme=<name> on a single component uses the blocks below.
+   Generated: keep every theme block the same shape.
+   ================================================================== */
+
+/* page default: gold */
+.cw-t-page.cw-a-bt,
+.cw-t-page .cw-a-bt {
+	border-top-color: #BFA06F;
+}
+.cw-t-page.cw-a-bl,
+.cw-t-page .cw-a-bl {
+	border-left-color: #BFA06F;
+}
+.cw-t-page.cw-a-bb,
+.cw-t-page .cw-a-bb {
+	border-bottom-color: #BFA06F;
+}
+.cw-t-page.cw-a-border,
+.cw-t-page .cw-a-border {
+	border-color: #BFA06F;
+}
+.cw-t-page.cw-a-bg,
+.cw-t-page .cw-a-bg {
+	background-color: #BFA06F;
+}
+.cw-t-page.cw-a-tint,
+.cw-t-page .cw-a-tint {
+	background-color: rgba(191, 160, 111, 0.16);
+}
+.cw-t-page.cw-a-text,
+.cw-t-page .cw-a-text {
+	color: #BFA06F;
+}
+/* gold */
+.cw-k.cw-t-gold.cw-a-bt,
+.cw-k.cw-t-gold .cw-a-bt {
+	border-top-color: #BFA06F;
+}
+.cw-k.cw-t-gold.cw-a-bl,
+.cw-k.cw-t-gold .cw-a-bl {
+	border-left-color: #BFA06F;
+}
+.cw-k.cw-t-gold.cw-a-bb,
+.cw-k.cw-t-gold .cw-a-bb {
+	border-bottom-color: #BFA06F;
+}
+.cw-k.cw-t-gold.cw-a-border,
+.cw-k.cw-t-gold .cw-a-border {
+	border-color: #BFA06F;
+}
+.cw-k.cw-t-gold.cw-a-bg,
+.cw-k.cw-t-gold .cw-a-bg {
+	background-color: #BFA06F;
+}
+.cw-k.cw-t-gold.cw-a-tint,
+.cw-k.cw-t-gold .cw-a-tint {
+	background-color: rgba(191, 160, 111, 0.16);
+}
+.cw-k.cw-t-gold.cw-a-text,
+.cw-k.cw-t-gold .cw-a-text {
+	color: #BFA06F;
+}
+/* ember */
+.cw-k.cw-t-ember.cw-a-bt,
+.cw-k.cw-t-ember .cw-a-bt {
+	border-top-color: #E8873A;
+}
+.cw-k.cw-t-ember.cw-a-bl,
+.cw-k.cw-t-ember .cw-a-bl {
+	border-left-color: #E8873A;
+}
+.cw-k.cw-t-ember.cw-a-bb,
+.cw-k.cw-t-ember .cw-a-bb {
+	border-bottom-color: #E8873A;
+}
+.cw-k.cw-t-ember.cw-a-border,
+.cw-k.cw-t-ember .cw-a-border {
+	border-color: #E8873A;
+}
+.cw-k.cw-t-ember.cw-a-bg,
+.cw-k.cw-t-ember .cw-a-bg {
+	background-color: #E8873A;
+}
+.cw-k.cw-t-ember.cw-a-tint,
+.cw-k.cw-t-ember .cw-a-tint {
+	background-color: rgba(232, 135, 58, 0.16);
+}
+.cw-k.cw-t-ember.cw-a-text,
+.cw-k.cw-t-ember .cw-a-text {
+	color: #E8873A;
+}
+/* frost */
+.cw-k.cw-t-frost.cw-a-bt,
+.cw-k.cw-t-frost .cw-a-bt {
+	border-top-color: #6EC8F5;
+}
+.cw-k.cw-t-frost.cw-a-bl,
+.cw-k.cw-t-frost .cw-a-bl {
+	border-left-color: #6EC8F5;
+}
+.cw-k.cw-t-frost.cw-a-bb,
+.cw-k.cw-t-frost .cw-a-bb {
+	border-bottom-color: #6EC8F5;
+}
+.cw-k.cw-t-frost.cw-a-border,
+.cw-k.cw-t-frost .cw-a-border {
+	border-color: #6EC8F5;
+}
+.cw-k.cw-t-frost.cw-a-bg,
+.cw-k.cw-t-frost .cw-a-bg {
+	background-color: #6EC8F5;
+}
+.cw-k.cw-t-frost.cw-a-tint,
+.cw-k.cw-t-frost .cw-a-tint {
+	background-color: rgba(110, 200, 245, 0.16);
+}
+.cw-k.cw-t-frost.cw-a-text,
+.cw-k.cw-t-frost .cw-a-text {
+	color: #6EC8F5;
+}
+/* verdant */
+.cw-k.cw-t-verdant.cw-a-bt,
+.cw-k.cw-t-verdant .cw-a-bt {
+	border-top-color: #5DBB63;
+}
+.cw-k.cw-t-verdant.cw-a-bl,
+.cw-k.cw-t-verdant .cw-a-bl {
+	border-left-color: #5DBB63;
+}
+.cw-k.cw-t-verdant.cw-a-bb,
+.cw-k.cw-t-verdant .cw-a-bb {
+	border-bottom-color: #5DBB63;
+}
+.cw-k.cw-t-verdant.cw-a-border,
+.cw-k.cw-t-verdant .cw-a-border {
+	border-color: #5DBB63;
+}
+.cw-k.cw-t-verdant.cw-a-bg,
+.cw-k.cw-t-verdant .cw-a-bg {
+	background-color: #5DBB63;
+}
+.cw-k.cw-t-verdant.cw-a-tint,
+.cw-k.cw-t-verdant .cw-a-tint {
+	background-color: rgba(93, 187, 99, 0.16);
+}
+.cw-k.cw-t-verdant.cw-a-text,
+.cw-k.cw-t-verdant .cw-a-text {
+	color: #5DBB63;
+}
+/* arcane */
+.cw-k.cw-t-arcane.cw-a-bt,
+.cw-k.cw-t-arcane .cw-a-bt {
+	border-top-color: #A47CFF;
+}
+.cw-k.cw-t-arcane.cw-a-bl,
+.cw-k.cw-t-arcane .cw-a-bl {
+	border-left-color: #A47CFF;
+}
+.cw-k.cw-t-arcane.cw-a-bb,
+.cw-k.cw-t-arcane .cw-a-bb {
+	border-bottom-color: #A47CFF;
+}
+.cw-k.cw-t-arcane.cw-a-border,
+.cw-k.cw-t-arcane .cw-a-border {
+	border-color: #A47CFF;
+}
+.cw-k.cw-t-arcane.cw-a-bg,
+.cw-k.cw-t-arcane .cw-a-bg {
+	background-color: #A47CFF;
+}
+.cw-k.cw-t-arcane.cw-a-tint,
+.cw-k.cw-t-arcane .cw-a-tint {
+	background-color: rgba(164, 124, 255, 0.16);
+}
+.cw-k.cw-t-arcane.cw-a-text,
+.cw-k.cw-t-arcane .cw-a-text {
+	color: #A47CFF;
+}
+/* blood */
+.cw-k.cw-t-blood.cw-a-bt,
+.cw-k.cw-t-blood .cw-a-bt {
+	border-top-color: #D9414E;
+}
+.cw-k.cw-t-blood.cw-a-bl,
+.cw-k.cw-t-blood .cw-a-bl {
+	border-left-color: #D9414E;
+}
+.cw-k.cw-t-blood.cw-a-bb,
+.cw-k.cw-t-blood .cw-a-bb {
+	border-bottom-color: #D9414E;
+}
+.cw-k.cw-t-blood.cw-a-border,
+.cw-k.cw-t-blood .cw-a-border {
+	border-color: #D9414E;
+}
+.cw-k.cw-t-blood.cw-a-bg,
+.cw-k.cw-t-blood .cw-a-bg {
+	background-color: #D9414E;
+}
+.cw-k.cw-t-blood.cw-a-tint,
+.cw-k.cw-t-blood .cw-a-tint {
+	background-color: rgba(217, 65, 78, 0.16);
+}
+.cw-k.cw-t-blood.cw-a-text,
+.cw-k.cw-t-blood .cw-a-text {
+	color: #D9414E;
+}
+/* abyss */
+.cw-k.cw-t-abyss.cw-a-bt,
+.cw-k.cw-t-abyss .cw-a-bt {
+	border-top-color: #2BB3A3;
+}
+.cw-k.cw-t-abyss.cw-a-bl,
+.cw-k.cw-t-abyss .cw-a-bl {
+	border-left-color: #2BB3A3;
+}
+.cw-k.cw-t-abyss.cw-a-bb,
+.cw-k.cw-t-abyss .cw-a-bb {
+	border-bottom-color: #2BB3A3;
+}
+.cw-k.cw-t-abyss.cw-a-border,
+.cw-k.cw-t-abyss .cw-a-border {
+	border-color: #2BB3A3;
+}
+.cw-k.cw-t-abyss.cw-a-bg,
+.cw-k.cw-t-abyss .cw-a-bg {
+	background-color: #2BB3A3;
+}
+.cw-k.cw-t-abyss.cw-a-tint,
+.cw-k.cw-t-abyss .cw-a-tint {
+	background-color: rgba(43, 179, 163, 0.16);
+}
+.cw-k.cw-t-abyss.cw-a-text,
+.cw-k.cw-t-abyss .cw-a-text {
+	color: #2BB3A3;
+}
+/* holy */
+.cw-k.cw-t-holy.cw-a-bt,
+.cw-k.cw-t-holy .cw-a-bt {
+	border-top-color: #E9C75A;
+}
+.cw-k.cw-t-holy.cw-a-bl,
+.cw-k.cw-t-holy .cw-a-bl {
+	border-left-color: #E9C75A;
+}
+.cw-k.cw-t-holy.cw-a-bb,
+.cw-k.cw-t-holy .cw-a-bb {
+	border-bottom-color: #E9C75A;
+}
+.cw-k.cw-t-holy.cw-a-border,
+.cw-k.cw-t-holy .cw-a-border {
+	border-color: #E9C75A;
+}
+.cw-k.cw-t-holy.cw-a-bg,
+.cw-k.cw-t-holy .cw-a-bg {
+	background-color: #E9C75A;
+}
+.cw-k.cw-t-holy.cw-a-tint,
+.cw-k.cw-t-holy .cw-a-tint {
+	background-color: rgba(233, 199, 90, 0.16);
+}
+.cw-k.cw-t-holy.cw-a-text,
+.cw-k.cw-t-holy .cw-a-text {
+	color: #E9C75A;
+}
+/* shadow */
+.cw-k.cw-t-shadow.cw-a-bt,
+.cw-k.cw-t-shadow .cw-a-bt {
+	border-top-color: #9097A3;
+}
+.cw-k.cw-t-shadow.cw-a-bl,
+.cw-k.cw-t-shadow .cw-a-bl {
+	border-left-color: #9097A3;
+}
+.cw-k.cw-t-shadow.cw-a-bb,
+.cw-k.cw-t-shadow .cw-a-bb {
+	border-bottom-color: #9097A3;
+}
+.cw-k.cw-t-shadow.cw-a-border,
+.cw-k.cw-t-shadow .cw-a-border {
+	border-color: #9097A3;
+}
+.cw-k.cw-t-shadow.cw-a-bg,
+.cw-k.cw-t-shadow .cw-a-bg {
+	background-color: #9097A3;
+}
+.cw-k.cw-t-shadow.cw-a-tint,
+.cw-k.cw-t-shadow .cw-a-tint {
+	background-color: rgba(144, 151, 163, 0.16);
+}
+.cw-k.cw-t-shadow.cw-a-text,
+.cw-k.cw-t-shadow .cw-a-text {
+	color: #9097A3;
+}
+/* plague */
+.cw-k.cw-t-plague.cw-a-bt,
+.cw-k.cw-t-plague .cw-a-bt {
+	border-top-color: #9DB43A;
+}
+.cw-k.cw-t-plague.cw-a-bl,
+.cw-k.cw-t-plague .cw-a-bl {
+	border-left-color: #9DB43A;
+}
+.cw-k.cw-t-plague.cw-a-bb,
+.cw-k.cw-t-plague .cw-a-bb {
+	border-bottom-color: #9DB43A;
+}
+.cw-k.cw-t-plague.cw-a-border,
+.cw-k.cw-t-plague .cw-a-border {
+	border-color: #9DB43A;
+}
+.cw-k.cw-t-plague.cw-a-bg,
+.cw-k.cw-t-plague .cw-a-bg {
+	background-color: #9DB43A;
+}
+.cw-k.cw-t-plague.cw-a-tint,
+.cw-k.cw-t-plague .cw-a-tint {
+	background-color: rgba(157, 180, 58, 0.16);
+}
+.cw-k.cw-t-plague.cw-a-text,
+.cw-k.cw-t-plague .cw-a-text {
+	color: #9DB43A;
+}

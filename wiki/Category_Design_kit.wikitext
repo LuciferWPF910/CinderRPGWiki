@@ -1,0 +1,1 @@
+Templates for making pages look good. See [[Project:Design kit]] for live examples and code you can copy.

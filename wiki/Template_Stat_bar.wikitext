@@ -1,0 +1,72 @@
+<includeonly>{{#invoke:Kit|statBar}}</includeonly><noinclude>
+A labelled bar showing a value out of a maximum.
+
+<pre>
+{{Stat bar|label=Damage|value=72|max=100}}
+{{Stat bar|label=Speed|value=1.6|max=4|text=1.6 per second|theme=frost}}
+</pre>
+
+'''Result:'''
+
+{{Stat bar|label=Damage|value=72|max=100}}
+{{Stat bar|label=Speed|value=1.6|max=4|text=1.6 per second|theme=frost}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "A labelled bar showing a value out of a maximum.",
+	"format": "block",
+	"params": {
+		"label": {
+			"label": "Label",
+			"description": "Name of the stat.",
+			"type": "line",
+			"required": true
+		},
+		"value": {
+			"label": "Value",
+			"description": "Number.",
+			"type": "number",
+			"required": true
+		},
+		"max": {
+			"label": "Maximum",
+			"description": "Full bar value.",
+			"type": "number",
+			"default": "100"
+		},
+		"text": {
+			"label": "Text",
+			"description": "Text on the right instead of value / max.",
+			"type": "line"
+		},
+		"theme": {
+			"label": "Theme",
+			"description": "Colour theme for just this one. Leave empty to follow the page theme.",
+			"type": "string",
+			"suggestedvalues": [
+				"gold",
+				"ember",
+				"frost",
+				"verdant",
+				"arcane",
+				"blood",
+				"abyss",
+				"holy",
+				"shadow",
+				"plague"
+			]
+		},
+		"colour": {
+			"label": "Colour",
+			"description": "Any colour like #55ccff. Overrides the theme.",
+			"type": "string",
+			"example": "#55ccff"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

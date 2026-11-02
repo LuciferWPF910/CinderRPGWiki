@@ -1,0 +1,54 @@
+<includeonly>{{#invoke:Kit|callout}}</includeonly><noinclude>
+A coloured notice: tip, note, info, warning, danger, lore or success.
+
+<pre>
+{{Callout|type=tip|Sneak past sleeping bosses to skip the fight.}}
+{{Callout|type=warning|title=Careful|Lava below this bridge.}}
+{{Callout|type=lore|The old kings buried their dead with their blades.}}
+</pre>
+
+'''Result:'''
+
+{{Callout|type=tip|Sneak past sleeping bosses to skip the fight.}}
+{{Callout|type=warning|title=Careful|Lava below this bridge.}}
+{{Callout|type=lore|The old kings buried their dead with their blades.}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "A coloured notice: tip, note, info, warning, danger, lore or success.",
+	"format": "block",
+	"params": {
+		"1": {
+			"label": "Text",
+			"description": "The message.",
+			"type": "content",
+			"required": true
+		},
+		"type": {
+			"label": "Type",
+			"description": "Kind of notice.",
+			"type": "string",
+			"suggestedvalues": [
+				"tip",
+				"note",
+				"info",
+				"warning",
+				"danger",
+				"lore",
+				"success"
+			],
+			"default": "note"
+		},
+		"title": {
+			"label": "Title",
+			"description": "Optional bold first line.",
+			"type": "line"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

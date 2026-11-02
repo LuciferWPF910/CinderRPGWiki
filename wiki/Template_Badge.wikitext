@@ -1,0 +1,57 @@
+<includeonly>{{#invoke:Kit|badge}}</includeonly><noinclude>
+A small rounded label.
+
+<pre>
+{{Badge|New}}
+{{Badge|Boss|theme=blood}}
+{{Badge|Event|colour=#ff66cc}}
+</pre>
+
+'''Result:'''
+
+{{Badge|New}}
+{{Badge|Boss|theme=blood}}
+{{Badge|Event|colour=#ff66cc}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "A small rounded label.",
+	"format": "inline",
+	"params": {
+		"1": {
+			"label": "Text",
+			"description": "Label text.",
+			"type": "line",
+			"required": true
+		},
+		"theme": {
+			"label": "Theme",
+			"description": "Colour theme for just this one. Leave empty to follow the page theme.",
+			"type": "string",
+			"suggestedvalues": [
+				"gold",
+				"ember",
+				"frost",
+				"verdant",
+				"arcane",
+				"blood",
+				"abyss",
+				"holy",
+				"shadow",
+				"plague"
+			]
+		},
+		"colour": {
+			"label": "Colour",
+			"description": "Any colour like #55ccff. Overrides the theme.",
+			"type": "string",
+			"example": "#55ccff"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

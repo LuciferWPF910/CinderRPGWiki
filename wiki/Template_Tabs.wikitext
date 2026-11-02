@@ -1,0 +1,105 @@
+<includeonly>{{#invoke:Kit|tabs}}</includeonly><noinclude>
+Content split into tabs (up to 10). Without JavaScript the tabs show one after another.
+
+<pre>
+{{Tabs
+|tab1=Overview|content1=Text for the first tab.
+|tab2=Drops|content2=* Bone
+* Ash
+}}
+</pre>
+
+Tabs 5 to 10 work the same way (<code>tab5</code>, <code>content5</code> ...).
+
+'''Result:'''
+
+{{Tabs
+|tab1=Overview|content1=Text for the first tab.
+|tab2=Drops|content2=* Bone
+* Ash
+}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "Content split into tabs (up to 10). Without JavaScript the tabs show one after another.",
+	"format": "block",
+	"params": {
+		"tab1": {
+			"label": "Tab 1 name",
+			"description": "Label of tab 1.",
+			"type": "line",
+			"required": true
+		},
+		"tab2": {
+			"label": "Tab 2 name",
+			"description": "Label of tab 2.",
+			"type": "line",
+			"required": false
+		},
+		"tab3": {
+			"label": "Tab 3 name",
+			"description": "Label of tab 3.",
+			"type": "line",
+			"required": false
+		},
+		"tab4": {
+			"label": "Tab 4 name",
+			"description": "Label of tab 4.",
+			"type": "line",
+			"required": false
+		},
+		"content1": {
+			"label": "Tab 1 content",
+			"description": "Content of tab 1.",
+			"type": "content",
+			"required": true
+		},
+		"content2": {
+			"label": "Tab 2 content",
+			"description": "Content of tab 2.",
+			"type": "content",
+			"required": false
+		},
+		"content3": {
+			"label": "Tab 3 content",
+			"description": "Content of tab 3.",
+			"type": "content",
+			"required": false
+		},
+		"content4": {
+			"label": "Tab 4 content",
+			"description": "Content of tab 4.",
+			"type": "content",
+			"required": false
+		},
+		"theme": {
+			"label": "Theme",
+			"description": "Colour theme for just this one. Leave empty to follow the page theme.",
+			"type": "string",
+			"suggestedvalues": [
+				"gold",
+				"ember",
+				"frost",
+				"verdant",
+				"arcane",
+				"blood",
+				"abyss",
+				"holy",
+				"shadow",
+				"plague"
+			]
+		},
+		"colour": {
+			"label": "Colour",
+			"description": "Any colour like #55ccff. Overrides the theme.",
+			"type": "string",
+			"example": "#55ccff"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

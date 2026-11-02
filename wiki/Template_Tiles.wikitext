@@ -1,0 +1,37 @@
+<includeonly><templatestyles src="Template:Tiles/styles.css" /><div class="cw-tiles-box cw-tiles-{{#switch:{{{size|}}}|small=small|large=large|#default=normal}}">{{#if:{{{title|}}}|<div class="cw-tiles-head">{{#if:{{{icon|}}}|<span class="cw-tiles-icon">[[File:{{{icon}}}|32x32px|link=|alt=]]</span>}}{{{title}}}</div>}}<div class="cw-tiles">
+{{{1|}}}
+</div></div></includeonly><noinclude>
+A panel of picture buttons, like the ones on big game wikis' front pages. Put [[Template:Tile]] calls inside it.
+
+<pre>
+{{Tiles|title=Equipment|icon=Cinder icon sword.png|
+{{Tile|Weapons|image=Cinder tile weapons.png|text=Blades, axes and spears}}
+{{Tile|Bows and Ranged|image=Cinder tile bows.png}}
+{{Tile|Baubles|image=Cinder tile baubles.png}}
+}}
+</pre>
+
+{{Tiles|title=Example|
+{{Tile|Weapons|text=Blades, axes and spears}}
+{{Tile|Spells}}
+{{Tile|Classes|text=Archetypes and subclasses}}
+}}
+
+* <code>title</code> and <code>icon</code> are optional; without a title the panel has no heading.
+* <code>size=small</code> or <code>size=large</code> changes the picture size (64 or 128 pixels; normal is 96).
+* Tiles wrap onto new rows by themselves and stack on phones.
+
+<templatedata>
+{
+	"description": "A panel of picture buttons. Put Tile templates inside it.",
+	"format": "block",
+	"params": {
+		"1": { "label": "Tiles", "description": "One or more {{Tile}} calls.", "type": "content", "required": true },
+		"title": { "label": "Heading", "description": "Heading shown above the tiles.", "type": "line" },
+		"icon": { "label": "Heading icon", "description": "File name of a small picture next to the heading, without File:.", "type": "wiki-file-name" },
+		"size": { "label": "Picture size", "description": "small, normal or large.", "type": "string", "suggestedvalues": ["small", "normal", "large"], "default": "normal" }
+	}
+}
+</templatedata>
+[[Category:CinderWiki templates]]
+</noinclude>

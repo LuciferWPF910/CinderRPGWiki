@@ -1,0 +1,231 @@
+<includeonly>{{#invoke:Kit|infobox}}</includeonly><noinclude>
+A general information box for characters, places, factions, events or anything else.
+
+<pre>
+{{Infobox
+|title=Elder Morwen
+|subtitle=Keeper of the Ember Codex
+|header1=Details
+|label1=Race|data1=Human
+|label2=Location|data2=[[Ashen Library]]
+|header3=Combat
+|label3=Hostile|data3=No
+|theme=ember
+}}
+</pre>
+
+Rows go up to 40 (<code>label40</code>, <code>data40</code>, <code>header40</code>). A row with data but no label spans the full width.
+
+'''Result:'''
+
+{{Infobox
+|title=Elder Morwen
+|subtitle=Keeper of the Ember Codex
+|header1=Details
+|label1=Race|data1=Human
+|label2=Location|data2=[[Ashen Library]]
+|header3=Combat
+|label3=Hostile|data3=No
+|theme=ember
+}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "A general information box for characters, places, factions, events or anything else.",
+	"format": "block",
+	"params": {
+		"title": {
+			"label": "Title",
+			"description": "Defaults to the page name.",
+			"type": "line"
+		},
+		"subtitle": {
+			"label": "Subtitle",
+			"description": "Line under the title.",
+			"type": "line"
+		},
+		"image": {
+			"label": "Image",
+			"description": "Uploaded file name, without File:.",
+			"type": "wiki-file-name"
+		},
+		"caption": {
+			"label": "Caption",
+			"description": "Text under the image.",
+			"type": "line"
+		},
+		"imagesize": {
+			"label": "Image size",
+			"description": "e.g. 260px.",
+			"type": "string"
+		},
+		"width": {
+			"label": "Width",
+			"description": "Box width, e.g. 300px.",
+			"type": "string"
+		},
+		"float": {
+			"label": "Side",
+			"description": "right (default) or left.",
+			"type": "string",
+			"suggestedvalues": [
+				"right",
+				"left"
+			]
+		},
+		"header1": {
+			"label": "Header 1",
+			"description": "Section header shown before row 1.",
+			"type": "line"
+		},
+		"label1": {
+			"label": "Label 1",
+			"description": "Left side of row 1.",
+			"type": "line"
+		},
+		"data1": {
+			"label": "Data 1",
+			"description": "Right side of row 1.",
+			"type": "content"
+		},
+		"header2": {
+			"label": "Header 2",
+			"description": "Section header shown before row 2.",
+			"type": "line"
+		},
+		"label2": {
+			"label": "Label 2",
+			"description": "Left side of row 2.",
+			"type": "line"
+		},
+		"data2": {
+			"label": "Data 2",
+			"description": "Right side of row 2.",
+			"type": "content"
+		},
+		"header3": {
+			"label": "Header 3",
+			"description": "Section header shown before row 3.",
+			"type": "line"
+		},
+		"label3": {
+			"label": "Label 3",
+			"description": "Left side of row 3.",
+			"type": "line"
+		},
+		"data3": {
+			"label": "Data 3",
+			"description": "Right side of row 3.",
+			"type": "content"
+		},
+		"header4": {
+			"label": "Header 4",
+			"description": "Section header shown before row 4.",
+			"type": "line"
+		},
+		"label4": {
+			"label": "Label 4",
+			"description": "Left side of row 4.",
+			"type": "line"
+		},
+		"data4": {
+			"label": "Data 4",
+			"description": "Right side of row 4.",
+			"type": "content"
+		},
+		"header5": {
+			"label": "Header 5",
+			"description": "Section header shown before row 5.",
+			"type": "line"
+		},
+		"label5": {
+			"label": "Label 5",
+			"description": "Left side of row 5.",
+			"type": "line"
+		},
+		"data5": {
+			"label": "Data 5",
+			"description": "Right side of row 5.",
+			"type": "content"
+		},
+		"header6": {
+			"label": "Header 6",
+			"description": "Section header shown before row 6.",
+			"type": "line"
+		},
+		"label6": {
+			"label": "Label 6",
+			"description": "Left side of row 6.",
+			"type": "line"
+		},
+		"data6": {
+			"label": "Data 6",
+			"description": "Right side of row 6.",
+			"type": "content"
+		},
+		"header7": {
+			"label": "Header 7",
+			"description": "Section header shown before row 7.",
+			"type": "line"
+		},
+		"label7": {
+			"label": "Label 7",
+			"description": "Left side of row 7.",
+			"type": "line"
+		},
+		"data7": {
+			"label": "Data 7",
+			"description": "Right side of row 7.",
+			"type": "content"
+		},
+		"header8": {
+			"label": "Header 8",
+			"description": "Section header shown before row 8.",
+			"type": "line"
+		},
+		"label8": {
+			"label": "Label 8",
+			"description": "Left side of row 8.",
+			"type": "line"
+		},
+		"data8": {
+			"label": "Data 8",
+			"description": "Right side of row 8.",
+			"type": "content"
+		},
+		"below": {
+			"label": "Below",
+			"description": "Text at the bottom of the box.",
+			"type": "content"
+		},
+		"theme": {
+			"label": "Theme",
+			"description": "Colour theme for just this one. Leave empty to follow the page theme.",
+			"type": "string",
+			"suggestedvalues": [
+				"gold",
+				"ember",
+				"frost",
+				"verdant",
+				"arcane",
+				"blood",
+				"abyss",
+				"holy",
+				"shadow",
+				"plague"
+			]
+		},
+		"colour": {
+			"label": "Colour",
+			"description": "Any colour like #55ccff. Overrides the theme.",
+			"type": "string",
+			"example": "#55ccff"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

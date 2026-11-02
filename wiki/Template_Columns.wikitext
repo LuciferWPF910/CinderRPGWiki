@@ -1,0 +1,51 @@
+<includeonly>{{#invoke:Kit|columns}}</includeonly><noinclude>
+Two to four columns side by side. They stack on phones.
+
+<pre>
+{{Columns
+|Left column text.
+|Right column text.
+}}
+</pre>
+
+'''Result:'''
+
+{{Columns
+|Left column text.
+|Right column text.
+}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "Two to four columns side by side. They stack on phones.",
+	"format": "block",
+	"params": {
+		"1": {
+			"label": "Column 1",
+			"description": "First column.",
+			"type": "content",
+			"required": true
+		},
+		"2": {
+			"label": "Column 2",
+			"description": "Second column.",
+			"type": "content"
+		},
+		"3": {
+			"label": "Column 3",
+			"description": "Third column.",
+			"type": "content"
+		},
+		"4": {
+			"label": "Column 4",
+			"description": "Fourth column.",
+			"type": "content"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

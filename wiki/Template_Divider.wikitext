@@ -1,0 +1,54 @@
+<includeonly>{{#invoke:Kit|divider}}</includeonly><noinclude>
+A decorative line across the page, with an optional word in the middle.
+
+<pre>
+{{Divider}}
+{{Divider|Chapter II}}
+</pre>
+
+'''Result:'''
+
+{{Divider}}
+{{Divider|Chapter II}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "A decorative line across the page, with an optional word in the middle.",
+	"format": "block",
+	"params": {
+		"1": {
+			"label": "Text",
+			"description": "Word or symbol in the middle.",
+			"type": "line"
+		},
+		"theme": {
+			"label": "Theme",
+			"description": "Colour theme for just this one. Leave empty to follow the page theme.",
+			"type": "string",
+			"suggestedvalues": [
+				"gold",
+				"ember",
+				"frost",
+				"verdant",
+				"arcane",
+				"blood",
+				"abyss",
+				"holy",
+				"shadow",
+				"plague"
+			]
+		},
+		"colour": {
+			"label": "Colour",
+			"description": "Any colour like #55ccff. Overrides the theme.",
+			"type": "string",
+			"example": "#55ccff"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

@@ -1,0 +1,84 @@
+<includeonly>{{#invoke:Kit|banner}}</includeonly><noinclude>
+A large header for the top of a page, with an optional background picture.
+
+<pre>
+{{Banner|title=The Ashlands|subtitle=A scorched waste south of Wendsey|theme=ember}}
+{{Banner|kicker=Guide|title=Getting started|align=left}}
+</pre>
+
+'''Result:'''
+
+{{Banner|title=The Ashlands|subtitle=A scorched waste south of Wendsey|theme=ember}}
+{{Banner|kicker=Guide|title=Getting started|align=left}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "A large header for the top of a page, with an optional background picture.",
+	"format": "block",
+	"params": {
+		"title": {
+			"label": "Title",
+			"description": "Big heading text. Defaults to the page name.",
+			"type": "line"
+		},
+		"subtitle": {
+			"label": "Subtitle",
+			"description": "Smaller line under the title.",
+			"type": "line"
+		},
+		"kicker": {
+			"label": "Kicker",
+			"description": "Small capitals line above the title, e.g. Guide or Region.",
+			"type": "line"
+		},
+		"image": {
+			"label": "Background picture",
+			"description": "Uploaded file name, without File:.",
+			"type": "wiki-file-name"
+		},
+		"height": {
+			"label": "Height",
+			"description": "Minimum height, e.g. 260px.",
+			"type": "string",
+			"example": "260px"
+		},
+		"align": {
+			"label": "Align",
+			"description": "center or left.",
+			"type": "string",
+			"suggestedvalues": [
+				"center",
+				"left"
+			]
+		},
+		"theme": {
+			"label": "Theme",
+			"description": "Colour theme for just this one. Leave empty to follow the page theme.",
+			"type": "string",
+			"suggestedvalues": [
+				"gold",
+				"ember",
+				"frost",
+				"verdant",
+				"arcane",
+				"blood",
+				"abyss",
+				"holy",
+				"shadow",
+				"plague"
+			]
+		},
+		"colour": {
+			"label": "Colour",
+			"description": "Any colour like #55ccff. Overrides the theme.",
+			"type": "string",
+			"example": "#55ccff"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

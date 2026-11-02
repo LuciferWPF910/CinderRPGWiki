@@ -1,0 +1,30 @@
+<includeonly>{{#invoke:Kit|spoiler}}</includeonly><noinclude>
+Blurred text that shows when hovered or tapped.
+
+<pre>
+{{Spoiler|The innkeeper is the cult leader.}}
+</pre>
+
+'''Result:'''
+
+{{Spoiler|The innkeeper is the cult leader.}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "Blurred text that shows when hovered or tapped.",
+	"format": "inline",
+	"params": {
+		"1": {
+			"label": "Text",
+			"description": "Hidden text.",
+			"type": "content",
+			"required": true
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

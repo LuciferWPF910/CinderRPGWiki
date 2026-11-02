@@ -1,0 +1,46 @@
+/* Page theme "gold": Cinder gold (the default). Loaded by {{Theme|gold}}.
+   Recolours every kit component that has no theme of its own, the section
+   heading lines and the picture-button panels on this page. */
+.cw-k.cw-t-page.cw-a-bt,
+.cw-k.cw-t-page .cw-a-bt {
+	border-top-color: #BFA06F;
+}
+.cw-k.cw-t-page.cw-a-bl,
+.cw-k.cw-t-page .cw-a-bl {
+	border-left-color: #BFA06F;
+}
+.cw-k.cw-t-page.cw-a-bb,
+.cw-k.cw-t-page .cw-a-bb {
+	border-bottom-color: #BFA06F;
+}
+.cw-k.cw-t-page.cw-a-border,
+.cw-k.cw-t-page .cw-a-border {
+	border-color: #BFA06F;
+}
+.cw-k.cw-t-page.cw-a-bg,
+.cw-k.cw-t-page .cw-a-bg {
+	background-color: #BFA06F;
+}
+.cw-k.cw-t-page.cw-a-tint,
+.cw-k.cw-t-page .cw-a-tint {
+	background-color: rgba(191, 160, 111, 0.16);
+}
+.cw-k.cw-t-page.cw-a-text,
+.cw-k.cw-t-page .cw-a-text {
+	color: #BFA06F;
+}
+.mw-heading2,
+h2 {
+	border-bottom-color: rgba(191, 160, 111, 0.6);
+}
+.cw-tiles-box .cw-tiles-head {
+	border-bottom-color: #BFA06F;
+}
+.cw-tiles-box .cw-tile:hover {
+	border-color: #BFA06F;
+	box-shadow: 0 4px 14px rgba(191, 160, 111, 0.35);
+}
+.cw-tiles-box .cw-tile-noimg {
+	border-color: #BFA06F;
+	color: #BFA06F;
+}

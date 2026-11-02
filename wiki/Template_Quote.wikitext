@@ -1,0 +1,63 @@
+<includeonly>{{#invoke:Kit|quote}}</includeonly><noinclude>
+A styled quotation for lore and dialogue.
+
+<pre>
+{{Quote|The ash remembers what the fire forgets.|Elder Morwen|The Ember Codex}}
+</pre>
+
+'''Result:'''
+
+{{Quote|The ash remembers what the fire forgets.|Elder Morwen|The Ember Codex}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "A styled quotation for lore and dialogue.",
+	"format": "block",
+	"params": {
+		"1": {
+			"label": "Text",
+			"description": "The quotation.",
+			"type": "content",
+			"required": true
+		},
+		"2": {
+			"label": "Speaker",
+			"description": "Who said it.",
+			"type": "line"
+		},
+		"3": {
+			"label": "Source",
+			"description": "Book, quest or place.",
+			"type": "line"
+		},
+		"theme": {
+			"label": "Theme",
+			"description": "Colour theme for just this one. Leave empty to follow the page theme.",
+			"type": "string",
+			"suggestedvalues": [
+				"gold",
+				"ember",
+				"frost",
+				"verdant",
+				"arcane",
+				"blood",
+				"abyss",
+				"holy",
+				"shadow",
+				"plague"
+			]
+		},
+		"colour": {
+			"label": "Colour",
+			"description": "Any colour like #55ccff. Overrides the theme.",
+			"type": "string",
+			"example": "#55ccff"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

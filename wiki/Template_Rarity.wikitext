@@ -1,0 +1,48 @@
+<includeonly>{{#invoke:Kit|rarity}}</includeonly><noinclude>
+A rarity name in its in-game colour.
+
+<pre>
+{{Rarity|Legendary}}
+{{Rarity|super rare}}
+{{Rarity|mythic|Mythic blade}}
+</pre>
+
+'''Result:'''
+
+{{Rarity|Legendary}}
+{{Rarity|super rare}}
+{{Rarity|mythic|Mythic blade}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "A rarity name in its in-game colour.",
+	"format": "inline",
+	"params": {
+		"1": {
+			"label": "Rarity",
+			"description": "Common, Uncommon, Rare, Super Rare, Legendary, Mythic or World.",
+			"type": "string",
+			"required": true,
+			"suggestedvalues": [
+				"Common",
+				"Uncommon",
+				"Rare",
+				"Super Rare",
+				"Legendary",
+				"Mythic",
+				"World"
+			]
+		},
+		"2": {
+			"label": "Text",
+			"description": "Text to show instead of the rarity name.",
+			"type": "line"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

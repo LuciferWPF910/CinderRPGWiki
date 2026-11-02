@@ -1,0 +1,48 @@
+<includeonly>{{#invoke:Kit|coords}}</includeonly><noinclude>
+In-game coordinates. Hover shows the teleport command.
+
+<pre>
+{{Coords|120|64|-300}}
+{{Coords|120|64|-300|Nether}}
+</pre>
+
+'''Result:'''
+
+{{Coords|120|64|-300}}
+{{Coords|120|64|-300|Nether}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "In-game coordinates. Hover shows the teleport command.",
+	"format": "inline",
+	"params": {
+		"1": {
+			"label": "X",
+			"description": "X coordinate.",
+			"type": "number",
+			"required": true
+		},
+		"2": {
+			"label": "Y",
+			"description": "Y coordinate (optional).",
+			"type": "number"
+		},
+		"3": {
+			"label": "Z",
+			"description": "Z coordinate.",
+			"type": "number",
+			"required": true
+		},
+		"4": {
+			"label": "World",
+			"description": "Dimension or shard name.",
+			"type": "line"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

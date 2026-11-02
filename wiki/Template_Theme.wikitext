@@ -1,0 +1,44 @@
+<includeonly>{{#invoke:Kit|theme}}</includeonly><noinclude>
+Changes the accent colour of this page: kit components, heading lines and picture-button panels. Put it once at the top of the page.
+
+<pre>
+{{Theme|frost}}
+</pre>
+
+Themes: '''gold''' (cinder gold (the default)), '''ember''' (fire and forges), '''frost''' (ice and the north), '''verdant''' (forests, plants, nature), '''arcane''' (magic and sorcery), '''blood''' (bosses, danger, war), '''abyss''' (sea, depths, the unknown), '''holy''' (holy, light, temples), '''shadow''' (stealth, ruins, the dead), '''plague''' (poison, rot, swamps). Single components can still use their own <code>theme=</code>.
+
+'''Result:'''
+
+(Changes this page's accent colour.)
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "Changes the accent colour of this page: kit components, heading lines and picture-button panels. Put it once at the top of the page.",
+	"format": "inline",
+	"params": {
+		"1": {
+			"label": "Theme",
+			"description": "Theme name.",
+			"type": "string",
+			"required": true,
+			"suggestedvalues": [
+				"gold",
+				"ember",
+				"frost",
+				"verdant",
+				"arcane",
+				"blood",
+				"abyss",
+				"holy",
+				"shadow",
+				"plague"
+			]
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

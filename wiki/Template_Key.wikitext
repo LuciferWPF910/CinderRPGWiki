@@ -1,0 +1,42 @@
+<includeonly>{{#invoke:Kit|key}}</includeonly><noinclude>
+Keyboard keys.
+
+<pre>
+{{Key|E}}
+{{Key|Shift|Right click}}
+</pre>
+
+'''Result:'''
+
+{{Key|E}}
+{{Key|Shift|Right click}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "Keyboard keys.",
+	"format": "inline",
+	"params": {
+		"1": {
+			"label": "Key",
+			"description": "First key.",
+			"type": "line",
+			"required": true
+		},
+		"2": {
+			"label": "Key 2",
+			"description": "Pressed together with the first.",
+			"type": "line"
+		},
+		"3": {
+			"label": "Key 3",
+			"description": "Third key.",
+			"type": "line"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

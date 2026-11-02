@@ -1,0 +1,46 @@
+<includeonly>{{#invoke:Kit|mc}}</includeonly><noinclude>
+Text in Minecraft colours, as it looks in game chat and tooltips.
+
+<pre>
+{{MC|gold|Ashen Blade}}
+{{MC|&6Legendary &7Katana &c&lCursed}}
+{{MC|aqua|plain text colour|plain=yes}}
+</pre>
+
+Colour codes: 0 black, 1 dark_blue, 2 dark_green, 3 dark_aqua, 4 dark_red, 5 dark_purple, 6 gold, 7 gray, 8 dark_gray, 9 blue, a green, b aqua, c red, d light_purple, e yellow, f white. Formatting: &l bold, &o italic, &n underline, &m strikethrough, &r reset.
+
+'''Result:'''
+
+{{MC|gold|Ashen Blade}}
+{{MC|&6Legendary &7Katana &c&lCursed}}
+{{MC|aqua|plain text colour|plain=yes}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "Text in Minecraft colours, as it looks in game chat and tooltips.",
+	"format": "inline",
+	"params": {
+		"1": {
+			"label": "Colour or text",
+			"description": "A colour name or code (gold, 6, aqua, b...), or text with & codes.",
+			"type": "string",
+			"required": true
+		},
+		"2": {
+			"label": "Text",
+			"description": "Text when the first value is a colour.",
+			"type": "line"
+		},
+		"plain": {
+			"label": "Plain",
+			"description": "yes for coloured text without the dark background.",
+			"type": "boolean"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

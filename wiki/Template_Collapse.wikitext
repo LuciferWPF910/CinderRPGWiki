@@ -1,0 +1,71 @@
+<includeonly>{{#invoke:Kit|collapse}}</includeonly><noinclude>
+A section readers can open and close. Closed by default.
+
+<pre>
+{{Collapse|title=Full drop table|
+* Bone x2
+* Ashen shard (5%)
+}}
+{{Collapse|title=Spoilers|open=yes|Text}}
+</pre>
+
+'''Result:'''
+
+{{Collapse|title=Full drop table|
+* Bone x2
+* Ashen shard (5%)
+}}
+{{Collapse|title=Spoilers|open=yes|Text}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "A section readers can open and close. Closed by default.",
+	"format": "block",
+	"params": {
+		"1": {
+			"label": "Content",
+			"description": "Hidden content.",
+			"type": "content",
+			"required": true
+		},
+		"title": {
+			"label": "Title",
+			"description": "Always-visible title.",
+			"type": "line"
+		},
+		"open": {
+			"label": "Start open",
+			"description": "yes to start open.",
+			"type": "boolean"
+		},
+		"theme": {
+			"label": "Theme",
+			"description": "Colour theme for just this one. Leave empty to follow the page theme.",
+			"type": "string",
+			"suggestedvalues": [
+				"gold",
+				"ember",
+				"frost",
+				"verdant",
+				"arcane",
+				"blood",
+				"abyss",
+				"holy",
+				"shadow",
+				"plague"
+			]
+		},
+		"colour": {
+			"label": "Colour",
+			"description": "Any colour like #55ccff. Overrides the theme.",
+			"type": "string",
+			"example": "#55ccff"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

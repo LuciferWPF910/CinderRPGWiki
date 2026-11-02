@@ -1,0 +1,31 @@
+<includeonly><div class="cw-tile{{#if:{{{pixel|}}}| cw-tile-pixel}}"><div class="cw-tile-img">{{#if:{{{image|}}}|[[File:{{{image}}}|128x128px|link={{{1}}}|alt={{{label|{{{1}}}}}}]]|<span class="cw-tile-noimg">{{padleft:|1|{{{label|{{{1}}}}}}}}</span>}}</div><div class="cw-tile-label">[[{{{1}}}|{{{label|{{{1}}}}}}]]</div>{{#if:{{{text|}}}|<div class="cw-tile-text">{{{text}}}</div>}}</div></includeonly><noinclude>
+One picture button. Use it inside [[Template:Tiles]]. The whole tile is clickable.
+
+<pre>
+{{Tile|Weapons}}
+{{Tile|Weapons|image=Cinder tile weapons.png}}
+{{Tile|Class/samurai|label=Samurai|image=Samurai.png|text=Katanas and staffs}}
+{{Tile|Building Blocks|image=Thatch.png|pixel=yes}}
+</pre>
+
+* First value: the page the tile opens.
+* <code>label</code>: the text under the picture (the page name if left out).
+* <code>image</code>: an uploaded file name, without <code>File:</code>. Without one, the tile shows the label's first letter.
+* <code>text</code>: an optional short line under the label.
+* <code>pixel=yes</code>: keeps small Minecraft icons sharp when they are enlarged. Leave it off for painted art.
+
+<templatedata>
+{
+	"description": "One picture button inside a Tiles panel. The whole tile opens the page.",
+	"format": "inline",
+	"params": {
+		"1": { "label": "Page", "description": "Page the tile opens.", "type": "wiki-page-name", "required": true },
+		"label": { "label": "Label", "description": "Text under the picture. Defaults to the page name.", "type": "line" },
+		"image": { "label": "Picture", "description": "Uploaded file name, without File:.", "type": "wiki-file-name", "suggested": true },
+		"text": { "label": "Short text", "description": "One short line under the label.", "type": "line" },
+		"pixel": { "label": "Pixel art", "description": "yes to keep small Minecraft icons sharp.", "type": "boolean" }
+	}
+}
+</templatedata>
+[[Category:CinderWiki templates]]
+</noinclude>

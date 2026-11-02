@@ -1,5 +1,11 @@
-/* CinderWiki: filter box and copy buttons on Project:Variables.
-   Add this to the end of MediaWiki:Common.js (keep anything already there). */
+/* MediaWiki:Common.js for the CinderRPG wiki. Kept in GitHub
+   (LuciferWPF910/CinderRPGWiki, wiki/MediaWiki_Common.js) and saved by the
+   sync script; edit it there, not on the wiki. */
+
+/* Design kit scripts (tabs). The kit's own code lives in MediaWiki:CinderKit.js. */
+mw.loader.load(mw.config.get('wgScript') + '?title=MediaWiki:CinderKit.js&action=raw&ctype=text/javascript');
+
+/* CinderWiki: filter box and copy buttons on Project:Variables. */
 mw.hook('wikipage.content').add(function ($content) {
 	var $tables = $content.find('table.cw-vars-table');
 	if (!$tables.length) {

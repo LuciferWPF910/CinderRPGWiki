@@ -1,0 +1,146 @@
+/* Picture buttons for introduction pages ({{Tiles}} and {{Tile}}).
+   Works on light and dark skins; gold accent from the Cinder theme. */
+
+.cw-tiles-box {
+	clear: both;
+	margin: 1em 0;
+	padding: 10px 12px 12px;
+	background: rgba(128, 128, 128, 0.07);
+	border: 1px solid rgba(128, 128, 128, 0.3);
+	border-radius: 4px;
+}
+.cw-tiles-head {
+	display: flex;
+	align-items: center;
+	margin: 0 0 10px;
+	padding-bottom: 6px;
+	border-bottom: 2px solid #bfa06f;
+	font-size: 125%;
+	font-weight: bold;
+	letter-spacing: 0.03em;
+}
+.cw-tiles-icon {
+	margin-right: 8px;
+	line-height: 0;
+}
+.cw-tiles {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+}
+
+/* ---- One tile ---- */
+.cw-tile {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 136px;
+	padding: 10px 8px;
+	text-align: center;
+	background: rgba(128, 128, 128, 0.08);
+	border: 1px solid rgba(128, 128, 128, 0.35);
+	border-radius: 4px;
+	transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.cw-tile:hover {
+	transform: translateY(-3px);
+	border-color: #bfa06f;
+	box-shadow: 0 4px 14px rgba(191, 160, 111, 0.35);
+}
+.cw-tile-img {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 96px;
+	height: 96px;
+	margin-bottom: 6px;
+}
+.cw-tile-img img {
+	max-width: 96px;
+	max-height: 96px;
+	width: auto;
+	height: auto;
+	transition: transform 0.15s ease;
+}
+.cw-tile:hover .cw-tile-img img {
+	transform: scale(1.06);
+}
+.cw-tile-pixel .cw-tile-img img {
+	width: 96px;
+	height: 96px;
+	image-rendering: pixelated;
+}
+.cw-tile-noimg {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	border: 2px solid #bfa06f;
+	color: #bfa06f;
+	font-size: 40px;
+	font-weight: bold;
+	font-family: Georgia, serif;
+}
+.cw-tile-label {
+	font-weight: bold;
+	line-height: 1.3;
+}
+/* The label link stretches over the whole tile, so anywhere on it is clickable. */
+.cw-tile-label a::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.cw-tile-text {
+	margin-top: 3px;
+	font-size: 85%;
+	opacity: 0.8;
+	line-height: 1.3;
+}
+
+/* ---- Sizes ---- */
+.cw-tiles-small .cw-tile {
+	width: 100px;
+	padding: 8px 6px;
+}
+.cw-tiles-small .cw-tile-img,
+.cw-tiles-small .cw-tile-pixel .cw-tile-img img {
+	width: 64px;
+	height: 64px;
+}
+.cw-tiles-small .cw-tile-img img {
+	max-width: 64px;
+	max-height: 64px;
+}
+.cw-tiles-small .cw-tile-noimg {
+	width: 54px;
+	height: 54px;
+	font-size: 28px;
+}
+.cw-tiles-large .cw-tile {
+	width: 168px;
+}
+.cw-tiles-large .cw-tile-img,
+.cw-tiles-large .cw-tile-pixel .cw-tile-img img {
+	width: 128px;
+	height: 128px;
+}
+.cw-tiles-large .cw-tile-img img {
+	max-width: 128px;
+	max-height: 128px;
+}
+
+/* ---- Phones: two tiles per row ---- */
+@media screen and (max-width: 520px) {
+	.cw-tiles-box .cw-tile {
+		width: calc(50% - 5px);
+		box-sizing: border-box;
+	}
+}

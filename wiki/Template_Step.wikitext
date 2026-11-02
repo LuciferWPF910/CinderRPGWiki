@@ -1,0 +1,65 @@
+<includeonly>{{#invoke:Kit|step}}</includeonly><noinclude>
+One numbered step of a guide.
+
+<pre>
+{{Step|n=1|title=Build a workbench|Place four planks in a square.}}
+{{Step|n=2|title=Craft the forge|You need 8 stone.}}
+</pre>
+
+'''Result:'''
+
+{{Step|n=1|title=Build a workbench|Place four planks in a square.}}
+{{Step|n=2|title=Craft the forge|You need 8 stone.}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "One numbered step of a guide.",
+	"format": "block",
+	"params": {
+		"1": {
+			"label": "Text",
+			"description": "What to do.",
+			"type": "content",
+			"required": true
+		},
+		"n": {
+			"label": "Number",
+			"description": "Step number.",
+			"type": "number"
+		},
+		"title": {
+			"label": "Title",
+			"description": "Short step title.",
+			"type": "line"
+		},
+		"theme": {
+			"label": "Theme",
+			"description": "Colour theme for just this one. Leave empty to follow the page theme.",
+			"type": "string",
+			"suggestedvalues": [
+				"gold",
+				"ember",
+				"frost",
+				"verdant",
+				"arcane",
+				"blood",
+				"abyss",
+				"holy",
+				"shadow",
+				"plague"
+			]
+		},
+		"colour": {
+			"label": "Colour",
+			"description": "Any colour like #55ccff. Overrides the theme.",
+			"type": "string",
+			"example": "#55ccff"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

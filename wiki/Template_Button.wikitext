@@ -1,0 +1,81 @@
+<includeonly>{{#invoke:Kit|button}}</includeonly><noinclude>
+A link that looks like a button. Works with wiki pages and web addresses.
+
+<pre>
+{{Button|Weapons|Browse weapons}}
+{{Button|https://discord.gg/example|Join the Discord|style=outline|theme=arcane}}
+</pre>
+
+'''Result:'''
+
+{{Button|Weapons|Browse weapons}}
+{{Button|https://discord.gg/example|Join the Discord|style=outline|theme=arcane}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "A link that looks like a button. Works with wiki pages and web addresses.",
+	"format": "inline",
+	"params": {
+		"1": {
+			"label": "Link",
+			"description": "Page name or https:// address.",
+			"type": "string",
+			"required": true
+		},
+		"2": {
+			"label": "Label",
+			"description": "Button text.",
+			"type": "line"
+		},
+		"style": {
+			"label": "Style",
+			"description": "solid, outline or ghost.",
+			"type": "string",
+			"suggestedvalues": [
+				"solid",
+				"outline",
+				"ghost"
+			],
+			"default": "solid"
+		},
+		"size": {
+			"label": "Size",
+			"description": "small, normal or large.",
+			"type": "string",
+			"suggestedvalues": [
+				"small",
+				"normal",
+				"large"
+			]
+		},
+		"theme": {
+			"label": "Theme",
+			"description": "Colour theme for just this one. Leave empty to follow the page theme.",
+			"type": "string",
+			"suggestedvalues": [
+				"gold",
+				"ember",
+				"frost",
+				"verdant",
+				"arcane",
+				"blood",
+				"abyss",
+				"holy",
+				"shadow",
+				"plague"
+			]
+		},
+		"colour": {
+			"label": "Colour",
+			"description": "Any colour like #55ccff. Overrides the theme.",
+			"type": "string",
+			"example": "#55ccff"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

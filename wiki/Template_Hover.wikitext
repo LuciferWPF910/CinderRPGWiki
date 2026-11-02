@@ -1,0 +1,36 @@
+<includeonly>{{#invoke:Kit|hover}}</includeonly><noinclude>
+Text with a hint that appears on hover.
+
+<pre>
+{{Hover|DPS|Damage per second}}
+</pre>
+
+'''Result:'''
+
+{{Hover|DPS|Damage per second}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "Text with a hint that appears on hover.",
+	"format": "inline",
+	"params": {
+		"1": {
+			"label": "Text",
+			"description": "Visible text.",
+			"type": "line",
+			"required": true
+		},
+		"2": {
+			"label": "Hint",
+			"description": "Hover text.",
+			"type": "line",
+			"required": true
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>

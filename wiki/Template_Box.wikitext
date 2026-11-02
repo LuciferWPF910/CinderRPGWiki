@@ -1,0 +1,85 @@
+<includeonly>{{#invoke:Kit|box}}</includeonly><noinclude>
+A panel with an optional title bar. Can float beside the text.
+
+<pre>
+{{Box|title=Did you know?|Spears outrange swords by one block.}}
+{{Box|title=Quick facts|float=right|width=260px|theme=arcane|
+* Fact one
+* Fact two
+}}
+</pre>
+
+'''Result:'''
+
+{{Box|title=Did you know?|Spears outrange swords by one block.}}
+{{Box|title=Quick facts|float=right|width=260px|theme=arcane|
+* Fact one
+* Fact two
+}}
+
+
+Part of the [[Project:Design kit|design kit]].
+
+<templatedata>
+{
+	"description": "A panel with an optional title bar. Can float beside the text.",
+	"format": "block",
+	"params": {
+		"1": {
+			"label": "Content",
+			"description": "What goes inside. Lists and tables work.",
+			"type": "content",
+			"required": true
+		},
+		"title": {
+			"label": "Title",
+			"description": "Title bar text.",
+			"type": "line"
+		},
+		"icon": {
+			"label": "Icon",
+			"description": "Small picture before the title.",
+			"type": "wiki-file-name"
+		},
+		"float": {
+			"label": "Float",
+			"description": "right or left to sit beside the text.",
+			"type": "string",
+			"suggestedvalues": [
+				"right",
+				"left"
+			]
+		},
+		"width": {
+			"label": "Width",
+			"description": "e.g. 300px or 40%.",
+			"type": "string"
+		},
+		"theme": {
+			"label": "Theme",
+			"description": "Colour theme for just this one. Leave empty to follow the page theme.",
+			"type": "string",
+			"suggestedvalues": [
+				"gold",
+				"ember",
+				"frost",
+				"verdant",
+				"arcane",
+				"blood",
+				"abyss",
+				"holy",
+				"shadow",
+				"plague"
+			]
+		},
+		"colour": {
+			"label": "Colour",
+			"description": "Any colour like #55ccff. Overrides the theme.",
+			"type": "string",
+			"example": "#55ccff"
+		}
+	}
+}
+</templatedata>
+[[Category:Design kit]]
+</noinclude>
